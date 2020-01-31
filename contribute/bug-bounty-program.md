@@ -10,8 +10,8 @@ The actual Bug Bounty program is designed for the alpha test of the DPoPS. The p
 
 ## Software in scope
 
-* **XCASH\_DPOPS -** [**GitHub**](https://github.com/X-CASH-official/XCASH_DPOPS)\*\*\*\*
-* **XCASH\_DPOPS\_Delegates\_Website -** [**GitHub**](https://github.com/X-CASH-official/XCASH_DPOPS_delegates_website)\*\*\*\*
+* **XCASH\_DPOPS -** [**GitHub**](https://github.com/X-CASH-official/XCASH_DPOPS)
+* **XCASH\_DPOPS\_Delegates\_Website -** [**GitHub**](https://github.com/X-CASH-official/XCASH_DPOPS_delegates_website)
 
 {% hint style="info" %}
 Other programs will be added to the next phases of the test, and we will extend the scope for the permanent bug bounty program.

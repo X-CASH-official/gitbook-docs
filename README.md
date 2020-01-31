@@ -45,7 +45,7 @@ To help you navigate through this documentation, we aggregated the most common t
 
 #### Technical Documentation
 
-* [**FlexPrivacy**](https://x-network.io/whitepaper/XCASH_Yellowpaper_Hybrid-tx.pdf) - Public and Private transactions on the X-Cash blockchain.
+* \*\*\*\*[**FlexPrivacy**](https://x-network.io/whitepaper/XCASH_Yellowpaper_Hybrid-tx.pdf) - Public and Private transactions on the X-Cash blockchain.
 * [**DPoPS**](https://x-network.io/whitepaper/XCASH_Yellowpaper_DPoPS.pdf) - Delegated Proof-of-Private-Stake, a DPoS implementation under X-Cash.
 
 #### Join the community
@@ -57,13 +57,13 @@ To help you navigate through this documentation, we aggregated the most common t
 
 ## Sources
 
-The technical documentation has been copied and adapted from Monero's documentation: [**https://monerodocs.org/interacting/monerod-reference/**](https://monerodocs.org/interacting/monerod-reference/)
+The technical documentation has been copied and adapted from Monero's documentation: [**https://monerodocs.org/interacting/monerod-reference/**](https://monerodocs.org/interacting/monerod-reference/)\*\*\*\*
 
-Wallet RPC wallet calls and additional examples: [**https://www.getmonero.org/resources/developer-guides/wallet-rpc.html**](https://www.getmonero.org/resources/developer-guides/wallet-rpc.html)
+Wallet RPC wallet calls and additional examples: [**https://www.getmonero.org/resources/developer-guides/wallet-rpc.html**](https://www.getmonero.org/resources/developer-guides/wallet-rpc.html)\*\*\*\*
 
-Daemon RPC calls and additional examples: [**https://web.getmonero.org/resources/developer-guides/daemon-rpc.html**](https://web.getmonero.org/resources/developer-guides/daemon-rpc.html)
+Daemon RPC calls and additional examples: [**https://web.getmonero.org/resources/developer-guides/daemon-rpc.html**](https://web.getmonero.org/resources/developer-guides/daemon-rpc.html)\*\*\*\*
 
-Implementation in python: [**https://moneroexamples.github.io/python-json-rpc/**](https://moneroexamples.github.io/python-json-rpc/)
+Implementation in python: [**https://moneroexamples.github.io/python-json-rpc/**](https://moneroexamples.github.io/python-json-rpc/)\*\*\*\*
 
 ## Versions
 
