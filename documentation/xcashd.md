@@ -101,67 +101,94 @@ The following groups are only to make reference easier to follow. The daemon its
 
 The following options will be helpful if you intend to have an always running node — most likely on a remote server or your own separate PC.
 
-| **Option** | Description |
-| :--- | :--- |
-
-
-| `--config-file` | Full path to the configuration file. By default `xcashd` looks for `bitxcash.conf` in X-Cash data directory. |
-| :--- | :--- |
-
-
-| `--data-dir` | Full path to data directory. This is where the blockchain, log files, and p2p network memory are stored. For defaults and details see data directory. |
-| :--- | :--- |
-
-
-| `--pidfile` | Full path to the PID file. Works only with `--detach`. Example: `./xcashd --detach --pidfile=/run/xcash/xcashd.pid` |
-| :--- | :--- |
-
-
-| `--detach` | Go to background \(decouple from the terminal\). This is useful for long-running / server scenarios. Typically, you will also want to manage `xcashd`daemon with systemd or similar. By default `xcashd` runs in a foreground. |
-| :--- | :--- |
-
-
-| `--non-interactive` | Do not require tty in a foreground mode. Helpful when running in a container. By default `xcashd` runs in a foreground and opens stdin for reading. This breaks containerization because no tty gets assigned and `xcashd` process crashes. You can make it run in a background with `--detach` but this is inconvenient in a containerized environment because the canonical usage is that the container waits on the main process to exist \(forking makes things more complicated\). |
-| :--- | :--- |
-
-
-| `--no-igd` | Disable UPnP port mapping on the router \("Internet Gateway Device"\). Add this option to improve security if you are **not** behind a NAT \(you can bind directly to public IP or you run through Tor\). |
-| :--- | :--- |
-
-
-| `--max-txpool-weight` | Set maximum transactions pool size in bytes. By default 648000000 \(~618MB\). These are transactions pending for confirmations \(not included in any block\). |
-| :--- | :--- |
-
-
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><code>--enforce-dns-checkpointing</code>
-      </th>
-      <th style="text-align:left">
-        <p>The emergency checkpoints set by X-CashPulse operators will be enforced.
-          It is probably a good idea to set enforcing for unattended nodes.</p>
-        <p>
-          <br />If encountered block hash does not match corresponding checkpoint, the
-          local blockchain will be rolled back a few blocks, effectively blocking
-          following what X-CashPulse operators consider invalid fork. The log entry
-          will be produced: <code>ERROR</code>  <code>Local blockchain failed to pass a checkpoint, rolling back!</code> Eventually,
-          the alternative (&quot;fixed&quot;) fork will get heavier and the node
-          will follow it, leaving the &quot;invalid&quot; fork behind.</p>
-        <p>
-          <br />By default checkpointing only notifies about discrepancy by producing
-          the following log entry: <code>ERRORWARNING: local blockchain failed to pass a xcashPulse checkpoint, and you could be on a fork. You should either sync up from scratch, OR download a fresh blockchain bootstrap, OR enable checkpoint enforcing with the --enforce-dns-checkpointing command-line option.</code>
-        </p>
-        <p>As of 04/09/2019, X-Cash has not implemented X-CashPulse operators.</p>
-      </th>
+      <th style="text-align:left">Option</th>
+      <th style="text-align:left">Description</th>
     </tr>
   </thead>
-  <tbody></tbody>
-</table>| `--disable-dns-checkpoints` | The X-CashPulse checkpoints set by core developers will be discarded. As of 04/09/2019, X-Cash has not implemented the X-CashPulse operators feature. |
-| :--- | :--- |
-
-
-The following options define how your node participates in X-Cash peer-to-peer network. This is for node-to-node communication. The following options do **not** affect wallet-to-node interface.
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>--config-file</code>
+      </td>
+      <td style="text-align:left">Full path to the configuration file. By default xcashd looks for bitxcash.conf
+        in X-Cash data directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--data-dir</code>
+      </td>
+      <td style="text-align:left">Full path to data directory. This is where the blockchain, log files,
+        and p2p network memory are stored. For defaults and details see data directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--pidfile</code>
+      </td>
+      <td style="text-align:left">
+        <p>Full path to the PID file. Works only with <code>--detach</code>.</p>
+        <p><b>Example: </b><code>./xcashd --detach --pidfile=/run/xcash/xcashd.pid</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--detach</code>
+      </td>
+      <td style="text-align:left">Go to background (decouple from the terminal). This is useful for long-running
+        / server scenarios. Typically, you will also want to manage <code>xcashd</code> daemon
+        with systemd or similar. By default <code>xcashd</code> runs in a foreground.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--non-interactive</code>
+      </td>
+      <td style="text-align:left">Do not require tty in a foreground mode. Helpful when running in a container.
+        By default <code>xcashd</code> runs in a foreground and opens stdin for reading.
+        This breaks containerization because no tty gets assigned and <code>xcashd</code> process
+        crashes. You can make it run in a background with <code>--detach</code> but
+        this is inconvenient in a containerized environment because the canonical
+        usage is that the container waits on the main process to exist (forking
+        makes things more complicated).</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--no-igd</code>
+      </td>
+      <td style="text-align:left">Disable UPnP port mapping on the router (&quot;Internet Gateway Device&quot;).
+        Add this option to improve security if you are not behind a NAT (you can
+        bind directly to public IP or you run through Tor).</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--max-txpool-weight</code>
+      </td>
+      <td style="text-align:left">Set maximum transactions pool size in bytes. By default 648000000 (~618MB).
+        These are transactions pending for confirmations (not included in any block).</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--enforce-dns-checkpointing</code>
+      </td>
+      <td style="text-align:left">
+        <p>The emergency checkpoints set by X-CashPulse operators will be enforced.
+          It is probably a good idea to set enforcing for unattended nodes.</p>
+        <p>If encountered block hash does not match corresponding checkpoint, the
+          local blockchain will be rolled back a few blocks, effectively blocking
+          following what X-CashPulse operators consider invalid fork.</p>
+        <p>The log entry will be produced: <code>ERROR Local blockchain failed to pass a checkpoint, rolling back!</code> Eventually,
+          the alternative (&quot;fixed&quot;) fork will get heavier and the node
+          will follow it, leaving the &quot;invalid&quot; fork behind.</p>
+        <p>By default checkpointing only notifies about discrepancy by producing
+          the following log entry: <code>ERRORWARNING: local blockchain failed to pass a xcashPulse checkpoint, and you could be on a fork. You should either sync up from scratch, OR download a fresh blockchain bootstrap, OR enable checkpoint enforcing with the --enforce-dns-checkpointing command-line option</code>  <b>As of 04/09/2019, X-Cash has not implemented X-CashPulse operators.</b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--disable-dns-checkpoints</code>
+      </td>
+      <td style="text-align:left">
+        <p>The X-CashPulse checkpoints set by core developers will be discarded.</p>
+        <p><b>As of 04/09/2019, X-Cash has not implemented the X-CashPulse operators feature.</b>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>The following options define how your node participates in X-Cash peer-to-peer network. This is for node-to-node communication. The following options do **not** affect wallet-to-node interface.
 
 The node and peer words are used interchangeably.
 
@@ -219,14 +246,14 @@ These are network notifications offered by `xcashd`. There are also wallet notif
 
 These are advanced options that allow you to optimize performance of your `xcashd` node, sometimes at the expense of reliability.
 
-| Option | Description |  |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `--db-sync-mode` | Specify sync option, using format: \`\[safe | fast | fastest\]:\[sync | async\]:\[\[blocks\] | \[bytes\]\]`The default is`fast:async:250000000bytes`.  The`fast:async:\*`can corrupt blockchain database in case of a system crash. It should not corrupt if just`xcashd`crashes. If you are concerned with system crashes use`safe:sync\`. |
-| `--max-concurrency` | Max number of threads to use for parallel jobs. The default value `0` uses the number of CPU threads. |  |  |  |  |
-| `--prep-blocks-threads` | Sync up most of the way by using embedded, "known" block hashes. Pass `1`to turn on and `0` to turn off. This is on \(`1`\) by default. Normally, for every block the full node must calculate the block hash to verify miner's proof of work. Because the CryptoNight PoW used in X-Cash is very expensive \(even for verification\), `xcashd` offers skipping these calculations for old blocks. In other words, it's a mechanism to trust `xcashd` binary regarding old blocks' PoW validity, to sync up faster. |  |  |  |  |
-| `--block-sync-size` | How many blocks are processed in a single batch during chain synchronization. By default this is 20 blocks for newer history and 100 blocks for older history \("pre v4"\). Default behavior is represented by value `0`. Intuitively, the more resources you have, the bigger batch size you may want to try out. Example: `./xcashd --block-sync-size=500` |  |  |  |  |
-| `--bootstrap-daemon-address` | The host:port of a "bootstrap" remote open node that the connected wallets can use while this node is still not fully synced. Example: `./xcashd --bootstrap-daemon-address=opennode.xmr-tw.org:18089`. The node will forward selected RPC calls to the bootstrap node. The wallet will handle this automatically and transparently. Obviously, such bootstraping phase has privacy implications similar to directly using a remote node. |  |  |  |  |
-| `--bootstrap-daemon-login` | Specify username:password for the bootstrap daemon login \(if required\). This considers the RPC interface used by the wallet. Normally, open nodes do not require any credentials. |  |  |  |  |
+| Option | Description |  |  |  |  |  |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `--db-sync-mode` | Specify sync option, using format: \`\[safe fast |  | fast | fastest\]:\[sync | async\]:\[\[blocks\] | \[bytes\]\]`The default is`fast:async:250000000bytes`.  The`fast:async:\*`can corrupt blockchain database in case of a system crash. It should not corrupt if just`xcashd`crashes. If you are concerned with system crashes use`safe:sync\`. |
+| `--max-concurrency` | Max number of threads to use for parallel jobs. The default value `0` uses the number of CPU threads. |  |  |  |  |  |
+| `--prep-blocks-threads` | Sync up most of the way by using embedded, "known" block hashes. Pass `1`to turn on and `0` to turn off. This is on \(`1`\) by default. Normally, for every block the full node must calculate the block hash to verify miner's proof of work. Because the CryptoNight PoW used in X-Cash is very expensive \(even for verification\), `xcashd` offers skipping these calculations for old blocks. In other words, it's a mechanism to trust `xcashd` binary regarding old blocks' PoW validity, to sync up faster. |  |  |  |  |  |
+| `--block-sync-size` | How many blocks are processed in a single batch during chain synchronization. By default this is 20 blocks for newer history and 100 blocks for older history \("pre v4"\). Default behavior is represented by value `0`. Intuitively, the more resources you have, the bigger batch size you may want to try out. Example: `./xcashd --block-sync-size=500` |  |  |  |  |  |
+| `--bootstrap-daemon-address` | The host:port of a "bootstrap" remote open node that the connected wallets can use while this node is still not fully synced. Example: `./xcashd --bootstrap-daemon-address=opennode.xmr-tw.org:18089`. The node will forward selected RPC calls to the bootstrap node. The wallet will handle this automatically and transparently. Obviously, such bootstraping phase has privacy implications similar to directly using a remote node. |  |  |  |  |  |
+| `--bootstrap-daemon-login` | Specify username:password for the bootstrap daemon login \(if required\). This considers the RPC interface used by the wallet. Normally, open nodes do not require any credentials. |  |  |  |  |  |
 
 ### **Mining**
 
