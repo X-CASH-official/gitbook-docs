@@ -19,7 +19,7 @@
 
 * [Introduction](dpops/get-started.md)
 * [Technical Design](dpops/yellowpaper-delagated-proof-of-private-stake.md)
-* [Server Setup Guide](dpops/prerequisites.md)
+* [Server Setup Guide](dpops/server-setup.md)
 * [Node Installation Process](dpops/installation-process/README.md)
   * [xcash-wallet-cli functions](dpops/installation-process/configure-delegate.md)
   * [Set up your node](dpops/installation-process/set-up-your-node.md)
