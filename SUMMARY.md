@@ -1,34 +1,31 @@
 # Table of contents
 
-* [Welcome](README.md)
+* [Welcome 👋](README.md)
 
-## Technical Documentation <a id="documentation"></a>
+## Applications & Tools <a id="applications"></a>
 
-* [xcashd](documentation/xcashd.md)
-* [xcash-wallet-cli](documentation/xcash-wallet-cli.md)
-* [xcash-blockchain-export](documentation/xcash-blockchain-export.md)
-* [xcash-blockchain-import](documentation/xcash-blockchain-import.md)
-* [xcash-daemon-rpc](documentation/json-rpc-methods/README.md)
-  * [Other Daemon RPC Calls](documentation/json-rpc-methods/other-daemon-rpc-calls.md)
-  * [DPoPS Daemon RPC Calls](documentation/json-rpc-methods/dpops-daemon-rpc-calls.md)
-* [xcash-wallet-rpc](documentation/xcash-wallet-rpc/README.md)
-  * [DPoPS Wallet RPC calls](documentation/xcash-wallet-rpc/dpops-wallet-rpc-calls.md)
+* [Interacting with the network](applications/xcashd.md)
+* [X-Cash Wallet \(CLI\)](applications/xcash-wallet-cli.md)
+* [Export blockchain file](applications/xcash-blockchain-export.md)
+* [Import blockchain file](applications/xcash-blockchain-import.md)
+* [RPC Calls](applications/rpc-calls/README.md)
+  * [xcash-wallet-rpc](applications/rpc-calls/xcash-wallet-rpc/README.md)
+    * [DPoPS Wallet RPC calls](applications/rpc-calls/xcash-wallet-rpc/dpops-wallet-rpc-calls.md)
+  * [xcash-daemon-rpc](applications/rpc-calls/json-rpc-methods/README.md)
+    * [Other Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/other-daemon-rpc-calls.md)
+    * [DPoPS Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/dpops-daemon-rpc-calls.md)
 
-## Delegated-Proof-Of-Private-Stake <a id="dpops"></a>
+## Delegate node & staking <a id="dpops"></a>
 
-* [Get Started](dpops/get-started.md)
-* [Installation Process](dpops/installation-process.md)
-* [Set up your node](dpops/set-up-your-node.md)
-* [xcash-wallet-cli functions](dpops/configure-delegate.md)
-* [Test phase \(alpha\)](dpops/set-up-the-test-alpha-phase.md)
-
-## Contribute
-
-* [Bug Bounty](contribute/bug-bounty-program.md)
-* [Guidelines](contribute/guidelines.md)
+* [Introduction](dpops/get-started.md)
+* [Technical Design](dpops/yellowpaper-delagated-proof-of-private-stake.md)
+* [Server Setup Guide](dpops/prerequisites.md)
+* [Node Installation Process](dpops/installation-process/README.md)
+  * [xcash-wallet-cli functions](dpops/installation-process/configure-delegate.md)
+  * [Set up your node](dpops/installation-process/set-up-your-node.md)
+* [Debug code on a server](dpops/set-up-the-test-alpha-phase.md)
 
 ## Library
 
 * [Yellowpaper : Hybrid Transactions](library/yellowpaper-hybrid-transactions.md)
-* [Yellowpaper : DPoPS - Delegated Proof-of-Private-Stake](library/yellowpaper-delagated-proof-of-private-stake.md)
 
