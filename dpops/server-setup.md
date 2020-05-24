@@ -10,7 +10,7 @@ description: >-
 
 ## Select and initialize your server
 
-## Create a new user session
+## Create a new user
 
 ## Set up a custom domain name for your delegate server
 
