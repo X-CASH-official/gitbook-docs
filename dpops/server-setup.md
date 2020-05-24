@@ -12,5 +12,5 @@ description: >-
 
 ## Create a new user
 
-## Set up a custom domain name for your delegate server
+## Set up a custom domain name
 
