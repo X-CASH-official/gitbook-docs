@@ -1,5 +1,5 @@
 ---
-description: 'PDF Version https://x-network.io/whitepaper/XCASH_Yellowpaper_DPoPS.pdf'
+description: 'Paper version: https://x-network.io/whitepaper/XCASH_Yellowpaper_DPoPS.pdf'
 ---
 
 # Technical Design
