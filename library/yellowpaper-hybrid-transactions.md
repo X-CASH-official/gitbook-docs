@@ -2,7 +2,7 @@
 description: 'Paper version: https://x-network.io/whitepaper/XCASH_Yellowpaper_Hybrid-tx.pdf'
 ---
 
-# Yellowpaper : Hybrid Transactions
+# Yellowpaper - Hybrid Transactions
 
 ## Abstract
 

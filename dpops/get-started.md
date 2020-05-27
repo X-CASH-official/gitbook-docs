@@ -6,6 +6,10 @@ description: >-
 
 # Introduction
 
+## Introduction
+
+At the inception of X-Cash 2.0 and the beginning of the DPOPS consensus, the X-Cash public network will be secured by elected delegates. If you are seeing yourself as a possible candidate, here is a good place to start!
+
 ## Get Started
 
 | What are you looking for? | Description |

@@ -27,5 +27,5 @@
 
 ## Library
 
-* [Yellowpaper : Hybrid Transactions](library/yellowpaper-hybrid-transactions.md)
+* [Yellowpaper - Hybrid Transactions](library/yellowpaper-hybrid-transactions.md)
 

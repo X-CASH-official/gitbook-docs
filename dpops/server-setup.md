@@ -6,6 +6,11 @@ description: >-
 
 # Server Setup Guide
 
+## Introduction
+
+Generally speaking, running a delegate node requires knowledge and experience in information and network technologies. However, we believe that it should be accessible to everyone who is willing to learn. This guide will help you get introduced to servers and Linux system, and getting started securely to start your own delegate node.  
+If you find yourself in a bind, [our helpful community](https://discord.gg/4CAahnd) will be happy to help you 🙂
+
 ## Prerequisite
 
 ### Generate a SSH key
@@ -16,17 +21,17 @@ The SSH key you will be generating will be used later on when using accessing yo
 
 #### On Windows 
 
-One of the quickest way to generate a SSH key on Windows is by using PuttyGen. You can download Putty at [this link](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and follow [this complete tutorial](https://www.ssh.com/ssh/putty/windows/puttygen) to create your SSH key pair.
+One easy way to generate a SSH key on Windows is by using PuttyGen. You can download Putty at [this link](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and follow [this complete tutorial](https://www.ssh.com/ssh/putty/windows/puttygen) to create your SSH key pair.
 
 #### **On Linux / Mac**
 
 Open a terminal window on Linux or OSx and type the following command.
 
 ```bash
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t rsa -b 2048
 ```
 
-It will create a SSH key pair in the form `your_key.pub` and `your_key` created in your current directory. 
+It will generate a SSH key pair in the form of a public key `id_rsa.pub` and the corresponding private key `id_rsa` created in the `~/.ssh` directory
 
 ### Find a Linux Machine
 
@@ -54,44 +59,202 @@ The recommended system requirement is designed to be "future-development proof",
 | **Bandwidth Speed** | 100 Mbps | 500 Mbps |
 
 {% hint style="warning" %}
- It is estimated that the blockchain size will increase by **18GB per year**.
+ It is estimated that the blockchain size will increase by **18GB per year.**
 {% endhint %}
 
 #### Server hosting provider
 
-There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **Digital Ocean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure, you will need to rent your server with a provider. 
+There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure, you will need to rent your server with a provider. 
 
-We are agnostic as to which server provider you should choose to run the `xcash-dpops` program. Our recommendation is to follow the [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
+We are agnostic as to which server provider you should choose to run the `xcash-dpops` program. Our recommendation is to find a Dedicated server or VPS that matches [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
 
 ## Initialize your server
 
-{% hint style="danger" %}
-We will give a short tutorial here for preparing a server rented from [Hetzner](https://www.hetzner.com/). Those steps are easily replicated with any server hosting providers, and you shouldn't limit yourself to using Hetzner. We are also giving more general directions.
+{% hint style="info" %}
+We will give a short tutorial here for preparing a server.  Those steps should be easy to  replicate with any server hosting providers. 
 {% endhint %}
 
-### Authentication
+### Install a Linux distribution
 
-Use your SSH RSA key pair that you have [previously generated](server-setup.md#generate-a-ssh-key) to access your newly rented server. Most of the server hosting service lets you provide your SSH RSA key and automatically authorize your key, but if not you should indicate your key by yourself.
+Your server provider should provide an `install-image` to help you install the required Linux distribution. The `xcash-dpops` program was intensively tested on **Ubuntu-18.04** and should be the preferred distribution. 
+
+{% hint style="warning" %}
+While **Ubuntu-20.04** has been released recently \(April 2020\), it hasn't been tested as much as 18.04. It shouldn't be an issue to install the newest version, but we still recommend installing 18.04.
+{% endhint %}
+
+![Most server provider propose installation of a Linux distribution from the dashboard. The distribution will be automatically installed and ready to use when you log in.](../.gitbook/assets/image%20%283%29.png)
+
+Choose the **Ubuntu 18.04 LTS** version and follow the installation process.
+
+### **Log in to your server**
+
+#### **On Windows**
+
+Log into your server using your already existing credentials \(given by your server provider\).   
+With Putty, indicate the `hostname`, open the connection and connect to a user session with your credentials \(user/password\). 
+
+![](../.gitbook/assets/image%20%285%29.png)
+
+You will be asked to choose the user. Connect with `root` and give the password given to you by the server provider. 
+
+#### On Linux/Osx
+
+In a terminal, use the command to log in as a `root` user: 
+
+```text
+ssh root@hostname
+```
+
+### Create a new user
+
+{% hint style="warning" %}
+The `xcash-dpops` auto-installer script has been designed for `root` users. It should work for other users as well.
+{% endhint %}
+
+[Log in](server-setup.md#log-in) your server with your already existing credentials \(given by your server provider\) as a `root` user. 
+
+Create a new user session named `xcash` where you will only store file and programs related to the delegate function.
+
+```text
+adduser xcash
+```
+
+Set and confirm the new user’s password at the prompt. It is **highly**  recommended to use a password here:
+
+```text
+Set password prompts:Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+
+Follow the prompts to set the new user’s information. You can leave it empty.
+
+```text
+User information prompts:Changing the user information for xcash
+Enter the new value, or press ENTER for the default
+    Full Name []:
+    Room Number []:
+    Work Phone []:
+    Home Phone []:
+    Other []:
+Is the information correct? [Y/n]
+```
+
+Now that the `xcash` user is created, you need to give it `sudo` rights:
+
+```text
+usermod -aG sudo xcash
+```
+
+You can now switch user session from `root` by using the command `su`:
+
+```text
+su - xcash
+```
+
+### SSH Authentication
+
+Use your SSH RSA key pair that you have [previously generated](server-setup.md#generate-a-ssh-key) to access your newly rented server. Most of the server hosting service lets you provide your SSH key and automatically authorize it. If not, you will have to register your key in your new server by yourself.
 
 {% hint style="info" %}
-In Hetzner, you can register your public SSH key in the **key management system**, and choose it when you run your server in rescue mode to install/re-install Ubuntu.
+In many hosting services, you can register your public SSH key in your server dashboard, which will automatically validate your SSH key to connect to your server. If not, please follow the instructions below to add your SSH key as a secured login method.
 {% endhint %}
 
-With the key pair you have [generated earlier](server-setup.md#generate-a-ssh-key), you will have to register the public key on your server so it can recognizes you. 
+With the key pair you have [generated earlier](server-setup.md#generate-a-ssh-key), you will have to register the public key on your server so it can recognizes you. You need to add your public SSH key into the file `~/.ssh/authorized_keys` in your server. 
 
-To do that, you need to copy the content of your public SSH key into the file `~/.ssh/authorized_keys` in your server. 
+#### From Windows
 
+To copy the content of the public SSH key into the server, you need to create the `authorized_keys` file on your Linux machine. 
 
+![](../.gitbook/assets/image%20%285%29.png)
 
+Once connected, use your preferred text editor to create and/or open the `authorized_keys` file:
 
+```text
+nano ~/.ssh/authorized_keys
+```
 
+On your Windows machine, open the public key file.
 
+{% hint style="info" %}
+The public key was created after[ generating your SSK key pair](server-setup.md#generate-a-ssh-key) with PuttyGen. You have created two files: the public key `rsa-key` and the private key `rsa-key.ppk`
+{% endhint %}
 
-## Create a new user
+{% code title="rsa-key" %}
+```text
+---- BEGIN SSH2 PUBLIC KEY ---- 
+Comment: "rsa-key-example" ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAl/TYTvi1u/s4JFq0T2A4+jIUKs0jkrqCGfqqFaSClnv4fmexJsmHDW/X84vSYn4tp86NO7h+mxRyEIiI6jilcABOeDOlUtKJuUxg8RJYGL6zbF545IT1jGWg0nR2ZrdRvyFozJgGLJbDd3RzVLnsS3QQvFTRG/mYQu30AIro7jN+KlQX6xVtJBKNuzDelEz5TYuDTkOP9NGcIW78d96L2NPGNM4Qdu3KpjoYecbCUH3D8QjQlvnwEtt/URrHS7nhu2BMRbxN5zP0uT0L1/3NqWnBv367P10kmQFTiBGQo+/nwgxrg6pKUd8AOBkImhpyNR/MJda1UKfZegnxYXb3WQ== 
+---- END SSH2 PUBLIC KEY ----
+```
+{% endcode %}
 
-adduser 
+Copy the public key content \(starting from `ssh-rsa` and the long string after\) and paste it into the `authorized_keys` on your Linux machine.
+
+{% code title="authorized\_keys" %}
+```text
+ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAl/TYTvi1u/s4JFq0T2A4+jIUKs0jkrqCGfqqFaSClnv4fmexJsmHDW/X84vSYn4tp86NO7h+mxRyEIiI6jilcABOeDOlUtKJuUxg8RJYGL6zbF545IT1jGWg0nR2ZrdRvyFozJgGLJbDd3RzVLnsS3QQvFTRG/mYQu30AIro7jN+KlQX6xVtJBKNuzDelEz5TYuDTkOP9NGcIW78d96L2NPGNM4Qdu3KpjoYecbCUH3D8QjQlvnwEtt/URrHS7nhu2BMRbxN5zP0uT0L1/3NqWnBv367P10kmQFTiBGQo+/nwgxrg6pKUd8AOBkImhpyNR/MJda1UKfZegnxYXb3WQ==
+```
+{% endcode %}
+
+Save and close the text editor. Now, adjust the permissions of the `authorized_keys` file so that the file does not allow group writable permissions.
+
+```text
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Once done, restart your server's `ssh.service` before logging out to take your changes into effect: 
+
+```text
+ sudo systemctl restart ssh.service
+```
+
+You should now be able to log in into your server using your SSH key. In Putty, browse and choose your private key file `rsa-key.ppk` to use as an authentication for the next time you log into your server.
+
+![](../.gitbook/assets/image%20%286%29.png)
+
+Now, when you open the connection, you will be prompted to enter your key passphrase \(if you have given one\), and you will be logged in.
+
+#### From Linux/OSx
+
+You can use the `ssh-copy-id` command to copy the public key directly in the `authorized_keys` on your server. 
+
+{% hint style="warning" %}
+`ssh-copy-id` is not natively installed on OSx systems. You need to install it by running `brew install ssh-copy-id`
+{% endhint %}
+
+Just use the following command by replacing `mykey` with your private key file and `user@host` with your server login information.
+
+```text
+ssh-copy-id -i ~/.ssh/mykey user@host
+```
+
+If you don't want to use the `ssh_copy_id` command, you can manually append the `authorized_keys` file by using the following command:
+
+```text
+cat ~/.ssh/mykey.pub | ssh user@host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+```
+
+You can now test the connection to your server by trying to log in with your SSH key: 
+
+```text
+ssh -i ~/.ssh/mykey user@host
+```
 
 ## Set up a custom domain name
 
+**Your delegate name is your brand !** ⭐
 
+When you register as a delegate, your server will be recognized and listed in the delegates website through its domain name. If you haven't a registered a domain name for your server, the default domain will be the server IP address.
+
+While in itself it is completely possible to use it as is, it is recommended to brand yourself by buying a domain name of your choice. We believe that it will help you greatly if you are planning to run a shared delegate and are looking for votes.
+
+There are a lot of services out there to buy a domain name: **NameCheap**, **Google Domains**, **OVH**, **GoDaddy** to only name a few. You will need to create an account over there and reserve the domain name of your choice.
+
+Once you have reserved your domain name, you need to change the DNS record to point your newly bought domain name to your IP address. This can be done by changing the **A \(Address\) Record** in your domain name provider dashboard. 
+
+NameCheap has [an easy tutorial](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain) for setting up the DNS record, but any other domain name provider should have a similar service.
+
+![Example of a DNS record](../.gitbook/assets/image%20%284%29.png)
+
+Assuming that the domain you bought is **`domain-name.com`**, the A Record above will permit people to identify your server with **`domain-name.com`** and the subdomain **`delegate.domain-name.com`**
 
