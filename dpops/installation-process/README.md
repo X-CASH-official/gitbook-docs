@@ -4,25 +4,31 @@ description: >-
   node and become a delegate.
 ---
 
-# Node Installation Process
+# Delegate Node Installation
 
 ## System Requirements
 
 {% hint style="info" %}
-In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We recommend installing it on a Ubuntu VPS/dedicated server \(18.04\) for the best compatibility.**
+In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We recommend installing it on a Ubuntu VPS/dedicated server \(18.04\) for best compatibility.**
+{% endhint %}
+
+The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop **token creation**, **sidechains** and other exciting features ⭐\). 
+
+{% hint style="info" %}
+The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
 {% endhint %}
 
 |  | **Minimum**  | **Recommended**  |
 | :--- | :--- | :--- |
 | **OS** | Ubuntu 18.04 \(or higher\) | Ubuntu 18.04 \(or higher\) |
-| **CPU** | 2 threads, 2.0 GHz or more per thread  | 4 threads, 2.0 GHz or more per thread |
-| **RAM** | 6GB | 8GB |
-| **Hard Drive** | 50GB  | 100GB |
+| **CPU** | 4 threads, 2.0 GHz or more per thread  | 4 threads, 2.0 GHz or more per thread |
+| **RAM** | 6GB | 32GB |
+| **Hard Drive** | 50GB  | 2TB |
 | **Bandwidth Transfer** | 100GB per month | 500GB per month |
 | **Bandwidth Speed** | 100 Mbps | 500 Mbps |
 
 {% hint style="warning" %}
- It is estimatited that the blockchain size will increase by **18GB per year**.
+ It is estimated that the blockchain size will increase by **18GB per year.**
 {% endhint %}
 
 ## Dependencies
@@ -37,10 +43,14 @@ The following table summarizes the tools and libraries required to run X-Cash's 
 | **OpenSSL** | any | `libssl-dev` |
 | **Git** | any | `git` |
 | **MongoDB** | 4.0.3 | Install from [binaries](https://www.mongodb.com/download-center/community) |
-| **MongoDB C Driver \(includes BSON libary\)** | 1.13.1 | Build from source |
+| **MongoDB C Driver** \(includes BSON libary\) | 1.13.1 | Build from source |
 | **XCASH** | Latest version | [download the latest release](https://github.com/X-CASH-official/X-CASH/releases) or [build from source](https://github.com/X-CASH-official/X-CASH#compiling-x-cash-from-source) |
 
-## Installation Process
+## Auto-installer Script
+
+
+
+## Manual Installation Process
 
 ### Installation path
 
@@ -89,7 +99,7 @@ sudo chown $USER /data/db
 Then add MongoDB to your path
 
 ```bash
-echo -e '\nexport PATH=MongoDB_folder:$PATH' >> ~/.profile && source ~/.profile
+echo -e '\export PATH=MongoDB_folder:$PATH' >> ~/.profile && source ~/.profile
 ```
 
 {% hint style="info" %}
