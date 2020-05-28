@@ -20,7 +20,7 @@ The recommended system requirement is designed to be "**future-development proof
 
 |  | **Minimum**  | **Recommended**  |
 | :--- | :--- | :--- |
-| **OS** | Ubuntu 18.04 \(or higher\) | Ubuntu 18.04 \(or higher\) |
+| **OS** | Ubuntu 18.04 | Ubuntu 18.04 |
 | **CPU** | 4 threads, 2.0 GHz or more per thread  | 4 threads, 2.0 GHz or more per thread |
 | **RAM** | 6GB | 32GB |
 | **Hard Drive** | 50GB  | 2TB |
