@@ -247,7 +247,9 @@ To perform on-chain transaction you should used the function transfer:`transfer 
       <td style="text-align:left">Payment id to be added to the transaction. Defaults to <code>none</code>.</td>
     </tr>
   </tbody>
-</table>{% hint style="info" %}
+</table>
+
+{% hint style="info" %}
 #### About the fixed ring size
 
 In X-Cash 1.4.0, we introduced a fixed ring size of **21** along with the release of public transactions.  

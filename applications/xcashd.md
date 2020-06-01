@@ -188,7 +188,9 @@ The following options will be helpful if you intend to have an always running no
       </td>
     </tr>
   </tbody>
-</table>The following options define how your node participates in X-Cash peer-to-peer network. This is for node-to-node communication. The following options do **not** affect wallet-to-node interface.
+</table>
+
+The following options define how your node participates in X-Cash peer-to-peer network. This is for node-to-node communication. The following options do **not** affect wallet-to-node interface.
 
 The node and peer words are used interchangeably.
 

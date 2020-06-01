@@ -43,7 +43,7 @@ In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We
 
 Before looking into a server hosting service, it is recommended that you acknowledge the system requirements for running a delegate node. 
 
-The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop token creation, sidechains and other exciting features\). 
+The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop  **token creation**, **NFT**, **sidechains**, **smart contracts**  and other exciting features\). 
 
 {% hint style="info" %}
 The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
@@ -67,6 +67,10 @@ The recommended system requirement is designed to be "**future-development proof
 There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure, you will need to rent your server with a provider. 
 
 We are agnostic as to which server provider you should choose to run the `xcash-dpops` program. Our recommendation is to find a Dedicated server or VPS that matches [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
+
+{% hint style="info" %}
+Make sure to read your server provider documentation. Each initial server setup can be different.
+{% endhint %}
 
 ## Initialize your server
 
@@ -93,40 +97,88 @@ Choose the **Ubuntu 18.04 LTS** version and follow the installation process.
 **On Windows**
 
 Log into your server using your already existing credentials \(given by your server provider\).   
-With Putty, indicate the `hostname`, open the connection and connect to a user session with your credentials \(user/password\). 
+With Putty, indicate the `hostname` \(which should be the server `IP-Address`\) and the port \(the default port is most of the time `port 22`\)  open the connection and connect to a user session with your credentials `user`/`password` \(the default user should be `root`, and the `password` is most of the time sent to you by email by your server provider\).
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
-You will be asked to choose the user. Connect with `root` and  provide the password given to you by the server provider. 
+```text
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Jun  1 11:51:35 CEST 2020
+
+  System load:    0.02             Processes:             143
+  Usage of /home: 0.0% of 4.41TB   Users logged in:       0
+  Memory usage:   0%               IP address for enp4s0: 10x.x.x.101
+  Swap usage:     0%
+
+68 packages can be updated.
+31 updates are security updates.
+
+Last login: Mon Jun  1 11:43:47 2020 from {IP_address}
+root@Ubuntu-1804-bionic-64-minimal ~ #
+```
 
 **On Linux/Osx**
 
-In a terminal, use the command to log in as a `root` user: 
+In a terminal, use the command `ssh` log into your server using your already existing credentials \(given by your server provider\). The `hostname` should be the server `IP-Address`, and the default `user` should be `root`. 
 
 ```text
 ssh root@hostname
 ```
 
-Provide the password given to you by the server provider and you are in!
+When first connecting to your new server, you will be prompted to recognized the servers host key and validate the RSA fingerprint. 
+
+```text
+The authenticity of host '{SERVER_IP}' can't be established.
+ECDSA key fingerprint is SHA256:sjdflkjslfksjlfksjfqmklqjsf+hrQ.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+Type `yes` and continue the log in process. You will be prompted to provide your password \(which most of the time is sent to you by email by your server provider\). 
+
+```text
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Jun  1 11:51:35 CEST 2020
+
+  System load:    0.02             Processes:             143
+  Usage of /home: 0.0% of 4.41TB   Users logged in:       0
+  Memory usage:   0%               IP address for enp4s0: 10x.x.x.101
+  Swap usage:     0%
+
+68 packages can be updated.
+31 updates are security updates.
+
+Last login: Mon Jun  1 11:43:47 2020 from {IP_address}
+root@Ubuntu-1804-bionic-64-minimal ~ #
+```
 
 #### With SSH Authentication
 
-Use your SSH RSA key pair that you have [previously generated](server-setup.md#generate-a-ssh-key) to access your newly rented server. Most of the server hosting service lets you provide your SSH key and automatically authorize it. 
+Use your SSH RSA key pair that you have [previously generated](server-setup.md#generate-a-ssh-key) to access your newly rented server. Most of the server hosting service lets you provide your SSH key on their dashboard and automatically authorize it. 
 
 **On Windows**
 
 In Putty, go to the `SSH > Auth` tab and browse to your private key file `rsa-key.ppk` [generated earlier](server-setup.md#generate-a-ssh-key) to use as an authentication to log into your server. 
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
-Now, when you open the connection, you will be prompted to enter your key passphrase \(if you have given one\), and you will be logged in.
+Now, when you open the connection, you will be prompted to enter your key passphrase \(if you have given one\) to log in.
 
 **On Linux/OSx**
 
-Open a terminal window and use the command `ssh -i` with the option, adding the path to your private key and your servers `user@hostname`
+Open a terminal window and use the command `ssh -i`, adding the path to your private key and your servers `user@hostname`
 
 ```text
-ssh -i ~/.ssh/mykey user@host
+ssh -i ~/.ssh/mykey user@hostname
 ```
 
 You will be prompted to give your key passphrase if you have provided one at the key generation. 
@@ -186,7 +238,7 @@ Once done, restart your server's `ssh.service` before logging out to take your c
 
 You should now be able to log in into your server using your SSH key. In Putty, browse and choose your private key file `rsa-key.ppk` to use as an authentication for the next time you log into your server.
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 Now, when you open the connection, you will be prompted to enter your key passphrase \(if you have given one\), and you will be logged in.
 
@@ -235,7 +287,7 @@ The `xcash-dpops` auto-installer script has been designed for `root` users. It s
 Create a new user session named `xcash` where you will only store file and programs related to the delegate function.
 
 ```text
-adduser xcash
+sudo adduser xcash
 ```
 
 Set and confirm the new user’s password at the prompt. It is **highly**  recommended to use a password here:
@@ -285,7 +337,7 @@ Once you have reserved your domain name, you need to change the DNS record to po
 
 NameCheap has [an easy tutorial](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain) for setting up the DNS record, but any other domain name provider should have a similar service.
 
-![Example of a DNS record](../.gitbook/assets/image%20%284%29.png)
+![Example of a DNS record](../.gitbook/assets/image%20%285%29.png)
 
 Assuming that the domain you bought is **`domain-name.com`**, the A Record above will permit people to identify your server with **`domain-name.com`** and the subdomain **`delegate.domain-name.com`**
 

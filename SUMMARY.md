@@ -17,13 +17,14 @@
 
 ## Delegate node & staking <a id="dpops"></a>
 
-* [Introduction](dpops/get-started.md)
+* [Get Started](dpops/get-started.md)
 * [Technical Design](dpops/yellowpaper-delagated-proof-of-private-stake.md)
 * [Server Setup Guide](dpops/server-setup.md)
-* [Delegate Node Installation](dpops/installation-process/README.md)
+* [Node Program Installation](dpops/installation-process/README.md)
   * [xcash-wallet-cli functions](dpops/installation-process/configure-delegate.md)
   * [Set up your node](dpops/installation-process/set-up-your-node.md)
-* [Debug code on a server](dpops/set-up-the-test-alpha-phase.md)
+* [Register Delegate](dpops/set-up-your-delegates.md)
+* [Appendix](dpops/set-up-the-test-alpha-phase.md)
 
 ## Library
 

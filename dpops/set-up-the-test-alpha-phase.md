@@ -4,7 +4,7 @@ description: >-
   alpha-test phase.
 ---
 
-# Debug code on a server
+# Appendix
 
 ### Debug Code on a Server
 

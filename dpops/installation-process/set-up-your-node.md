@@ -76,7 +76,9 @@ description: >-
       <td style="text-align:left">Remove test data from the databases</td>
     </tr>
   </tbody>
-</table>## How To Setup and Install the Systemd Files
+</table>
+
+## How To Setup and Install the Systemd Files
 
 Edit the below systemd files to your paths
 
@@ -350,3 +352,4 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
     </tr>
   </tbody>
 </table>
+
