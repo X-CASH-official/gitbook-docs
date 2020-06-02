@@ -343,12 +343,22 @@ cd ~/xcash-official/xcash-dpops
 make clean ; make release -j `nproc`
 ```
 
-Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message.
+Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to setup the different `units` for systemd to organize how your server manages the services.
 
-## Test build
+### Setup The Services
+
+ In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**.
+
+On this guide, we will setup the different unit files to manage the programs needed to run your delegate node. 
+
+
+
+### 
+
+### Test build
 
 {% hint style="info" %}
-It is recommended to run the X-CASH DPOPS test before you run the main program. The test will ensure that your system is compatible, and that you have setup your system correctly.
+It is recommended to run the xcash-dpops test before you run the main program. The test will ensure that your system is compatible, and that you have setup your system correctly.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -359,7 +369,7 @@ Navigate to the folder that contains the binary, rebuild the binary in debug mod
 
 ```bash
 make clean ; make debug -j `nproc`
-./XCASH_DPOPS --test
+cd build && ./XCASH_DPOPS --test
 ```
 
 The test will return the number of passed and failed test at the bottom of the console. The failed test need to be 0 before you run the node. If the output is not showing 0 for failed test, then you need to scroll through the testing output and find what test failed \(It will be red instead of green\).
