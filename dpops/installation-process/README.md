@@ -339,6 +339,8 @@ sudo ldconfig
 
 #### Building `xcash-core` from source
 
+TODO
+
 ### Build Instructions
 
 At this point, all the dependencies shoud be installed and built. First, clone the `xcash-dpops` repository:
@@ -354,7 +356,7 @@ cd ~/xcash-official/xcash-dpops
 make clean ; make release -j `nproc`
 ```
 
-Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to setup the different `units` for systemd to organize how your server manages the services.
+Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to generate a wallet to be used for the delegate and setup the different `units` for systemd to organize how your server manages the different services.
 
 ### Generate a Wallet 
 
@@ -373,7 +375,7 @@ The wallet synchronization can take time the first time. It will depend on which
 {% endhint %}
 
 {% hint style="danger" %}
-Make sure that you write down your mnemonic key and store it in a secure place as it will be the only way to restore your wallet in case of problem. Failing to do so _will_ result in loss of funds.
+**Make sure that you write down your mnemonic key and store it in a secure place** as it will be the only way to restore your wallet in case of problem. Failing to do so _will_ result in loss of funds.
 {% endhint %}
 
 The wallet files will be located in `~/xcash-official/xcash-wallet/`
