@@ -251,10 +251,10 @@ This guide is designed for people knowledgeable in Linux. If you are not confort
 It is recommended to install the program the different programs needed for the `xcash-dpops` in the same folder, in the the `/root/` directory  or the `/home/$USER/` if you are installing from a user different than root.
 {% endhint %}
 
-In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` and `logs` directory within: 
+In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systempid` , and `logs` directory within: 
 
 ```bash
-mkdir -p ~/xcash-official/{xcash-wallet,logs}
+mkdir -p ~/xcash-official/{xcash-wallet,logs,systempid}
 ```
 
 ### Install Dependencies
@@ -272,40 +272,46 @@ If you want to install [`xcash-core`](https://github.com/X-CASH-official/xcash-c
 
 You will need to get the latest stable version \(current release\) on the mongoDB website: [https://www.mongodb.com/download-center/community](https://www.mongodb.com/download-center/community)
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 **Version:** Latest current release.  
 **OS:** Ubuntu 18.04 Linux x64 \(if you are using this version\).  
 **Package**: Server
 
-Then copy the link address of the tgz file and use it to download the folder. We recommend installing the mongoDB folder in your installation directory. Replace the link and version \(`x.y.z`\) with the most recent one. 
+Then click on **All version binaries**.
+
+![](../.gitbook/assets/image%20%2821%29.png)
+
+Copy the link address of the tgz file of the latest version available \(disregarding debug symboles version\) and use it to download the installation folder using this command \(replacing the link with the most recent version\).
 
 ```bash
-cd ~/xcash-official/ && wget https://fastdl.mongodb.org/src/mongodb-src-rx.y.z.tar.gz
+cd ~/xcash-official && wget http://downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-v4.4-latest.tgz
 ```
 
 Then, extract it and remove the downloaded file: 
 
 ```bash
-tar -xf mongodb-src-r*.tar.gz && rm mongodb-src-r*.tar.gz
+tar -xf mongodb-linux-x86_64*.tgz && rm mongodb-linux-x86_64*.tgz
 ```
 
-Additionnaly, create the `/data/db` folder that will store the mongoDB delegate database and give it the right permissions. 
+Lastly, add the MongoDB binaries folder to your path with the following command.
+
+```bash
+echo -e '\nexport PATH=$USER/xcash-official/mongodb-linux-x86_64-ubuntu1804-4.4.0-rc7-36-gcf4ac31/bin:$PATH' >> ~/.profile && source ~/.profile
+```
+
+Replace `$USER/xcash-official/mongodb-linux-x86_64-ubuntu1804-4.4.0-rc7-36-gcf4ac31/bin` with the mongoDB binaries folder in your system. 
+
+Additionnally, create the /data/db folder that will keep the delegates databases: 
 
 ```bash
 sudo mkdir -p /data/db && sudo chmod 770 /data/db && sudo chown $USER /data/db
 ```
 
-Lastly, add the MongoDB folder to your path \(replace the the path with the one you have\) with the following command.
-
-```bash
-echo -e '\nexport PATH=/$USER/xcash-official/mongodb-src-r4.2.7:$PATH' >> ~/.profile && source ~/.profile
-```
-
 #### Building the MongoDB C Driver from source
 
 First, download the latest stable version of the MongoDB C Driver.  
-Go to the [official GitHub repository](https://github.com/mongodb/mongo-c-driver/) and download the latest stable[ release](https://github.com/mongodb/mongo-c-driver/tags). Get the tar gz file in your installation folder:
+Go to the [official GitHub repository](https://github.com/mongodb/mongo-c-driver/) and download the latest stable[ release](https://github.com/mongodb/mongo-c-driver/tags). Get the tarball file in your installation folder:
 
 ```bash
 cd ~/xcash-official/ && wget https://github.com/mongodb/mongo-c-driver/releases/download/1.16.2/mongo-c-driver-1.16.2.tar.gz
@@ -322,7 +328,7 @@ sudo make -j `nproc`
 sudo make install
 ```
 
-Then, update the the links and cache to the new libraries:
+Then, update the the links and cache of the newly installed library:
 
 ```bash
 sudo ldconfig
@@ -349,11 +355,199 @@ Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Succes
 
  In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**.
 
-On this guide, we will setup the different unit files to manage the programs needed to run your delegate node. 
+On this guide, we will setup the different unit files to manage the programs needed to run your delegate node. The `unit` files template are present in the `xcash-dpops/scripts/systemd` folder, but will need to be adjusted with your delegate information. 
 
+#### 1. Initialization
 
+Touch
 
-### 
+#### 2. MongoDB Service
+
+Edit the systemd unit file `MongoDB.service` from in the `xcash-dpops/scripts/systemd`folder : 
+
+```bash
+nano ~/xcash-official/xcash-dpops/scripts/systemd/MongoDB.service
+```
+
+You will get the following systemd file: 
+
+{% code title="MongoDB.service" %}
+```bash
+[Unit]
+Description=MongoDB Database Server
+After=network.target
+
+[Service]
+Type=forking
+User=root
+Type=oneshot
+RemainAfterExit=yes
+PIDFile=~/xcash-official/systemdpid/mongod.pid
+ExecStart=~/xcash-official/mongodb-linux-x86_64-ubuntu1804-4.4.0-rc7-36-gcf4ac31/bin/mongod --fork --syslog --dbpath /data/db
+
+LimitFSIZE=infinity
+LimitCPU=infinity
+LimitAS=infinity
+LimitNOFILE=64000
+LimitNPROC=64000
+LimitMEMLOCK=infinity
+TasksMax=infinity
+TasksAccounting=false
+
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+In the file, replace the following if needed: 
+
+* **`User`**: User of the system \(most likely `root`\)
+* **`PIDFile`**: The path to `mongod.pid` file that  you created at the initialization step. 
+* **`ExecStart`**: 
+  * Replace the path to the `mongod` file.
+  * Replace the path to the database directory \(`/data/db` as per the instructions\) 
+
+#### 3. XCASH Daemon Service
+
+Edit the systemd unit file `XCASH_Daemon.service` from in the `xcash-dpops/scripts/systemd`folder : 
+
+```bash
+nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_Daemon.service
+```
+
+You will get the following systemd file: 
+
+{% code title="XCASH\_Daemon.service" %}
+```bash
+[Unit]
+Description=XCASH Daemon systemd file
+ 
+[Service]
+Type=forking
+User=root
+PIDFile=~/xcash-official/systemdpid/xcash_daemon.pid
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/XCASH_Daemon_log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash_daemon.pid
+RuntimeMaxSec=15d
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+In the file, replace the following if needed: 
+
+* **`User`**: User of the system \(most likely `root`\)
+* **`PIDFile`**: The path to `xcash_daemon.pid` file that  you created at the initialization step. 
+* **`ExecStart`**: 
+  * Replace the path to the `xcashd` file. 
+  * Replace the path to the `XCASH_Daemon_Log.txt` file.
+  * Replace the path to the `xcash_daemon.pid` file.
+
+#### 4. XCASH Wallet Service
+
+Edit the systemd unit file `XCASH_Wallet.service` from in the `xcash-dpops/scripts/systemd`folder : 
+
+```bash
+nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_Wallet.service
+```
+
+You will get the following systemd file: 
+
+{% code title="XCASH\_Wallet.service" %}
+```bash
+[Unit]
+Description=XCASH Wallet RPC
+ 
+[Service]
+Type=simple
+User=root
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash_wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+In the file, replace the following if needed: 
+
+* **`User`**: User of the system \(most likely `root`\)
+* **`ExecStart`**: 
+  * Replace the path to the `xcash-wallet-rpc` file.
+  * Replace the path to the `xcash_wallets` folder, and replace `WALLET` by your delegate wallet name.
+  * Replace `PASSWORD` with your delegate wallet password.
+
+#### 5. Firewall Service
+
+Edit the systemd unit file `firewall.service` from in the `xcash-dpops/scripts/systemd`folder : 
+
+```bash
+nano ~/xcash-official/xcash-dpops/scripts/systemd/firewall.service
+```
+
+You will get the following systemd file: 
+
+{% code title="firewall.service" %}
+```bash
+[Unit]
+Description=firewall
+ 
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+ExecStart=~/xcash-official/xcash-dpops/scripts/firewall/firewall_script.sh
+ 
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+In the file, replace the following if needed: 
+
+* **`User`**: User of the system \(most likely `root`\)
+* **`ExecStart`**: Replace the path to the `firewall/firewall_script.sh` file.
+
+#### 6. XCASH DPOPS Service
+
+Edit the systemd unit file `XCASH_DPOPS.service` from in the `xcash-dpops/scripts/systemd`folder : 
+
+```bash
+nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_DPOPS.service
+```
+
+You will get the following systemd file: 
+
+{% code title="XCASH\_DPOPS.service" %}
+```bash
+[Unit]
+Description=XCASH DPOPS
+ 
+[Service]
+Type=simple
+LimitNOFILE=infinity
+User=root
+WorkingDirectory=~/xcash-official/xcash-dpops/build
+ExecStart=~/xcash-official/xcash-dpops/build/XCASH_DPOPS --block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+In the file, replace the following if needed: 
+
+* **`User`**: User of the system \(most likely `root`\)
+* **`WorkingDirectory`**: Replace the path of the `xcash-dpops/build` folder.
+* **`ExecStart`**: 
+  * Replace the path to the `XCASH_DPOPS` file.
+  * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
+
+{% hint style="info" %}
+The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md) guide.
+{% endhint %}
 
 ### Test build
 
