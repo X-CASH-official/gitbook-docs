@@ -251,10 +251,10 @@ This guide is designed for people knowledgeable in Linux. If you are not confort
 It is recommended to install the program the different programs needed for the `xcash-dpops` in the same folder, in the the `/root/` directory  or the `/home/$USER/` if you are installing from a user different than root.
 {% endhint %}
 
-In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systemdpid` , and `logs` directory within: 
+In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systemdpid` , `.X-CASH`, and `logs` directory within.
 
 ```bash
-mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid}
+mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid,.X-CASH}
 ```
 
 ### Install Dependencies
@@ -334,6 +334,8 @@ Then, update the the links and cache of the newly installed library:
 sudo ldconfig
 ```
 
+#### Building `xcash-core` from source
+
 ### Build Instructions
 
 At this point, all the dependencies shoud be installed and built. First, clone the `xcash-dpops` repository:
@@ -350,6 +352,28 @@ make clean ; make release -j `nproc`
 ```
 
 Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to setup the different `units` for systemd to organize how your server manages the services.
+
+### Generate a Wallet 
+
+You will need to create a wallet to register as a delegate, to receive the block reward if you are elected as a top delegate and if you are a shared delegate, the payments will be sent from this wallet as well. 
+
+To generate a new wallet, use the following command: 
+
+```bash
+~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --generate-new-wallet ~/xcash-official/xcash-wallet/<WALLET_NAME> --password <PASSWORD> --mnemonic-language English --restore-height 0 --daemon-address <SEED_NODE>
+```
+
+Replace **`<WALLET_NAME>`**, **`<PASSWORD>`** and the **`<SEED_NODE>`**  with the parameters of your choice.
+
+{% hint style="info" %}
+The wallet synchronization can take time the first time. It will depend on which seed node you chose, and your servers internet connection.
+{% endhint %}
+
+{% hint style="danger" %}
+Make sure that you write down your mnemonic key and store it in a secure place as it will be the only way to restore your wallet in case of problem. Failing to do so _will_ result in loss of funds.
+{% endhint %}
+
+The wallet files will be located in `~/xcash-official/xcash-wallet/`
 
 ### Setup The Services
 
@@ -550,7 +574,7 @@ In the file, replace the following if needed:
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
-The instructions to generate the block verifier secret key is given in the [register delegate](../set-up-your-delegates.md) guide.
+The instructions to generate the block verifier secret key is given in the [register delegate](../set-up-your-delegates.md#1-generate-a-block-verifier-key) guide.
 {% endhint %}
 
 #### 7. Install and reload
