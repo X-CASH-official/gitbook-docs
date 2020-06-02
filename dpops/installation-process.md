@@ -62,24 +62,24 @@ The following table summarizes the tools and libraries required to run X-Cash's 
 | **OpenSSL** | any | `libssl-dev` |
 | **Git** | any | `git` |
 | **MongoDB** | 4.0.3 | Install from [binaries](https://www.mongodb.com/download-center/community) |
-| **MongoDB C Driver** \(includes BSON libary\) | 1.13.1 | Build from source |
+| **MongoDB C Driver** \(includes BSON libary\) | 1.13.1 | Build from [source](https://github.com/mongodb/mongo-c-driver/releases/) |
 | **xcash-core** | Latest version | [download the latest release](https://github.com/X-CASH-official/X-CASH/releases) or [build from source](https://github.com/X-CASH-official/X-CASH#compiling-x-cash-from-source) |
 
-### Time Synchronizing
+### Time Synchronization
 
 The `xcash-dpops` program uses the system time to calibrate itself and get signal to send and receive data. It is important that the system time is accurate, otherwise the program will not work as intendend.
 
 {% hint style="info" %}
- However, the timezone does not matter and will not affect synchronization.
+The timezone does not matter and will not affect synchronization.
 {% endhint %}
 
-To check your system time, use the following command, and verify that the setting `System clock synchronization` is `yes` 
+To check your system time, use the following command, and verify that the setting `System clock synchronization: yes` 
 
 ```bash
 timedatectl
 ```
 
-If it says no, run the following command: 
+If it says `no`, run the following command: 
 
 ```bash
 timedatectl set-ntp true
@@ -278,10 +278,10 @@ You will need to get the latest stable version \(current release\) on the mongoD
 **OS:** Ubuntu 18.04 Linux x64 \(if you are using this version\).  
 **Package**: Server
 
-Then copy the link address of the tgz file and use it to download the folder. We recommend installing the mongoDB folder in your installation directory. Replace the link and version with the most recent one. 
+Then copy the link address of the tgz file and use it to download the folder. We recommend installing the mongoDB folder in your installation directory. Replace the link and version \(`x.y.z`\) with the most recent one. 
 
 ```bash
-cd xcash-official/ && wget https://fastdl.mongodb.org/src/mongodb-src-rx.x.x.tar.gz
+cd ~/xcash-official/ && wget https://fastdl.mongodb.org/src/mongodb-src-rx.y.z.tar.gz
 ```
 
 Then, extract it and remove the downloaded file: 
@@ -302,11 +302,27 @@ Lastly, add the MongoDB folder to your path \(replace the the path with the one 
 echo -e '\nexport PATH=/$USER/xcash-official/mongodb-src-r4.2.7:$PATH' >> ~/.profile && source ~/.profile
 ```
 
-#### Building the MongoDB C Driver
+#### Building the MongoDB C Driver from source
 
-You will need to visit the officiial [MongoC website](http://mongoc.org/libmongoc/current/installing.html) to get the build instructions. Follow the instructions for [Building from a release tarball](http://mongoc.org/libmongoc/current/installing.html#building-from-a-release-tarball) or [Building from git](http://mongoc.org/libmongoc/current/installing.html#building-from-git) since you need the header files, not just the library files.
+First, download the latest stable version of the MongoDB C Driver.  
+Go to the [official GitHub repository](https://github.com/mongodb/mongo-c-driver/) and download the latest stable[ release](https://github.com/mongodb/mongo-c-driver/tags). Get the tar gz file in your installation folder:
 
-After you have built the MongoDB C driver from source, you will need to run
+```bash
+cd ~/xcash-official/ && wget https://github.com/mongodb/mongo-c-driver/releases/download/1.16.2/mongo-c-driver-1.16.2.tar.gz
+```
+
+Now, build the driver using the following commands \(based on these [instructions](http://mongoc.org/libmongoc/current/installing.html#building-from-a-release-tarball)\):
+
+```bash
+tar xzf mongo-c-driver-*.tar.gz && rm mongo-c-driver-*.tar.gz
+cd mongo-c-driver-*
+mkdir cmake-build && cd cmake-build
+cmake -DENABLE_AUTOMATIC_INIT_AND_CLEANUP=OFF ..
+sudo make -j `nproc`
+sudo make install
+```
+
+Then, update the the links and cache to the new libraries:
 
 ```bash
 sudo ldconfig
@@ -314,19 +330,20 @@ sudo ldconfig
 
 ### Build Instructions
 
-Now that the dependencies are all installed, you can clone the repository in the `Installed-Programs` folder.
+At this point, all the dependencies shoud be installed and built. First, clone the `xcash-dpops` repository:
 
 ```bash
-cd ~Installed-Programs 
-git clone https://github.com/X-CASH-official/XCASH_DPOPS.git
+cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-dpops.git
 ```
 
-X-CASH Proof of stake uses a Make file to build. After cloning the repository, navigate to the folder then use the make file to build the binary file.
+Go into the downloaded folder, and build using `make`: 
 
 ```bash
-cd ~/Installed-Programs/XCASH_DPOPS
+cd ~/xcash-official/xcash-dpops
 make clean ; make release -j `nproc`
 ```
+
+Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message.
 
 ## Test build
 
