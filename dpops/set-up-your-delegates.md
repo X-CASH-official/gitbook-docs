@@ -53,6 +53,12 @@ Now that you have generate your block verifier key pair, you can register yourse
 Chose your delegate name wisely as you won't be able to change it down the line. If you want to change name, you will have to generate a new block verifier key pair and register yourself again. You will however lose your previous delegate stats.
 {% endhint %}
 
+First of all, the wallet service should be running in the background. Stop it by using the command: 
+
+```text
+systemctl stop XCASH_Wallet
+```
+
 Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process/#quick-installation) or [created manually](installation-process/#generate-a-wallet). 
 
 ```text
@@ -77,9 +83,15 @@ And replace the information with:
 delegate_register my_delegate my_delegate.domain.com cf8718d638ce0a831f3538ea60d1e27c3a258c7004a1ad7c547cc5331de7d9d7
 ```
 
+You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message `The delegate has been registered successfully`.
 
+You can `exit` the wallet and restart the wallet service:
+
+```text
+systemctl start XCASH_Wallet
+```
 
 ## 3. Update Your Delegate Information
 
-
+Y
 

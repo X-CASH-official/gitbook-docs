@@ -237,7 +237,10 @@ Once the script has installed everything, you will be prompted with your X-Cash 
 
 ![](../../.gitbook/assets/image%20%2812%29.png)
 
-**Make sure to copy this information in a secure place,** as this is the wallet that will receive the block reward. 
+{% hint style="danger" %}
+**Make sure to copy this information in a secure place,** as this is the wallet that will receive the block reward.   
+Losing this information _will_ result in a loss of funds.
+{% endhint %}
 
 Now that the program is installed, you can go register yourself as a delegate. Follow the [register delegate](../set-up-your-delegates.md) guide to continue the node setup. 
 
