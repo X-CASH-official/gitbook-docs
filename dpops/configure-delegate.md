@@ -28,7 +28,7 @@ systemctl stop XCASH_Wallet
 Open the wallet file in the `xcash-wallet-cli` and once the wallet is fully synchronize, type the command:
 
 ```text
-vote delegates_public_address|delegates_name
+vote <delegates_public_address|delegates_name>
 ```
 
 * Replace `delegates_public_address|delegates_name`with the `delegates public address` or `delegates name`
