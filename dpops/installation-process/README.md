@@ -171,7 +171,8 @@ Press `ENTER` for the default location \(`/data/db/`\).
 You will be then asked if you want to install the `xcash-dpops` program as a **shared delegate** or a **solo delegate**.
 
 {% hint style="info" %}
-In the X-Cash Public Network consensus, the delegates are voted into the top position using XCASH. In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. He would then be a **solo delegate**.    
+In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
+In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. He would then be a **solo delegate**.    
 Solo delegates do not need to set up fees and minimum payout threshold as there is no need to redistribute the reward.
 {% endhint %}
 
@@ -242,11 +243,11 @@ Once the script has installed everything, you will be prompted with your X-Cash 
 Losing this information _will_ result in a loss of funds.
 {% endhint %}
 
-Now that the program is installed, you can go register yourself as a delegate. Follow the [register delegate](../set-up-your-delegates.md) guide to continue the node setup. 
+Now that the program is installed, your delegate wallet initialized and the different services running, you can go register yourself as a delegate. Follow the [register delegate](../set-up-your-delegates.md) guide to continue the node setup.
 
 ## Manual Installation
 
-This guide is designed for people knowledgeable in Linux. If you are not confortable with the Linux distribution, or ifyou are following these steps without understanding what you are doing, you might make mistake that will prevent the xcash-dpops program to run as intended.
+This guide is designed for people knowledgeable in Linux. If you are not confortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make mistake that will prevent the `xcash-dpops` program to run as intended.
 
 ### Installation Directories
 
@@ -254,10 +255,11 @@ This guide is designed for people knowledgeable in Linux. If you are not confort
 It is recommended to install the program the different programs needed for the `xcash-dpops` in the same folder, in the the `/root/` directory  or the `/home/$USER/` if you are installing from a user different than root.
 {% endhint %}
 
-In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systemdpid` , `.X-CASH`, and `logs` directory within.
+In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systemdpid` , and `logs` directory within. Additionnaly, create the `.X-CASH` directory that will store the X-Cash blockchain file.
 
 ```bash
-mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid,.X-CASH}
+mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid}
+mkdir -p ~/.X-CASH
 ```
 
 ### Install Dependencies
@@ -269,7 +271,11 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt install build-essential cmake pkg-config libssl-dev git -y
 ```
 
-If you want to install [`xcash-core`](https://github.com/X-CASH-official/xcash-core) from source, you will need to install [additionnal packages](https://github.com/X-CASH-official/xcash-core#dependencies). 
+If you want to install [`xcash-core`](https://github.com/X-CASH-official/xcash-core) from source, you will need to install these [additionnal packages](https://github.com/X-CASH-official/xcash-core#dependencies). 
+
+```bash
+sudo apt install libboost-all-dev libzmq3-dev libunbound-dev libsodium-dev libminiupnpc-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev libgtest-dev doxygen graphviz libpcsclite-dev screen p7zip-full -y
+```
 
 #### Installing MongoDB
 
@@ -339,7 +345,21 @@ sudo ldconfig
 
 #### Building `xcash-core` from source
 
-TODO
+Clone the `xcash-core` repository to your installation folder and go to the downloaded folder:
+
+```bash
+cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-core.git
+cd xcash-core
+```
+
+Make sure to have all the [dependencies](./#install-dependencies) installed, and build the binaries using `make`: 
+
+```bash
+make clean
+make release -j `nproc`
+```
+
+Once the build finishes, the binaries will be  located in  `~/xcash-official/xcash-core/build/release/bin`
 
 ### Build Instructions
 

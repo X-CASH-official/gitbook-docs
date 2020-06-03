@@ -23,7 +23,6 @@
 * [Node Program Installation](dpops/installation-process/README.md)
   * [Maintenance & Monitoring](dpops/installation-process/maintenance-and-monitoring.md)
 * [Register Delegate](dpops/set-up-your-delegates.md)
-* [xcash-wallet-cli functions](dpops/configure-delegate.md)
 * [Set up your node](dpops/set-up-your-node.md)
 * [Appendix](dpops/set-up-the-test-alpha-phase.md)
 
