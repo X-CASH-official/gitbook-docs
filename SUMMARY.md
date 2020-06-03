@@ -20,11 +20,10 @@
 * [Get Started](dpops/get-started.md)
 * [Technical Design](dpops/yellowpaper-delagated-proof-of-private-stake.md)
 * [Server Setup Guide](dpops/server-setup.md)
-* [Node Program Installation](dpops/installation-process/README.md)
-  * [Maintenance & Monitoring](dpops/installation-process/maintenance-and-monitoring.md)
+* [Node Program Installation](dpops/installation-process.md)
 * [Register Delegate](dpops/set-up-your-delegates.md)
+* [Management & Statistics](dpops/maintenance-and-monitoring.md)
 * [Set up your node](dpops/set-up-your-node.md)
-* [Appendix](dpops/set-up-the-test-alpha-phase.md)
 
 ## Library
 

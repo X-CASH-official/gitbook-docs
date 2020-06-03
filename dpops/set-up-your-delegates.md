@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Once you have correctly [set up your instance](server-setup.md), installed the different programs, either from the [installer script](installation-process/#quick-installation) or [manually](installation-process/#manual-installation), you can now register as a delegate of the X-Cash Public Network.  
+Once you have correctly [set up your instance](server-setup.md), installed the different programs, either from the [installer script](installation-process.md#quick-installation) or [manually](installation-process.md#manual-installation), you can now register as a delegate of the X-Cash Public Network.  
 You will need to have all the services already running to generate the necessary parameters to register yourself as a delegate. 
 
 ## 1. Generate a Block Verifier Key
@@ -59,7 +59,7 @@ First of all, the wallet service should be running in the background. Stop it by
 systemctl stop XCASH_Wallet
 ```
 
-Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process/#quick-installation) or [created manually](installation-process/#generate-a-wallet). 
+Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process.md#quick-installation) or [created manually](installation-process.md#generate-a-wallet). 
 
 ```text
 ~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallet/<WALLET_NAME>
@@ -103,7 +103,7 @@ First of all, the wallet service should be running in the background. Stop it by
 systemctl stop XCASH_Wallet
 ```
 
-Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process/#quick-installation) or [created manually](installation-process/#generate-a-wallet). 
+Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process.md#quick-installation) or [created manually](installation-process.md#generate-a-wallet). 
 
 ```text
 ~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallet/<WALLET_NAME>

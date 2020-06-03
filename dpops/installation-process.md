@@ -14,7 +14,7 @@ This guide is assuming that you have already followed the step of the [server se
 
 This guide will walk you through installing, registering and preparing a delegate node on your instance. Whether you are experienced in Linux or completely new to it, you will be able, at the end of the guide, to have your delegate node running and start securing the X-Cash public network \(provided you get elected as a delegate 😉\).
 
-This guide is splitted in two sections:
+This guide is split in two sections:
 
 * \*\*\*\*[**Quick installation**](installation-process.md#easy-installation): With a simple auto-installer script, you will be able to install the `xcash-dpops` program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
 * \*\*\*\*[**Manual installation**](installation-process.md#manual-installation-process): This step-by-step guide will cover everything about building the `xcash-dpops` program, the dependencies from the source code and managing the services. _It is expected that you are confortable on Linux to follow this guide._
@@ -30,7 +30,7 @@ In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We
 The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop **token creation**, **NFT**, **sidechains**, **smart contracts** and other exciting features ⭐\). 
 
 {% hint style="info" %}
-The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
+The recommended system requirement is designed to be **future-development proof**, meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
 {% endhint %}
 
 |  | **Minimum**  | **Recommended**  |
@@ -122,11 +122,12 @@ You can select the task by inputting the corresponding number:
 4. **Install / Update Blockchain:** Downloads or updates the X-Cash blockchain data.
 5. **Change Solo Delegate or Shared Delegate:** Switches from a solo delegate setup to a shared delegate setup or the other way around.
 6. **Edit Shared Delegate Settings:** If you are running a shared delegate setup, changes the fees and minimum payout to voters.
-7. **Restart Programs:** Restarts all the programs and services relating to the `xcash-dpops.`
-8. **Test Update:** Alpha test feature \(
-9. **Test Update Reset Delegates:** Alpha test feature
-10. **Firewall:** Install the firewall for solo delegates.
-11. **Shared Delegates Firewall:** Install the firewall with paramaters for shared delegates.
+7. **Restart Programs:** Restarts all the programs and services relating to `xcash-dpops.`
+8. **Stop Programs:** Stop all the programs and services relating to`xcash-dpops.`
+9. **Test Update:** Alpha test feature \(
+10. **Test Update Reset Delegates:** Alpha test feature
+11. **Firewall:** Install the firewall for solo delegates.
+12. **Shared Delegates Firewall:** Install the firewall with paramaters for shared delegates.
 
 ## Quick Installation
 
@@ -171,7 +172,8 @@ Press `ENTER` for the default location \(`/data/db/`\).
 You will be then asked if you want to install the `xcash-dpops` program as a **shared delegate** or a **solo delegate**.
 
 {% hint style="info" %}
-In the X-Cash Public Network consensus, the delegates are voted into the top position using XCASH. In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. He would then be a **solo delegate**.    
+In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
+In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. He would then be a **solo delegate**.    
 Solo delegates do not need to set up fees and minimum payout threshold as there is no need to redistribute the reward.
 {% endhint %}
 
@@ -237,13 +239,16 @@ Once the script has installed everything, you will be prompted with your X-Cash 
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
-**Make sure to copy this information in a secure place,** as this is the wallet that will receive the block reward. 
+{% hint style="danger" %}
+**Make sure to copy this information in a secure place,** as this is the wallet that will receive the block reward.   
+Losing this information _will_ result in a loss of funds.
+{% endhint %}
 
-Now that the program is installed, you can go register yourself as a delegate. Follow the [register delegate](set-up-your-delegates.md) guide to continue the node setup. 
+Now that the program is installed, your delegate wallet initialized and the different services running, you can go register yourself as a delegate. Follow the [register delegate](set-up-your-delegates.md) guide to continue the node setup.
 
 ## Manual Installation
 
-This guide is designed for people knowledgeable in Linux. If you are not confortable with the Linux distribution, or ifyou are following these steps without understanding what you are doing, you might make mistake that will prevent the xcash-dpops program to run as intended.
+This guide is designed for people knowledgeable in Linux. If you are not confortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make mistake that will prevent the `xcash-dpops` program to run as intended.
 
 ### Installation Directories
 
@@ -251,10 +256,11 @@ This guide is designed for people knowledgeable in Linux. If you are not confort
 It is recommended to install the program the different programs needed for the `xcash-dpops` in the same folder, in the the `/root/` directory  or the `/home/$USER/` if you are installing from a user different than root.
 {% endhint %}
 
-In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systempid` , and `logs` directory within: 
+In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systemdpid` , and `logs` directory within. Additionnaly, create the `.X-CASH` directory that will store the X-Cash blockchain file.
 
 ```bash
-mkdir -p ~/xcash-official/{xcash-wallet,logs,systempid}
+mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid}
+mkdir -p ~/.X-CASH
 ```
 
 ### Install Dependencies
@@ -266,7 +272,11 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt install build-essential cmake pkg-config libssl-dev git -y
 ```
 
-If you want to install [`xcash-core`](https://github.com/X-CASH-official/xcash-core) from source, you will need to install [additionnal packages](https://github.com/X-CASH-official/xcash-core#dependencies). 
+If you want to install [`xcash-core`](https://github.com/X-CASH-official/xcash-core) from source, you will need to install these [additionnal packages](https://github.com/X-CASH-official/xcash-core#dependencies). 
+
+```bash
+sudo apt install libboost-all-dev libzmq3-dev libunbound-dev libsodium-dev libminiupnpc-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev libgtest-dev doxygen graphviz libpcsclite-dev screen p7zip-full -y
+```
 
 #### Installing MongoDB
 
@@ -334,6 +344,24 @@ Then, update the the links and cache of the newly installed library:
 sudo ldconfig
 ```
 
+#### Building `xcash-core` from source
+
+Clone the `xcash-core` repository to your installation folder and go to the downloaded folder:
+
+```bash
+cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-core.git
+cd xcash-core
+```
+
+Make sure to have all the [dependencies](installation-process.md#install-dependencies) installed, and build the binaries using `make`: 
+
+```bash
+make clean
+make release -j `nproc`
+```
+
+Once the build finishes, the binaries will be  located in  `~/xcash-official/xcash-core/build/release/bin`
+
 ### Build Instructions
 
 At this point, all the dependencies shoud be installed and built. First, clone the `xcash-dpops` repository:
@@ -349,7 +377,29 @@ cd ~/xcash-official/xcash-dpops
 make clean ; make release -j `nproc`
 ```
 
-Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to setup the different `units` for systemd to organize how your server manages the services.
+Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to generate a wallet to be used for the delegate and setup the different `units` for systemd to organize how your server manages the different services.
+
+### Generate a Wallet 
+
+You will need to create a wallet to register as a delegate, to receive the block reward if you are elected as a top delegate and if you are a shared delegate, the payments will be sent from this wallet as well. 
+
+To generate a new wallet, use the following command: 
+
+```bash
+~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --generate-new-wallet ~/xcash-official/xcash-wallet/<WALLET_NAME> --password <PASSWORD> --mnemonic-language English --restore-height 0 --daemon-address <SEED_NODE>
+```
+
+Replace **`<WALLET_NAME>`**, **`<PASSWORD>`** and the **`<SEED_NODE>`**  with the parameters of your choice.
+
+{% hint style="info" %}
+The wallet synchronization can take time the first time. It will depend on which seed node you chose, and your servers internet connection.
+{% endhint %}
+
+{% hint style="danger" %}
+**Make sure that you write down your mnemonic key and store it in a secure place** as it will be the only way to restore your wallet in case of problem. Failing to do so _will_ result in loss of funds.
+{% endhint %}
+
+The wallet files will be located in `~/xcash-official/xcash-wallet/`
 
 ### Setup The Services
 
@@ -359,7 +409,11 @@ On this guide, we will setup the different unit files to manage the programs nee
 
 #### 1. Initialization
 
-Touch
+Create two empty `PID` files in the `systemdpid` folder previously created, that will manage the corresponding services:
+
+```bash
+touch ~/xcash-official/systemdpid/mongod.pid ~/xcash-official/systemdpid/xcash_daemon.pid
+```
 
 #### 2. MongoDB Service
 
@@ -546,8 +600,28 @@ In the file, replace the following if needed:
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
-The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md) guide.
+The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md#1-generate-a-block-verifier-key) guide.
 {% endhint %}
+
+#### 7. Install and reload
+
+Now that you have prepared all the `unit` systemd files, you will need to copy them to the system folder: 
+
+```bash
+cp -a ~/xcash-official/xcash-dpops/scripts/systemd/* /lib/systemd/system/
+```
+
+Then, reload `systemd` to take the changes into account and run the services.
+
+```bash
+systemctl daemon-reload
+```
+
+### 
+
+### 
+
+### 
 
 ### Test build
 
