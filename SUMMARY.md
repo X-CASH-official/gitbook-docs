@@ -24,6 +24,7 @@
 * [Register Delegate](dpops/set-up-your-delegates.md)
 * [Management & Statistics](dpops/maintenance-and-monitoring.md)
 * [Set up your node](dpops/set-up-your-node.md)
+* [🗳️ Vote](dpops/vote.md)
 
 ## Library
 
