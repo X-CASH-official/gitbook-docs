@@ -600,12 +600,12 @@ In the file, replace the following if needed:
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
-The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md#1-generate-a-block-verifier-key) guide.
+The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md#1-generate-a-block-verifier-key) guide. Make sure to updat ethe file with your Block Verifier Secret Key and restart the service.
 {% endhint %}
 
 #### 7. Install and reload
 
-Now that you have prepared all the `unit` systemd files, you will need to copy them to the system folder: 
+Now that you have prepared all the `unit` systemd files, you will need to copy all of them to the `system` folder: 
 
 ```bash
 cp -a ~/xcash-official/xcash-dpops/scripts/systemd/* /lib/systemd/system/
