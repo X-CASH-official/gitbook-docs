@@ -59,7 +59,7 @@ The recommended system requirement is designed to be "**future-development proof
 | **Bandwidth Speed** | 100 Mbps | 500 Mbps |
 
 {% hint style="warning" %}
- It is estimated that the blockchain size will increase by **18GB per year.**
+ It is estimated that the blockchain size will increase by **9GB per year.**
 {% endhint %}
 
 #### Server hosting provider

@@ -22,7 +22,7 @@
 * [Server Setup Guide](dpops/server-setup.md)
 * [Node Program Installation](dpops/installation-process.md)
 * [Register Delegate](dpops/set-up-your-delegates.md)
-* [Management & Statistics](dpops/maintenance-and-monitoring.md)
+* [Management & Monitoring](dpops/maintenance-and-monitoring.md)
 * [Set up your node](dpops/set-up-your-node.md)
 * [🗳️ Vote](dpops/vote.md)
 

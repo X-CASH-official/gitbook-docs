@@ -43,7 +43,7 @@ The recommended system requirement is designed to be **future-development proof*
 | **Bandwidth Speed** | 100 Mbps | 500 Mbps |
 
 {% hint style="info" %}
- It is estimated that the blockchain size will increase by **18GB per year.**
+ It is estimated that the blockchain size will increase by **9GB per year.**
 {% endhint %}
 
 {% hint style="warning" %}
@@ -173,7 +173,7 @@ You will be then asked if you want to install the `xcash-dpops` program as a **s
 
 {% hint style="info" %}
 In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
-In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. He would then be a **solo delegate**.    
+In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. We are calling them **solo delegate**.    
 Solo delegates do not need to set up fees and minimum payout threshold as there is no need to redistribute the reward.
 {% endhint %}
 
