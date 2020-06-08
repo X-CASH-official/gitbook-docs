@@ -137,13 +137,13 @@ Once you have prepared your Linux instance by following the [server setup guide]
 
 **`xcash-dpops`** is the program needed to run a delegate node. It is responsible for sending messages to the other delegates, organize the consensus, relay and forge new blocks, etc...
 
-To start the installation process, run the `autoinstaller.sh` script: 
+To start the installation process, run the **`autoinstaller.sh`** script: 
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-Choose `Install` \(1\) and press `ENTER`. 
+Choose **`Install`** \(1\) and press `ENTER`. 
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
@@ -151,7 +151,7 @@ You will be prompted to choose an installation directory:
 
 ![](../.gitbook/assets/image%20%2816%29.png)
 
-Press `ENTER` for the default location \(`/root/xcash-programs/`\), or provide another path in the form `/directory/`
+Press **`ENTER`** for the default location \(**`/root/xcash-programs/`**\), or provide another path in the form **`/directory/`**
 
 {% hint style="warning" %}
 It is recommended to always choose the default location.
@@ -161,15 +161,15 @@ Next, you will need to choose the blockchain file directory.
 
 ![](../.gitbook/assets/image%20%288%29.png)
 
-Press `ENTER` for the default location \(`/root/.X-CASH/`\).
+Press **`ENTER`** for the default location \(**`/root/.X-CASH/`**\).
 
 Next, you will need to choose the directory for the delegate database. 
 
 ![](../.gitbook/assets/image%20%2814%29.png)
 
-Press `ENTER` for the default location \(`/data/db/`\).
+Press **`ENTER`** for the default location \(**`/data/db/`**\).
 
-You will be then asked if you want to install the `xcash-dpops` program as a **shared delegate** or a **solo delegate**.
+You will be then asked if you want to install the **`xcash-dpops`** program as a **shared delegate** or a **solo delegate**.
 
 {% hint style="info" %}
 In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
@@ -423,7 +423,7 @@ Edit the systemd unit file `MongoDB.service` from in the `xcash-dpops/scripts/sy
 nano ~/xcash-official/xcash-dpops/scripts/systemd/MongoDB.service
 ```
 
-You will get the following systemd file: 
+You will get the following **`unit`**file: 
 
 {% code title="MongoDB.service" %}
 ```bash
@@ -469,7 +469,7 @@ Edit the systemd unit file `XCASH_Daemon.service` from in the `xcash-dpops/scrip
 nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_Daemon.service
 ```
 
-You will get the following systemd file: 
+You will get the following **`unit`**file: 
 
 {% code title="XCASH\_Daemon.service" %}
 ```bash
@@ -506,7 +506,7 @@ Edit the systemd unit file `XCASH_Wallet.service` from in the `xcash-dpops/scrip
 nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_Wallet.service
 ```
 
-You will get the following systemd file: 
+You will get the following **`unit`** file: 
 
 {% code title="XCASH\_Wallet.service" %}
 ```bash
@@ -534,13 +534,13 @@ In the file, replace the following if needed:
 
 #### 5. Firewall Service
 
-Edit the systemd unit file `firewall.service` from in the `xcash-dpops/scripts/systemd`folder : 
+Edit the systemd unit file **`firewall.service`** from in the **`xcash-dpops/scripts/systemd`**folder : 
 
 ```bash
 nano ~/xcash-official/xcash-dpops/scripts/systemd/firewall.service
 ```
 
-You will get the following systemd file: 
+You will get the following **`unit`** file: 
 
 {% code title="firewall.service" %}
 ```bash
@@ -565,13 +565,13 @@ In the file, replace the following if needed:
 
 #### 6. XCASH DPOPS Service
 
-Edit the systemd unit file `XCASH_DPOPS.service` from in the `xcash-dpops/scripts/systemd`folder : 
+Edit the systemd unit file **`XCASH_DPOPS.service`** from in the **`xcash-dpops/scripts/systemd`**folder : 
 
 ```bash
 nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_DPOPS.service
 ```
 
-You will get the following systemd file: 
+You will get the following **`unit`** file: 
 
 {% code title="XCASH\_DPOPS.service" %}
 ```bash
@@ -600,7 +600,7 @@ In the file, replace the following if needed:
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
-The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md#1-generate-a-block-verifier-key) guide. Make sure to updat ethe file with your Block Verifier Secret Key and restart the service.
+The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md#1-generate-a-block-verifier-key) guide. Make sure to update the file with your Block Verifier Secret Key and restart the service.
 {% endhint %}
 
 #### 7. Install and reload

@@ -241,11 +241,5 @@ tail -n 100 ~/xcash-official/logs/XCASH_Daemon_log.txt
 ```
 {% endhint %}
 
-## **Delegate Websites**
-
-**Solo Delegate**
-
-**Shared Delegate**
-
 
 

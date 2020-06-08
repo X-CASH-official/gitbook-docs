@@ -50,7 +50,7 @@ If you lose it, you will lose your delegate stats and will have to start over.
 Now that you have generate your block verifier key pair, you can register yourself as a delegate. You will need to prepare a **delegate name**, your **server IP address** or **domain name**, and the **block verifier public key.** Furthermore, you will have to register from the wallet you will be using to collect reward.  ****
 
 {% hint style="warning" %}
-Chose your delegate name wisely as you won't be able to change it down the line. If you want to change name, you will have to generate a new block verifier key pair and register yourself again. You will however lose your previous delegate stats.
+Chose your delegate name wisely as you won't be able to change it down the line. If you want to change name, you will have to generate a new block verifier key pair and register yourself again, but **you will however lose your previous delegate stats.**
 {% endhint %}
 
 First of all, the wallet service should be running in the background. Stop it by using the command: 
@@ -75,9 +75,9 @@ delegate_register <delegate_name> <IP_address|domain_name> <block_verifier_publi
 
 And replace the information with:
 
-* **`<delegate_name>`**: the name that will be displayed on the delegate explorer. Cannot be updated.
-* **`<IP_address|domain_name>`** : your server's IP address or its domain name \(if you have bought a domain name and correctly set up the DNS record\). It is possible to change this information at a later time. Can be updated.
-* **`<block_verifier_public_key>`** : the block verifier public key that you have generated [earlier](set-up-your-delegates.md#1-generate-a-block-verifier-key). Cannot be updated. 
+* **`<delegate_name>`**: the name that will be displayed on the delegate explorer. _Cannot be updated._
+* **`<IP_address|domain_name>`** : your server's IP address or its domain name \(if you have bought a domain name and correctly set up the DNS record\). It is possible to change this information at a later time. _Can be updated._
+* **`<block_verifier_public_key>`** : the block verifier public key that you have generated [earlier](set-up-your-delegates.md#1-generate-a-block-verifier-key). _Cannot be updated._ 
 
 **Example:**  
 
@@ -85,7 +85,7 @@ And replace the information with:
 delegate_register my_delegate my_delegate.domain.com cf8718d638ce0a831f3538ea60d1e27c3a258c7004a1ad7c547cc5331de7d9d7
 ```
 
-You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message `The delegate has been registered successfully`.
+You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message **`The delegate has been registered successfully`**.
 
 You can `exit` the wallet and restart the wallet service:
 
@@ -93,7 +93,17 @@ You can `exit` the wallet and restart the wallet service:
 systemctl start XCASH_Wallet
 ```
 
-## 3. Update Your Delegate Information
+Now, you will need to use your **`block verifier secret key`** as a parameter to let the program identify that you are the one signing messages. 
+
+First of all, stop the current running process of the **`xcash-dpops`** program.
+
+```text
+systemctl stop XCASH_DPOPS
+```
+
+
+
+## 3. Update Public Information
 
 Each registered delegates will be displayed in the [delegates explorer](http://delegates.xcash.foundation/), along with their statistics and information. At registration, the minimum information that is displayed is your **delegate name** and **IP address**. You can add additionnal instructions to help other identify you or rally to your cause and vote for you.
 
@@ -109,7 +119,11 @@ Open and let synchronize your wallet generated during the node installation, eit
 ~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallet/<WALLET_NAME>
 ```
 
-Replace the `<WALLET_NAME>` with your own.
+Replace the **`<WALLET_NAME>`** with your own.
+
+{% hint style="info" %}
+If you installed with the autoinstaller script, the wallet name will be **`XCASH_DPOPS_WALLET`**
+{% endhint %}
 
 Once your wallet is fully synchronized, you can use the `delegate_update` command with the following parameters: 
 
@@ -220,13 +234,106 @@ Replace the `<item>` with one of the list below, and change the correspondig `<v
   </tbody>
 </table>
 
-You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message `The delegate info has been updated successfully`.
+You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message **`The delegate info has been updated successfully`**.
 
-You can `exit` the wallet and restart the wallet service:
+You can **`exit`** the wallet and restart the wallet service:
 
 ```text
 systemctl start XCASH_Wallet
 ```
 
+## 4. Shared Delegates
 
+If you plan on being a delegate, but need to accept people vote to help you place in the top delegates spot and earn the right to forge blocks, you will need to run a shared delegate.  
+The shared delegates website will automatically pay your voters taking into account their share.
+
+### Quick Setup
+
+{% hint style="info" %}
+You can run the **`Change Solo Delgate or Shared Delegate`**  or **`Edit Shared Delegate Settings`** option in the autoinstaller script to easily update your delegate settings. To open the installer script, run:
+
+```text
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+{% endhint %}
+
+### Manual Setup
+
+To run your node as a shared delegate, you just need to run the **`xcash-dpops`** program with the following added set of parameters:
+
+```text
+--shared-delegates-website --fee <fee> --minimum_amount <amount>
+```
+
+With :
+
+* **`<fee>` :** Your delegate fee is the amount of the block reward you are keeping to yourself. The **`<fee>`** is expressed in percentage \(%\) and can take up to 6 decimals. 
+* **`<amount>` :** The minimum amount of XCASH that can be sent to voters as part of their payment. Has to be an integer number.
+
+_**Example**_
+
+```text
+--shared-delegates-website --fee 12.092032 --minimum_amount 10000
+```
+
+Will register as a shared delegate, taking a fee of **`12.092032%`** from the block reward, and process payments to voter when they have accumulated to **`10,000`** XCASH.
+
+#### Update the `xcash-dpops` program
+
+To make sure that your node is running with the parameters, you should update the **`unit`** files and restart the service.
+
+First, make sure to stop the running **`XCASH_DPOPS`** service:
+
+```text
+systemctl stop XCASH_DPOPS
+```
+
+Then, edit the **`unit`** file: 
+
+```text
+nano /lib/systemd/system/XCASH_DPOPS.service
+```
+
+And add the parameters to the **`ExecStart`** variable: 
+
+{% code title="XCASH\_DPOPS.service" %}
+```text
+[Unit]
+Description=XCASH DPOPS
+ 
+[Service]
+Type=simple
+LimitNOFILE=infinity
+User=root
+WorkingDirectory=~/xcash-official/xcash-dpops/build
+ExecStart=~/xcash-official/xcash-dpops/build/XCASH_DPOPS --block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY --shared-delegates-website --fee <fee> --minimum_amount <amount>
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+{% hint style="danger" %}
+Make sure that the following parameter is in first place: 
+
+```text
+--block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY
+```
+{% endhint %}
+
+{% hint style="info" %}
+Make sure to[ update your public information](set-up-your-delegates.md#3-update-public-information) when you change fees, and change **`pool_mode`** to true if you are running a shared delegate node to let people know that they can vote for you.
+{% endhint %}
+
+#### **Build the shared delegate website**
+
+{% hint style="info" %}
+The shared delegate website has been automatically installed if you installed through the autoinstaller script.
+{% endhint %}
+
+
+
+**And you are done** 🎉   
+Verify that you are listed in the [delegate explorer](http://delegates.xcash.foundation/), and start advertising your node to get people joining your cause and vote for you! 
 
