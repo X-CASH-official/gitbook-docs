@@ -329,10 +329,76 @@ Make sure to[ update your public information](set-up-your-delegates.md#3-update-
 #### **Build the shared delegate website**
 
 {% hint style="info" %}
-The shared delegate website has been automatically installed if you installed through the autoinstaller script.
+The **`shared delegate website`** has been automatically installed if you installed with the autoinstaller script.
 {% endhint %}
 
+As a shared delegate, you will need to pay your voters a share of the block reward. We have designed a [**`delegate pool website`**](https://github.com/X-CASH-official/delegates-pool-website), which works similarly to a regular PoW pool website, where your voters can see their pending payments, your forging statistics and so on...
 
+First, install the website dependencies:
+
+**NodeJS**
+
+Install nodeJS latest available version:
+
+```text
+sudo apt install nodejs
+```
+
+And update to the latest version using [this tutorial](https://phoenixnap.com/kb/update-node-js-version). 
+
+#### **npm**
+
+{% hint style="info" %}
+First, if you are installing from root user, you need to give the current permissions:
+
+```text
+npm config set user 0
+npm config set unsafe-perm true
+```
+{% endhint %}
+
+Install **`npm`** globally: 
+
+```text
+npm install -g npm
+```
+
+**Angular & Uglify JS**
+
+Install **`Angular`** and **`UglifyJS`** globally:
+
+```text
+npm install -g @angular/cli@latest uglify-js
+```
+
+**Build**
+
+Once all dependencies are installed, clone the [**`delegate pool website`**](https://github.com/X-CASH-official/delegates-pool-website) repository :
+
+```text
+cd ~/xcash-official && git clone https://github.com/X-CASH-official/delegates-pool-website.git
+```
+
+Go into the folder, install the dependencies, and build the website:
+
+```text
+cd ~/xcash-official/delegates-pool-website
+npm update
+npm run build
+```
+
+It will build in the **`dist`**folder.
+
+Compress the **`.js`** files with **`Uglify-JS`** and move all of the contents of this folder to your **`xcash-dpops/`** folder:
+
+```text
+cd ~/xcash-official/delegates-pool-website/dist
+for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done
+rm -r ~/xcash-official/xcash-dpops/delegates-pool-website
+mkdir ~/xcash-official/xcash-dpops/delegates-pool-website
+cd ..
+cp -a dist/* ~/xcash-official/xcash-dpops/delegates-pool-website
+```
 
 **And you are done** 🎉   
 Verify that you are listed in the [delegate explorer](http://delegates.xcash.foundation/), and start advertising your node to get people joining your cause and vote for you! 
