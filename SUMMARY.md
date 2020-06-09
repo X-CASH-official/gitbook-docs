@@ -20,10 +20,10 @@
 * [Get Started](dpops/get-started.md)
 * [Technical Design](dpops/yellowpaper-delagated-proof-of-private-stake.md)
 * [Server Setup Guide](dpops/server-setup.md)
-* [Node Program Installation](dpops/installation-process.md)
-* [Register Delegate](dpops/set-up-your-delegates.md)
-* [Management & Monitoring](dpops/maintenance-and-monitoring.md)
-* [🗳️ Vote & Staking](dpops/vote.md)
+* [Node Program Installation](dpops/node-installation.md)
+* [Register Delegate](dpops/register-delegate.md)
+* [Management & Monitoring](dpops/management-and-monitoring.md)
+* [🗳️ Vote & Staking](dpops/vote-and-staking.md)
 
 ## Library
 

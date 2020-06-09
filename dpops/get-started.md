@@ -17,8 +17,8 @@ Becoming a delegate is ambitious, and reaching and keeping a forging spot is rew
 | What are you looking for? | Description |
 | :--- | :--- |
 | **What is DPoPS? What's unique about this consensus?** | We recommend that you have a look at the [technical design](yellowpaper-delagated-proof-of-private-stake.md) of the consensus, which as been built from the ground up to work with X-Cash. |
-| **I want to become a delegate and set up a validator node.** | First, follow the [server setup guide](server-setup.md) if you are not familiar with Linux instances. Then, follow the [node program installation](installation-process.md) to install the necessary program to run the consensus. Finally, see the instructions to[ register yourself as a delegate](set-up-your-delegates.md). |
-| **I want to stake.** | Have a look at our quick [vote & staking](vote.md) guide. |
+| **I want to become a delegate and set up a validator node.** | First, follow the [server setup guide](server-setup.md) if you are not familiar with Linux instances. Then, follow the [node program installation](node-installation.md) to install the necessary program to run the consensus. Finally, see the instructions to[ register yourself as a delegate](register-delegate.md). |
+| **I want to stake.** | Have a look at our quick [vote & staking](vote-and-staking.md) guide. |
 
 ## Key features <a id="key-features"></a>
 

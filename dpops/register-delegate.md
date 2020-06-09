@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Once you have correctly [set up your instance](server-setup.md), installed the different programs, either from the [installer script](installation-process.md#quick-installation) or [manually](installation-process.md#manual-installation), you can now register as a delegate of the X-Cash Public Network.  
+Once you have correctly [set up your instance](server-setup.md), installed the different programs, either from the [installer script](node-installation.md#quick-installation) or [manually](node-installation.md#manual-installation), you can now register as a delegate of the X-Cash Public Network.  
 You will need to have all the services already running to generate the necessary parameters to register yourself as a delegate. 
 
 ## 1. Generate a Block Verifier Key
@@ -59,7 +59,7 @@ First of all, the wallet service should be running in the background. Stop it by
 systemctl stop XCASH_Wallet
 ```
 
-Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process.md#quick-installation) or [created manually](installation-process.md#generate-a-wallet). 
+Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](node-installation.md#quick-installation) or [created manually](node-installation.md#generate-a-wallet). 
 
 ```text
 ~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallet/<WALLET_NAME>
@@ -77,7 +77,7 @@ And replace the information with:
 
 * **`<delegate_name>`**: the name that will be displayed on the delegate explorer. _Cannot be updated._
 * **`<IP_address|domain_name>`** : your server's IP address or its domain name \(if you have bought a domain name and correctly set up the DNS record\). It is possible to change this information at a later time. _Can be updated._
-* **`<block_verifier_public_key>`** : the block verifier public key that you have generated [earlier](set-up-your-delegates.md#1-generate-a-block-verifier-key). _Cannot be updated._ 
+* **`<block_verifier_public_key>`** : the block verifier public key that you have generated [earlier](register-delegate.md#1-generate-a-block-verifier-key). _Cannot be updated._ 
 
 **Example:**  
 
@@ -113,7 +113,7 @@ First of all, the wallet service should be running in the background. Stop it by
 systemctl stop XCASH_Wallet
 ```
 
-Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](installation-process.md#quick-installation) or [created manually](installation-process.md#generate-a-wallet). 
+Open and let synchronize your wallet generated during the node installation, either when using the [auto-installer](node-installation.md#quick-installation) or [created manually](node-installation.md#generate-a-wallet). 
 
 ```text
 ~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallet/<WALLET_NAME>
@@ -323,7 +323,7 @@ Make sure that the following parameter is in first place:
 {% endhint %}
 
 {% hint style="info" %}
-Make sure to[ update your public information](set-up-your-delegates.md#3-update-public-information) when you change fees, and change **`pool_mode`** to true if you are running a shared delegate node to let people know that they can vote for you.
+Make sure to[ update your public information](register-delegate.md#3-update-public-information) when you change fees, and change **`pool_mode`** to true if you are running a shared delegate node to let people know that they can vote for you.
 {% endhint %}
 
 #### **Build the shared delegate website**

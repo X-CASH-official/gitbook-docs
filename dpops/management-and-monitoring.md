@@ -10,7 +10,7 @@ description: >-
 
 `systemd` is generally used to manage low-level programs in Linux-based systems. It's a reliable way to automatically run programs on startup, and manage and monitor the different services.
 
-In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**. Whether you installed with the [autoinstaller script](installation-process.md#quick-installation) or [manually](installation-process.md#manual-installation), the programs needed to run the X-Cash consensus are managed in `systemd` with `unit` files.
+In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**. Whether you installed with the [autoinstaller script](node-installation.md#quick-installation) or [manually](node-installation.md#manual-installation), the programs needed to run the X-Cash consensus are managed in `systemd` with `unit` files.
 
 The different services needed for the X-Cash consensus running on the server are the listed below:  
 

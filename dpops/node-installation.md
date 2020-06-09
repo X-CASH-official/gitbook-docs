@@ -16,8 +16,8 @@ This guide will walk you through installing, registering and preparing a delegat
 
 This guide is split in two sections:
 
-* \*\*\*\*[**Quick installation**](installation-process.md#easy-installation): With a simple auto-installer script, you will be able to install the `xcash-dpops` program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
-* \*\*\*\*[**Manual installation**](installation-process.md#manual-installation-process): This step-by-step guide will cover everything about building the `xcash-dpops` program, the dependencies from the source code and managing the services. _It is expected that you are confortable on Linux to follow this guide._
+* \*\*\*\*[**Quick installation**](node-installation.md#easy-installation): With a simple auto-installer script, you will be able to install the `xcash-dpops` program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
+* \*\*\*\*[**Manual installation**](node-installation.md#manual-installation-process): This step-by-step guide will cover everything about building the `xcash-dpops` program, the dependencies from the source code and managing the services. _It is expected that you are confortable on Linux to follow this guide._
 
 ## Requirements
 
@@ -244,7 +244,7 @@ Once the script has installed everything, you will be prompted with your X-Cash 
 Losing this information _will_ result in a loss of funds.
 {% endhint %}
 
-Now that the program is installed, your delegate wallet initialized and the different services running, you can go register yourself as a delegate. Follow the [register delegate](set-up-your-delegates.md) guide to continue the node setup.
+Now that the program is installed, your delegate wallet initialized and the different services running, you can go register yourself as a delegate. Follow the [register delegate](register-delegate.md) guide to continue the node setup.
 
 ## Manual Installation
 
@@ -353,7 +353,7 @@ cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-core.
 cd xcash-core
 ```
 
-Make sure to have all the [dependencies](installation-process.md#install-dependencies) installed, and build the binaries using `make`: 
+Make sure to have all the [dependencies](node-installation.md#install-dependencies) installed, and build the binaries using `make`: 
 
 ```bash
 make clean
@@ -600,7 +600,7 @@ In the file, replace the following if needed:
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
-The instructions to generate the block verifier secret key is given in the [register delegate](set-up-your-delegates.md#1-generate-a-block-verifier-key) guide. Make sure to update the file with your Block Verifier Secret Key and restart the service.
+The instructions to generate the block verifier secret key is given in the [register delegate](register-delegate.md#1-generate-a-block-verifier-key) guide. Make sure to update the file with your Block Verifier Secret Key and restart the service.
 {% endhint %}
 
 #### 7. Install and reload
