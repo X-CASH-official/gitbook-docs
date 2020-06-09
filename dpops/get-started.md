@@ -17,13 +17,14 @@ Becoming a delegate is ambitious, and reaching and keeping a forging spot is rew
 | What are you looking for? | Description |
 | :--- | :--- |
 | **What is DPoPS? What's unique about this consensus?** | We recommend that you have a look at the [technical design](yellowpaper-delagated-proof-of-private-stake.md) of the consensus, which as been built from the ground up to work with X-Cash. |
-| **I want to become a delegate and set up a validator node.** | Follow our complete [installation process](installation-process.md) to get started.  We recommend that you have a look at our [server setup guide](server-setup.md) if it's your first time setting up a Linux server. |
+| **I want to become a delegate and set up a validator node.** | First, follow the [server setup guide](server-setup.md) if you are not familiar with Linux instances. Then, follow the [node program installation](installation-process.md) to install the necessary program to run the consensus. Finally, see the instructions to[ register yourself as a delegate](set-up-your-delegates.md). |
+| **I want to stake.** | Have a look at our quick [vote & staking](vote.md) guide. |
 
 ## Key features <a id="key-features"></a>
 
 #### Characteristics 📃
 
-* The top 50 delegates \(currently\) are elected as block verifiers. 
+* The top 50 delegates are elected as block verifiers. 
 * Using a variation of Delegated Byzantine Fault tolerance consensus where 67% consensus must be reached for a new block to be added to the network.
 * DBFT allows for up to 33% of the elected block verifiers to be faulty. The system will still be able to produce a new block.
 * Using Verifiable Random Functions \(VRF\) to select the next block producer in the system. This allows for a random, but verifiable way of selecting the next block producer.
