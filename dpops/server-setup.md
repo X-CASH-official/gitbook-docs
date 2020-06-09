@@ -64,9 +64,9 @@ The recommended system requirement is designed to be "**future-development proof
 
 #### Server hosting provider
 
-There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure, you will need to rent your server with a provider. 
+There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure \(which is most likely 🙂\), you will need to rent your server with a provider. 
 
-We are agnostic as to which server provider you should choose to run the `xcash-dpops` program. Our recommendation is to find a Dedicated server or VPS that matches [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
+We are agnostic as to which server provider you should choose to run the **`xcash-dpops`** program. Our recommendation is to find a **Dedicated server** or **VPS** that matches [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
 
 {% hint style="info" %}
 Make sure to read your server provider documentation. Each initial server setup can be different.
@@ -343,5 +343,5 @@ Assuming that the domain you bought is **`domain-name.com`**, the A Record above
 
 ## Set up your delegate node
 
-Once you have done every steps above, and are familiarized with your server, you can go through the next step and install the delegate program, `xcash-dpops`. Follow the [delegate node installation](node-installation.md) for a complete tutorial. 
+Once you have done every steps above, and are familiarized with your server, you can go through the next step and install the delegate program, **`xcash-dpops`**. Follow the [delegate node installation](node-installation.md) for a complete tutorial. 
 

@@ -16,8 +16,8 @@ This guide will walk you through installing, registering and preparing a delegat
 
 This guide is split in two sections:
 
-* \*\*\*\*[**Quick installation**](node-installation.md#easy-installation): With a simple auto-installer script, you will be able to install the `xcash-dpops` program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
-* \*\*\*\*[**Manual installation**](node-installation.md#manual-installation-process): This step-by-step guide will cover everything about building the `xcash-dpops` program, the dependencies from the source code and managing the services. _It is expected that you are confortable on Linux to follow this guide._
+* \*\*\*\*[**Quick installation**](node-installation.md#easy-installation): With a simple auto-installer script, you will be able to install the **`xcash-dpops`** program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
+* \*\*\*\*[**Manual installation**](node-installation.md#manual-installation-process): This step-by-step guide will cover everything about building the **`xcash-dpops`** program, the dependencies from the source code and managing the services. _It is expected that you are confortable on Linux to follow this guide._
 
 ## Requirements
 
@@ -27,7 +27,7 @@ This guide is split in two sections:
 In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We recommend installing it on a Ubuntu VPS/dedicated server \(18.04\) for best compatibility.**
 {% endhint %}
 
-The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop **token creation**, **NFT**, **sidechains**, **smart contracts** and other exciting features ⭐\). 
+The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when the X-Cash Foundation will add **token creation**, **NFT**, **sidechains**, **smart contracts** and other exciting features ⭐\). 
 
 {% hint style="info" %}
 The recommended system requirement is designed to be **future-development proof**, meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
@@ -102,9 +102,9 @@ systemd-timesyncd.service active: yes
 
 ## Installer Script
 
-The Installer Script has been designed to easily interact with the `xcash-dpops` program and provide easy steps for installation and update. You can also use this script to restart the programs if you are not confortable with the command line interface. 
+The **Installer Script** has been designed to easily interact with the **`xcash-dpops`** program and provide easy steps for installation and update. You can also use this script to restart the programs if you are not confortable with the command line interface. 
 
-To display the setting menu, run the following command that will fetch the `autoinstaller.sh` script from the official [xcash-dpops](https://github.com/X-CASH-official/xcash-dpops) repository:
+To display the setting menu, run the following command that will fetch the **`autoinstaller.sh`** script from the official [xcash-dpops](https://github.com/X-CASH-official/xcash-dpops) repository:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
@@ -118,14 +118,14 @@ You can select the task by inputting the corresponding number:
 
 1. **Install:** This setting will prepare the necessary directories, download the dependencies, build and  install the `xcash-dpops` program. The steps to follow are stated down below. 
 2. **Update:** Updates all the packages and releases of the dependencies to build the program.
-3. **Uninstall:** Removes all the files, dependencies and related program of the `xcash-dpops`.
+3. **Uninstall:** Removes all the files, dependencies and related program of the **`xcash-dpops`**.
 4. **Install / Update Blockchain:** Downloads or updates the X-Cash blockchain data.
 5. **Change Solo Delegate or Shared Delegate:** Switches from a solo delegate setup to a shared delegate setup or the other way around.
 6. **Edit Shared Delegate Settings:** If you are running a shared delegate setup, changes the fees and minimum payout to voters.
-7. **Restart Programs:** Restarts all the programs and services relating to `xcash-dpops.`
-8. **Stop Programs:** Stop all the programs and services relating to`xcash-dpops.`
-9. **Test Update:** Alpha test feature \(
-10. **Test Update Reset Delegates:** Alpha test feature
+7. **Restart Programs:** Restarts all the programs and services relating to **`xcash-dpops`**
+8. **Stop Programs:** Stop all the programs and services relating to**`xcash-dpops`**
+9. **Test Update:** _Alpha test feature_
+10. **Test Update Reset Delegates:** _Alpha test feature_
 11. **Firewall:** Install the firewall for solo delegates.
 12. **Shared Delegates Firewall:** Install the firewall with paramaters for shared delegates.
 
@@ -143,7 +143,7 @@ To start the installation process, run the **`autoinstaller.sh`** script:
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-Choose **`Install`** \(1\) and press `ENTER`. 
+Choose **`Install`** \(1\) and press **`ENTER`**. 
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
@@ -189,32 +189,32 @@ If you choose to install the program as a shared delegate, you will need to set 
 The **shared delegate fee** is the percentage of fees that is taken from the reward and kept by the delegate. It can be used to pay for the server hosting, to finance project in the X-Cash ecosystem, etc.. 
 {% endhint %}
 
-Type in your desired delegate fee \(in %\) with up to 6 decimals. 
+Type in your desired delegate fee **in % with up to 6 decimals**. 
 
 {% hint style="info" %}
-The `xcash-dpops` program will handle automatically the payment of the voters.  
+The **`xcash-dpops`** program will handle automatically the payment of the voters with a dedicated **delegate pool website**.  
 ****The **shared delegate minimum payment amount** is the minimal amount of XCASH to be sent periodically to the delegate's voters. 
 {% endhint %}
 
-Type your desired minimum payment amount \(minimum: 10,000 XCASH, maximum: 10M XCASH\) in whole number.
+Type your desired minimum payment amount \(minimum: 10000 XCASH, maximum: 10M XCASH\) as a whole number.
 
 The script will now ask you if you want to create a wallet to collect the block rewards. 
 
 ![](../.gitbook/assets/image%20%289%29.png)
 
-Press `ENTER` for the default setting \(`YES`\), or type `No`.
+Press **`ENTER`** for the default setting \(**`YES`**\), or type **`No`**.
 
-If you say `YES`, the installer will then ask you if you want to automatically generate a password for the wallet or provide a custom one. Press `ENTER` for the default setting \(`YES`\), or type `No` to provide a custom password.
+If you say **`YES`**, the installer will then ask you if you want to automatically generate a password for the wallet or provide a custom one. Press **`ENTER`** for the default setting \(**`YES`**\), or type **`No`** to provide a custom password.
 
 You will then be asked if you want to create a new block verifier secret key, or import an existing one:
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
-Type `I` to import your secret key, or `C` to create a new one.
+Type **`I`** to import your secret key, or **`C`** to create a new one.
 
 {% hint style="info" %}
-The Block Verifier Key is used by the delegates to sign messages when interacting with the network.   
-If it's your first installation of the xcash-dpops program, you shouldn't have generate one before. Choose `Create`  \(`C`\) to automatically generate a new one.  
+The **Block Verifier Key** is used by the delegates to sign messages when interacting with the network.   
+If it's your first install and you don't have one, choose **`Create`**  \(**`C`**\) to automatically generate a new one.  
 {% endhint %}
 
 This would be the last setting to provide. Once every steps have been followed, the settings will be summarized as below and the installation will start:
@@ -225,22 +225,22 @@ This would be the last setting to provide. Once every steps have been followed, 
 Your wallet password will be displayed again at the end of the installation process. It is however a good idea to save it now.
 {% endhint %}
 
-The script will then install automatically the different programs and dependencies needed for the `xcash-dpops` program.
+The script will then install automatically the different programs and dependencies needed for the **`xcash-dpops`** program.
 
 {% hint style="info" %}
 The installation script will follow automatically the next step of installation. Some of these steps **might take a while.**   
-Indeed, the script will download the blockchain \(~16GB as of 01/06/2020\), create a new wallet and synchronize it.  
-Depending on your server connection, this could take up to several hours. 
+Indeed, the script will download the blockchain \(`~16GB as of 01/06/2020`\), create a new wallet and synchronize it.  
+Depending on your server connection and specifications this could take up to several hours. 
 {% endhint %}
 
 ![Screencap of all the steps of the installer script](../.gitbook/assets/image%20%2810%29.png)
 
-Once the script has installed everything, you will be prompted with your X-Cash delegate wallet data.
+Once the script has installed everything, you will be prompted with your **X-Cash Delegate wallet data**.
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
 {% hint style="danger" %}
-**Make sure to copy this information in a secure place,** as this is the wallet that will receive the block reward.   
+**Make sure to copy this information in a secure place,** as this is the wallet that will receive the block reward. You will need the block verifiers key to **register yourself as a delegate**.  
 Losing this information _will_ result in a loss of funds.
 {% endhint %}
 
@@ -248,15 +248,15 @@ Now that the program is installed, your delegate wallet initialized and the diff
 
 ## Manual Installation
 
-This guide is designed for people knowledgeable in Linux. If you are not confortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make mistake that will prevent the `xcash-dpops` program to run as intended.
+This guide is designed for people knowledgeable in Linux and who want to install everything from scratch. If you are not confortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make mistake that will prevent the **`xcash-dpops`** program to run as intended.
 
 ### Installation Directories
 
 {% hint style="info" %}
-It is recommended to install the program the different programs needed for the `xcash-dpops` in the same folder, in the the `/root/` directory  or the `/home/$USER/` if you are installing from a user different than root.
+It is recommended to install the program the different programs needed for the **`xcash-dpops`** in the same folder, in the the **`/root/`** directory  or the **`/home/$USER/`** if you are installing from a user different than root.
 {% endhint %}
 
-In the `~` directory, create the `xcash-official` directory and the `xcash-wallets` , `systemdpid` , and `logs` directory within. Additionnaly, create the `.X-CASH` directory that will store the X-Cash blockchain file.
+In the **`~`** directory, create the **`xcash-official`** directory and the **`xcash-wallets`** , **`systemdpid`** , and `logs` directory within. Additionnaly, create the **`.X-CASH`** directory that will store the X-Cash blockchain file.
 
 ```bash
 mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid}
