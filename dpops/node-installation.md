@@ -600,7 +600,7 @@ In the file, replace the following if needed:
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
-The instructions to generate the block verifier secret key is given in the [register delegate](register-delegate.md#1-generate-a-block-verifier-key) guide. Make sure to update the file with your Block Verifier Secret Key and restart the service.
+The instructions to generate the block verifier secret key is given in the [register delegate](register-delegate.md#1-generate-a-block-verifier-key) guide. Make sure to update the file with your **`Block Verifier Secret Key`** and restart the service.
 {% endhint %}
 
 #### 7. Install and reload

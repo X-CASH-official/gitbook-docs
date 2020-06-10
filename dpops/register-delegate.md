@@ -113,6 +113,14 @@ First of all, stop the current running process of the **`xcash-dpops`** program.
 systemctl stop XCASH_DPOPS
 ```
 
+Then, add your block verifier secret key as a parameter in the service. See the [setup the services](node-installation.md#6-xcash-dpops-service) guide to see how to edit the unit file. 
+
+Once done, make sure to restart **`systemctl`**: 
+
+```text
+systemctl daemon-reload
+```
+
 ## 3. Update Public Information
 
 Each registered delegates will be displayed in the [delegates explorer](http://delegates.xcash.foundation/), along with their statistics and information. At registration, the minimum information that is displayed is your **delegate name** and **IP address**. You can add additionnal instructions to help other identify you or rally to your cause and vote for you.
