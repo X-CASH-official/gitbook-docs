@@ -364,7 +364,7 @@ Once the build finishes, the binaries will be  located in  `~/xcash-official/xca
 
 ### Build Instructions
 
-At this point, all the dependencies shoud be installed and built. First, clone the `xcash-dpops` repository:
+At this point, all the dependencies should be installed and built. First, clone the `xcash-dpops` repository:
 
 ```bash
 cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-dpops.git
@@ -405,7 +405,7 @@ The wallet files will be located in `~/xcash-official/xcash-wallet/`
 
  In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**.
 
-On this guide, we will setup the different unit files to manage the programs needed to run your delegate node. The `unit` files template are present in the `xcash-dpops/scripts/systemd` folder, but will need to be adjusted with your delegate information. 
+On this guide, we will set up the different unit files to manage the programs needed to run your delegate node. The `unit` files template are present in the `xcash-dpops/scripts/systemd` folder, but will need to be adjusted with your delegate information. 
 
 #### 1. Initialization
 
