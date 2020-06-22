@@ -376,7 +376,7 @@ cd ~/xcash-official/xcash-dpops
 make clean ; make release -j `nproc`
 ```
 
-Once the build is completed, you will get the `XCASH_DPOPS Has Been Built Successfully` message. Now that the program is built, you will need to generate a wallet to be used for the delegate and setup the different `units` for systemd to organize how your server manages the different services.
+Once the build is completed, you will get the `xcash-dpops Has Been Built Successfully` message. Now that the program is built, you will need to generate a wallet to be used for the delegate and setup the different `units` for systemd to organize how your server manages the different services.
 
 ### Generate a Wallet 
 
@@ -462,10 +462,10 @@ In the file, replace the following if needed:
 
 #### 3. XCASH Daemon Service
 
-Edit the systemd unit file `XCASH_Daemon.service` from in the `xcash-dpops/scripts/systemd`folder : 
+Edit the systemd unit file `xcash-daemon.service` from in the `xcash-dpops/scripts/systemd`folder : 
 
 ```bash
-nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_Daemon.service
+nano ~/xcash-official/xcash-dpops/scripts/systemd/xcash-daemon.service
 ```
 
 You will get the following systemd file: 
@@ -479,7 +479,7 @@ Description=XCASH Daemon systemd file
 Type=forking
 User=root
 PIDFile=~/xcash-official/systemdpid/xcash_daemon.pid
-ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/XCASH_Daemon_log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash_daemon.pid
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash_daemon.pid
 RuntimeMaxSec=15d
 Restart=always
  
@@ -494,15 +494,15 @@ In the file, replace the following if needed:
 * **`PIDFile`**: The path to `xcash_daemon.pid` file that  you created at the initialization step. 
 * **`ExecStart`**: 
   * Replace the path to the `xcashd` file. 
-  * Replace the path to the `XCASH_Daemon_Log.txt` file.
+  * Replace the path to the `xcash-daemon_Log.txt` file.
   * Replace the path to the `xcash_daemon.pid` file.
 
 #### 4. XCASH Wallet Service
 
-Edit the systemd unit file `XCASH_Wallet.service` from in the `xcash-dpops/scripts/systemd`folder : 
+Edit the systemd unit file `xcash-rpc-wallet.service` from in the `xcash-dpops/scripts/systemd`folder : 
 
 ```bash
-nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_Wallet.service
+nano ~/xcash-official/xcash-dpops/scripts/systemd/xcash-rpc-wallet.service
 ```
 
 You will get the following systemd file: 
@@ -564,10 +564,10 @@ In the file, replace the following if needed:
 
 #### 6. XCASH DPOPS Service
 
-Edit the systemd unit file `XCASH_DPOPS.service` from in the `xcash-dpops/scripts/systemd`folder : 
+Edit the systemd unit file `xcash-dpops.service` from in the `xcash-dpops/scripts/systemd`folder : 
 
 ```bash
-nano ~/xcash-official/xcash-dpops/scripts/systemd/XCASH_DPOPS.service
+nano ~/xcash-official/xcash-dpops/scripts/systemd/xcash-dpops.service
 ```
 
 You will get the following systemd file: 
@@ -582,7 +582,7 @@ Type=simple
 LimitNOFILE=infinity
 User=root
 WorkingDirectory=~/xcash-official/xcash-dpops/build
-ExecStart=~/xcash-official/xcash-dpops/build/XCASH_DPOPS --block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY
+ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY
 Restart=always
  
 [Install]
@@ -595,7 +595,7 @@ In the file, replace the following if needed:
 * **`User`**: User of the system \(most likely `root`\)
 * **`WorkingDirectory`**: Replace the path of the `xcash-dpops/build` folder.
 * **`ExecStart`**: 
-  * Replace the path to the `XCASH_DPOPS` file.
+  * Replace the path to the `xcash-dpops` file.
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}
@@ -636,7 +636,7 @@ Navigate to the folder that contains the binary, rebuild the binary in debug mod
 
 ```bash
 make clean ; make debug -j `nproc`
-cd build && ./XCASH_DPOPS --test
+cd build && ./xcash-dpops --test
 ```
 
 The test will return the number of passed and failed test at the bottom of the console. The failed test need to be 0 before you run the node. If the output is not showing 0 for failed test, then you need to scroll through the testing output and find what test failed \(It will be red instead of green\).

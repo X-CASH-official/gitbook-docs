@@ -27,7 +27,7 @@ $ curl -X POST http://localhost:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
-    "path": "\/root\/Installed-Programs\/verify_block.txt",
+    "path": "\/root\/xcash-official\/verify_block.txt",
     "status": "OK"
   }
 }

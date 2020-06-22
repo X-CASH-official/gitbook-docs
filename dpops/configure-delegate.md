@@ -5,7 +5,7 @@
 Make sure to stop the XCASH Wallet service if it is running
 
 ```bash
-systemctl stop XCASH_Wallet
+systemctl stop xcash-rpc-wallet
 ```
 
 Open the wallet file in the `xcash-wallet-cli` and once the wallet is fully synchronize, type the command:
@@ -22,7 +22,7 @@ delegate_register delegate_name delegate_IP_address
 Make sure to stop the XCASH Wallet service if it is running
 
 ```bash
-systemctl stop XCASH_Wallet
+systemctl stop xcash-rpc-wallet
 ```
 
 Open the wallet file in the `xcash-wallet-cli` and once the wallet is fully synchronize, type the command:
@@ -38,7 +38,7 @@ vote <delegates_public_address|delegates_name>
 Make sure to stop the XCASH Wallet service if it is running
 
 ```bash
-systemctl stop XCASH_Wallet
+systemctl stop xcash-rpc-wallet
 ```
 
 Open the wallet file in the `xcash-wallet-cli` and once the wallet is fully synchronize, type the command:
@@ -54,9 +54,9 @@ IP_address
 about
 website
 team
-pool_mode
-fee_structure
-server_settings
+shared_delegate_status
+delegate_fee
+server_specs
 ```
 
 * Replace `<value>` with the updated information
@@ -66,7 +66,7 @@ server_settings
 Make sure to stop the XCASH Wallet service if it is running
 
 ```bash
-systemctl stop XCASH_Wallet
+systemctl stop xcash-rpc-wallet
 ```
 
 Open the wallet file in the `xcash-wallet-cli` and once the wallet is fully synchronize, type the command:

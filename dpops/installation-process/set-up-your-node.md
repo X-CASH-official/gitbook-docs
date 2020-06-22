@@ -83,22 +83,22 @@ description: >-
 Edit the below systemd files to your paths
 
 Copy all of the service files in the systemd folder to `/lib/systemd/system/`  
-`cp -a ~/x-network/xcash-dpops/scripts/systemd/* /lib/systemd/system/`
+`cp -a ~/xcash-official/xcash-dpops/scripts/systemd/* /lib/systemd/system/`
 
 Reload systemd  
 `systemctl daemon-reload`
 
 Create a systemd PID folder  
-`mkdir ~/x-network/systemdpid/`
+`mkdir ~/xcash-official/systemdpid/`
 
 Create a logs folder  
-`mkdir ~/x-network/logs/`
+`mkdir ~/xcash-official/logs/`
 
 Create a mongod pid file and a xcashd pid file
 
 ```text
-touch ~/x-network/systemdpid/mongod.pid
-touch ~/x-network/systemdpid/xcash_daemon.pid
+touch ~/xcash-official/systemdpid/mongod.pid
+touch ~/xcash-official/systemdpid/xcash_daemon.pid
 ```
 
 ### MongoDB
@@ -115,8 +115,8 @@ Type=forking
 User=root
 Type=oneshot
 RemainAfterExit=yes
-PIDFile=/root/x-network/systemdpid/mongod.pid
-ExecStart=/root/x-network/mongodb-linux-x86_64-ubuntu1804-4.2.0/bin/mongod --fork --syslog
+PIDFile=/root/xcash-official/systemdpid/mongod.pid
+ExecStart=/root/xcash-official/mongodb-linux-x86_64-ubuntu1804-4.2.0/bin/mongod --fork --syslog
 
 LimitFSIZE=infinity
 LimitCPU=infinity
@@ -151,8 +151,8 @@ Description=XCASH Daemon systemd file
 [Service]
 Type=forking
 User=root
-PIDFile=/root/x-network/systemdpid/xcash_daemon.pid
-ExecStart=/root/x-network/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file /root/x-network/logs/XCASH_Daemon_log.txt --max-log-file-size 0 --detach --pidfile /root/x-network/systemdpid/xcash_daemon.pid
+PIDFile=/root/xcash-official/systemdpid/xcash_daemon.pid
+ExecStart=/root/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file /root/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile /root/xcash-official/systemdpid/xcash_daemon.pid
 RuntimeMaxSec=15d
 Restart=always
 
@@ -182,7 +182,7 @@ Description=XCASH Wallet
 [Service]
 Type=simple
 User=root
-ExecStart=/root/x-network/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file /root/x-network/xcash_wallets/WALLET_FILE_NAME --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
+ExecStart=/root/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file /root/xcash-official/xcash_wallets/WALLET_FILE_NAME --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
 
 [Install]
@@ -208,8 +208,8 @@ Description=XCASH DPOPS
 Type=simple
 LimitNOFILE=64000
 User=root
-WorkingDirectory=/root/x-network/xcash-dpops/build/
-ExecStart=/root/x-network/xcash-dpops/build/XCASH_DPOPS --block_verifiers_secret_key BLOCK_VERIFIERS_SECRET_KEY
+WorkingDirectory=/root/xcash-official/xcash-dpops/build/
+ExecStart=/root/xcash-official/xcash-dpops/build/xcash-dpops --block_verifiers_secret_key BLOCK_VERIFIERS_SECRET_KEY
 Restart=always
 
 [Install]
@@ -220,7 +220,7 @@ The LimitNOFILE will allow the XCASH DPOPS program to utilize up to 64000 concur
 
 You will need to change the **User** to the user of the system
 
-You will need to change the **ExecStart** to the full path of the `XCASH_DPOPS` file and add any startup flags if running a shared delegates website or a delegates website
+You will need to change the **ExecStart** to the full path of the `xcash-dpops` file and add any startup flags if running a shared delegates website or a delegates website
 
 You will need to change the **BLOCK\_VERIFIERS\_SECRET\_KEY** to your block verifiers secret key. Make sure this is the first parameter
 
@@ -247,7 +247,7 @@ Description=firewall
 Type=oneshot
 RemainAfterExit=yes
 User=root
-ExecStart=/root/x-network/xcash-dpops/scripts/firewall/firewall_script.sh
+ExecStart=/root/xcash-official/xcash-dpops/scripts/firewall/firewall_script.sh
 
 [Install]
 WantedBy=multi-user.target
@@ -286,7 +286,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl start name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl start XCASH_DPOPS</code>
+        <p><code>e.g. systemctl start xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -296,7 +296,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl stop name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl stop XCASH_DPOPS</code>
+        <p><code>e.g. systemctl stop xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -306,7 +306,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl stop name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl restart XCASH_DPOPS</code>
+        <p><code>e.g. systemctl restart xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -316,7 +316,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl status name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl status XCASH_DPOPS</code>
+        <p><code>e.g. systemctl status xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -326,7 +326,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>journalctl --unit=name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. journalctl --unit=XCASH_DPOPS</code>
+        <p><code>e.g. journalctl --unit=xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -336,7 +336,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>journalctl --unit=name_of_service_file_without.service -n 100 --output cat</code></b>
         </p>
-        <p><code>e.g. journalctl --unit=XCASH_DPOPS -n 100 --output cat</code>
+        <p><code>e.g. journalctl --unit=xcash-dpops -n 100 --output cat</code>
         </p>
       </td>
     </tr>
@@ -346,7 +346,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>journalctl --unit=name_of_service_file_without.service --follow -n 100 --output cat</code></b>
         </p>
-        <p><code>e.g. journalctl --unit=XCASH_DPOPS --follow -n 100 --output cat</code>
+        <p><code>e.g. journalctl --unit=xcash-dpops --follow -n 100 --output cat</code>
         </p>
       </td>
     </tr>
