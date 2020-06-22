@@ -25,7 +25,7 @@ Type=simple
 LimitNOFILE=infinity
 User=root
 WorkingDirectory=~/xcash-official/xcash-dpops/build
-ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY
+ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --block-verifiers-secret-key BLOCK_VERIFIER_SECRET_KEY
 Restart=always
  
 [Install]
@@ -41,7 +41,7 @@ Description=XCASH Wallet RPC
 [Service]
 Type=simple
 User=root
-ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash_wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash-wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
  
 [Install]
@@ -57,7 +57,7 @@ Description=XCASH Wallet RPC
 [Service]
 Type=simple
 User=root
-ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash_wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash-wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
  
 [Install]
@@ -65,7 +65,7 @@ WantedBy=multi-user.target
 ```
 {% endtab %}
 
-{% tab title="MongoDB.service" %}
+{% tab title="mongodb.service" %}
 ```
 [Unit]
 Description=MongoDB Database Server
@@ -177,11 +177,11 @@ systemctl status MongoDB
 **Output:** 
 
 ```text
-● MongoDB.service - MongoDB Database Server
-   Loaded: loaded (/lib/systemd/system/MongoDB.service; disabled; vendor preset: enabled)
+● mongodb.service - MongoDB Database Server
+   Loaded: loaded (/lib/systemd/system/mongodb.service; disabled; vendor preset: enabled)
    Active: active (exited) since Mon 2020-06-08 11:50:51 CEST; 38min ago
  Main PID: 14852 (code=exited, status=0/SUCCESS)
-   CGroup: /system.slice/MongoDB.service
+   CGroup: /system.slice/mongodb.service
            └─14854 /root/xcash-official/mongodb-linux-x86_64-ubuntu1804-4.2.3/bin/mongod --fork --syslog --dbpath /data/db/
 ```
 {% endtab %}

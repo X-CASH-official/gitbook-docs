@@ -41,7 +41,7 @@ description: >-
       <td style="text-align:left">Run the delegates website</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>--shared-delegates-website --fee &lt;fee_param&gt; --minimum_amount &lt;amount_param&gt;</code>
+      <td style="text-align:left"><code>--shared-delegates-website --fee &lt;fee_param&gt; --minimum-amount &lt;amount_param&gt;</code>
       </td>
       <td style="text-align:left">
         <p>Run the shared delegates website, with a fee of <code>&lt;fee_param&gt;</code> and

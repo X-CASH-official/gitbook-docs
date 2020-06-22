@@ -46,7 +46,7 @@ Before looking into a server hosting service, it is recommended that you acknowl
 The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop  **token creation**, **NFT**, **sidechains**, **smart contracts**  and other exciting features\). 
 
 {% hint style="info" %}
-The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
+The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the **`xcash-dpops`** program.
 {% endhint %}
 
 |  | **Minimum**  | **Recommended**  |
@@ -80,7 +80,7 @@ We will give a short tutorial here for preparing a server.  Those steps should b
 
 ### Install a Linux distribution
 
-Your server provider should propose you different Linux distributions to install directly from their dashboard. The `xcash-dpops` program was intensively tested on **Ubuntu-18.04** and should be the preferred distribution. 
+Your server provider should propose you different Linux distributions to install directly from their dashboard. The **`xcash-dpops`** program was intensively tested on **Ubuntu-18.04** and should be the preferred distribution. 
 
 {% hint style="warning" %}
 While **Ubuntu-20.04** has been released recently \(April 2020\), it hasn't been tested as much as 18.04. It shouldn't be an issue to install the newest version, but we still recommend installing 18.04.
@@ -279,7 +279,7 @@ You will be prompted to give your key passphrase if you have provided one at the
 ### Create a new user
 
 {% hint style="warning" %}
-The `xcash-dpops` auto-installer script has been designed for `root` users. It should work for other users as well.
+The **`xcash-dpops`** auto-installer script has been designed for `root` users. It should work for other users as well.
 {% endhint %}
 
 [Log in](server-setup.md#log-in) your server with your already existing credentials \(given by your server provider\) as a `root` user. 

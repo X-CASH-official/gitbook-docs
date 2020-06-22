@@ -30,7 +30,7 @@ In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We
 The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when the X-Cash Foundation will add **token creation**, **NFT**, **sidechains**, **smart contracts** and other exciting features ⭐\). 
 
 {% hint style="info" %}
-The recommended system requirement is designed to be **future-development proof**, meaning that an hardware update should never be needed and still comfortably handle the `xcash-dpops` program.
+The recommended system requirement is designed to be **future-development proof**, meaning that an hardware update should never be needed and still comfortably handle the **`xcash-dpops`** program.
 {% endhint %}
 
 |  | **Minimum**  | **Recommended**  |
@@ -67,7 +67,7 @@ The following table summarizes the tools and libraries required to run X-Cash's 
 
 ### Time Synchronization
 
-The `xcash-dpops` program uses the system time to calibrate itself and get signal to send and receive data. It is important that the system time is accurate, otherwise the program will not work as intendend.
+The **`xcash-dpops`** program uses the system time to calibrate itself and get signal to send and receive data. It is important that the system time is accurate, otherwise the program will not work as intendend.
 
 {% hint style="info" %}
 The timezone does not matter and will not affect synchronization.
@@ -116,7 +116,7 @@ This will open the following settings screen to choose from:
 
 You can select the task by inputting the corresponding number:
 
-1. **Install:** This setting will prepare the necessary directories, download the dependencies, build and  install the `xcash-dpops` program. The steps to follow are stated down below. 
+1. **Install:** This setting will prepare the necessary directories, download the dependencies, build and  install the **`xcash-dpops`** program. The steps to follow are stated down below. 
 2. **Update:** Updates all the packages and releases of the dependencies to build the program.
 3. **Uninstall:** Removes all the files, dependencies and related program of the **`xcash-dpops`**.
 4. **Install / Update Blockchain:** Downloads or updates the X-Cash blockchain data.
@@ -133,7 +133,7 @@ You can select the task by inputting the corresponding number:
 
 Once you have prepared your Linux instance by following the [server setup guide](server-setup.md), you can run an installer script to easily install, build and configure the node, as well as download the blockchain. 
 
-#### **Installing the `xcash-dpops` program**
+#### **Installing the **`xcash-dpops`** program**
 
 **`xcash-dpops`** is the program needed to run a delegate node. It is responsible for sending messages to the other delegates, organize the consensus, relay and forge new blocks, etc...
 
@@ -151,7 +151,7 @@ You will be prompted to choose an installation directory:
 
 ![](../.gitbook/assets/image%20%2816%29.png)
 
-Press **`ENTER`** for the default location \(**`/root/xcash-programs/`**\), or provide another path in the form **`/directory/`**
+Press **`ENTER`** for the default location \(**`/root/xcash-official/`**\), or provide another path in the form **`/directory/`**
 
 {% hint style="warning" %}
 It is recommended to always choose the default location.
@@ -259,7 +259,7 @@ It is recommended to install the program the different programs needed for the *
 In the **`~`** directory, create the **`xcash-official`** directory and the **`xcash-wallets`** , **`systemdpid`** , and `logs` directory within. Additionnaly, create the **`.X-CASH`** directory that will store the X-Cash blockchain file.
 
 ```bash
-mkdir -p ~/xcash-official/{xcash-wallet,logs,systemdpid}
+mkdir -p ~/xcash-official/{xcash-wallets,logs,systemdpid}
 mkdir -p ~/.X-CASH
 ```
 
@@ -364,7 +364,7 @@ Once the build finishes, the binaries will be  located in  `~/xcash-official/xca
 
 ### Build Instructions
 
-At this point, all the dependencies should be installed and built. First, clone the `xcash-dpops` repository:
+At this point, all the dependencies should be installed and built. First, clone the **`xcash-dpops`** repository:
 
 ```bash
 cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-dpops.git
@@ -412,20 +412,20 @@ On this guide, we will set up the different unit files to manage the programs ne
 Create two empty `PID` files in the `systemdpid` folder previously created, that will manage the corresponding services:
 
 ```bash
-touch ~/xcash-official/systemdpid/mongod.pid ~/xcash-official/systemdpid/xcash_daemon.pid
+touch ~/xcash-official/systemdpid/mongod.pid ~/xcash-official/systemdpid/xcash-daemon.pid
 ```
 
 #### 2. MongoDB Service
 
-Edit the systemd unit file `MongoDB.service` from in the `xcash-dpops/scripts/systemd`folder : 
+Edit the systemd unit file `mongodb.service` from in the `xcash-dpops/scripts/systemd`folder : 
 
 ```bash
-nano ~/xcash-official/xcash-dpops/scripts/systemd/MongoDB.service
+nano ~/xcash-official/xcash-dpops/scripts/systemd/mongodb.service
 ```
 
 You will get the following **`unit`**file: 
 
-{% code title="MongoDB.service" %}
+{% code title="mongodb.service" %}
 ```bash
 [Unit]
 Description=MongoDB Database Server
@@ -479,8 +479,8 @@ Description=XCASH Daemon systemd file
 [Service]
 Type=forking
 User=root
-PIDFile=~/xcash-official/systemdpid/xcash_daemon.pid
-ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash_daemon.pid
+PIDFile=~/xcash-official/systemdpid/xcash-daemon.pid
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash-daemon.pid
 RuntimeMaxSec=15d
 Restart=always
  
@@ -492,11 +492,11 @@ WantedBy=multi-user.target
 In the file, replace the following if needed: 
 
 * **`User`**: User of the system \(most likely `root`\)
-* **`PIDFile`**: The path to `xcash_daemon.pid` file that  you created at the initialization step. 
+* **`PIDFile`**: The path to `xcash-daemon.pid` file that  you created at the initialization step. 
 * **`ExecStart`**: 
   * Replace the path to the `xcashd` file. 
   * Replace the path to the `xcash-daemon_Log.txt` file.
-  * Replace the path to the `xcash_daemon.pid` file.
+  * Replace the path to the `xcash-daemon.pid` file.
 
 #### 4. XCASH Wallet Service
 
@@ -516,7 +516,7 @@ Description=XCASH Wallet RPC
 [Service]
 Type=simple
 User=root
-ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash_wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash-wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
  
 [Install]
@@ -529,7 +529,7 @@ In the file, replace the following if needed:
 * **`User`**: User of the system \(most likely `root`\)
 * **`ExecStart`**: 
   * Replace the path to the `xcash-wallet-rpc` file.
-  * Replace the path to the `xcash_wallets` folder, and replace `WALLET` by your delegate wallet name.
+  * Replace the path to the `xcash-wallets` folder, and replace `WALLET` by your delegate wallet name.
   * Replace `PASSWORD` with your delegate wallet password.
 
 #### 5. Firewall Service
@@ -583,7 +583,7 @@ Type=simple
 LimitNOFILE=infinity
 User=root
 WorkingDirectory=~/xcash-official/xcash-dpops/build
-ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --block_verifiers_secret_key BLOCK_VERIFIER_SECRET_KEY
+ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --block-verifiers-secret-key BLOCK_VERIFIER_SECRET_KEY
 Restart=always
  
 [Install]
@@ -596,7 +596,7 @@ In the file, replace the following if needed:
 * **`User`**: User of the system \(most likely `root`\)
 * **`WorkingDirectory`**: Replace the path of the `xcash-dpops/build` folder.
 * **`ExecStart`**: 
-  * Replace the path to the `xcash-dpops` file.
+  * Replace the path to the **`xcash-dpops`** file.
   * Replace `BLOCK_VERIFIER_SECRET_KEY`  with your generated verifier secret key. **This should be the first parameter.**
 
 {% hint style="info" %}

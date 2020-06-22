@@ -41,7 +41,7 @@ description: >-
       <td style="text-align:left">Run the delegates website</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>--shared-delegates-website --fee &lt;fee_param&gt; --minimum_amount &lt;amount_param&gt;</code>
+      <td style="text-align:left"><code>--shared-delegates-website --fee &lt;fee_param&gt; --minimum-amount &lt;amount_param&gt;</code>
       </td>
       <td style="text-align:left">
         <p>Run the shared delegates website, with a fee of <code>&lt;fee_param&gt;</code> and
@@ -98,7 +98,7 @@ Create a mongod pid file and a xcashd pid file
 
 ```text
 touch ~/xcash-official/systemdpid/mongod.pid
-touch ~/xcash-official/systemdpid/xcash_daemon.pid
+touch ~/xcash-official/systemdpid/xcash-daemon.pid
 ```
 
 ### MongoDB
@@ -151,8 +151,8 @@ Description=XCASH Daemon systemd file
 [Service]
 Type=forking
 User=root
-PIDFile=/root/xcash-official/systemdpid/xcash_daemon.pid
-ExecStart=/root/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file /root/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile /root/xcash-official/systemdpid/xcash_daemon.pid
+PIDFile=/root/xcash-official/systemdpid/xcash-daemon.pid
+ExecStart=/root/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file /root/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile /root/xcash-official/systemdpid/xcash-daemon.pid
 RuntimeMaxSec=15d
 Restart=always
 
@@ -164,7 +164,7 @@ Make sure to leave the RuntimeMaxSec in the systemd service file, as the XCASH D
 
 You will need to change the **User** to the user of the system
 
-You will need to change the **PIDFile** to the full path of the `xcash_daemon.pid` file
+You will need to change the **PIDFile** to the full path of the `xcash-daemon.pid` file
 
 You will need to change the **ExecStart** to the full path of the `xcashd` file
 
@@ -182,7 +182,7 @@ Description=XCASH Wallet
 [Service]
 Type=simple
 User=root
-ExecStart=/root/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file /root/xcash-official/xcash_wallets/WALLET_FILE_NAME --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
+ExecStart=/root/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file /root/xcash-official/xcash-wallets/WALLET_FILE_NAME --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
 
 [Install]
@@ -209,7 +209,7 @@ Type=simple
 LimitNOFILE=64000
 User=root
 WorkingDirectory=/root/xcash-official/xcash-dpops/build/
-ExecStart=/root/xcash-official/xcash-dpops/build/xcash-dpops --block_verifiers_secret_key BLOCK_VERIFIERS_SECRET_KEY
+ExecStart=/root/xcash-official/xcash-dpops/build/xcash-dpops --block-verifiers-secret-key BLOCK_VERIFIERS_SECRET_KEY
 Restart=always
 
 [Install]
@@ -220,14 +220,14 @@ The LimitNOFILE will allow the XCASH DPOPS program to utilize up to 64000 concur
 
 You will need to change the **User** to the user of the system
 
-You will need to change the **ExecStart** to the full path of the `xcash-dpops` file and add any startup flags if running a shared delegates website or a delegates website
+You will need to change the **ExecStart** to the full path of the **`xcash-dpops`** file and add any startup flags if running a shared delegates website or a delegates website
 
 You will need to change the **BLOCK\_VERIFIERS\_SECRET\_KEY** to your block verifiers secret key. Make sure this is the first parameter
 
 For a full list of XCASH\_DPOPS parameters please read the [XCASH\_DPOPS Parameters]() section. This section will explain how to change any of the provided parameters in detail. Since the shared delegate option is probably the most used parameter, this parameter will be explained below.
 
 ```text
---shared_delegates_website --fee "fee" --minimum_amount "minimum_amount" - Run the shared delegates website, with a fee of "fee" and a minimum amount of "minimum_amount"
+--shared_delegates_website --fee "fee" --minimum-amount "minimum-amount" - Run the shared delegates website, with a fee of "fee" and a minimum amount of "minimum-amount"
 The fee in a percentage (1 would equal 1 percent. You can use up to 6 decimal places.)
 The minimum for a public_address to receive a payment (10000 etc. The minimum amount should be in regular units, not atomic units.)
 ```
