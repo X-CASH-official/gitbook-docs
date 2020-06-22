@@ -6,7 +6,7 @@ description: Instructions for stakers on how to apply your vote.
 
 ## Find Your Delegate
 
-All delegates are listed on the [delegate explorer](http://delegates.xcash.foundation/). Take time to get to learn more about them, check their reliability statistics, and their setup. You can vote towards delegate that have the `pool_mode` is `true`.
+All delegates are listed on the [delegate explorer](http://delegates.xcash.foundation/). Take time to get to learn more about them, check their reliability statistics, and their setup. You can vote towards delegate that have the `shared_delegate_status` is `true`.
 
 {% hint style="danger" %}
 The [delegate explorer](http://delegates.xcash.foundation/)'s information is filled by the delegates. There are currently no checks to the veracity of the information provided. It is your duty to make sure that a delegate is trustworthy, that he will re-distribute the reward and that the fees are correct.

@@ -41,7 +41,7 @@ description: >-
       <td style="text-align:left">Run the delegates website</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>--shared-delegates-website --fee &lt;fee_param&gt; --minimum_amount &lt;amount_param&gt;</code>
+      <td style="text-align:left"><code>--shared-delegates-website --fee &lt;fee_param&gt; --minimum-amount &lt;amount_param&gt;</code>
       </td>
       <td style="text-align:left">
         <p>Run the shared delegates website, with a fee of <code>&lt;fee_param&gt;</code> and
@@ -106,7 +106,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl start name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl start XCASH_DPOPS</code>
+        <p><code>e.g. systemctl start xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -116,7 +116,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl stop name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl stop XCASH_DPOPS</code>
+        <p><code>e.g. systemctl stop xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -126,7 +126,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl stop name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl restart XCASH_DPOPS</code>
+        <p><code>e.g. systemctl restart xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -136,7 +136,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>systemctl status name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. systemctl status XCASH_DPOPS</code>
+        <p><code>e.g. systemctl status xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -146,7 +146,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>journalctl --unit=name_of_service_file_without.service</code></b>
         </p>
-        <p><code>e.g. journalctl --unit=XCASH_DPOPS</code>
+        <p><code>e.g. journalctl --unit=xcash-dpops</code>
         </p>
       </td>
     </tr>
@@ -156,7 +156,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>journalctl --unit=name_of_service_file_without.service -n 100 --output cat</code></b>
         </p>
-        <p><code>e.g. journalctl --unit=XCASH_DPOPS -n 100 --output cat</code>
+        <p><code>e.g. journalctl --unit=xcash-dpops -n 100 --output cat</code>
         </p>
       </td>
     </tr>
@@ -166,7 +166,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
       <td style="text-align:left">
         <p><b><code>journalctl --unit=name_of_service_file_without.service --follow -n 100 --output cat</code></b>
         </p>
-        <p><code>e.g. journalctl --unit=XCASH_DPOPS --follow -n 100 --output cat</code>
+        <p><code>e.g. journalctl --unit=xcash-dpops --follow -n 100 --output cat</code>
         </p>
       </td>
     </tr>
