@@ -8,20 +8,20 @@ description: >-
 
 ## Introduction
 
-Generally speaking, running a delegate node requires knowledge and experience in information and network technologies. However, we believe that it should be accessible to everyone who is willing to learn. This guide will help you get introduced to servers and Linux system, and getting started securely to start your own delegate node.  
+Generally speaking, running a delegate node requires knowledge and experience in information and network technologies. However, we believe that it should be accessible to everyone who is willing to learn. This guide will help you get introduced to servers and Linux system and getting started securely to start your own delegate node.  
 If you find yourself in a bind, [our helpful community](https://discord.gg/4CAahnd) will be happy to help you 🙂
 
 ## Prerequisite
 
-### Generate a SSH key
+### Generate an SSH key
 
-We recommend using public key authentication to access your server. Using a strong password to connect remotely in SSH is already secured, but using your own key pair for SSH connexion is always recommended.
+We recommend using public-key authentication to access your server. Using a strong password to connect remotely in SSH is already secured, but using your own key pair for SSH connexion is always recommended.
 
 The SSH key you will be generating will be used later on when using accessing your server.
 
 #### On Windows
 
-One easy way to generate a SSH key on Windows is by using PuttyGen. You can download Putty at [this link](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and follow [this complete tutorial](https://www.ssh.com/ssh/putty/windows/puttygen) to create your SSH key pair.
+One easy way to generate an SSH key on Windows is by using PuttyGen. You can download Putty at [this link](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and follow [this complete tutorial](https://www.ssh.com/ssh/putty/windows/puttygen) to create your SSH key pair.
 
 #### **On Linux / Mac**
 
@@ -31,7 +31,7 @@ Open a terminal window on Linux or OSx and type the following command.
 ssh-keygen -t rsa -b 2048
 ```
 
-It will generate a SSH key pair in the form of a public key `id_rsa.pub` and the corresponding private key `id_rsa` created in the `~/.ssh` directory
+It will generate an SSH key pair in the form of a public key `id_rsa.pub` and the corresponding private key `id_rsa` created in the `~/.ssh` directory
 
 ### Find a Linux Machine
 
@@ -43,10 +43,10 @@ In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We
 
 Before looking into a server hosting service, it is recommended that you acknowledge the system requirements for running a delegate node.
 
-The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop **token creation**, **NFT**, **sidechains**, **smart contracts** and other exciting features\).
+The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block information, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop **token creation**, **NFT**, **sidechains**, **smart contracts,** and other exciting features\).
 
 {% hint style="info" %}
-The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the **`xcash-dpops`** program.
+The recommended system requirement is designed to be "**future-development proof**", meaning that a hardware update should never be needed and still comfortably handle the **`xcash-dpops`** program.
 {% endhint %}
 
 |  | **Minimum** | **Recommended** |
@@ -64,9 +64,9 @@ It is estimated that the blockchain size will increase by **9GB per year.**
 
 #### Server hosting provider
 
-There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure \(which is most likely 🙂\), you will need to rent your server with a provider.
+There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH,** etc... to only name a few. If you don't have your own server infrastructure \(which is most likely 🙂\), you will need to rent your server with a provider.
 
-We are agnostic as to which server provider you should choose to run the **`xcash-dpops`** program. Our recommendation is to find a **Dedicated server** or **VPS** that matches [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
+We are agnostic as to which server provider you should choose to run the **`xcash-dpops`** program. Our recommendation is to find a **dedicated server** or **VPS** that matches [system requirements](server-setup.md#find-a-linux-machine) and to follow the service you are most comfortable with.
 
 {% hint style="info" %}
 Make sure to read your server provider documentation. Each initial server setup can be different.
@@ -124,13 +124,13 @@ root@Ubuntu-1804-bionic-64-minimal ~ #
 
 **On Linux/Osx**
 
-In a terminal, use the command `ssh` log into your server using your already existing credentials \(given by your server provider\). The `hostname` should be the server `IP-Address`, and the default `user` should be `root`.
+In a terminal, use the command `ssh` log in to your server using your already existing credentials \(given by your server provider\). The `hostname` should be the server `IP-Address`, and the default `user` should be `root`.
 
 ```text
 ssh root@hostname
 ```
 
-When first connecting to your new server, you will be prompted to recognized the servers host key and validate the RSA fingerprint.
+When first connecting to your new server, you will be prompted to recognize the servers host key and validate the RSA fingerprint.
 
 ```text
 The authenticity of host '{SERVER_IP}' can't be established.
@@ -167,7 +167,7 @@ Use your SSH RSA key pair that you have [previously generated](server-setup.md#g
 
 **On Windows**
 
-In Putty, go to the `SSH > Auth` tab and browse to your private key file `rsa-key.ppk` [generated earlier](server-setup.md#generate-a-ssh-key) to use as an authentication to log into your server.
+In Putty, go to the `SSH > Auth` tab and browse to your private key file `rsa-key.ppk` [generated earlier](server-setup.md#generate-a-ssh-key) to use as authentication to log into your server.
 
 ![](../.gitbook/assets/image%20%2820%29.png)
 
@@ -190,7 +190,7 @@ You will be prompted to give your key passphrase if you have provided one at the
 If you want to add it manually, you can follow the tutorial below. Otherwise, just move on to the next step.
 {% endhint %}
 
-With the key pair you have [generated earlier](server-setup.md#generate-a-ssh-key), you will have to register the public key on your server so it can recognizes you. To do so, you need to add your public SSH key into the file `~/.ssh/authorized_keys` in your server.
+With the key pair you have [generated earlier](server-setup.md#generate-a-ssh-key), you will have to register the public key on your server so it can recognize you. To do so, you need to add your public SSH key into the file `~/.ssh/authorized_keys` on your server.
 
 #### From Windows
 
@@ -284,7 +284,7 @@ The **`xcash-dpops`** auto-installer script has been designed for `root` users. 
 
 [Log in](server-setup.md#log-in) your server with your already existing credentials \(given by your server provider\) as a `root` user.
 
-Create a new user session named `xcash` where you will only store file and programs related to the delegate function.
+Create a new user session named `xcash` where you will only store files and programs related to the delegate function.
 
 ```text
 sudo adduser xcash
@@ -325,13 +325,13 @@ su - xcash
 
 ## Custom domain name
 
-**Your delegate name is your brand !** ⭐
+**Your delegate name is your brand!** ⭐
 
-When you register as a delegate, your server will be recognized and listed in the delegates website through its domain name. If you haven't a registered a domain name for your server, the default domain will be the server IP address.
+When you register as a delegate, your server will be recognized and listed on the delegates' website through its domain name. If you haven't registered a domain name for your server, the default domain will be the server IP address.
 
 While in itself it is completely possible to use it as is, it is recommended to brand yourself by buying a domain name of your choice. We believe that it will help you greatly if you are planning to run a shared delegate and are looking for votes.
 
-There are a lot of services out there to buy a domain name: **NameCheap**, **Google Domains**, **OVH**, **GoDaddy,** etc... _\*\*_to only name a few. You will need to create an account over there and reserve the domain name of your choice.
+There are a lot of services out there to buy a domain name: **NameCheap**, **Google Domains**, **OVH**, **GoDaddy,** etc... to only name a few. You will need to create an account over there and reserve the domain name of your choice.
 
 Once you have reserved your domain name, you need to change the DNS record to point your newly bought domain name to your IP address. This can be done by changing the **A \(Address\) Record** in your domain name provider dashboard.
 
@@ -343,5 +343,5 @@ Assuming that the domain you bought is **`domain-name.com`**, the A Record above
 
 ## Set up your delegate node
 
-Once you have done every steps above, and are familiarized with your server, you can go through the next step and install the delegate program, **`xcash-dpops`**. Follow the [delegate node installation](node-installation.md) for a complete tutorial.
+Once you have done every step above, and are familiarized with your server, you can go through the next step and install the delegate program, **`xcash-dpops`**. Follow the [delegate node installation](node-installation.md) for a complete tutorial.
 
