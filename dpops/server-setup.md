@@ -19,7 +19,7 @@ We recommend using public key authentication to access your server. Using a stro
 
 The SSH key you will be generating will be used later on when using accessing your server.
 
-#### On Windows 
+#### On Windows
 
 One easy way to generate a SSH key on Windows is by using PuttyGen. You can download Putty at [this link](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and follow [this complete tutorial](https://www.ssh.com/ssh/putty/windows/puttygen) to create your SSH key pair.
 
@@ -41,30 +41,30 @@ It will generate a SSH key pair in the form of a public key `id_rsa.pub` and the
 In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We recommend installing it on a Ubuntu VPS/dedicated server \(18.04\) for best compatibility.**
 {% endhint %}
 
-Before looking into a server hosting service, it is recommended that you acknowledge the system requirements for running a delegate node. 
+Before looking into a server hosting service, it is recommended that you acknowledge the system requirements for running a delegate node.
 
-The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop  **token creation**, **NFT**, **sidechains**, **smart contracts**  and other exciting features\). 
+The delegate node will need to transit a lot of information, notably messages to the other delegates to verify the block informations, As time goes by, the features and information that the delegates handle will increase \(notably when we will develop **token creation**, **NFT**, **sidechains**, **smart contracts** and other exciting features\).
 
 {% hint style="info" %}
 The recommended system requirement is designed to be "**future-development proof**", meaning that an hardware update should never be needed and still comfortably handle the **`xcash-dpops`** program.
 {% endhint %}
 
-|  | **Minimum**  | **Recommended**  |
+|  | **Minimum** | **Recommended** |
 | :--- | :--- | :--- |
 | **OS** | Ubuntu 18.04 | Ubuntu 18.04 |
-| **CPU** | 4 threads, 2.0 GHz or more per thread  | 4 threads, 2.0 GHz or more per thread |
+| **CPU** | 4 threads, 2.0 GHz or more per thread | 4 threads, 2.0 GHz or more per thread |
 | **RAM** | 6GB | 32GB |
-| **Hard Drive** | 50GB  | 2TB |
+| **Hard Drive** | 50GB | 2TB |
 | **Bandwidth Transfer** | 100GB per month | 500GB per month |
 | **Bandwidth Speed** | 100 Mbps | 500 Mbps |
 
 {% hint style="warning" %}
- It is estimated that the blockchain size will increase by **9GB per year.**
+It is estimated that the blockchain size will increase by **9GB per year.**
 {% endhint %}
 
 #### Server hosting provider
 
-There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure \(which is most likely 🙂\), you will need to rent your server with a provider. 
+There are a lot of server and VPS providers out there, notably **AWS**, **Google Cloud**, **Hetzner**, **Alibaba**, **DigitalOcean**, **OVH** etc... to only name a few. If you don't have your own server infrastructure \(which is most likely 🙂\), you will need to rent your server with a provider.
 
 We are agnostic as to which server provider you should choose to run the **`xcash-dpops`** program. Our recommendation is to find a **Dedicated server** or **VPS** that matches [system requirements](server-setup.md#find-a-linux-machine), and to follow the service you are most confortable with.
 
@@ -75,12 +75,12 @@ Make sure to read your server provider documentation. Each initial server setup 
 ## Initialize your server
 
 {% hint style="info" %}
-We will give a short tutorial here for preparing a server.  Those steps should be easy to  replicate with any server hosting providers. 
+We will give a short tutorial here for preparing a server. Those steps should be easy to replicate with any server hosting providers.
 {% endhint %}
 
 ### Install a Linux distribution
 
-Your server provider should propose you different Linux distributions to install directly from their dashboard. The **`xcash-dpops`** program was intensively tested on **Ubuntu-18.04** and should be the preferred distribution. 
+Your server provider should propose you different Linux distributions to install directly from their dashboard. The **`xcash-dpops`** program was intensively tested on **Ubuntu-18.04** and should be the preferred distribution.
 
 {% hint style="warning" %}
 While **Ubuntu-20.04** has been released recently \(April 2020\), it hasn't been tested as much as 18.04. It shouldn't be an issue to install the newest version, but we still recommend installing 18.04.
@@ -96,8 +96,8 @@ Choose the **Ubuntu 18.04 LTS** version and follow the installation process.
 
 **On Windows**
 
-Log into your server using your already existing credentials \(given by your server provider\).   
-With Putty, indicate the `hostname` \(which should be the server `IP-Address`\) and the port \(the default port is most of the time `port 22`\)  open the connection and connect to a user session with your credentials `user`/`password` \(the default user should be `root`, and the `password` is most of the time sent to you by email by your server provider\).
+Log into your server using your already existing credentials \(given by your server provider\).  
+With Putty, indicate the `hostname` \(which should be the server `IP-Address`\) and the port \(the default port is most of the time `port 22`\) open the connection and connect to a user session with your credentials `user`/`password` \(the default user should be `root`, and the `password` is most of the time sent to you by email by your server provider\).
 
 ![](../.gitbook/assets/image%20%2813%29.png)
 
@@ -124,13 +124,13 @@ root@Ubuntu-1804-bionic-64-minimal ~ #
 
 **On Linux/Osx**
 
-In a terminal, use the command `ssh` log into your server using your already existing credentials \(given by your server provider\). The `hostname` should be the server `IP-Address`, and the default `user` should be `root`. 
+In a terminal, use the command `ssh` log into your server using your already existing credentials \(given by your server provider\). The `hostname` should be the server `IP-Address`, and the default `user` should be `root`.
 
 ```text
 ssh root@hostname
 ```
 
-When first connecting to your new server, you will be prompted to recognized the servers host key and validate the RSA fingerprint. 
+When first connecting to your new server, you will be prompted to recognized the servers host key and validate the RSA fingerprint.
 
 ```text
 The authenticity of host '{SERVER_IP}' can't be established.
@@ -138,7 +138,7 @@ ECDSA key fingerprint is SHA256:sjdflkjslfksjlfksjfqmklqjsf+hrQ.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-Type `yes` and continue the log in process. You will be prompted to provide your password \(which most of the time is sent to you by email by your server provider\). 
+Type `yes` and continue the log in process. You will be prompted to provide your password \(which most of the time is sent to you by email by your server provider\).
 
 ```text
 Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-88-generic x86_64)
@@ -163,11 +163,11 @@ root@Ubuntu-1804-bionic-64-minimal ~ #
 
 #### With SSH Authentication
 
-Use your SSH RSA key pair that you have [previously generated](server-setup.md#generate-a-ssh-key) to access your newly rented server. Most of the server hosting service lets you provide your SSH key on their dashboard and automatically authorize it. 
+Use your SSH RSA key pair that you have [previously generated](server-setup.md#generate-a-ssh-key) to access your newly rented server. Most of the server hosting service lets you provide your SSH key on their dashboard and automatically authorize it.
 
 **On Windows**
 
-In Putty, go to the `SSH > Auth` tab and browse to your private key file `rsa-key.ppk` [generated earlier](server-setup.md#generate-a-ssh-key) to use as an authentication to log into your server. 
+In Putty, go to the `SSH > Auth` tab and browse to your private key file `rsa-key.ppk` [generated earlier](server-setup.md#generate-a-ssh-key) to use as an authentication to log into your server.
 
 ![](../.gitbook/assets/image%20%2820%29.png)
 
@@ -181,20 +181,20 @@ Open a terminal window and use the command `ssh -i`, adding the path to your pri
 ssh -i ~/.ssh/mykey user@hostname
 ```
 
-You will be prompted to give your key passphrase if you have provided one at the key generation. 
+You will be prompted to give your key passphrase if you have provided one at the key generation.
 
 ### Manually add your SSH key to your server
 
 {% hint style="info" %}
-**In most hosting services, you can register your public SSH key in your server dashboard, which will automatically authorize your SSH key to connect to your server.**   
+**In most hosting services, you can register your public SSH key in your server dashboard, which will automatically authorize your SSH key to connect to your server.**  
 If you want to add it manually, you can follow the tutorial below. Otherwise, just move on to the next step.
 {% endhint %}
 
-With the key pair you have [generated earlier](server-setup.md#generate-a-ssh-key), you will have to register the public key on your server so it can recognizes you. To do so, you need to add your public SSH key into the file `~/.ssh/authorized_keys` in your server. 
+With the key pair you have [generated earlier](server-setup.md#generate-a-ssh-key), you will have to register the public key on your server so it can recognizes you. To do so, you need to add your public SSH key into the file `~/.ssh/authorized_keys` in your server.
 
 #### From Windows
 
-To copy the content of the public SSH key into the server, you need to create the `authorized_keys` file on your Linux machine. 
+To copy the content of the public SSH key into the server, you need to create the `authorized_keys` file on your Linux machine.
 
 Once [logged in](server-setup.md#log-in-to-your-server), use your preferred text editor to create and/or open the `authorized_keys` file:
 
@@ -230,7 +230,7 @@ Save and close the text editor. Now, adjust the permissions of the `authorized_k
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-Once done, restart your server's `ssh.service` before logging out to take your changes into effect: 
+Once done, restart your server's `ssh.service` before logging out to take your changes into effect:
 
 ```text
  sudo systemctl restart ssh.service
@@ -244,7 +244,7 @@ Now, when you open the connection, you will be prompted to enter your key passph
 
 #### From Linux/OSx
 
-You can use the `ssh-copy-id` command to copy the public key directly in the `authorized_keys` on your server. 
+You can use the `ssh-copy-id` command to copy the public key directly in the `authorized_keys` on your server.
 
 {% hint style="warning" %}
 `ssh-copy-id` is not natively installed on OSx systems. You need to install it by running `brew install ssh-copy-id`
@@ -262,13 +262,13 @@ If you don't want to use the `ssh_copy_id` command, you can manually append the 
 cat ~/.ssh/mykey.pub | ssh user@host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
-This will take the content of `mykey.pub` and append it to the `authorized_keys` file directly on the server. Once done, restart your server's `ssh.service` before logging out to take your changes into effect: 
+This will take the content of `mykey.pub` and append it to the `authorized_keys` file directly on the server. Once done, restart your server's `ssh.service` before logging out to take your changes into effect:
 
 ```text
  sudo systemctl restart ssh.service
 ```
 
-You can now test the connection to your server by trying to log in with your SSH key: 
+You can now test the connection to your server by trying to log in with your SSH key:
 
 ```text
 ssh -i ~/.ssh/mykey user@host
@@ -282,7 +282,7 @@ You will be prompted to give your key passphrase if you have provided one at the
 The **`xcash-dpops`** auto-installer script has been designed for `root` users. It should work for other users as well.
 {% endhint %}
 
-[Log in](server-setup.md#log-in) your server with your already existing credentials \(given by your server provider\) as a `root` user. 
+[Log in](server-setup.md#log-in) your server with your already existing credentials \(given by your server provider\) as a `root` user.
 
 Create a new user session named `xcash` where you will only store file and programs related to the delegate function.
 
@@ -290,7 +290,7 @@ Create a new user session named `xcash` where you will only store file and progr
 sudo adduser xcash
 ```
 
-Set and confirm the new user’s password at the prompt. It is **highly**  recommended to use a password here:
+Set and confirm the new user’s password at the prompt. It is **highly** recommended to use a password here:
 
 ```text
 Set password prompts:Enter new UNIX password:
@@ -331,9 +331,9 @@ When you register as a delegate, your server will be recognized and listed in th
 
 While in itself it is completely possible to use it as is, it is recommended to brand yourself by buying a domain name of your choice. We believe that it will help you greatly if you are planning to run a shared delegate and are looking for votes.
 
-There are a lot of services out there to buy a domain name: **NameCheap**, **Google Domains**, **OVH**, **GoDaddy,** etc... ****to only name a few. You will need to create an account over there and reserve the domain name of your choice.
+There are a lot of services out there to buy a domain name: **NameCheap**, **Google Domains**, **OVH**, **GoDaddy,** etc... _\*\*_to only name a few. You will need to create an account over there and reserve the domain name of your choice.
 
-Once you have reserved your domain name, you need to change the DNS record to point your newly bought domain name to your IP address. This can be done by changing the **A \(Address\) Record** in your domain name provider dashboard. 
+Once you have reserved your domain name, you need to change the DNS record to point your newly bought domain name to your IP address. This can be done by changing the **A \(Address\) Record** in your domain name provider dashboard.
 
 NameCheap has [an easy tutorial](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain) for setting up the DNS record, but any other domain name provider should have a similar service.
 
@@ -343,5 +343,5 @@ Assuming that the domain you bought is **`domain-name.com`**, the A Record above
 
 ## Set up your delegate node
 
-Once you have done every steps above, and are familiarized with your server, you can go through the next step and install the delegate program, **`xcash-dpops`**. Follow the [delegate node installation](node-installation.md) for a complete tutorial. 
+Once you have done every steps above, and are familiarized with your server, you can go through the next step and install the delegate program, **`xcash-dpops`**. Follow the [delegate node installation](node-installation.md) for a complete tutorial.
 

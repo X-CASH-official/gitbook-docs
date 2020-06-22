@@ -12,14 +12,14 @@ description: >-
 
 In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**. Whether you installed with the [autoinstaller script](node-installation.md#quick-installation) or [manually](node-installation.md#manual-installation), the programs needed to run the X-Cash consensus are managed in `systemd` with `unit` files.
 
-The different services needed for the X-Cash consensus running on the server are the listed below:  
+The different services needed for the X-Cash consensus running on the server are listed below:
 
 {% tabs %}
-{% tab title="XCASH\_DPOPS.service" %}
+{% tab title="xcash-dpops.service" %}
 ```bash
 [Unit]
-Description=XCASH DPOPS
- 
+Description=X-Cash DPOPS Daemon background process
+
 [Service]
 Type=simple
 LimitNOFILE=infinity
@@ -27,46 +27,46 @@ User=root
 WorkingDirectory=~/xcash-official/xcash-dpops/build
 ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --block-verifiers-secret-key BLOCK_VERIFIER_SECRET_KEY
 Restart=always
- 
+
 [Install]
 WantedBy=multi-user.target
 ```
 {% endtab %}
 
-{% tab title="XCASH\_Daemon.service" %}
-```
+{% tab title="xcash-daemon.service" %}
+```text
 [Unit]
-Description=XCASH Wallet RPC
- 
+Description=X-Cash Daemon background process
+
 [Service]
 Type=simple
 User=root
 ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash-wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
- 
+
 [Install]
 WantedBy=multi-user.target
 ```
 {% endtab %}
 
-{% tab title="XCASH\_Wallet.service" %}
-```
+{% tab title="xcash-rpc-wallet.service" %}
+```text
 [Unit]
-Description=XCASH Wallet RPC
- 
+Description=X-Cash RPC Wallet background process
+
 [Service]
 Type=simple
 User=root
 ExecStart=~/xcash-official/xcash-core/build/release/bin/xcash-wallet-rpc --wallet-file ~/xcash-official/xcash-wallets/WALLET --password PASSWORD --rpc-bind-port 18285 --confirm-external-bind --daemon-port 18281 --disable-rpc-login --trusted-daemon
 Restart=always
- 
+
 [Install]
 WantedBy=multi-user.target
 ```
 {% endtab %}
 
 {% tab title="mongodb.service" %}
-```
+```text
 [Unit]
 Description=MongoDB Database Server
 After=network.target
@@ -94,16 +94,16 @@ WantedBy=multi-user.target
 {% endtab %}
 
 {% tab title="firewall.service" %}
-```
+```text
 [Unit]
 Description=firewall
- 
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 User=root
 ExecStart=~/xcash-official/xcash-dpops/scripts/firewall/firewall_script.sh
- 
+
 [Install]
 WantedBy=multi-user.target
 ```
@@ -126,7 +126,7 @@ To **start** a `systemd` service, run:
 systemctl start SERVICE
 ```
 
-_**Example:**_ 
+_**Example:**_
 
 ```text
 systemctl start xcash-dpops
@@ -140,7 +140,7 @@ To **restart** a `systemd` service, run:
 systemctl restart SERVICE
 ```
 
-_**Example:**_ 
+_**Example:**_
 
 ```text
 systemctl restart xcash-rpc-wallet
@@ -148,13 +148,13 @@ systemctl restart xcash-rpc-wallet
 {% endtab %}
 
 {% tab title="Stop" %}
-To **stop** a `systemd`  service, run:
+To **stop** a `systemd` service, run:
 
 ```text
 systemctl stop SERVICE
 ```
 
-_**Example:**_ 
+_**Example:**_
 
 ```text
 systemctl stop xcash-daemon
@@ -168,13 +168,13 @@ To check the **status** of a `systemd` service, run:
 systemctl status SERVICE
 ```
 
-_**Example:**_ 
+_**Example:**_
 
 ```text
-systemctl status MongoDB
+systemctl status mongodb
 ```
 
-**Output:** 
+**Output:**
 
 ```text
 ● mongodb.service - MongoDB Database Server
@@ -189,17 +189,17 @@ systemctl status MongoDB
 
 ### **Monitoring & Logging**
 
-While the services are running in the background, you might want to check the outputs of the different programs. 
+While the services are running in the background, you might want to check the outputs of the different programs.
 
-To monitor the services, we are using **`journalctl`** which fetch the journal of the **`systemd`** services. Using **`journalctl`** without paramaters will show the full contents of the journal, starting with the oldest entry collected. 
+To monitor the services, we are using **`journalctl`** which fetch the journal of the **`systemd`** services. Using **`journalctl`** without paramaters will show the full contents of the journal, starting with the oldest entry collected.
 
-For a live logging with better readability, we will limit the output by using the following parameters: 
+For a live logging with better readability, we will limit the output by using the following parameters:
 
 ```text
 journalctl --unit=SERVICE --follow -n 100 --output cat
 ```
 
-To check the **`xcash-dpops`** services, you can copy the following commands: 
+To check the **`xcash-dpops`** services, you can copy the following commands:
 
 {% tabs %}
 {% tab title="XCASH\_DPOPS" %}
@@ -209,25 +209,25 @@ journalctl --unit=xcash-dpops --follow -n 100 --output cat
 {% endtab %}
 
 {% tab title="XCASH\_Daemon" %}
-```
+```text
 journalctl --unit=xcash-daemon --follow -n 100 --output cat
 ```
 {% endtab %}
 
 {% tab title="XCASH\_Wallet" %}
-```
+```text
 journalctl --unit=xcash-rpc-wallet --follow -n 100 --output cat
 ```
 {% endtab %}
 
 {% tab title="MongoDB" %}
-```
-journalctl --unit=XCASH_MongoDB --follow -n 100 --output cat
+```text
+journalctl --unit=mongodb --follow -n 100 --output cat
 ```
 {% endtab %}
 
 {% tab title="firewall" %}
-```
+```text
 journalctl --unit=firewall --follow -n 100 --output cat
 ```
 {% endtab %}
@@ -237,9 +237,7 @@ journalctl --unit=firewall --follow -n 100 --output cat
 The **`xcash-daemon`** service export its logs in a different place. To display the latest log, use the following command:
 
 ```text
-tail -n 100 ~/xcash-official/logs/xcash-daemon_log.txt
+tail -n 100 ~/xcash-official/logs/xcash-daemon-log.txt
 ```
 {% endhint %}
-
-
 
