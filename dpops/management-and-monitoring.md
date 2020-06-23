@@ -202,25 +202,25 @@ journalctl --unit=SERVICE --follow -n 100 --output cat
 To check the **`xcash-dpops`** services, you can copy the following commands:
 
 {% tabs %}
-{% tab title="XCASH\_DPOPS" %}
+{% tab title="xcash-dpops" %}
 ```text
 journalctl --unit=xcash-dpops --follow -n 100 --output cat
 ```
 {% endtab %}
 
-{% tab title="XCASH\_Daemon" %}
+{% tab title="xcash-daemon" %}
 ```text
 journalctl --unit=xcash-daemon --follow -n 100 --output cat
 ```
 {% endtab %}
 
-{% tab title="XCASH\_Wallet" %}
+{% tab title="xcash-rpc-wallet" %}
 ```text
 journalctl --unit=xcash-rpc-wallet --follow -n 100 --output cat
 ```
 {% endtab %}
 
-{% tab title="MongoDB" %}
+{% tab title="mongodb" %}
 ```text
 journalctl --unit=mongodb --follow -n 100 --output cat
 ```
