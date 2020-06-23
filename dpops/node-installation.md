@@ -16,8 +16,8 @@ This guide will walk you through installing, registering, and preparing a delega
 
 This guide is split into two sections:
 
-* [**Quick installation**](node-installation.md#easy-installation): With a simple auto-installer script, you will be able to install the **`xcash-dpops`** program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
-* [**Manual installation**](node-installation.md#manual-installation-process): This step-by-step guide will cover everything about building the **`xcash-dpops`** program, the dependencies from the source code, and managing the services. _It is expected that you are comfortable with Linux to follow this guide._
+* [**Quick installation**](node-installation.md#quick-installation): With a simple auto-installer script, you will be able to install the **`xcash-dpops`** program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
+* [**Manual** ](node-installation.md#manual-installation)\*\*\*\*[**installation**](node-installation.md#manual-installation)**:** This step-by-step guide will cover everything about building the **`xcash-dpops`** program, the dependencies from the source code, and managing the services. _It is expected that you are comfortable with Linux to follow this guide._
 
 ## Requirements
 
