@@ -2,7 +2,7 @@
 description: Instructions for stakers on how to apply your vote.
 ---
 
-# 🗳️ Vote & Staking
+# Vote & Staking
 
 ## Find Your Delegate
 

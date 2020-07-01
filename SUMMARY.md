@@ -23,7 +23,7 @@
 * [Node Program Installation](dpops/node-installation.md)
 * [Register Delegate](dpops/register-delegate.md)
 * [Management & Monitoring](dpops/management-and-monitoring.md)
-* [🗳️ Vote & Staking](dpops/vote-and-staking.md)
+* [Vote & Staking](dpops/vote-and-staking.md)
 
 ## Library
 
