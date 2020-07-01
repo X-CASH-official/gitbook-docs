@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Generally speaking, running a delegate node requires knowledge and experience in information and network technologies. However, we believe that it should be accessible to everyone who is willing to learn. This guide will help you get introduced to servers and Linux system and getting started securely to start your own delegate node.  
+Generally speaking, running a delegate node requires knowledge and experience in information and network technologies. However, we believe that it should be accessible to everyone who is willing to learn. This guide will help you get introduced to servers and Linux systems and getting started securely to start your own delegate node.  
 If you find yourself in a bind, [our helpful community](https://discord.gg/4CAahnd) will be happy to help you 🙂
 
 ## Prerequisite
@@ -38,7 +38,7 @@ It will generate an SSH key pair in the form of a public key `id_rsa.pub` and th
 #### System Requirements
 
 {% hint style="info" %}
-In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We recommend installing it on a Ubuntu VPS/dedicated server \(18.04\) for best compatibility.**
+In the first beta version, X-Cash's DPoPS will only run on a Linux/Unix OS. **We recommend installing it on a Ubuntu VPS/dedicated server \(18.04\) for the best compatibility.**
 {% endhint %}
 
 Before looking into a server hosting service, it is recommended that you acknowledge the system requirements for running a delegate node.

@@ -8,17 +8,53 @@ description: >-
 
 ## Introduction
 
-The X-Cash Public Network is governed by 50 delegates through a custom Delegated Proof of Stake \(DPoS\) consensus, the [Delegate Proof of Private Stake](yellowpaper-delagated-proof-of-private-stake.md). Anyone can run an X-Cash node and become a delegate. But to be able to forge new block and earn the reward, you will need to be voted into the top 50 by other members of the community.
+The X-Cash Public Network is governed by 50 delegates through a custom Delegated Proof of Stake \(DPoS\) consensus, the [Delegate Proof of Private Stake](yellowpaper-delagated-proof-of-private-stake.md). Anyone can run an X-Cash node and become a delegate. But to be able to forge new blocks and earn the reward, you will need to be voted into the top 50 by other members of the community.
 
-Becoming a delegate is ambitious, and reaching and keeping a forging spot is rewarding but can be taken out at any time. As a delegate, you will have to prove that you are fit to keep this role. This documentation will help you getting set up, register as a delegate, start forging and securing the X-Cash Network.
+Becoming a delegate is ambitious, and reaching and keeping a forging spot is rewarding but can be taken out at any time. As a delegate, you will have to prove that you are fit to keep this role. This documentation will help you get set up, register as a delegate, start forging, and securing the X-Cash Network.
 
 ## Get Started
 
-| What are you looking for? | Description |
-| :--- | :--- |
-| **What is DPoPS? What's unique about this consensus?** | We recommend that you have a look at the [technical design](yellowpaper-delagated-proof-of-private-stake.md) of the consensus, which as been built from the ground up to work with X-Cash. |
-| **I want to become a delegate and set up a validator node.** | First, follow the [server setup guide](server-setup.md) if you are not familiar with Linux instances. Then, follow the [node program installation](node-installation.md) to install the necessary program to run the consensus. Finally, see the instructions to[ register yourself as a delegate](register-delegate.md). |
-| **I want to stake.** | Have a look at our quick [vote & staking](vote-and-staking.md) guide. |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">What are you looking for?</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>What is DPoPS? What&apos;s unique about this consensus?</b>
+      </td>
+      <td style="text-align:left">We recommend that you have a look at the <a href="yellowpaper-delagated-proof-of-private-stake.md">technical design</a> of
+        the consensus, which as been built from the ground up to work with X-Cash.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>I want to become a delegate and set up a validator node.</b>
+      </td>
+      <td style="text-align:left">First, follow the <a href="server-setup.md">server setup guide</a> if you
+        are not familiar with Linux instances. Then, follow the <a href="node-installation.md">node program installation</a> to
+        install the necessary program to run the consensus. Finally, see the instructions
+        to<a href="register-delegate.md"> register yourself as a delegate</a>.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>I want to vote.</b>
+      </td>
+      <td style="text-align:left">Have a look at our quick <a href="vote-and-staking.md">vote &amp; staking</a> guide.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>I want to participate in the beta.</b>
+      </td>
+      <td style="text-align:left">
+        <p>If you want to become a delegate during the beta, you will need to install
+          a server as per<a href="server-setup.md"> the guide</a>, install the
+          <a
+          href="node-installation.md">node program</a>and <a href="register-delegate.md">register yourself</a> as
+            a delegate. Then, follow up on the additional instructions to <a href="dpops-beta.md">join the beta</a>.</p>
+        <p>If you just want to vote, the instructions are indicated in <a href="vote-and-staking.md">vote &amp; staking</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Key features <a id="key-features"></a>
 

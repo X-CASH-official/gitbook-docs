@@ -24,6 +24,7 @@
 * [Register Delegate](dpops/register-delegate.md)
 * [Management & Monitoring](dpops/management-and-monitoring.md)
 * [Vote & Staking](dpops/vote-and-staking.md)
+* [DPOPS beta 🚧](dpops/dpops-beta.md)
 
 ## Library
 

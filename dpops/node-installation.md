@@ -400,7 +400,7 @@ The wallet synchronization can take time the first time. It will depend on which
 {% endhint %}
 
 {% hint style="danger" %}
-**Make sure that you write down your mnemonic key and store it in a secure place** as it will be the only way to restore your wallet in case of problem. Failing to do so _will_ result in loss of funds.
+**Make sure that you write down your mnemonic key and store it in a secure place** as it will be the only way to restore your wallet in case of a problem. Failing to do so _will_ result in loss of funds.
 {% endhint %}
 
 The wallet files will be located in **`~/xcash-official/xcash-wallets/`**
@@ -419,7 +419,7 @@ Create two empty `PID` files in the `systemdpid` folder previously created, that
 touch ~/xcash-official/systemdpid/mongod.pid ~/xcash-official/systemdpid/xcash-daemon.pid
 ```
 
-#### 2. MongoDB Service
+#### 2. mongodb Service
 
 Edit the systemd unit file `mongodb.service` from in the `xcash-dpops/scripts/systemd`folder :
 
@@ -465,7 +465,7 @@ In the file, replace the following if needed:
   * Replace the path to the `mongod` file.
   * Replace the path to the database directory \(`/data/db` as per the instructions\) 
 
-#### 3. XCASH Daemon Service
+#### 3. xcash-daemon Service
 
 Edit the systemd unit file `xcash-daemon.service` from in the `xcash-dpops/scripts/systemd`folder :
 
@@ -475,7 +475,7 @@ nano ~/xcash-official/xcash-dpops/scripts/systemd/xcash-daemon.service
 
 You will get the following **`unit`**file:
 
-{% code title="XCASH\_Daemon.service" %}
+{% code title="xcash-daemon.service" %}
 ```bash
 [Unit]
 Description=X-CASH Daemon background process
@@ -484,7 +484,7 @@ Description=X-CASH Daemon background process
 Type=forking
 User=root
 PIDFile=~/xcash-official/systemdpid/xcash-daemon.pid
-ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/xcash-daemon_log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash-daemon.pid
+ExecStart=~/xcash-official/xcash-core/build/release/bin/xcashd --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --rpc-bind-port 18281 --restricted-rpc --confirm-external-bind --log-file ~/xcash-official/logs/xcash-daemon-log.txt --max-log-file-size 0 --detach --pidfile ~/xcash-official/systemdpid/xcash-daemon.pid
 RuntimeMaxSec=15d
 Restart=always
 
@@ -502,7 +502,7 @@ In the file, replace the following if needed:
   * Replace the path to the `xcash-daemon_Log.txt` file.
   * Replace the path to the `xcash-daemon.pid` file.
 
-#### 4. XCASH Wallet Service
+#### 4. xcash-rpc-wallet Service
 
 Edit the systemd unit file `xcash-rpc-wallet.service` from in the `xcash-dpops/scripts/systemd`folder :
 
@@ -512,7 +512,7 @@ nano ~/xcash-official/xcash-dpops/scripts/systemd/xcash-rpc-wallet.service
 
 You will get the following **`unit`** file:
 
-{% code title="XCASH\_Wallet.service" %}
+{% code title="xcash-rpc-wallet.service" %}
 ```bash
 [Unit]
 Description=X-Cash RPC Wallet background service
@@ -532,9 +532,9 @@ In the file, replace the following if needed:
 
 * **`User`**: User of the system \(most likely `root`\)
 * **`ExecStart`**: 
-  * Replace the path to the `xcash-wallet-rpc` file.
-  * Replace the path to the `xcash-wallets` folder, and replace `WALLET` by your delegate wallet name.
-  * Replace `PASSWORD` with your delegate wallet password.
+  * Replace the path to the **`xcash-wallet-rpc`** file.
+  * Replace the path to the **`xcash-wallets`** folder, and replace **`WALLET`** by your delegate wallet name.
+  * Replace **`PASSWORD`** with your delegate wallet password.
 
 #### 5. Firewall Service
 
@@ -567,7 +567,7 @@ In the file, replace the following if needed:
 * **`User`**: User of the system \(most likely `root`\)
 * **`ExecStart`**: Replace the path to the `firewall/firewall_script.sh` file.
 
-#### 6. XCASH DPOPS Service
+#### 6. xcash-dpops Service
 
 Edit the systemd unit file **`xcash-dpops.service`** from in the **`xcash-dpops/scripts/systemd`**folder :
 
@@ -577,7 +577,7 @@ nano ~/xcash-official/xcash-dpops/scripts/systemd/xcash-dpops.service
 
 You will get the following **`unit`** file:
 
-{% code title="XCASH\_DPOPS.service" %}
+{% code title="xcash-dpops.service" %}
 ```bash
 [Unit]
 Description=X-Cash DPOPS Daemon background process
@@ -624,7 +624,7 @@ systemctl daemon-reload
 ### Test build
 
 {% hint style="info" %}
-It is recommended to run the `xcash-dpops test` before you run the main program. The test will ensure that your system is compatible and that you have set up your system correctly.
+It is recommended to run the **`xcash-dpops`** `test` before you run the main program. The test will ensure that your system is compatible and that you have set up your system correctly.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -638,7 +638,7 @@ make clean ; make debug -j `nproc`
 cd build && ./xcash-dpops --test
 ```
 
-The test will return the number of passed and failed tests at the bottom of the console. The failed test need to be 0 before you run the node. If the output is not showing 0 for failed test, then you need to scroll through the testing output and find what test failed \(It will be red instead of green\).
+The test will return the number of passed and failed tests at the bottom of the console. The failed test need to be 0 before you run the node. If the output is not showing 0 for a failed test, then you need to scroll through the testing output and find what test failed \(It will be red instead of green\).
 
 If this is a system compatibility test, then you will need to fix the system. If this is a core test that has failed, then you need to possibly rebuild, or [contact us on the DPoPS testing section](https://xcashteam.atlassian.net/servicedesk) or go the [Discord channel](https://discord.gg/wXFGERr) to get help from testers and the dev-team.
 

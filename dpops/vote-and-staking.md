@@ -18,7 +18,7 @@ Most delegates are discussing freely on our Discord server. We recommend that yo
 
 ## Apply Your Vote
 
-To participate in the network, you will have to vote with your XCASH to elect a delegate that you see as trustworthy and you want to help getting a forging position. The DPOPS consensus has been designed so that the XCASH you use to vote stays in your wallet \(see [the challenge of voting in a privacy coin](https://docs.xcash.foundation/dpops/yellowpaper-delagated-proof-of-private-stake#the-challenges-of-staking-and-voting-in-a-privacy-coin)\)
+To participate in the network, you will have to vote with your XCASH to elect a delegate that you see as trustworthy and you want to help to get a forging position. The DPOPS consensus has been designed so that the XCASH you use to vote stays in your wallet \(see [the challenge of voting in a privacy coin](https://docs.xcash.foundation/dpops/yellowpaper-delagated-proof-of-private-stake#the-challenges-of-staking-and-voting-in-a-privacy-coin)\)
 
 ### Download the wallet
 
