@@ -18,14 +18,24 @@ Until this time, you won't be able to perform any other operation on the blockch
 
 ### Prerequisites
 
-If you want to become a delegate, you will have first to rent a server and install the node validation program. We recommend that you go through the whole documentation to install the node program. 
+If you want to become a delegate, you will have first to rent a server and install the node validation program. We recommend that you go through the [whole documentation to install the node program](get-started.md). 
+
+{% hint style="info" %}
+If you have already installed the program before, you will have to update. Run the `autoinstaller` script update option: 
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+And chose `option 2`.
+{% endhint %}
 
 Once you have finished[ installing the node program](node-installation.md), you will have to tell your program to start at the right time. 
 
 Edit the systemd unit file **`xcash-dpops.service`** from the **`/lib/systemd/system/`** folder :
 
 ```bash
-nano nano /lib/systemd/system/xcash-dpops.service
+nano /lib/systemd/system/xcash-dpops.service
 ```
 
 You will get the following **`unit`** file:
@@ -50,15 +60,33 @@ WantedBy=multi-user.target
 
 At the `ExecStart` line, add the following option:
 
+{% hint style="warning" %}
+The **`--block-verifiers-secret-key`** should always be the first parameter.
+{% endhint %}
+
 ```text
 --start-time 28 15 56
 ```
 
 {% hint style="info" %}
-This will tell the `xcash-dpops` program to start 5 minutes before 6PM Paris time on July 28th.
+This will tell the `xcash-dpops` program to start 5 minutes before 6 PM Paris time on July 28th.
 {% endhint %}
 
-### Register as a delegate
+### Download the blockchain
+
+We have prepared a bootstrap version of the blockchain snapshot. To download it, you will need to run the autoinstaller script:
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+And chose `option 4: Update/Install the blockchain`
+
+{% hint style="info" %}
+This will download the complete blockchain file \(~16GB\), so it might take some time depending on your location. 
+{% endhint %}
+
+###  Register as a delegate
 
 Now that your installation of the program is ready, you can [register yourself as a delegate](register-delegate.md). Your information will be added to the [delegates' explorer](http://delegates.xcash.foundation/auth/tables/delegates) in the next minutes, and you will be ready to accept votes!
 
@@ -70,7 +98,7 @@ Do not forget to update your [public information](register-delegate.md#3-update-
 
 ### Download Binaries
 
-To vote with your XCASH, you will need to download the beta version of the 2.0.0 binaries on GitHub. Select the link relating to your Operating System and download the GitHub release. Unpack them in a folder \(preferably close to the `root` or `C:/` folder\).
+To vote with your XCASH, you will need to download the beta version of the 2.0.0 binaries on GitHub. Select the link relating to your Operating System and download the GitHub release. Unpack them in a folder \(preferably close to the **`root`** or **`C:/`** folder\).
 
 ### **Synchronizing your wallet**
 
