@@ -98,7 +98,7 @@ Do not forget to update your [public information](register-delegate.md#3-update-
 
 ### Download Binaries
 
-To vote with your XCASH, you will need to download the beta version of the 2.0.0 binaries on GitHub. Select the link relating to your Operating System and download the GitHub release. Unpack them in a folder \(preferably close to the **`root`** or **`C:/`** folder\).
+To vote with your XCASH, you will need to download the [beta version of the 2.0.0 binaries on GitHub](https://github.com/X-CASH-official/xcash-core/releases/tag/2.0.0-beta). Select the link relating to your Operating System and download the GitHub release. Unpack them in a folder \(preferably close to the **`root`** or **`C:/`** folder\).
 
 ### **Synchronizing your wallet**
 
@@ -140,7 +140,7 @@ And replace **`<daemon_address>`** with either **`europe1.xcash.foundation`** or
 Once your wallet as finished synchronizing completely, you will be able to vote for your desired delegate.
 
 {% hint style="danger" %}
-Initiating a `transfer` or a `sweep_all` function before the start of the beta on July 28th will not succeed and prevent you from voting.   
+Initiating a **`transfer`** or a **`sweep_all`** function before the start of the beta on July 28th will not succeed and prevent you from voting.   
 You will have to restore your wallet again in that case. 
 {% endhint %}
 
