@@ -13,7 +13,7 @@ You will need to have all the services already running to generate the necessary
 
 ## 1. Register Yourself as a Delegate
 
-You should have noted your block verifier keys during the [program installation](node-installation.md). You will need to prepare a **delegate name**, your **server IP address** or **domain name**, and the **block verifier public key.** Furthermore, you will have to register from the wallet you will be using to collect the reward.
+You should have noted your block verifier keys during the [program installation](node-installation.md). You will need to prepare a **delegate name**, your **server IP address** or **domain name**, and the **block verifier public key.** Furthermore, you will have to register from the wallet you will be used to collect the reward.
 
 {% hint style="warning" %}
 Chose your delegate name wisely as you won't be able to change it down the line. If you want to change the name, you will have to generate a new block verifier key pair and register yourself again, but **you will however lose your previous delegate stats.**
