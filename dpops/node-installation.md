@@ -655,6 +655,20 @@ ca1319431124f55fa0d9e0fcc84edd780f80da7d91f08d334fac17c803934ecccf8718d638ce0a83
 If you lose it, you will lose your delegate stats and will have to start over.
 {% endhint %}
 
+First of all, stop the currently running process of the **`xcash-dpops`** program.
+
+```text
+systemctl stop xcash-dpops
+```
+
+Then, add your block verifier secret key as a parameter in the service. See the [setup of the services](node-installation.md#6-xcash-dpops-service) guide to see how to edit the unit file.
+
+Once done, make sure to save the new changes to **`systemctl`** by using the following command:
+
+```text
+systemctl daemon-reload
+```
+
 ### Test build
 
 {% hint style="info" %}

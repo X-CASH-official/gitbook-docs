@@ -57,30 +57,10 @@ delegate_register my_delegate my_delegate.domain.com cf8718d638ce0a831f3538ea60d
 
 You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message **`The delegate has been registered successfully`**.
 
-You can **`exit`** the wallet and restart the wallet service:
+You can **`exit`** the wallet, and restart the wallet service:
 
 ```text
-systemctl daemon-reload
-```
-
-Now, you will need to use your **`block verifier secret key`** as a parameter to let the program identify that you are the one signing messages.
-
-{% hint style="info" %}
-If you installed the program through with [the autoinstaller](node-installation.md#quick-installation), your block verifier secret key has already been added as a parameter to the **`xcash-dpops`** program. You can go to the next step.
-{% endhint %}
-
-First of all, stop the currently running process of the **`xcash-dpops`** program.
-
-```text
-systemctl stop xcash-dpops
-```
-
-Then, add your block verifier secret key as a parameter in the service. See the [setup of the services](node-installation.md#6-xcash-dpops-service) guide to see how to edit the unit file.
-
-Once done, make sure to restart **`systemctl`**:
-
-```text
-systemctl daemon-reload
+systemctl restart xcash-rpc-wallet
 ```
 
 ## 2. Update Public Information

@@ -27,7 +27,7 @@ If you have already installed the program before, you will have to update. Run t
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-And chose `option 2`.
+And choose `option 2`.
 {% endhint %}
 
 Once you have finished[ installing the node program](node-installation.md), you will have to tell your program to start at the right time. 
