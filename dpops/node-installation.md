@@ -355,6 +355,7 @@ Clone the `xcash-core` repository to your installation folder and go to the down
 ```bash
 cd ~/xcash-official/ && git clone https://github.com/X-CASH-official/xcash-core.git
 cd xcash-core
+git checkout --quiet xcash_proof_of_stake
 ```
 
 Make sure to have all the [dependencies](node-installation.md#install-dependencies) installed, and build the binaries using `make`:
