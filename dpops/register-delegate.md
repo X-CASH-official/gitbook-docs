@@ -76,7 +76,7 @@ systemctl stop xcash-rpc-wallet
 Open and let synchronize the wallet you used to register as a delegate, either when using the [auto-installer](node-installation.md#quick-installation) or [created manually](node-installation.md#generate-a-wallet).
 
 ```text
-~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallet/<WALLET_NAME>
+~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallets/<WALLET_NAME>
 ```
 
 Replace the **`<WALLET_NAME>`** with your own.
