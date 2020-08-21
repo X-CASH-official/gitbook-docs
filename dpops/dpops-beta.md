@@ -2,7 +2,7 @@
 description: Set of instructions to participate in the phase 2 of the DPOPS beta.
 ---
 
-# DPOPS beta - Phase 2
+# DPOPS beta  V2
 
 #### **Thank you for participating in the DPOPS beta! 🙏**
 
@@ -20,7 +20,7 @@ Until this time, you won't be able to perform any other operation on the blockch
 ### 1. Prerequisites
 
 {% hint style="info" %}
-If you weren't part of the phase 1 of the beta, you will first have to rent a server and install the node validation program. We recommend that you go through the [whole documentation to install the node program](get-started.md). 
+If you weren't part of phase 1 of the beta, you will first have to rent a server and install the node validation program. We recommend that you go through the [whole documentation to install the node program](get-started.md). 
 {% endhint %}
 
 If you have joined the beta during the first phase, you most certainly have your setup already prepared. You will just need to update your block verifier keys before moving forward. 
@@ -84,18 +84,24 @@ The **`--block-verifiers-secret-key`** should always be the first parameter.
 This will tell the `xcash-dpops` program to start 5 minutes before 6 PM Paris time on August 29th.
 {% endhint %}
 
-### 2. Download/update the blockchain
+### 2. Reset the blockchain and database
 
-We have prepared a bootstrap version of the blockchain snapshot. To download it, you will need to run the autoinstaller script:
+You will need to reset the current blockchain and data you have gathered in your local database during the first phase of the beta. First, copy/paste the following command to launch the autoinstaller script and stop the running programs:
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)" && systemctl stop xcash-dpops xcash-rpc-wallet
+```
+
+Choose option 10 to automatically reset the local database and bring back your local blockchain to block 640,000. You can now [register yourself as a delegate](dpops-beta.md#3-register-as-a-delegate).
+
+{% hint style="info" %}
+In case you don't have the blockchain downloaded or you are joining the beta for the first time, we have prepared a bootstrap version of the blockchain snapshot. To download it, you will need to run the autoinstaller script:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
 And chose `option 4: Update/Install the blockchain`
-
-{% hint style="info" %}
-This will download the complete blockchain file \(~16GB\), so it might take some time depending on your location. 
 {% endhint %}
 
 ###  3. Register as a delegate
@@ -104,6 +110,18 @@ Now that your installation of the program is ready, you can [register yourself a
 
 {% hint style="info" %}
 Do not forget to update your [public information](register-delegate.md#3-update-public-information).
+{% endhint %}
+
+To make sure that you are correctly registered and every step has been done accordingly, check the live logging of the `xcash-dpops` program using the command: 
+
+```bash
+journalctl --unit=xcash-dpops -n 100 --follow --output cat
+```
+
+The system should display `Waiting for the specific start time` if you have followed every step correctly. 
+
+{% hint style="info" %}
+If you find yourself having difficulties, don't hesitate to join the[ Discord channel for delegates](https://discord.gg/D2PV2pb).
 {% endhint %}
 
 ## Beta voting
