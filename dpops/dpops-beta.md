@@ -84,18 +84,32 @@ The **`--block-verifiers-secret-key`** should always be the first parameter.
 This will tell the `xcash-dpops` program to start 5 minutes before 6 PM Paris time on August 29th.
 {% endhint %}
 
+Once the changes added, save and close the `xcash-dpops.service` file and update `systemctl` to take the changes into account: 
+
+```bash
+systemctl daemon-reload
+```
+
 ### 2. Reset the blockchain and database
 
-You will need to reset the current blockchain and data you have gathered in your local database during the first phase of the beta. First, copy/paste the following command to launch the autoinstaller script and stop the running programs:
+You will need to reset the current blockchain and data you have gathered in your local database during the first phase of the beta. First, copy/paste the following command to launch the auto-installer script and stop the running programs:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)" && systemctl stop xcash-dpops xcash-rpc-wallet
 ```
 
-Choose option 10 to automatically reset the local database and bring back your local blockchain to block 640,000. You can now [register yourself as a delegate](dpops-beta.md#3-register-as-a-delegate).
+Choose `option 10` to automatically reset the local database and bring back your local blockchain to block 640,000. 
+
+Finally, run the auto-installer's `option 7 - Restart Programs` to restart the different services.
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)" && systemctl stop xcash-dpops xcash-rpc-wallet
+```
+
+You can now [register yourself as a delegate](dpops-beta.md#3-register-as-a-delegate).
 
 {% hint style="info" %}
-In case you don't have the blockchain downloaded or you are joining the beta for the first time, we have prepared a bootstrap version of the blockchain snapshot. To download it, you will need to run the autoinstaller script:
+In case you don't have the blockchain downloaded or you are joining the beta for the first time, we have prepared a bootstrap version of the blockchain snapshot. To download it, you will need to run the auto-installer script:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
@@ -104,7 +118,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 And chose `option 4: Update/Install the blockchain`
 {% endhint %}
 
-###  3. Register as a delegate
+### 3. Register as a delegate
 
 Now that your installation of the program is ready, you can [register yourself as a delegate](register-delegate.md). Your information will be added to the [delegates' explorer](http://delegates.xcash.foundation/auth/tables/delegates) in the next minutes, and you will be ready to accept votes.
 
