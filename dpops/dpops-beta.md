@@ -103,7 +103,7 @@ Choose `option 10` to automatically reset the local database and bring back your
 Finally, run the auto-installer's `option 7 - Restart Programs` to restart the different services.
 
 ```bash
-bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)" && systemctl stop xcash-dpops xcash-rpc-wallet
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
 You can now [register yourself as a delegate](dpops-beta.md#3-register-as-a-delegate).
