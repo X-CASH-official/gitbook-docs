@@ -38,7 +38,7 @@ cd ~ && BLOCK_VERIFIERS_SECRET_KEY_LENGTH=128 && BLOCK_VERIFIERS_PUBLIC_KEY_LENG
 ```
 
 {% hint style="info" %}
-This will generate a new pair of block verifier keys, as well as update the `xcash-dpops.service` file with the corresponding information.   
+This will generate a new pair of block verifier keys, as well as update the **`xcash-dpops.service`** file with the corresponding information.   
 Be sure to securely save your block verifier keys.
 {% endhint %}
 
@@ -73,7 +73,7 @@ WantedBy=multi-user.target
 At the `ExecStart` line, add the following option at the end:
 
 ```text
---start-time 7 29 15 56
+--start-time 7 31 15 56
 ```
 
 {% hint style="warning" %}
