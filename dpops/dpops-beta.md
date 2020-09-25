@@ -177,7 +177,7 @@ Open a terminal window and run the `xcash-wallet-cli` file with the following op
 /path_to_folder/xcash-wallet-cli --restore-deterministic-wallet --daemon-address <daemon_address>
 ```
 
-And replace **`<daemon_address>`** with either **`europe1.xcash.foundation`** or **`us2.xcash.foundation`** depending on your location. You will be then prompted to restore your wallet. Insert the seed of your wallet and let it synchronize to the current height.
+And replace **`<daemon_address>`** with either **`europe1.xcash.foundation:18281`** or **`us2.xcash.foundation:18281`** depending on your location. You will be then prompted to restore your wallet. Insert the seed of your wallet and let it synchronize to the current height.
 
 ### 3. Vote
 
