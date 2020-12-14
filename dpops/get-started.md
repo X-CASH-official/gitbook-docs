@@ -58,28 +58,28 @@ Becoming a delegate is ambitious, and reaching and keeping a forging spot is rew
 
 ## Key features <a id="key-features"></a>
 
-#### Characteristics 📃
+#### Characteristics
 
 * The top 50 delegates are elected as block verifiers. 
 * Using a variation of Delegated Byzantine Fault tolerance consensus where 67% consensus must be reached for a new block to be added to the network.
 * DBFT allows for up to 33% of the elected block verifiers to be faulty. The system will still be able to produce a new block.
-* Using Verifiable Random Functions \(VRF\) to select the next block producer in the system. This allows for a random, but verifiable way of selecting the next block producer.
+* Using Verifiable Random Functions \(VRF\) to select the next block producer in the system. This allows for a random, but a verifiable way of selecting the next block producer.
 
-#### Staking 💰
+#### Staking
 
 * Reserve proof-based voting/staking system: the XCASH's stake always stays in your wallet.
 * There is no lockup period. The staked XCASH always remain in your wallet and you can use them at any time. However, moving them from your wallet will cancel your entire staking
 * No need to keep your wallet/computer online if you are staking towards a shared delegate
 
-#### Voting ❎
+#### Voting
 
 * The minimum stake to vote for a delegate is 2 million XCASH.
-* The election process occurs every block.
+* The election process occurs in every block.
 * New votes will be taken into account for the next block.
 * Your current vote will automatically get cancelled if you change your vote to a different delegate.
-* There is no voting fees. You can cast a new vote or switch your vote as many time as you like.
+* There aer no voting fees. You can cast a new vote or switch your vote as many time as you like.
 
-#### Blocks ⬛
+#### Blocks
 
 * Blocks can be verified in the X-Cash's Daemon with a detailed explanation of the block content.
 * The voting and reserve bytes data is held in a decentralized database system.
