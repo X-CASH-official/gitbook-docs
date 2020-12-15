@@ -87,15 +87,19 @@ systemctl restart systemd-timesyncd
 
 The **Installer Script** has been designed to easily interact with the **`xcash-dpops`** program and provide easy steps for installation and updates. You can also use this script to restart the programs if you are not comfortable with the command-line interface.
 
-To display the setting menu, run the following command that will fetch the **`autoinstaller.sh`** script from the official [xcash-dpops](https://github.com/X-CASH-official/xcash-dpops) repository:
+To run the latest version of the installer script, run the following command that will fetch the **`autoinstaller.sh`** script from the official [xcash-dpops](https://github.com/X-CASH-official/xcash-dpops) repository:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
+ You will be prompted with the installer menu of the `xcash-dpops` program:
 
+![](../.gitbook/assets/image%20%2824%29.png)
 
-## Quick Installation
+The installation script enables you to install and manage your `xcash-dpops` program easily.  
+
+## Node Program Installation
 
 Once you have prepared your Linux instance by following the [server setup guide](server-setup.md), you can run an installer script to easily install, build and configure the node, as well as download the blockchain.
 
