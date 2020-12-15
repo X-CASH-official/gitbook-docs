@@ -49,7 +49,7 @@ Becoming a delegate is ambitious, and reaching and keeping a forging spot is rew
           a server as per<a href="server-setup.md"> the guide</a>, install the
           <a
           href="node-installation.md">node program</a>and <a href="register-delegate.md">register yourself</a> as
-            a delegate. Then, follow up on the additional instructions to <a href="dpops-beta.md">join the beta</a>.</p>
+            a delegate. Then, follow up on the additional instructions to <a href="../archived/dpops-beta.md">join the beta</a>.</p>
         <p>If you just want to vote, the instructions are indicated in <a href="vote-and-staking.md">vote &amp; staking</a>.</p>
       </td>
     </tr>

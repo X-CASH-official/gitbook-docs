@@ -24,9 +24,13 @@
 * [Register Delegate](dpops/register-delegate.md)
 * [Management & Monitoring](dpops/management-and-monitoring.md)
 * [Vote & Staking](dpops/vote-and-staking.md)
-* [DPOPS beta  V2](dpops/dpops-beta.md)
 
 ## Library
 
 * [Yellowpaper - Hybrid Transactions](library/yellowpaper-hybrid-transactions.md)
+
+## Archived
+
+* [DPOPS beta  V2](archived/dpops-beta.md)
+* [DPOPS Manual Installation](archived/dpops-manual-installation.md)
 
