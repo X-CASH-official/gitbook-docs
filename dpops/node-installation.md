@@ -216,7 +216,7 @@ By default, the wallet is named **`delegate-wallet`** and is stored in **`/root/
 
 Now that the program is installed, your delegate wallet initialized, and the different services running, you can go register yourself as a delegate. Follow the [register delegate](register-delegate.md) guide to continue the node setup.
 
-## 👷‍ Manual Installation
+## Manual Installation
 
 This guide is designed for people knowledgeable in Linux and who want to install everything from scratch. If you are not comfortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make a mistake that will prevent the **`xcash-dpops`** program to run as intended.
 
@@ -233,7 +233,7 @@ mkdir -p ~/xcash-official/{xcash-wallets,logs,systemdpid}
 mkdir -p ~/.X-CASH
 ```
 
-### Install Dependencies
+#### 2. Install Dependencies
 
 First, update your system packages and install the necessary dependencies:
 
@@ -248,7 +248,7 @@ If you want to install [`xcash-core`](https://github.com/X-CASH-official/xcash-c
 sudo apt install libboost-all-dev libzmq3-dev libunbound-dev libsodium-dev libminiupnpc-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev libgtest-dev doxygen graphviz libpcsclite-dev screen p7zip-full -y
 ```
 
-#### Installing MongoDB
+#### 2.a\) Installing MongoDB
 
 You will need to get the latest stable version \(current release\) on the MongoDB website: [https://www.mongodb.com/download-center/community](https://www.mongodb.com/download-center/community)
 
@@ -288,7 +288,7 @@ Additionally, create the `/data/db` folder that will keep the delegates database
 sudo mkdir -p /data/db && sudo chmod 770 /data/db && sudo chown $USER /data/db
 ```
 
-#### Building the MongoDB C Driver from source
+#### 2.b\) Building the MongoDB C Driver from source
 
 First, download the latest stable version of the MongoDB C Driver.  
 Go to the [official GitHub repository](https://github.com/mongodb/mongo-c-driver/) and download the latest stable[ release](https://github.com/mongodb/mongo-c-driver/tags). Get the tarball file in your installation folder:
@@ -314,7 +314,7 @@ Then, update the links and cache of the newly installed library:
 sudo ldconfig
 ```
 
-#### Building `xcash-core` from source
+#### 2.c\) Building `xcash-core` from source
 
 Clone the `xcash-core` repository to your installation folder and go to the downloaded folder:
 
@@ -333,7 +333,7 @@ make release -j `nproc`
 
 Once the build finishes, the binaries will be located in `~/xcash-official/xcash-core/build/release/bin`
 
-### Build Instructions
+#### 3. Build Instructions
 
 At this point, all the dependencies should be installed and built. First, clone the **`xcash-dpops`** repository:
 
@@ -350,7 +350,7 @@ make clean ; make release -j `nproc`
 
 Once the build is completed, you will get the `xcash-dpops Has Been Built Successfully` message. Now that the program is built, you will need to generate a wallet to be used for the delegate and set up the different `units` for `systemd` to organize how your server manages the different services.
 
-### Generate a Wallet
+#### 4. Generate a Wallet
 
 You will need to create a wallet to register as a delegate, to receive the block reward if you are elected as a top delegate and if you are a shared delegate, the payments will be sent from this wallet as well.
 
@@ -372,13 +372,13 @@ The wallet synchronization can take time the first time. It will depend on which
 
 The wallet files will be located in **`~/xcash-official/xcash-wallets/`**
 
-### Setup The Services
+#### 5. Setup The Services
 
 In `systemd`, a `unit` refers to any resource that the system knows how to operate on and manage. This is the primary object that the `systemd` tools know how to deal with. These resources are defined using configuration files called **unit files**.
 
 On this guide, we will set up the different unit files to manage the programs needed to run your delegate node. The `unit` files template are present in the `xcash-dpops/scripts/systemd` folder, but will need to be adjusted with your delegate information.
 
-#### 1. Initialization
+#### 5.a\) Initialization
 
 Create two empty `PID` files in the `systemdpid` folder previously created, that will manage the corresponding services:
 
@@ -386,7 +386,7 @@ Create two empty `PID` files in the `systemdpid` folder previously created, that
 touch ~/xcash-official/systemdpid/mongod.pid ~/xcash-official/systemdpid/xcash-daemon.pid
 ```
 
-#### 2. mongodb Service
+#### 5.b\) mongodb Service
 
 Edit the systemd unit file `mongodb.service` from in the `xcash-dpops/scripts/systemd`folder :
 
@@ -432,7 +432,7 @@ In the file, replace the following if needed:
   * Replace the path to the `mongod` file.
   * Replace the path to the database directory \(`/data/db` as per the instructions\) 
 
-#### 3. xcash-daemon Service
+#### 5.c\) xcash-daemon Service
 
 Edit the systemd unit file `xcash-daemon.service` from in the `xcash-dpops/scripts/systemd`folder :
 
@@ -469,7 +469,7 @@ In the file, replace the following if needed:
   * Replace the path to the `xcash-daemon_Log.txt` file.
   * Replace the path to the `xcash-daemon.pid` file.
 
-#### 4. xcash-rpc-wallet Service
+#### 5.d\) xcash-rpc-wallet Service
 
 Edit the systemd unit file `xcash-rpc-wallet.service` from in the `xcash-dpops/scripts/systemd`folder :
 
@@ -503,7 +503,7 @@ In the file, replace the following if needed:
   * Replace the path to the **`xcash-wallets`** folder, and replace **`WALLET`** by your delegate wallet name.
   * Replace **`PASSWORD`** with your delegate wallet password.
 
-#### 5. Firewall Service
+#### 5.e\) Firewall Service
 
 Edit the systemd unit file **`firewall.service`** from in the **`xcash-dpops/scripts/systemd`**folder :
 
@@ -534,7 +534,7 @@ In the file, replace the following if needed:
 * **`User`**: User of the system \(most likely `root`\)
 * **`ExecStart`**: Replace the path to the `firewall/firewall_script.sh` file.
 
-#### 6. xcash-dpops Service
+#### 5.f\) xcash-dpops Service
 
 Edit the systemd unit file **`xcash-dpops.service`** from in the **`xcash-dpops/scripts/systemd`**folder :
 
@@ -574,7 +574,7 @@ In the file, replace the following if needed:
 The instructions to generate the block verifier secret key is given in the [generate block verifier key](node-installation.md#generate-a-block-verifier-key) guide. Make sure to update the file with your **`Block Verifier Secret Key`** and restart the service.
 {% endhint %}
 
-#### 7. Install and reload
+#### 5.g\) Install and reload
 
 Now that you have prepared all the `unit` systemd files, you will need to copy all of them to the `system` folder:
 
@@ -588,7 +588,7 @@ Then, reload `systemd` to take the changes into account and run the services.
 systemctl daemon-reload
 ```
 
-### Generate a Block Verifier Key
+#### 6. Generate a Block Verifier Key
 
 The **block verifier key** is a unique identifier generated by a delegate and is used in the consensus process to sign messages and verify the information. As a delegate, you will need to generate a **block verifier key** before being able to register yourself in the system.
 
@@ -604,7 +604,7 @@ Then, run the **`xcash-dpops`** program with the `--generate-key` option. The pr
 ~/xcash-official/xcash-dpops/build/xcash-dpops --generate-key
 ```
 
-You will be given a **public key** and **private key**.
+You will be given a **block verifier** **public key** and **block verifier** **private key**.
 
 {% code title="Block Verifier Key" %}
 ```text
@@ -636,7 +636,7 @@ Once done, make sure to save the new changes to **`systemctl`** by using the fol
 systemctl daemon-reload
 ```
 
-### Test build
+#### 7. Test build
 
 {% hint style="info" %}
 It is recommended to run the **`xcash-dpops`** `test` before you run the main program. The test will ensure that your system is compatible and that you have set up your system correctly.
