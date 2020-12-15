@@ -218,7 +218,13 @@ Now that the program is installed, your delegate wallet initialized, and the dif
 
 ## Manual Installation
 
+{% hint style="danger" %}
+This guide hasn't been updated since May 2020. It is highly recommended to install the xcash-dpops program with the installer script provided above. 
+{% endhint %}
+
+{% hint style="warning" %}
 This guide is designed for people knowledgeable in Linux and who want to install everything from scratch. If you are not comfortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make a mistake that will prevent the **`xcash-dpops`** program to run as intended.
+{% endhint %}
 
 #### 1. Installation Directories
 
