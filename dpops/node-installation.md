@@ -8,16 +8,15 @@ description: >-
 
 ## Introduction
 
+The xcash-dpops program is 
+
 {% hint style="info" %}
 This guide is assuming that you have already followed the step of the [server setup guide](server-setup.md), or that you are comfortable and knowledgeable about your Linux instance.
 {% endhint %}
 
 This guide will walk you through installing, registering, and preparing a delegate node on your instance. Whether you are experienced in Linux or completely new to it, you will be able, at the end of the guide, to have your delegate node running and start securing the X-Cash public network \(provided you get elected as a delegate 😉\).
 
-This guide is split into two sections:
-
-* [**Quick installation**](node-installation.md#quick-installation): With a simple auto-installer script, you will be able to install the **`xcash-dpops`** program that will enable you to relay and forge blocks, and participate in the security of the network.  _Linux knowledge is not mandatory to follow the auto-installer script._ 
-* [**Manual** ](node-installation.md#manual-installation)\*\*\*\*[**installation**](node-installation.md#manual-installation)**:** This step-by-step guide will cover everything about building the **`xcash-dpops`** program, the dependencies from the source code, and managing the services. _It is expected that you are comfortable with Linux to follow this guide._
+The `xcash-dpops` program is used to manage the block validation, communicate with the other delegates and forge blocks. It has also been designed to automatically retribute the voters of their shares.  
 
 ## Requirements
 
@@ -35,7 +34,7 @@ The recommended system requirement is designed to be **future-development proof*
 
 |  | **Minimum** | **Recommended** |
 | :--- | :--- | :--- |
-| **OS** | Ubuntu 18.04 | Ubuntu 18.04 |
+| **OS** | Ubuntu 18.04 | Ubuntu 18.04 or 20.04 |
 | **CPU** | 4 threads, 2.0 GHz or more per thread | 4 threads, 2.0 GHz or more per thread |
 | **RAM** | 6GB | 32GB |
 | **Hard Drive** | 50GB | 2TB |
@@ -43,14 +42,18 @@ The recommended system requirement is designed to be **future-development proof*
 | **Bandwidth Speed** | 100 Mbps | 500 Mbps |
 
 {% hint style="info" %}
-It is estimated that the blockchain size will increase by **9GB per year.**
+It is estimated that the blockchain and decentralized database size will increase by **9GB per year.** 
 {% endhint %}
 
 {% hint style="warning" %}
-The **minimum requirements** will suffice at the inception of the new consensus. However, as new features are brought to the program, hardware updates will be quickly needed.
+The **minimum requirements** will suffice at the inception of the new consensus. However, as new features are brought to the program and the blockchain, hardware updates will be needed.
 {% endhint %}
 
 ### Dependencies
+
+{% hint style="info" %}
+The dependencies will be automatically installed and updated with the installation script.
+{% endhint %}
 
 The following table summarizes the tools and libraries required to run **`xcash-dpops`** program.
 
@@ -62,16 +65,12 @@ The following table summarizes the tools and libraries required to run **`xcash-
 | **OpenSSL** | any | `libssl-dev` |
 | **Git** | any | `git` |
 | **MongoDB** | 4.0.3 | Install from [binaries](https://www.mongodb.com/download-center/community) |
-| **MongoDB C Driver** \(includes BSON libary\) | 1.13.1 | Build from [source](https://github.com/mongodb/mongo-c-driver/releases/) |
+| **MongoDB C Driver** \(includes BSON library\) | 1.13.1 | Build from [source](https://github.com/mongodb/mongo-c-driver/releases/) |
 | **xcash-core** | Latest version | [download the latest release](https://github.com/X-CASH-official/X-CASH/releases) or [build from source](https://github.com/X-CASH-official/X-CASH#compiling-x-cash-from-source) |
 
 ### Time Synchronization
 
 The **`xcash-dpops`** program uses the system time to calibrate itself and get the signal to send and receive data. It is important that the system time is accurate, otherwise, the program will not work as intended.
-
-{% hint style="info" %}
-The timezone does not matter and will not affect synchronization.
-{% endhint %}
 
 To check your system time, use the following command, and verify that the setting `System clock synchronization: yes`
 

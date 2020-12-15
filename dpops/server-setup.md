@@ -80,15 +80,9 @@ We will give a short tutorial here for preparing a server. Those steps should be
 
 ### Install a Linux distribution
 
-Your server provider should propose you different Linux distributions to install directly from their dashboard. The **`xcash-dpops`** program was intensively tested on **Ubuntu-18.04** and should be the preferred distribution.
+Your server provider should propose you different Linux distributions to install directly from their dashboard. The **`xcash-dpops`** program was intensively tested on **Ubuntu-18.04 and Ubuntu-20.04** and should be the preferred distribution.
 
-{% hint style="warning" %}
-While **Ubuntu-20.04** has been released recently \(April 2020\), it hasn't been tested as much as 18.04. It shouldn't be an issue to install the newest version, but we still recommend installing 18.04.
-{% endhint %}
-
-![Most server provider propose installation of a Linux distribution from the dashboard. The distribution will be automatically installed and ready to use when you log in.](../.gitbook/assets/image%20%283%29.png)
-
-Choose the **Ubuntu 18.04 LTS** version and follow the installation process.
+Choose the **Ubuntu 18.04 LTS** or **Ubuntu 20.04 LTS** version and follow the installation process.
 
 ### **Log in to your server**
 
@@ -134,7 +128,7 @@ When first connecting to your new server, you will be prompted to recognize the 
 
 ```text
 The authenticity of host '{SERVER_IP}' can't be established.
-ECDSA key fingerprint is SHA256:sjdflkjslfksjlfksjfqmklqjsf+hrQ.
+ECDSA key fingerprint is SHA256:AAAAAAAAAAAAfksjlfksjfqmklqjsf+hrQ.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
