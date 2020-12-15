@@ -83,20 +83,6 @@ timedatectl set-ntp true
 systemctl restart systemd-timesyncd
 ```
 
-And run `timedatectl`again. It should look as follow:
-
-{% code title="$ timedatectl" %}
-```text
-                      Local time: Mon 2020-06-01 16:18:19 CEST
-                  Universal time: Mon 2020-06-01 14:18:19 UTC
-                        RTC time: Mon 2020-06-01 14:18:19
-                       Time zone: Europe/Berlin (CEST, +0200)
-       System clock synchronized: yes
-systemd-timesyncd.service active: yes
-                 RTC in local TZ: no
-```
-{% endcode %}
-
 ## Installer Script
 
 The **Installer Script** has been designed to easily interact with the **`xcash-dpops`** program and provide easy steps for installation and updates. You can also use this script to restart the programs if you are not comfortable with the command-line interface.
@@ -107,24 +93,7 @@ To display the setting menu, run the following command that will fetch the **`au
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-This will open the following settings screen to choose from:
 
-![](../.gitbook/assets/image%20%2817%29.png)
-
-You can select the task by inputting the corresponding number:
-
-1. **Install:** This setting will prepare the necessary directories, download the dependencies, build, and install the **`xcash-dpops`** program. The steps to follow are stated down below. 
-2. **Update:** Updates all the packages and releases of the dependencies to build the program.
-3. **Uninstall:** Removes all the files, dependencies and related program of the **`xcash-dpops`**.
-4. **Install / Update Blockchain:** Downloads or updates the X-Cash blockchain data.
-5. **Change Solo Delegate or Shared Delegate:** Switches from a solo delegate setup to a shared delegate setup or the other way around.
-6. **Edit Shared Delegate Settings:** If you are running a shared delegate setup, changes the fees and minimum payout to voters.
-7. **Restart Programs:** Restarts all the programs and services relating to **`xcash-dpops`**
-8. **Stop Programs:** Stop all the programs and services relating to**`xcash-dpops`**
-9. **Test Update:** _Alpha test feature_
-10. **Test Update Reset Delegates:** _Alpha test feature_
-11. **Firewall:** Install the firewall for solo delegates.
-12. **Shared Delegates Firewall:** Install the firewall with parameters for shared delegates.
 
 ## Quick Installation
 
@@ -247,11 +216,11 @@ By default, the wallet is named **`delegate-wallet`** and is stored in **`/root/
 
 Now that the program is installed, your delegate wallet initialized, and the different services running, you can go register yourself as a delegate. Follow the [register delegate](register-delegate.md) guide to continue the node setup.
 
-## Manual Installation
+## 👷‍ Manual Installation
 
 This guide is designed for people knowledgeable in Linux and who want to install everything from scratch. If you are not comfortable with the Linux distribution, or if you are following these steps without understanding what you are doing, you might make a mistake that will prevent the **`xcash-dpops`** program to run as intended.
 
-### Installation Directories
+#### 1. Installation Directories
 
 {% hint style="info" %}
 It is recommended to install the program the different programs needed for the **`xcash-dpops`** in the same folder, in the the **`/root/`** directory or the **`/home/$USER/`** if you are installing from a user different than root.
