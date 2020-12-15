@@ -8,11 +8,7 @@ description: >-
 
 ## Introduction
 
-The xcash-dpops program is 
-
-{% hint style="info" %}
 This guide is assuming that you have already followed the step of the [server setup guide](server-setup.md), or that you are comfortable and knowledgeable about your Linux instance.
-{% endhint %}
 
 This guide will walk you through installing, registering, and preparing a delegate node on your instance. Whether you are experienced in Linux or completely new to it, you will be able, at the end of the guide, to have your delegate node running and start securing the X-Cash public network \(provided you get elected as a delegate 😉\).
 
