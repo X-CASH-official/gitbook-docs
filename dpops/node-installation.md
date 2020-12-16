@@ -160,15 +160,21 @@ Type your desired minimum payment amount \(minimum: 10,000 XCASH, maximum: 10M X
 
 #### Block reward wallet
 
-You will be asked to provide a wallet to receive the block reward. You can either create a new wallet directly from the script, or to  
+You will be asked to provide a wallet to receive the block reward when you are forging a new block. 
+
+You can either restore an existing wallet, or choose to create a new wallet.
 
 ![](../.gitbook/assets/image%20%289%29.png)
 
-Press **`ENTER`** for the default setting \(**`YES`**\), or type **`No`**.
+Leave empty or type **`YES`** to **create a new wallet**, or type No to choose to **restore an existing wallet** using the mnemonic seed. 
 
-If you say **`YES`**, the installer will then ask you if you want to automatically generate a password for the wallet or provide a custom one. Press **`ENTER`** for the default setting \(**`YES`**\), or type **`No`** to provide a custom password.
+**Create a new wallet -** If you choose to create a new wallet \(**`YES`**\), the installer will then ask you if you want to automatically generate a password for the wallet or provide a custom one. Press **`ENTER`** for the default setting \(**`YES`**\), or type **`No`** to provide a custom password.
 
-You will then be asked if you want to create a new block verifier secret key, or import an existing one:
+**Restore a wallet -** If you choose to not to create a new wallet and restore an existing one instead \(**`No`**\), the installer will ask you to provide your wallet mnemonic seed and a new password.
+
+#### **Block Verifier Keys**
+
+Your block verifier key is used to identify yourself as a delegate. It is mandatory to store it securely. You will be asked if you want to create a new block verifier secret key, or import an existing one:
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
