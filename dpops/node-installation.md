@@ -119,23 +119,25 @@ Choose **`Install`** \(1\) in the `X-Cash DPoPS Installation Settings` section a
 
 You will be prompted to choose different installation directories for:
 
-* The xcash-dpops program
-* The blockchain directory
+* The `xcash-dpops` program
+* The blockchain file
 * The delegate database
 
+{% hint style="warning" %}
 We **very highly** recommend using the default locations, as several update and installation programs are referencing to these paths. 
-
-#### Solo or shared delegate node
-
-You will be then asked if you want to install the **`xcash-dpops`** program as a **shared delegate** or a **solo delegate**.
-
-{% hint style="info" %}
-In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
-In some cases, a delegate who owns a large amount of XCASH could become a delegate by himself, without anyone voting for him/her. We are calling them **solo delegate**.  
-Solo delegates do not need to set up fees and minimum payout threshold as there is no need to redistribute the reward.
 {% endhint %}
 
-![](../.gitbook/assets/image%20%284%29.png)
+#### Delegate mode
+
+You will be then asked if you want to configure the **`xcash-dpops`** program as a **shared delegate** or a **solo delegate**.
+
+**Shared Delegates** - Rely on the vote of others to be elected into the top 50 and get a forging position. Voters are compensated at the rate of their vote and receive a share \(minus the delegate fee\) of the block reward.
+
+**Solo Delegates** - In some cases, a delegates who owns a consequent amount of XCASH can be "elected" as a delegate by voting for themselves. They don't need to setup fees
+
+In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
+In some cases, a delegate who owns a large amount of XCASH could become a delegate by itself, without anyone voting for him/her. We are calling them **solo delegate**.  
+Solo delegates do not need to set up fees and minimum payout threshold as there is no need to redistribute the reward.
 
 Press `ENTER` for the default setting \(`shared delegate`\), or type `No` for `solo delegate`.
 
