@@ -6,6 +6,52 @@ description: >-
 
 # Management & Monitoring
 
+## Managing Installation
+
+You can manage your program installation with the installer script: 
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+![](../.gitbook/assets/image%20%2824%29.png)
+
+The installation script enables you to install and manage your `xcash-dpops` program easily.  
+
+### Restart Program
+
+If you have an issue with your program running, or need to do some changes in the settings and need to restart the different program, it is recommended to restart the service using the installer script.
+
+Run the installer script and choose **option 12**.
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+### Update program
+
+When a new update of the program is pushed, you will need to a update your program. 
+
+Run the installer script and choose **option 2**.
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+### Change delegate mode
+
+To change your settings from a solo to a shared delegate \(and vice versa\), you can run the installer script and choose **option 9,** or change the settings \(fees and minimum payout\) with **option 10.**
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+You will be asked to input a delegate fee and a minimum payout amount to your voters. The script will automatically change the program settings to match your changes.
+
+{% hint style="info" %}
+Don't forget to update your delegate fee by [updating the public information](register-delegate.md#2-update-public-information) as well.
+{% endhint %}
+
 ## `systemd` services
 
 `systemd` is generally used to manage low-level programs in Linux-based systems. It's a reliable way to automatically run programs on startup, and manage and monitor the different services.

@@ -212,17 +212,7 @@ The shared delegates website will automatically pay your voters taking into acco
 
 ### Quick Setup \(easy\)
 
-To change your settings from a solo to a shared delegate \(and vice versa\), you can run the installer script and choose **option 9**:
 
-```text
-bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
-```
-
-You will be asked to input a delegate fee and a minimum payout amount to your voters. The script will automatically change the program settings to match your changes.
-
-{% hint style="info" %}
-Don't forget to update your delegate fee by [updating the public information](register-delegate.md#2-update-public-information) as well.
-{% endhint %}
 
 ### Manual Setup
 
