@@ -52,6 +52,16 @@ You will be asked to input a delegate fee and a minimum payout amount to your vo
 Don't forget to update your delegate fee by [updating the public information](register-delegate.md#2-update-public-information) as well.
 {% endhint %}
 
+### Back up your local database
+
+As a shared delegated, you will have the responsability to distribute the payout to your voters. The voters information and shares are stored locally into your delegate node database. Before attempting to update your node, or do maintenance on your server, it is highly recommended to backup this information.
+
+To backup your shared delegate database, chose **option 19**:
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
 ## `systemd` services
 
 `systemd` is generally used to manage low-level programs in Linux-based systems. It's a reliable way to automatically run programs on startup, and manage and monitor the different services.
