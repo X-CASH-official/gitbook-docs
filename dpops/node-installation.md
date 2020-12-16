@@ -180,10 +180,12 @@ Your block verifier key is used to identify yourself as a delegate. It is mandat
 
 Type **`I`** to import your secret key, or **`C`** to create a new one.
 
-{% hint style="info" %}
+**Generate the block verifier keys -** If it is your first time setting up a delegate node, you will need to generate a new block verifier key pair \(`C`\). 
+
+Import the block verifier keys - You will most likely already have a block verifier key pair if you have registered a delegate in the past and are just trying to reinstall the node program.
+
 The **Block Verifier Key** is used by the delegates to sign messages when interacting with the network.  
 If it's your first install and you don't have one, choose **`Create`** \(**`C`**\) to automatically generate a new one.
-{% endhint %}
 
 This would be the last setting to provide. Once every steps have been followed, the settings will be summarized as below and the installation will start:
 
