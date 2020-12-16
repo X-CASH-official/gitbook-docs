@@ -133,32 +133,34 @@ You will be then asked if you want to configure the **`xcash-dpops`** program as
 
 **Shared Delegates** - Rely on the vote of others to be elected into the top 50 and get a forging position. Voters are compensated at the rate of their vote and receive a share \(minus the delegate fee\) of the block reward.
 
-**Solo Delegates** - In some cases, a delegates who owns a consequent amount of XCASH can be "elected" as a delegate by voting for themselves. They don't need to setup fees
+**Solo Delegates** - In some cases, delegates who owns a consequent amount of XCASH can be "elected" in the top 50 by voting for themselves. They don't need to setup fees and will keep the block reward for themselves. 
 
-In the X-Cash Public Network consensus, the delegates are voted into the top position using the XCASH cryptocurrency.  
-In some cases, a delegate who owns a large amount of XCASH could become a delegate by itself, without anyone voting for him/her. We are calling them **solo delegate**.  
-Solo delegates do not need to set up fees and minimum payout threshold as there is no need to redistribute the reward.
+{% hint style="info" %}
+You will be able to change this setting whenever you want in the installer script menu \(option 9\). 
+{% endhint %}
 
 Press `ENTER` for the default setting \(`shared delegate`\), or type `No` for `solo delegate`.
 
-If you choose to install the program as a shared delegate, you will need to set up your delegate fees and the minimum payment amount.
+If you choose to install the program as a shared delegate, you will need to set up your delegate fee and the minimum payment amount.
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
 {% hint style="info" %}
-The **shared delegate fee** is the percentage of fees that are taken from the reward and kept by the delegate. It can be used to pay for the server hosting, to finance projects in the X-Cash ecosystem, etc..
+The **shared delegate fee** is the percentage of fees that are taken from the reward and kept by the delegate. It can be used to pay for the server hosting, to finance projects in the X-Cash ecosystem, etc... 
 {% endhint %}
 
-Type in your desired delegate fee **in % with up to 6 decimals**.
+Type in your desired delegate fee expressed **in % with up to 6 decimals**.
 
 {% hint style="info" %}
-The **`xcash-dpops`** program will handle automatically the payment of the voters with a dedicated **delegate pool website**.  
-The shared delegate **minimum payment amount** is the minimal amount of XCASH to be sent periodically to the delegate's voters.
+The **`xcash-dpops`** program will set up a wallet service that will automatically handle the payment of the voters, just like a mining pool would.  
+The shared delegate **minimum payment amount** is the minimal threshold of XCASH to be sent periodically to the delegate's voters.
 {% endhint %}
 
-Type your desired minimum payment amount \(minimum: 10000 XCASH, maximum: 10M XCASH\) as a whole number.
+Type your desired minimum payment amount \(minimum: 10,000 XCASH, maximum: 10M XCASH\) as a whole number.
 
-The script will now ask you if you want to create a wallet to collect the block rewards.
+#### Block reward wallet
+
+You will be asked to provide a wallet to receive the block reward. You can either create a new wallet directly from the script, or to  
 
 ![](../.gitbook/assets/image%20%289%29.png)
 
