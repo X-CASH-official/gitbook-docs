@@ -57,6 +57,8 @@ delegate_register my_delegate my_delegate.domain.com cf8718d638ce0a831f3538ea60d
 
 You will be prompted to wait for the next valid data interval. Once your request has been accepted, you will receive the message **`The delegate has been registered successfully`**.
 
+You can check in the [delegates explorer](http://delegates.xcash.foundation/) if your node is correctly appearing.
+
 You can **`exit`** the wallet, and restart the wallet service:
 
 ```text
@@ -210,7 +212,7 @@ The shared delegates website will automatically pay your voters taking into acco
 
 ### Quick Setup \(easy\)
 
-You can run the **`Change Solo Delegate`** or **`Shared Delegate`** or **`Edit Shared Delegate Settings`** option in the auto-installer script to easily update your delegate settings. To open the installer script, run:
+To change your settings from a solo to a shared delegate \(and vice versa\), you can run the installer script and choose **option 9**:
 
 ```text
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
