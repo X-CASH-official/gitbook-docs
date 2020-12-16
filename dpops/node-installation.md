@@ -103,6 +103,10 @@ The installation script enables you to install and manage your `xcash-dpops` pro
 
 ### Installing the X-Cash DPoPS program
 
+{% hint style="info" %}
+Before starting, it is recommended to start the installer script in a multiplexer window such as [byobu ](https://www.byobu.org/)to avoid corrupted installation in case of SSH disconnection.
+{% endhint %}
+
 Once you have prepared your Linux instance by following the [server setup guide](server-setup.md), you can run the installer script to easily install, build and configure the node, as well as download the blockchain.
 
 **`xcash-dpops`** is the program needed to run and manage a delegate node. It is responsible for sending messages to the other delegates, organize the consensus, relay and forge new blocks, etc...
@@ -115,7 +119,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 
 Choose **`Install`** \(1\) in the `X-Cash DPoPS Installation Settings` section and press **`ENTER`**
 
-#### Installation Directories
+#### 1. Installation Directories
 
 You will be prompted to choose different installation directories for:
 
@@ -127,7 +131,7 @@ You will be prompted to choose different installation directories for:
 We **very highly** recommend using the default locations, as several update and installation programs are referencing to these paths. 
 {% endhint %}
 
-#### Delegate mode
+#### 2. Delegate mode
 
 You will be then asked if you want to configure the **`xcash-dpops`** program as a **shared delegate** or a **solo delegate**.
 
@@ -158,11 +162,11 @@ The shared delegate **minimum payment amount** is the minimal threshold of XCASH
 
 Type your desired minimum payment amount \(minimum: 10,000 XCASH, maximum: 10M XCASH\) as a whole number.
 
-#### Block reward wallet
+#### 3. Block reward wallet
 
 You will be asked to provide a wallet to receive the block reward when you are forging a new block. 
 
-You can either restore an existing wallet, or choose to create a new wallet.
+You can either restore an existing wallet or choose to create a new wallet.
 
 ![](../.gitbook/assets/image%20%289%29.png)
 
@@ -172,7 +176,7 @@ Leave empty or type **`YES`** to **create a new wallet**, or type No to choose t
 
 **Restore a wallet -** If you choose to not to create a new wallet and restore an existing one instead \(**`No`**\), the installer will ask you to provide your wallet mnemonic seed and a new password.
 
-#### **Block Verifier Keys**
+#### **4. Block Verifier Keys**
 
 Your block verifier key is used to identify yourself as a delegate. It is mandatory to store it securely. You will be asked if you want to create a new block verifier secret key, or import an existing one:
 
@@ -180,19 +184,19 @@ Your block verifier key is used to identify yourself as a delegate. It is mandat
 
 Type **`I`** to import your secret key, or **`C`** to create a new one.
 
-**Generate the block verifier keys -** If it is your first time setting up a delegate node, you will need to generate a new block verifier key pair \(`C`\). 
+**Generate the block verifier keys -** If it is your first time setting up a delegate node, you will need to generate a new block verifier key pair \(`C`\). By choosing to generate a new key pair, it will automatically be added to your `xcash-dpops` settings 
 
-Import the block verifier keys - You will most likely already have a block verifier key pair if you have registered a delegate in the past and are just trying to reinstall the node program.
+**Import the block verifier keys -** If you already have a block verifier key, you can choose to import it \(`I`\). The program will then ask you to give your **block verifier private key**.   
+You will most likely already have a block verifier key pair if you have already registered as a delegate in the past and are just trying to reinstall the node program.
 
-The **Block Verifier Key** is used by the delegates to sign messages when interacting with the network.  
-If it's your first install and you don't have one, choose **`Create`** \(**`C`**\) to automatically generate a new one.
+#### 5. Finishing 
 
-This would be the last setting to provide. Once every steps have been followed, the settings will be summarized as below and the installation will start:
+Once these settings have been provided, you will have an installation summary displayed.
 
 ![](../.gitbook/assets/image%20%2815%29.png)
 
 {% hint style="warning" %}
-Your wallet password will be displayed again at the end of the installation process. It is however a good idea to save it now.
+The wallet password you have chosen or generated automatically will be displayed again at the end of the installation process. It is however a good idea to save it now.
 {% endhint %}
 
 The script will then install automatically the different programs and dependencies needed for the **`xcash-dpops`** program.
@@ -215,7 +219,7 @@ Losing this information _will_ result in a loss of funds.
 {% endhint %}
 
 {% hint style="info" %}
-By default, the wallet is named **`delegate-wallet`** and is stored in **`/root/xcash-official/xcash-wallets/`**
+By default, the wallet is named **`delegate-wallet`** and is stored in **`~/xcash-official/xcash-wallets/`**
 {% endhint %}
 
 Now that the program is installed, your delegate wallet initialized, and the different services running, you can go register yourself as a delegate. Follow the [register delegate](register-delegate.md) guide to continue the node setup.
