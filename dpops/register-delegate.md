@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Once you have correctly [set up your instance](server-setup.md), installed the different programs, either from the [installer script](node-installation.md#quick-installation) or [manually](node-installation.md#manual-installation), you can now register as a delegate of the X-Cash Public Network.  
+Once you have correctly [set up your instance](server-setup.md), installed the different programs, you can now register as a delegate of the X-Cash Public Network.  
 You will need to have all the services already running to generate the necessary parameters to register yourself as a delegate.
 
 ## 1. Register Yourself as a Delegate
@@ -104,20 +104,6 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td style="text-align:left"><code>IP_address</code>
-      </td>
-      <td style="text-align:left"><b>String</b>  <em>(255 char. max.)</em>
-      </td>
-      <td style="text-align:left">
-        <p>Server <b>IP address</b>
-        </p>
-        <p><b>Example:</b>
-        </p>
-        <p><code>delegate_update IP_address 104.23.22.12</code>
-        </p>
-      </td>
-    </tr>
     <tr>
       <td style="text-align:left"><code>about</code>
       </td>
