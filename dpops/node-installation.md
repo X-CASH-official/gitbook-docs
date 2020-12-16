@@ -83,7 +83,9 @@ timedatectl set-ntp true
 systemctl restart systemd-timesyncd
 ```
 
-## Installer Script
+## Installation
+
+### Installer Script
 
 The **Installer Script** has been designed to easily interact with the **`xcash-dpops`** program and provide easy steps for installation and updates. You can also use this script to restart the programs if you are not comfortable with the command-line interface.
 
@@ -99,45 +101,31 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 
 The installation script enables you to install and manage your `xcash-dpops` program easily.  
 
-## Node Program Installation
+### Installing the X-Cash DPoPS program
 
-Once you have prepared your Linux instance by following the [server setup guide](server-setup.md), you can run an installer script to easily install, build and configure the node, as well as download the blockchain.
+Once you have prepared your Linux instance by following the [server setup guide](server-setup.md), you can run the installer script to easily install, build and configure the node, as well as download the blockchain.
 
-#### **Installing the** `xcash-dpops` **program**
+**`xcash-dpops`** is the program needed to run and manage a delegate node. It is responsible for sending messages to the other delegates, organize the consensus, relay and forge new blocks, etc...
 
-**`xcash-dpops`** is the program needed to run a delegate node. It is responsible for sending messages to the other delegates, organize the consensus, relay and forge new blocks, etc...
-
-To start the installation process, run the **`autoinstaller.sh`** script:
+To start the installation process, run the latest version of the **`autoinstaller.sh`** script:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-Choose **`Install`** \(1\) and press **`ENTER`**.
+Choose **`Install`** \(1\) in the `X-Cash DPoPS Installation Settings` section and press **`ENTER`**
 
-![](../.gitbook/assets/image%20%2819%29.png)
+#### Installation Directories
 
-You will be prompted to choose an installation directory:
+You will be prompted to choose different installation directories for:
 
-![](../.gitbook/assets/image%20%2816%29.png)
+* The xcash-dpops program
+* The blockchain directory
+* The delegate database
 
-Press **`ENTER`** for the default location \(**`/root/xcash-official/`**\), or provide another path in the form **`/directory/`**
+We **very highly** recommend using the default locations, as several update and installation programs are referencing to these paths. 
 
-{% hint style="warning" %}
-**It is recommended to always choose the default location.**
-{% endhint %}
-
-Next, you will need to choose the blockchain file directory.
-
-![](../.gitbook/assets/image%20%288%29.png)
-
-Press **`ENTER`** for the default location \(**`/root/.X-CASH/`**\).
-
-Next, you will need to choose the directory for the delegate database.
-
-![](../.gitbook/assets/image%20%2814%29.png)
-
-Press **`ENTER`** for the default location \(**`/data/db/`**\).
+#### Solo or shared delegate node
 
 You will be then asked if you want to install the **`xcash-dpops`** program as a **shared delegate** or a **solo delegate**.
 
