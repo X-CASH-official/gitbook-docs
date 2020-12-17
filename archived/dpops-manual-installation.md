@@ -3,7 +3,7 @@
 ## Manual Installation
 
 {% hint style="danger" %}
-This guide hasn't been updated since May 2020. It is highly recommended to install the xcash-dpops program with the installer script provided above. 
+This guide hasn't been updated since May 2020. It is highly recommended to install the xcash-dpops program with the installer script provided [here.](../dpops/node-installation.md) 
 {% endhint %}
 
 {% hint style="warning" %}
