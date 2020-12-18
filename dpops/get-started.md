@@ -61,8 +61,8 @@ Becoming a delegate is ambitious, and reaching and keeping a forging spot is rew
 #### Characteristics
 
 * The top 50 delegates are elected as block verifiers. 
-* Using a variation of Delegated Byzantine Fault tolerance consensus where 67% consensus must be reached for a new block to be added to the network.
-* DBFT allows for up to 33% of the elected block verifiers to be faulty. The system will still be able to produce a new block.
+* Using a variation of Delegated Byzantine Fault tolerance consensus where 55% consensus must be reached for a new block to be added to the network.
+* DBFT allows for up to 45% of the elected block verifiers to be faulty. The system will still be able to produce a new block.
 * Using Verifiable Random Functions \(VRF\) to select the next block producer in the system. This allows for a random, but a verifiable way of selecting the next block producer.
 
 #### Staking
