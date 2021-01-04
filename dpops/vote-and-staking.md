@@ -1,5 +1,7 @@
 ---
-description: Instructions for stakers on how to apply your vote.
+description: >-
+  As an X-Cash holder, you can stake your delegate and vote for a preferred
+  delegate. Follow the guide below to learn more about voting & staking.
 ---
 
 # Vote & Staking
@@ -24,7 +26,7 @@ The [delegate explorer](http://delegates.xcash.foundation/delegates)'s informati
 {% endhint %}
 
 {% hint style="info" %}
-Most if not all delegates are discussing freely on X-Cash offficial Discord server. We recommend that you [join the discussion](https://discord.gg/4CAahnd) there and engage discussion with the node manager to help you make a choice.
+Most if not all delegates are discussing freely on X-Cash official Discord server. We recommend that you [join the discussion](https://discord.gg/4CAahnd) there and engage discussion with the node manager to help you make a choice.
 {% endhint %}
 
 ## Vote & Staking
@@ -76,7 +78,13 @@ Once the blockchain is completely synchronized, leave the X-Cash daemon opened a
 
 To synchronize the wallet using a remote node, you can connect to a trusted node to synchronize your wallet without downloading the blockchain locally. To do that, you will need to open the wallet using the command line interface and adding the parameter `--daemon-address`. 
 
-First, launch a terminal \(mac/linux\) or a command prompt \(windows\) in the folder where you have downloaded the wallet binaries. To do so, find the path to your wallet address, 
+First, launch a terminal \(mac/linux\) or a command prompt with administrator rights \(windows\) in the folder where you have downloaded the wallet binaries. To do so, find the path to your X-Cash binaries and change your directory to this location.
+
+```text
+cd C:/your-path-to-xcash-binaries
+```
+
+Once your terminal is windows is located in the wallet binaries, you can run the CLI wallet with the following parameter:
 
 ```text
 ./xcash-wallet-cli.exe --daemon-address <daemon_address:port>
@@ -98,19 +106,31 @@ Example:
 ./xcash-wallet-cli.exe --daemon-address us1.xcash.foundation:18281
 ```
 
-#### \*\*\*\*
+You will be able to open a wallet file if you have one and let it synchronize the last block. If you don't have a wallet file, or wish to restore a wallet, follow the instructions below. If your wallet is synchronized, you can go to the **prepare your vote** section.
 
 #### Restore your wallet
 
 {% hint style="info" %}
-Wallet files made using the binaries 1.5.0 and the GUI wallet can be used in the 2.0.0. Y
+Wallet files made using the binaries 1.5.0 and the GUI wallet can be used with the 2.0.0 binaries.
 {% endhint %}
 
-If you don't have the wallet files or want to restore a wallet, you can use the --restore-deterministic-wallet and provide your mnemonic seed.
+If you don't have the wallet files or want to restore a wallet, you can use the `--restore-deterministic-wallet` parameter and provide your mnemonic seed.
+
+First, launch a terminal \(mac/linux\) or a command prompt with administrator rights \(windows\) in the folder where you have downloaded the wallet binaries. To do so, find the path to your X-Cash binaries and change your directory to this location.
+
+```text
+cd C:/your-path-to-xcash-binaries
+```
+
+Once your terminal is windows is located in the wallet binaries, you can run the CLI wallet with the following parameter:
 
 ```text
 ./xcash-wallet-cli.exe --restore-deterministic-wallet --daemon-address us1.xcash.foundation:18281
 ```
+
+You will be then prompted to give your wallet mnemonic seed and a new password. Once entered, your wallet will synchronize blocks with the remote node. It could take a while as a newly created wallet needs to scan all the blocks until the last one. 
+
+Once done, your wallet is ready and you can start to prepare your vote.
 
 #### **Prepare your vote**
 
