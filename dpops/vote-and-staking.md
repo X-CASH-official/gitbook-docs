@@ -140,6 +140,10 @@ When you cast your vote, your wallet will create a **reserve proof**, which is a
 
 Before casting your vote, you will need to concatenate the **unspents** of your wallet, otherwise your vote could be invalid. To do that, you just need to use the function `sweep_all` to your wallet address.
 
+{% hint style="danger" %}
+Make sure to correctly input your wallet address \(the one starting with XCA...\) after the sweep\_all function. Putting an invalid XCASH address or any other address that isn't your own **will result in the permanent loss of all your wallet funds.**
+{% endhint %}
+
 ```text
 sweep_all <your_public_wallet_address>
 ```
