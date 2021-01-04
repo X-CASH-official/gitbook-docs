@@ -58,17 +58,17 @@ The daemon will connect to an X-Cash node and download the blockchain to your co
 This could take several hours depending on your connection. 
 {% endhint %}
 
-Once the blockchain is completely synchronized, you can go to the next step and restore your wallet.
+Once the blockchain is completely synchronized, leave the xcash daemon opened and go to the next step and restore your wallet.
 
 #### 2. Remote node 
 
-To synchronize the wallet, you can connect to a trusted 
+To synchronize the wallet using a remote node, you can connect to a trusted node to synchronize your wallet without downloading the blockchain locally
 
-us1\_xcash\_foundation:18281  
-europe1\_xcash\_foundation:18281  
-europe2\_xcash\_foundation:18281  
-europe3\_xcash\_foundation:18281  
-oceania1\_xcash\_foundation:18281
+`us1.xcash.foundation:18281  
+europe1.xcash.foundation:18281  
+europe2.xcash.foundation:18281  
+europe3.xcash.foundation:18281  
+oceania1.xcash.foundation:18281`
 
 #### Restore a wallet
 
