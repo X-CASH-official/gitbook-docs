@@ -10,7 +10,7 @@ All delegates are listed on the [delegate explorer](http://delegates.xcash.found
 You can/should only vote toward shared delegates, as solo delegates won't redistribute rewards to voters.
 
 {% hint style="danger" %}
-The [delegate explorer](http://delegates.xcash.foundation/)'s information is filled by the delegates. There are currently no checks to the veracity of the information provided. It is your duty to make sure that a delegate is trustworthy, that he will redistribute the reward and that the fees displayed are correct.
+The [delegate explorer](http://delegates.xcash.foundation/delegates)'s information is filled by the delegates. There are currently no checks to the veracity of the information provided. It is your duty to make sure that a delegate is trustworthy, that he will redistribute the reward and that the fees displayed are correct.
 {% endhint %}
 
 {% hint style="info" %}
@@ -48,19 +48,26 @@ You will need to synchronize your wallet to a node, or download your own blockch
 
 #### 1. Local synchronization
 
-  
+To synchronize the blockchain locally, run the daemon `xcashd` executable with administrator rights. This will download and synchronize the blockchain to your computer \(blockchain location by default : `C:\ProgramData\X-CASH`\).
 
+![](../.gitbook/assets/image%20%2828%29.png)
+
+The daemon will connect to an X-Cash node and download the blockchain to your computer.
+
+{% hint style="info" %}
+This could take several hours depending on your connection. 
+{% endhint %}
+
+Once the blockchain is completely synchronized, you can go to the next step and restore your wallet.
 
 #### 2. Remote node 
 
-us1\_xcash\_foundation:18281
+To synchronize the wallet, you can connect to a trusted 
 
-europe1\_xcash\_foundation:18281
-
-europe2\_xcash\_foundation:18281
-
-europe3\_xcash\_foundation:18281
-
+us1\_xcash\_foundation:18281  
+europe1\_xcash\_foundation:18281  
+europe2\_xcash\_foundation:18281  
+europe3\_xcash\_foundation:18281  
 oceania1\_xcash\_foundation:18281
 
 #### Restore a wallet
