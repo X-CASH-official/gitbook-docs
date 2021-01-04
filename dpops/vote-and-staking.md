@@ -100,7 +100,7 @@ europe3.xcash.foundation:18281
 oceania1.xcash.foundation:18281`
 {% endhint %}
 
-Example: 
+_Example:_ 
 
 ```text
 ./xcash-wallet-cli.exe --daemon-address us1.xcash.foundation:18281
@@ -136,7 +136,7 @@ Once done, your wallet is ready and you can start to prepare your vote.
 
 To vote, you will need to have at least 2,000,000 \(2 Millions\) XCASH unlocked in your wallet. As you can cast only **one vote from one given wallet address,** you will need to create and top up another wallet if you want to cast another vote.
 
-When you cast your vote, your wallet will create a reserve proof, which is a cryptographic proof of the current amount stored in your wallet. If you spend any amount from your wallet, the reserve proof will be broken and your vote will become invalid. 
+When you cast your vote, your wallet will create a **reserve proof**, which is a cryptographic proof of the current amount stored in your wallet. If you spend any amount from your wallet, the reserve proof will be broken and your vote will become invalid. 
 
 Before casting your vote, you will need to concatenate the **unspents** of your wallet, otherwise your vote could be invalid. To do that, you just need to use the function `sweep_all` to your wallet address.
 
@@ -147,7 +147,7 @@ sweep_all <your_public_wallet_address>
 This will take all your unspents, concatenate them into one unspent and send it back to you.
 
 {% hint style="info" %}
-The amount of your wallet will be 0 after a `sweep_all` until the transaction is complete. Do not worry it will come back at once!
+The amount of your wallet will be 0 after a `sweep_all` until the transaction is complete. Your funds will come back on the next blocks, and you will have to wait about 10 blocks for your funds to become unlocked again.
 {% endhint %}
 
 Once your wallet is prepared with the amount you wish to vote with, you can cast your vote.
