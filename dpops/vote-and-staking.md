@@ -21,7 +21,7 @@ The [delegate explorer](http://delegates.xcash.foundation/delegates)'s informati
 Most if not all delegates are discussing freely on X-Cash offficial Discord server. We recommend that you [join the discussion](https://discord.gg/4CAahnd) there and engage discussion with the node manager to help you make a choice.
 {% endhint %}
 
-## Vote
+## Vote & Staking
 
 {% hint style="info" %}
 There is a couple of rules to observe when voting:
@@ -34,14 +34,16 @@ There is a couple of rules to observe when voting:
 
 To participate in the network, you will have to vote with your XCASH to elect a delegate that you see as trustworthy and you want to help to get a forging position. The DPOPS consensus has been designed so that the **XCASH you use to vote stays in your wallet, hence in your control** \(see [the challenge of voting in a privacy coin](https://docs.xcash.foundation/dpops/yellowpaper-delagated-proof-of-private-stake#the-challenges-of-staking-and-voting-in-a-privacy-coin)\).
 
+By voting for shared delegates, or within a private group after making an agreement with the delegate, you will receive a share of the block reward, which is a form of staking of your coins.
+
 ### Desktop Wallet
 
 #### Download the wallet program
 
-Download the 2.0.0 version of the X-Cash CLI wallet, on our [official website](https://www.xcash.foundation/wallet) or on the [GitHub Releases](https://github.com/X-CASH-official/xcash-core/releases).
+Download the 2.0.0 version of the X-Cash binaries, on our [official website](https://www.xcash.foundation/wallet) or on the [GitHub Releases](https://github.com/X-CASH-official/xcash-core/releases).
 
 {% hint style="info" %}
-Before running the wallet binaries, it is recommended to allow the wallet folder in your firewall. Windows mistakenly picks up the executable as dangerous.
+Before running the wallet binaries, it is recommended to allow the X-Cash binaries folder in your firewall. Windows mistakenly picks up the executable as dangerous.
 {% endhint %}
 
 #### Synchronizing a wallet
@@ -62,7 +64,7 @@ The daemon will connect to an X-Cash node and download the blockchain to your co
 This could take several hours depending on your connection. 
 {% endhint %}
 
-Once the blockchain is completely synchronized, leave the xcash daemon opened and go to the next step and restore your wallet.
+Once the blockchain is completely synchronized, leave the X-Cash daemon opened and go to the next step and restore your wallet.
 
 #### 2. Remote node 
 
@@ -71,11 +73,11 @@ To synchronize the wallet using a remote node, you can connect to a trusted node
 First, launch a terminal \(mac/linux\) or a command prompt \(windows\) in the folder where you have downloaded the wallet binaries. To do so, find the path to your wallet address, 
 
 ```text
-./xcash-wallet-cli.exe --restore-deterministic-wallet --daemon-address <daemon_address:port>
+./xcash-wallet-cli.exe --daemon-address <daemon_address:port>
 ```
 
 {% hint style="info" %}
-During the registration period, you can chose from one of the following daemon address:
+During the registration period, you can chose from one of the following trusted daemon address:
 
 `us1.xcash.foundation:18281  
 europe1.xcash.foundation:18281  
@@ -87,12 +89,22 @@ oceania1.xcash.foundation:18281`
 Example: 
 
 ```text
-./xcash-wallet-cli.exe --restore-deterministic-wallet --daemon-address us1.xcash.foundation:18281
+./xcash-wallet-cli.exe --daemon-address us1.xcash.foundation:18281
 ```
+
+#### \*\*\*\*
 
 #### Restore your wallet
 
+{% hint style="info" %}
+Wallet files made using the binaries 1.5.0 and the GUI wallet can be used in the 2.0.0. Y
+{% endhint %}
 
+If you don't have the wallet files or want to restore a wallet, you can use the --restore-deterministic-wallet and provide your mnemonic seed.
+
+```text
+./xcash-wallet-cli.exe --restore-deterministic-wallet --daemon-address us1.xcash.foundation:18281
+```
 
 #### **Prepare your vote**
 
