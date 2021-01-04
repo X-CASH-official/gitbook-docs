@@ -30,21 +30,44 @@ There is a couple of rules to observe when voting:
 
 To participate in the network, you will have to vote with your XCASH to elect a delegate that you see as trustworthy and you want to help to get a forging position. The DPOPS consensus has been designed so that the **XCASH you use to vote stays in your wallet, hence in your control** \(see [the challenge of voting in a privacy coin](https://docs.xcash.foundation/dpops/yellowpaper-delagated-proof-of-private-stake#the-challenges-of-staking-and-voting-in-a-privacy-coin)\).
 
-### Download the wallet program
+### Desktop Wallet
+
+#### Download the wallet program
 
 Download the 2.0.0 version of the X-Cash CLI wallet, on our [official website](https://www.xcash.foundation/wallet) or on the [GitHub Releases](https://github.com/X-CASH-official/xcash-core/releases).
-
-### **Run the CLI wallet**
 
 {% hint style="info" %}
 Before running the wallet binaries, it is recommended to allow the wallet folder in your firewall. Windows mistakenly picks up the executable as dangerous.
 {% endhint %}
 
-### Restore a wallet
+#### Synchronizing a wallet
+
+You will need to synchronize your wallet to a node, or download your own blockchain locally. To synchronize, you have two options:  
+1. Running the daemon and synchronizing the full blockchain \(slow but most secure\)  
+2. Using a remote node to synchronize \(quick\)
+
+#### 1. Local synchronization
+
+  
+
+
+#### 2. Remote node 
+
+us1\_xcash\_foundation:18281
+
+europe1\_xcash\_foundation:18281
+
+europe2\_xcash\_foundation:18281
+
+europe3\_xcash\_foundation:18281
+
+oceania1\_xcash\_foundation:18281
+
+#### Restore a wallet
 
 
 
-### **Prepare your vote**
+#### **Prepare your vote**
 
 To vote, you will need to have at least 2,000,000 \(2 Millions\) XCASH unlocked in your wallet. As you can cast only **one vote from one given wallet address,** you will need to create and top up another wallet if you want to cast another vote.
 
@@ -64,7 +87,7 @@ The amount of your wallet will be 0 after a `sweep_all` until the transaction is
 
 Once your wallet is prepared with the amount you wish to vote with, you can cast your vote.
 
-### Cast a vote
+#### Cast a vote
 
 To vote, it's quite easy. Use the **`vote`** command:
 
@@ -77,4 +100,6 @@ You can either put the **`<delegates_public_address>`** which is a standard XCAS
 The wallet will create a **reserve proof** with the entirety of the wallet and assign it to the designated delegate. Once your vote has been casted, you will have to **wait with your wallet running** until the top of hour before getting a success message.
 
 You will get a success message when your vote ****has been taken into account.
+
+### Android Wallet
 
