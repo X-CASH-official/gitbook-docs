@@ -6,8 +6,12 @@ description: Instructions for stakers on how to apply your vote.
 
 ## Find Your Delegate
 
-All delegates are listed on the [delegate explorer](http://delegates.xcash.foundation/). Take time to get to learn more about them, check their reliability statistics, and their setup.   
-You can/should only vote toward shared delegates, as solo delegates won't redistribute rewards to voters.
+All delegates are listed on the [delegate explorer](http://delegates.xcash.foundation/delegates). Take time to get to learn more about them, check their reliability statistics, and their setup.   
+You will find 3 types of delegates:
+
+* **Shared Delegates**: The shared delegates are public delegates for whom you can vote. They will redistribute your share of the rewards minus their fees. As a voter, you should favor shared delegates.
+* **Solo Delegates**: Solo delegates are elected by themselves and are keeping the reward for them. You can vote for solo delegates, but don't expect to receive a share of the block reward.
+* **Private group**: Private delegates group are delegates that will only redistribute shares of the block reward to a select group of their voters. They are usually decided with the delegate in private, so you shouldn't vote for them if you haven't communicated with the delegate first.
 
 {% hint style="danger" %}
 The [delegate explorer](http://delegates.xcash.foundation/delegates)'s information is filled by the delegates. There are currently no checks to the veracity of the information provided. It is your duty to make sure that a delegate is trustworthy, that he will redistribute the reward and that the fees displayed are correct.
@@ -62,15 +66,31 @@ Once the blockchain is completely synchronized, leave the xcash daemon opened an
 
 #### 2. Remote node 
 
-To synchronize the wallet using a remote node, you can connect to a trusted node to synchronize your wallet without downloading the blockchain locally
+To synchronize the wallet using a remote node, you can connect to a trusted node to synchronize your wallet without downloading the blockchain locally. To do that, you will need to open the wallet using the command line interface and adding the parameter `--daemon-address`. 
+
+First, launch a terminal \(mac/linux\) or a command prompt \(windows\) in the folder where you have downloaded the wallet binaries. To do so, find the path to your wallet address, 
+
+```text
+./xcash-wallet-cli.exe --restore-deterministic-wallet --daemon-address <daemon_address:port>
+```
+
+{% hint style="info" %}
+During the registration period, you can chose from one of the following daemon address:
 
 `us1.xcash.foundation:18281  
 europe1.xcash.foundation:18281  
 europe2.xcash.foundation:18281  
 europe3.xcash.foundation:18281  
 oceania1.xcash.foundation:18281`
+{% endhint %}
 
-#### Restore a wallet
+Example: 
+
+```text
+./xcash-wallet-cli.exe --restore-deterministic-wallet --daemon-address us1.xcash.foundation:18281
+```
+
+#### Restore your wallet
 
 
 
