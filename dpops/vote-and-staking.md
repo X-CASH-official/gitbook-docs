@@ -176,7 +176,7 @@ _Voting with Android wallet instructions made by Aquila-Audax 🙏_
 Please be aware that the Android wallet is still in Beta so, be careful using it and save always in a secure place a backup of your public and private view/spend keys and/or the mnemonic seed. If this info is lost, there will be no way to restore it if necessary!
 {% endhint %}
 
-Download the wallet on your compatible android phone using the following link : \(add last binaries link\)
+Download the wallet on your compatible android phone using the following link : [https://github.com/X-CASH-official/android-wallet/releases/tag/v1.1.0-beta](https://github.com/X-CASH-official/android-wallet/releases/tag/v1.1.0-beta)
 
 In case you have already generated a wallet, voting from the Android X-Cash Wallet APP is a very simple process.
 
