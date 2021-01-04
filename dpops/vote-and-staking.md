@@ -4,8 +4,9 @@ description: Instructions for stakers on how to apply your vote.
 
 # Vote & Staking
 
-{% hint style="info" %}
+{% hint style="warning" %}
 During the registration period, you will only be able to vote for a delegate using the CLI wallet or the Android phone wallet. More practical ways of voting will be developed along the way.  
+  
 This also means that you won't be able to vote from the X-Bank or the 1.5.0 of the CLI and GUI wallet. Instructions to vote using the available methods are described below.
 {% endhint %}
 
@@ -71,7 +72,7 @@ This could take several hours depending on your connection.
 
 Once the blockchain is completely synchronized, leave the X-Cash daemon opened and go to the next step and restore your wallet.
 
-#### 2. Remote node 
+#### 2. Remote node synchronization
 
 To synchronize the wallet using a remote node, you can connect to a trusted node to synchronize your wallet without downloading the blockchain locally. To do that, you will need to open the wallet using the command line interface and adding the parameter `--daemon-address`. 
 
@@ -141,11 +142,15 @@ vote <delegates_public_address|delegates_name>
 
 You can either put the **`<delegates_public_address>`** which is a standard XCASH public address, or the **`<delegate_name>`**. This information is available on the [delegate explorer](http://delegates.xcash.foundation/).
 
-The wallet will create a **reserve proof** with the entirety of the wallet and assign it to the designated delegate. Once your vote has been casted, you will have to **wait with your wallet running** until the top of hour before getting a success message.
+The wallet will create a **reserve proof** with the entirety of the wallet and assign it to the designated delegate. Once your vote has been casted, you will have to **wait with your wallet running** until the **top of hour** before getting a success message.
 
 You will get a success message when your vote ****has been taken into account.
 
 ### Android Wallet
 
-You can follow the guide made byu 
+{% hint style="info" %}
+Voting with Android wallet instructions made by Aquila-Audax 🙏
+{% endhint %}
+
+
 
