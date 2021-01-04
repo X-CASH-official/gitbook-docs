@@ -64,7 +64,7 @@ You will need to synchronize your wallet to a node, or download your own blockch
 
 To synchronize the blockchain locally, run the daemon `xcashd` executable with administrator rights. This will download and synchronize the blockchain to your computer \(blockchain location by default : `C:\ProgramData\X-CASH`\).
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2834%29.png)
 
 The daemon will connect to an X-Cash node and download the blockchain to your computer.
 
@@ -169,8 +169,46 @@ You will get a success message when your vote ****has been taken into account.
 ### Android Wallet
 
 {% hint style="info" %}
-Voting with Android wallet instructions made by Aquila-Audax 🙏
+_Voting with Android wallet instructions made by Aquila-Audax 🙏_
 {% endhint %}
 
+{% hint style="danger" %}
+Please be aware that the Android wallet is still in Beta so, be careful using it and save always in a secure place a backup of your public and private view/spend keys and/or the mnemonic seed. If this info is lost, there will be no way to restore it if necessary!
+{% endhint %}
 
+Download the wallet on your compatible android phone using the following link : \(add last binaries link\)
+
+In case you have already generated a wallet, voting from the Android X-Cash Wallet APP is a very simple process.
+
+![](../.gitbook/assets/image%20%2831%29.png)
+
+Tap to resume and type your wallet password:
+
+![](../.gitbook/assets/image%20%2825%29.png)
+
+Wait for your wallet to synchronize with the network.
+
+![](../.gitbook/assets/image%20%2833%29.png)
+
+Once synced, tap the DPOPS button in the upper right corner.
+
+![](../.gitbook/assets/image%20%2826%29.png)
+
+Scroll down the list to find your desired delegate and tap it’s name to select it, or type it’s name in the “Delegate Name” textbox near the “Vote” button.
+
+![](../.gitbook/assets/image%20%2828%29.png)
+
+With the desired delegate’s name in the text box, tap the Vote button.
+
+![](../.gitbook/assets/image%20%2832%29.png)
+
+In the next window, you will have two choices: 
+
+a. If you are in the 3rd minute of the hour, you can tap Quick Vote and the vote will be placed right away 
+
+b. If you are out of the 3rd minute, you can tap Auto Waiting and the app will place the vote after the needed waiting time \(you need to maintain the wallet opened till you will receive the confirmation\). Please note that in my version, it says that 35 mins. waiting time are needed to place the order \(which means that the app will try to place the vote on the 2nd minute of the hour and will throw an error showing “invalid vote time”. A minor change will be done on the next version to reflect the last change on the voting system, and apply the vote only on the 3rd minute instead of the 2nd and the 3rd minute which was the previous manner.
+
+![](../.gitbook/assets/image%20%2835%29.png)
+
+At the top of the next hour, your vote will be placed ! You will receive your share of the block reward on this wallet.
 
