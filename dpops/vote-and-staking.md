@@ -48,7 +48,7 @@ By voting for shared delegates, or within a private group after making an agreem
 
 #### Download the wallet program
 
-Download the 2.0.0 version of the X-Cash binaries, on our [official website](https://www.xcash.foundation/wallet) or on the [GitHub Releases](https://github.com/X-CASH-official/xcash-core/releases).
+Download the 2.0.0 version of the X-Cash binaries, on our [official website](https://www.xcash.foundation/wallet) or on the [GitHub Releases](https://github.com/X-CASH-official/xcash-core/releases/tag/2.0.0).
 
 {% hint style="info" %}
 Before running the wallet binaries, it is recommended to allow the X-Cash binaries folder in your firewall. Windows mistakenly picks up the executable as dangerous.
