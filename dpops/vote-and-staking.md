@@ -4,6 +4,11 @@ description: Instructions for stakers on how to apply your vote.
 
 # Vote & Staking
 
+{% hint style="info" %}
+During the registration period, you will only be able to vote for a delegate using the CLI wallet or the Android phone wallet. More practical ways of voting will be developed along the way.  
+This also means that you won't be able to vote from the X-Bank or the 1.5.0 of the CLI and GUI wallet. Instructions to vote using the available methods are described below.
+{% endhint %}
+
 ## Find Your Delegate
 
 All delegates are listed on the [delegate explorer](http://delegates.xcash.foundation/delegates). Take time to get to learn more about them, check their reliability statistics, and their setup.   
@@ -141,4 +146,6 @@ The wallet will create a **reserve proof** with the entirety of the wallet and a
 You will get a success message when your vote ****has been taken into account.
 
 ### Android Wallet
+
+You can follow the guide made byu 
 
