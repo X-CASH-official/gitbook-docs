@@ -13,7 +13,6 @@
     * [DPoPS Wallet RPC calls](applications/rpc-calls/xcash-wallet-rpc/dpops-wallet-rpc-calls.md)
   * [xcash-daemon-rpc](applications/rpc-calls/json-rpc-methods/README.md)
     * [Other Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/other-daemon-rpc-calls.md)
-    * [DPoPS Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/dpops-daemon-rpc-calls.md)
 
 ## Delegate node & staking <a id="dpops"></a>
 
