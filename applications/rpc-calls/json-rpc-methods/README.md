@@ -55,7 +55,7 @@ Look up a block's hash by its height.Block header information can be retrieved u
 
 * block hash \(string\)
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"on_get_block_hash","params":[425000]}' -H 'Content-Type: application/json'
@@ -89,7 +89,7 @@ Get a block template on which mining a new block.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_template","params":{"wallet_address":"XCA1XPzaSeXgwrBrGbh96UD5bk21a4WabcrgtB14A7WGGdcagjVQVV1PMAg5Rj1SM3ca8ZPDvysi78HyZF9imGg48wRK2Ntqov","reserve_size":128}' -H 'Content-Type: application/json'
@@ -124,7 +124,7 @@ Submit a mined block to the network.
 
 * _status_ - string; Block submit status.
 
-### In this example, a block blob which has not been mined is submitted:
+In this example, a block blob which has not been mined is submitted:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_block","params":["0c0ceadfe6eb051eb5164dfe508a6d7681d8b490a915cde9d0762d1b936beda7d4c9ee8bc9dc280000000002c7a31a01ff8ba31a01f69a92cabb0102ecb13a092850dd0387b40a162e6b154c677e6a4a5ab6530b9c508fac4c5b9168a30101b53cfbe508ca940be5544d91c7cb6f34d4a62af1faa16453a3406f443979ca52028000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002acc77f92091e5ebccdd904da4a03e4eb9153f13e338add4b314b436858fb7ea33bc2ea30b4982c4336311f38caed30601f72ae22a44f11ae04ccd59663e135df"]' -H 'Content-Type: application/json'
@@ -213,7 +213,7 @@ Block header information can be retrieved using either a block's hash or height.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### In this example, block 430477 is looked up by its hash:
+**In this example, block 430477 is looked up by its hash:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_header_by_hash","params":{"hash":"062537808276507cb05b5d5f80dbc8dd2bb79a9213be9958dfed1517742cc6a1"}}' -H 'Content-Type: application/json'
@@ -261,7 +261,7 @@ Similar to get\_block\_header\_by\_hash above, this method includes a block's he
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### In this example, block 430477 is looked up by its height \(notice that the returned information is the same as in the previous example\):
+In this example, block 430477 is looked up by its height \(notice that the returned information is the same as in the previous example\):
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_header_by_height","params":{"height":430477}}' -H 'Content-Type: application/json'
@@ -394,7 +394,7 @@ Full block information can be retrieved by either block height or hash, like wit
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### **Look up by height:**
+**Look up by height:**
 
 In the following example, block 430477 is looked up by its height. Note that block 912345 does not have any non-coinbase transactions. \(See the next example for a block with extra transactions\):
 
@@ -402,7 +402,7 @@ In the following example, block 430477 is looked up by its height. Note that blo
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block","params":{"height":430477}}' -H 'Content-Type: application/json'
 ```
 
-### Look up by hash:
+Look up by hash:
 
 In the following example, block 430477 is looked up by its hash. Note that block 993056 has 3 non-coinbase transactions:
 
@@ -554,7 +554,7 @@ See other RPC Methods /get\_info \(not JSON\)
 * _was\_bootstrap\_ever\_used_ - boolean; States if a bootstrap node has ever been used since the daemon started.
 * _white\_peerlist\_size_ - unsigned int; White Peerlist Size
 
-### Following is an example `get_info` call and its return:
+Following is an example `get_info` call and its return:
 
 > ```bash
 > $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' -H 'Content-Type: application/json'
@@ -618,7 +618,7 @@ Look up information regarding hard fork voting and readiness.
 * _voting_ - unsigned int; Hard fork voting status.
 * _window_ - unsigned int; Number of blocks over which current votes are cast. Default is 10080 blocks.
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"hard_fork_info"}' -H 'Content-Type: application/json'
@@ -656,9 +656,9 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### **Examples :**
+**Examples :**
 
-### Banning by host
+**Banning by host**
 
 In the following example, host is banned with its IP address string-formatted as A.B.C.D:
 
@@ -673,7 +673,7 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id
 }
 ```
 
-### Banning by ip
+**Banning by ip**
 
 In the following example, integer-formatted IP is banned:
 
@@ -705,7 +705,7 @@ Get list of banned IPs.
   * _seconds_ - unsigned int; Local Unix time that IP is banned until.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bans"}' -H 'Content-Type: application/json'
@@ -741,7 +741,7 @@ Flush tx ids from transaction pool
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"flush_txpool"}' -H 'Content-Type: application/json'
@@ -776,7 +776,7 @@ Get a histogram of output amounts. For all amounts \(possibly filtered by parame
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_output_histogram","params":{"amounts":[100000000000]}}'
@@ -813,7 +813,7 @@ Get the coinbase amount and the fees amount for n last blocks starting at partic
 * _fee\_amount_ - unsigned int; amount of fees in atomic units
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_coinbase_tx_sum","params":{"height":425000,"count":1}}' -H 'Content-Type: application/json'
@@ -840,7 +840,7 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 * _version_ - unsigned int;
 
-### Example:
+Example:
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_version"}' -H 'Content-Type: application/json'
@@ -871,7 +871,7 @@ Gives an estimation on fees per kB.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example :
+Example :
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_fee_estimate"}' -H 'Content-Type: application/json'
@@ -904,7 +904,7 @@ Display alternative chains seen by the node.
   * _length_ - unsigned int; the length in blocks of this alternative chain, after divergence.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example
+Example
 
 ```c
 $ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_alternate_chains"}' -H 'Content-Type: application/json'
