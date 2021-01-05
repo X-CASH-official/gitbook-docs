@@ -197,7 +197,9 @@ You can **`exit`** the wallet and restart the wallet service:
 systemctl start xcash-rpc-wallet
 ```
 
-## 3. Private group setup
+## 3. Private group and shared delegates
+
+Shared delegates
 
 
 
