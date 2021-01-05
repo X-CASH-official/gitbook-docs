@@ -146,11 +146,16 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
     <tr>
       <td style="text-align:left"><code>shared_delegate_status</code>
       </td>
-      <td style="text-align:left"><b>Boolean</b>
+      <td style="text-align:left"><b>String</b>
       </td>
       <td style="text-align:left">
-        <p><b>True</b> if shared delegate, <b>false</b> if solo delegate.</p>
-        <p><b>Example:</b>  <code>delegate_update shared_delegate_status true</code>
+        <p><b>solo: </b>for a solo delegates.</p>
+        <p><b>shared</b>: for shared delegates. Shared delegates set up a fee and
+          redistribute a share of the reward to their voters.</p>
+        <p><b>group</b>: for private groups. Private groups works as shared but the
+          delegate decide how he/she going to distribute the votes. See how to set
+          it up below.</p>
+        <p><b>Example:</b>  <code>delegate_update shared_delegate_status group</code>
         </p>
       </td>
     </tr>
@@ -164,7 +169,8 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
         </p>
       </td>
       <td style="text-align:left">
-        <p>Fees (in percentage) taken by the shared delegate on the block reward.</p>
+        <p>Fees (in percentage) taken by the shared delegate on the block reward.
+          Provide the fee you have used during the node installation.</p>
         <p><b>Example:</b>  <code>delegate_update delegate_fee 12.354321</code>
         </p>
       </td>
@@ -190,4 +196,8 @@ You can **`exit`** the wallet and restart the wallet service:
 ```text
 systemctl start xcash-rpc-wallet
 ```
+
+## 3. Private group setup
+
+
 
