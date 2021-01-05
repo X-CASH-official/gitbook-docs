@@ -119,7 +119,7 @@ Get the known blocks hashes which are not on the main chain.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example :
+**Example :**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/get_alt_blocks_hashes -H 'Content-Type: application/json'
@@ -146,7 +146,7 @@ Check if outputs have been spent using the key image associated with the output.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example :
+**Example :**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/is_key_image_spent -d '{"key_images":["8d1bd8181bf7d857bdb281e0153d84cd55a3fcaa57c3e570f4a49f935850b5e3","7319134bfc50668251f5b899c66b005805ee255c136f0e1cecbb0f3a912e09d4"]}' -H 'Content-Type: application/json'
@@ -218,7 +218,7 @@ Start mining on the daemon.
 
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/start_mining -d '{"do_background_mining":false,"ignore_battery":true,"miner_address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","threads_count":1}' -H 'Content-Type: application/json'
@@ -239,7 +239,7 @@ Stop mining on the daemon.
 
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/stop_mining -H 'Content-Type: application/json'
@@ -289,7 +289,7 @@ Save the blockchain. The blockchain does not need saving and is always saved whe
 
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/get_height -H 'Content-Type: application/json'
@@ -317,7 +317,7 @@ Get the known peers list.
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 * _white\_list_ - array of online _peer_ structure, as above.
 
-### Example \(truncated lists\):
+**Example \(truncated lists\):**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/get_height -H 'Content-Type: application/json'
@@ -368,7 +368,7 @@ Set the log hash rate display mode.
 
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 
-### Example while mining:
+**Example while mining:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_hash_rate -d '{"visible":true}' -H 'Content-Type: application/json'
@@ -377,7 +377,7 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_hash_rate -d '{"visible":
 }
 ```
 
-### Error while not mining:
+**Error while not mining:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_level -H 'Content-Type: application/json'
@@ -400,7 +400,7 @@ Set the daemon log level. By default, log level is set to `0`.
 
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 
-### Example:
+**Example**:
 
 ```bash
 $ curl -X POST http://127.0.0.1:18081/set_log_level -d '{"level":1}' -H 'Content-Type: application/json'
@@ -475,7 +475,7 @@ Set the daemon log categories. Categories are represented as a comma separated l
 * _categories_ - string; daemon log enabled categories
 * _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 
-### Example to set all facilities to Security Level `Info`:
+**Example to set all facilities to Security Level `Info`:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_categories -H 'Content-Type: application/json'
@@ -486,7 +486,7 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_categories -H 'Content-Ty
 }
 ```
 
-### Example without input to set the default categories:
+**Example without input to set the default categories:**
 
 ```bash
 $ curl -X POST http://127.0.0.1:18081/set_log_categories -H 'Content-Type: application/json'
@@ -775,7 +775,7 @@ Get the transaction pool statistics.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://localhost:18281/get_transaction_pool_stats -H 'Content-Type: application/json'
@@ -813,7 +813,7 @@ Send a command to the daemon to safely disconnect and shut down.‌
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example: <a id="example"></a>
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/stop_daemon -H 'Content-Type: application/json'
@@ -846,7 +846,7 @@ Get daemon bandwidth limits.
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 * _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/get_limit -H 'Content-Type: application/json'
@@ -875,7 +875,7 @@ Set daemon bandwidth limits.
 * _limit\_up_ - unsigned int; Upload limit in kBytes per second
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/set_limit -H 'Content-Type: application/json'
@@ -900,7 +900,7 @@ Limit number of Outgoing peers.
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/out_peers -H 'Content-Type: application/json'
@@ -923,7 +923,7 @@ Limit number of Incoming peers.
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://EUSEED1.x-cash.org:18281/in_peers -H 'Content-Type: application/json'
@@ -946,7 +946,7 @@ Obsolete. Conserved here for reference**.**
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+**Example:**
 
 ```bash
 // A$ curl -X POST http://localhost:18281/start_save_graph -H 'Content-Type: application/json'
@@ -970,7 +970,7 @@ Obsolete. Conserved here for reference**.**
 
 * _status_ - string; General RPC error code. "OK" means everything looks good.
 
-### Example:
+**Example:**
 
 ```bash
 $ curl -X POST http://localhost:18281/stop_save_graph -H 'Content-Type: application/json'
@@ -1022,7 +1022,7 @@ Get outputs.
 * _user\_uri_ - string;
 * _version_ - string; Version available for download.
 
-### Example:
+**Example**:
 
 ```bash
 $ curl -X POST http://localhost:18281/update -d '{"command":"check"}' -H 'Content-Type: application/json'
