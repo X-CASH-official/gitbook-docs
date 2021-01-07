@@ -62,7 +62,9 @@ To backup your shared delegate database, chose **option 19**:
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-## `systemd` services
+## Recover delegate
+
+## systemd services
 
 `systemd` is generally used to manage low-level programs in Linux-based systems. It's a reliable way to automatically run programs on startup, and manage and monitor the different services.
 
