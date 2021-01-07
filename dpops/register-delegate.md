@@ -249,15 +249,11 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 
 And choose option 13. 
 
-Once the programs are stopped, open the `xcash-dpops.service` 
-
-`dsdf`
+Once the programs are stopped, open the `xcash-dpops.service` and add the parameter `--private-group <path-to-configuration-file>`to the ExecStart line 
 
 ```bash
 nano 
 ```
-
-
 
 {% tabs %}
 {% tab title="xcash-dpops.service" %}
