@@ -215,7 +215,67 @@ systemctl start xcash-rpc-wallet
 
 A shared delegate can choose to run a private group, where the delegate decide which voters is getting a share of the block reward. This set up is favorable for people running a shared delegate group with a closed group of people, and only want to retribute this select group.
 
-To change this setting, you will need to make some changes in the xcash-dpops.service
+To change this setting, you will need to make some changes in the `xcash-dpops.service` and create a special configuration file that will list the wallet address you wish to send block reward payments to.
+
+First, you will need to create a configuration file that will list the wallet address you will distribute to.
+
+```bash
+nano ~/xcash-official/xcash-dpops-configuration.txt
+```
+
+Then, you will need to add the addresses to distribute to in your list following the following format:
+
+```bash
+# Comment
+wallet1|voting-address|payment-address
+wallet2|voting-address|payment-address
+```
+
+Where `voting-address` is the wallet address used to vote for the delegate, and `payment-address` is the wallet you want to distribute the share of the block reward to.
+
+{% hint style="info" %}
+The `voting-address` and `payment-address` can be the same.
+{% endhint %}
+
+{% hint style="info" %}
+The maximum amount of `payment-address` that can be in the list is **100**.
+{% endhint %}
+
+Once the config file is ready, save it and close. You will need to update the `xcash-dpops.service` so it can get the configuration file. First, run the stop program option in the installer script: 
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
+
+And choose option 13. 
+
+Once the programs are stopped, open the `xcash-dpops.service` 
+
+`dsdf`
+
+```bash
+nano 
+```
 
 
+
+{% tabs %}
+{% tab title="xcash-dpops.service" %}
+```bash
+[Unit]
+Description=X-Cash DPOPS Daemon background process
+
+[Service]
+Type=simple
+LimitNOFILE=infinity
+User=root
+WorkingDirectory=~/xcash-official/xcash-dpops/build
+ExecStart=~/xcash-official/xcash-dpops/build/xcash-dpops --private-group ~/xcash-official/xcash-dpops-configuration.txt --block-verifiers-secret-key BLOCK_VERIFIER_SECRET_KEY
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+{% endtab %}
+{% endtabs %}
 
