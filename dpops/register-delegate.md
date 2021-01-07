@@ -196,7 +196,7 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
       </td>
       <td style="text-align:left">
         <p>A description of the servers&apos; specifications and hardware.</p>
-        <p><b>Example:</b>  <code>delegate_update server_specs Operating System : Ubuntu 18.04 | CPU : 8 threads (Intel E3-1246 v3 - 3.50GHz RAM = 32GB DDR3 | Hard drive = 2x HDD SATA 2 TB | Bandwidth Transfer = Unlimited</code>
+        <p><b>Example:</b>  <code>delegate_update server_specs Operating System = Ubuntu 20.04 - CPU = 6 threads (Intel E5-2630 v4 - 2.20GHz) - RAM = 16GB DDR4 - Hard drive = 400GB SSD - Bandwidth Transfer = Unlimited</code>
         </p>
       </td>
     </tr>
