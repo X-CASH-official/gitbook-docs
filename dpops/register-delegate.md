@@ -118,6 +118,20 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
       </td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>IP_address</code>
+      </td>
+      <td style="text-align:left"><b>String </b><em>(255 char. max.)</em>
+      </td>
+      <td style="text-align:left">
+        <p>Update the IP address or domain name of your delegate node. Must be in
+          IPV4 format</p>
+        <p><b>Example:</b>
+        </p>
+        <p><code>delegate_update IP_address mydomain.com </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>website</code>
       </td>
       <td style="text-align:left"><b>String</b>  <em>(255 char. max.)</em>
@@ -146,7 +160,7 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
     <tr>
       <td style="text-align:left"><code>shared_delegate_status</code>
       </td>
-      <td style="text-align:left"><b>String</b>
+      <td style="text-align:left"><b>String </b><em>(255 char. max.)</em>
       </td>
       <td style="text-align:left">
         <p><b>solo: </b>for a solo delegates.</p>
