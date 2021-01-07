@@ -135,9 +135,9 @@ We **very highly** recommend using the default locations, as several update and 
 
 You will be then asked if you want to configure the **`xcash-dpops`** program as a **shared delegate** or a **solo delegate**.
 
-**Shared Delegates** - Rely on the vote of others to be elected into the top 50 and get a forging position. Voters are compensated at the rate of their vote and receive a share \(minus the delegate fee\) of the block reward.
+**Shared Delegates** - Rely on the vote of others to be elected into the top 50 and get a forging position. By choosing the shared delegates options, the program will configure your node to automatically retribute your voters. Later, when configuring your node, you will be able to chose a **private group**. This option enables you to choose which voters you decide to retribute. This option should be preferred if you are running a delegate node with a close group of people.
 
-**Solo Delegates** - In some cases, delegates who owns a consequent amount of XCASH can be "elected" in the top 50 by voting for themselves. They don't need to setup fees and will keep the block reward for themselves. 
+**Solo Delegates** - In some cases, delegates who owns a consequent amount of XCASH can be "elected" in the top 50 by voting for themselves. They don't need to setup fees as the block reward will be distributed to the delegate wallet. Solo delegates have to manually empty the delegate wallet and send the block reward to the wallet of their choice.
 
 {% hint style="info" %}
 You will be able to change this setting whenever you want in the installer script menu \(option 9\). 
