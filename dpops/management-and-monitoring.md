@@ -62,7 +62,11 @@ To backup your shared delegate database, chose **option 19**:
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-## Recover delegate
+## Recover mode
+
+To be added.
+
+allows you to change your public\_address or VRF key must be using a domain name with delegate add txt record, value @ data is xcash-dpops:MYNEWPUBLICKEY or xcash-dpops:MYNEWVRFKEY you can do 1 or both at the same time does not matter then open ANY wallet \(does not need to be the delegate wallet in case you lost it\) and type delegate\_recover mydomain, and it will do everything for you.
 
 ## systemd services
 
