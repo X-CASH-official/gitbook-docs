@@ -46,7 +46,7 @@ delegate_register <delegate_name> <IP_address|domain_name> <block_verifier_publi
 And replace the information with:
 
 * **`<delegate_name>`**: the name that will be displayed on the delegate explorer. _Cannot be updated._
-* **`<IP_address|domain_name>`** : your server's IP address or its domain name \(if you have bought a domain name and correctly set up the DNS record\). It is possible to change this information at a later time. _Can be updated._
+* **`<IP_address|domain_name>`** : your server's IP address or its domain name \(if you have bought a domain name and correctly set up the DNS record\). It is recommended to register your delegate using your domain name, as you can redirect your server IP address to it easily in your DNS record, enabling you to change server in the future.  It is however possible to change this information at a later time. _Can be updated._
 * **`<block_verifier_public_key>`** : the block verifier public key that you have generated [earlier](register-delegate.md#1-generate-a-block-verifier-key). _Cannot be updated._ 
 
 **Example:**
