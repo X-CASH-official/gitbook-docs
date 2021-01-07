@@ -48,7 +48,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 
 You will be asked to input a delegate fee and a minimum payout amount to your voters. The script will automatically change the program settings to match your changes.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Don't forget to update your delegate fee by [updating the public information](register-delegate.md#2-update-public-information) as well.
 {% endhint %}
 
