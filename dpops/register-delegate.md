@@ -168,7 +168,8 @@ Replace the `<item>` with one of the lists below, and change the corresponding `
           redistribute a share of the reward to their voters.</p>
         <p><b>group</b>: for private groups. Private groups works as shared but the
           delegate decide how he/she going to distribute the votes. See how to set
-          it up below.</p>
+          it up <a href="register-delegate.md#3-private-group">below.</a>
+        </p>
         <p><b>Example:</b>  <code>delegate_update shared_delegate_status group</code>
         </p>
       </td>
