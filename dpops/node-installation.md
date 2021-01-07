@@ -137,6 +137,10 @@ You will be then asked if you want to configure the **`xcash-dpops`** program as
 
 **Shared Delegates** - Rely on the vote of others to be elected into the top 50 and get a forging position. By choosing the shared delegates options, the program will configure your node to automatically retribute your voters. Later, when configuring your node, you will be able to chose a **private group**. This option enables you to choose which voters you decide to retribute. This option should be preferred if you are running a delegate node with a close group of people. You can configurate a private group in the [Register delegate section](register-delegate.md#3-private-group).
 
+{% hint style="info" %}
+If you wish to run a shared delegate node, you will have to[ prefund the delegate wallet](https://docs.xcash.foundation/dpops/register-delegate#4-prepare-shared-delegate-payments) to ensure that the first block reward payments can be sent without issue.
+{% endhint %}
+
 **Solo Delegates** - In some cases, delegates who owns a consequent amount of XCASH can be "elected" in the top 50 by voting for themselves. They don't need to setup fees as the block reward will be distributed to the delegate wallet. Solo delegates have to manually empty the delegate wallet and send the block reward to the wallet of their choice.
 
 {% hint style="info" %}
