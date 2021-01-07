@@ -280,3 +280,9 @@ Once done, save your changes and restart the programs by running the **option 12
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
+## 4. Prepare shared delegate payments
+
+As a shared delegate \(normal or private group\), you will have to distribute a share of the block reward to your voters. On the first payment threshold, the program will automatically distribute the voters' share from the delegate wallet. However, the delegate wallet is empty at first and you might be missing some unspents to conveniently pay your voters.
+
+It is recommended to pre-fund your delegate wallet when first setting it up. **We recommend pre-funding between 500k to 1M XCASH** into the delegate wallet.
+
