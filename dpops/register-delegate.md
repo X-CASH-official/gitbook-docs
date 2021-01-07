@@ -247,12 +247,10 @@ Once the config file is ready, save it and close. You will need to update the `x
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
 ```
 
-And choose option 13. 
-
-Once the programs are stopped, open the `xcash-dpops.service` and add the parameter `--private-group <path-to-configuration-file>`to the ExecStart line 
+And choose **option 13.** Once the programs are stopped, open the `xcash-dpops.service` located in `/lib/systemd/system/`and add the parameter `--private-group <path-to-configuration-file>`to the ExecStart line.
 
 ```bash
-nano 
+nano /lib/systemd/system/xcash-dpops.service
 ```
 
 {% tabs %}
@@ -274,4 +272,10 @@ WantedBy=multi-user.target
 ```
 {% endtab %}
 {% endtabs %}
+
+Once done, save your changes and restart the programs by running the **option 12** of the auto-installer script.
+
+```bash
+bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
+```
 
