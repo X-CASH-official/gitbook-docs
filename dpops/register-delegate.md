@@ -211,9 +211,11 @@ You can **`exit`** the wallet and restart the wallet service:
 systemctl start xcash-rpc-wallet
 ```
 
-## 3. Private group and shared delegates
+## 3. Private group
 
-Shared delegates
+A shared delegate can choose to run a private group, where the delegate decide which voters is getting a share of the block reward. This set up is favorable for people running a shared delegate group with a closed group of people, and only want to retribute this select group.
+
+To change this setting, you will need to make some changes in the xcash-dpops.service
 
 
 
