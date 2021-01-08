@@ -29,6 +29,14 @@ The [delegate explorer](http://delegates.xcash.foundation/delegates)'s informati
 Most if not all delegates are discussing freely on X-Cash official Discord server. We recommend that you [join the discussion](https://discord.gg/4CAahnd) there and engage discussion with the node manager to help you make a choice.
 {% endhint %}
 
+## Staking Calculation
+
+You can calculate your expected ROI depending on several factor to help you with your vote.
+
+Community member and delegate **UrsaMajor** is providing a comprehensive list of delegates to help you understand and calculate what reward you can expect by voting with your XCASH. 
+
+Download locally this [excel sheet](https://onedrive.live.com/view.aspx?resid=166AE7FDFC13C5FD!10645&ithint=file%2Cxlsx&authkey=!AA6KXoOqlYWqRJA) \(updated every few days, but you can manually update it yourself\), and input your desired staking amount to see what reward you can expect depending on the delegate you are voting for, their current stake and fees.
+
 ## Vote & Staking
 
 {% hint style="info" %}
@@ -64,7 +72,7 @@ You will need to synchronize your wallet to a node, or download your own blockch
 
 To synchronize the blockchain locally, run the daemon `xcashd` executable with administrator rights. This will download and synchronize the blockchain to your computer \(blockchain location by default : `C:\ProgramData\X-CASH`\).
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2829%29%20%283%29.png)
 
 The daemon will connect to an X-Cash node and download the blockchain to your computer.
 

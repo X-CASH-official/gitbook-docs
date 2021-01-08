@@ -20,7 +20,7 @@ However, wallet does not store the blockchain and does not directly participate 
 The CLI wallet is the most reliable, secured and most feature complete wallet for X-Cash.
 {% endhint %}
 
-![Ilustration of the 1.5.0 CLI Wallet displaying an unconfirmed balance](../.gitbook/assets/image%20%281%29.png)
+![Ilustration of the 1.5.0 CLI Wallet displaying an unconfirmed balance](../.gitbook/assets/image%20%281%29%20%281%29.png)
 
 ### Depends on the full node
 

@@ -8,7 +8,7 @@ description: >-
 
 ## Managing Installation
 
-You can manage your program installation with the installer script: 
+You can manage your program installation with the installer script:
 
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"
@@ -16,7 +16,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 
 ![](../.gitbook/assets/image%20%2824%29.png)
 
-The installation script enables you to install and manage your `xcash-dpops` program easily.  
+The installation script enables you to install and manage your `xcash-dpops` program easily.
 
 ### Restart Program
 
@@ -30,7 +30,7 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpo
 
 ### Update program
 
-When a new update of the program is pushed, you will need to a update your program. 
+When a new update of the program is pushed, you will need to a update your program.
 
 Run the installer script and choose **option 2**.
 
@@ -419,7 +419,6 @@ echo
 If you have custom service names you need to adjust the service variable names at the beggining of the script
 {% endhint %}
 
-
 Then, we need to make it executable
 
 ```bash
@@ -429,3 +428,4 @@ chmod +x /etc/update-motd.d/00-xcash-node-checks
 After that, every time we log in to our server by ssy we will see something like this
 
 ![](../.gitbook/assets/login-script.png)
+

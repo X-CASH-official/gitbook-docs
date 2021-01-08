@@ -50,7 +50,7 @@ In order to explain what a DPoS consensus is about, we will discuss the differen
 
 The reason Proof-of-Work, and to some extent PoS, is deemed inefficient - both regarding energy consumption and blockchain speed - is the fact the whole network takes part in blocks validation \(e.g. transactions validation\). This principle - necessary to guarantee a neutral and censorship-resistant creation of blocks - is given to a select few in DPoS called Block producers.
 
-![ Figure 1 - high-level view of a generic realization of DPoS consensus in a blockchain](../.gitbook/assets/0%20%281%29.png)
+![ Figure 1 - high-level view of a generic realization of DPoS consensus in a blockchain](../.gitbook/assets/0%20%281%29%20%281%29.png)
 
 ### Block production and the delegates’ role
 
@@ -311,7 +311,7 @@ For the delegates to update their information in the database, we can distinguis
 
 These features are achieved through a simple process where delegates are sure they're communicating with all elected block producers.
 
-![Figure 4 : decentralized database &#x2013; updating delegates information](../.gitbook/assets/3.png)
+![Figure 4 : decentralized database &#x2013; updating delegates information](../.gitbook/assets/3%20%281%29.png)
 
 ```text
                        
@@ -325,7 +325,7 @@ Delegate first request the block verifier list from a random seed node and then 
 
 **Statistics and Delegates**
 
-![Figure 5 : decentralized database &#x2013; statistics and delegates collections syncing process](../.gitbook/assets/4.png)
+![Figure 5 : decentralized database &#x2013; statistics and delegates collections syncing process](../.gitbook/assets/4%20%281%29.png)
 
 The statistics and delegates databases are synced using the same process. First, the delegate requests the list of block verifiers and then compute a hash of its database. This hash is shared with all delegates, which then replies if the hash matches theirs. If yes, this implied that the delegate shares the same database content as the queried block producer. The delegates aggregate the results from all block producers and identify the resulting consensus on its database status. If block producers agree under de dBFT rules that the delegate does not have a synced DB, this last one will start syncing the DB from a random node in the consensus.
 
@@ -337,13 +337,13 @@ Reserve proofs are decomposed into 50 collections which each hold up to 1000 res
 
 **Reserve bytes**
 
-![Figure 7 : decentralized database &#x2013; reserve bytes collection syncing process](../.gitbook/assets/6.png)
+![Figure 7 : decentralized database &#x2013; reserve bytes collection syncing process](../.gitbook/assets/6%20%281%29.png)
 
 Finally, the reserve byte collection is synced based on the local height of the delegates. As the reserve bytes are linked to the height of the blockchain, they do not need to be refreshed if they have been synced once. In practice, this means that the delegate will compare it is local height to the network height and only syncs if he is lagging behind. This can happen if the delegate is syncing the database for the first time or if a new block has been forged.
 
 **Delegates election process. Receiving and validating reserve proof**
 
-![ Figure 8 : decentralized database &#x2013; reserve proof addition process](../.gitbook/assets/7.png)
+![ Figure 8 : decentralized database &#x2013; reserve proof addition process](../.gitbook/assets/7%20%281%29.png)
 
 One of the main processes of the delegate election is to add the users’ reserve proofs into the database. This is achieved through the following process; users generate a reserve proof in their wallet and share it with all block verifiers. Once they receive it, each delegate is going to compare the reserve proof to its version of the decentralized DB, if the reserve proof is already in the DB, it will not be counted. If not, the block verifier will check the reserve proof validity in the blockchain. If the reserve proof is still valid, any reserve proof belonging to the public address of the reserve proof will be deleted from the database. Once this is done, the reserve proof can be added. Since there are multiple reserve proof collections, and to make sure the consensus of each collection is respected, it is crucial that all delegate add the reserve proof to the same collection. Therefore, the reserve is added to the first unemptied collection starting from 1 to 50.
 
@@ -351,7 +351,7 @@ One of the main processes of the delegate election is to add the users’ reserv
 
 Verifying the reserve proofs inventory is a key process of the X-Cash DPoPS. Because this step can be quite intensive in terms of computing load, this has to be done in a decentralized manner where all delegates do not have to check every single reserve proof every round. The process we have chosen to follow is to run on a separate thread a random reserve proof checker for every delegate.
 
-![Figure 9 : decentralized database &#x2013; reserve proof verification process](../.gitbook/assets/8%20%281%29.png)
+![Figure 9 : decentralized database &#x2013; reserve proof verification process](../.gitbook/assets/8%20%281%29%20%281%29.png)
 
 Every block producer extract and checks a reserve proof from the decentralized DB randomly. If the reserve proof is invalid, the block producer will first verify if it has already identified as invalid during the round. If no, it will add it to a local buffer of all invalid reserve proofs it has identified. When the round is closed to be finished, block producers share the proofs they have identified to be invalid, and a dBFT vote is carried to create a consensus on the reserve proofs to remove from the database. Once this is finished, every delegate updates their local version of decentralized DB in preparation for the next election round.
 
@@ -415,7 +415,7 @@ Guaranteeing the randomness of the next block producer selection is a key featur
 
 #### Detailed process
 
-![Figure 11 : Next block producer election through VRF and dBFT vote process](../.gitbook/assets/10.png)
+![Figure 11 : Next block producer election through VRF and dBFT vote process](../.gitbook/assets/10%20%281%29.png)
 
 During the first step of the process, each delegate generates a set of Secret and Public VRF keys as well as a one-hundred-character string. This set of information is shared among all delegates so that every delegate owns the set of all other delegates.
 
@@ -470,7 +470,7 @@ This is done by concatenating the reserve bytes data with the full content of th
 
 To adjust for the change of algorithm, it is also required to upgrade the daemon syncing process to take into account the need to also check the block producers and verifiers. We provide below a high level of this process which consists of first retrieving the list of block verifiers from a random seed node. The next step is to randomly connect to one of them and request the reserve bytes for both the previous and current block.
 
-![ Figure 14 : daemon &#x2013; syncing process](../.gitbook/assets/13%20%281%29.jpeg)
+![ Figure 14 : daemon &#x2013; syncing process](../.gitbook/assets/13%20%281%29%20%281%29.jpeg)
 
 To validate the block, the daemon will check if the previous block 100 public addresses \(i.e. the expected 100 block verifiers for the next round\) matches the one that signed the current block. If 67 or more do so, then the block is considered to be valid and is added to the local version of the blockchain. If not, it will be skipped, and the daemon will request the block from another block verifiers.
 
@@ -501,13 +501,13 @@ All messages involving a delegates authority will be signed using the delegates 
 
 The below figure gives a high-level overview of the templates used in the data transmission protocol. A more detailed description of each function can be found APPENDIX 0.
 
-![ Figure 15 : data transmission protocol &#x2013; overview of templates](../.gitbook/assets/14%20%281%29.png)
+![ Figure 15 : data transmission protocol &#x2013; overview of templates](../.gitbook/assets/14%20%281%29%20%281%29.png)
 
 #### Detailed process
 
 In this section, we describe the typical process for a block production round. Before launching the block creation process, the 100 elected delegates perform a VRF according to the process described in section 0. The resulting beta string will be included in the produced block to determine the next block verifiers and producers.
 
-![Figure 16 : block production process](../.gitbook/assets/15.jpeg)
+![Figure 16 : block production process](../.gitbook/assets/15%20%281%29.jpeg)
 
 The next step consists of extracting each delegate’s role from the last beta string included in the last block. Each delegate is assigned a role of being a block verifier \(validator\) or producer in addition to potentially being a backup node for the validators. There are five backup nodes which can be used in two cases. The first one is the case where there is a technical failure of the block producer such as a disconnection from the network or high latency while the second one is the case where the network fails to reach consensus on a dBFT vote.
 
