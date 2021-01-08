@@ -13,20 +13,23 @@
     * [DPoPS Wallet RPC calls](applications/rpc-calls/xcash-wallet-rpc/dpops-wallet-rpc-calls.md)
   * [xcash-daemon-rpc](applications/rpc-calls/json-rpc-methods/README.md)
     * [Other Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/other-daemon-rpc-calls.md)
-    * [DPoPS Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/dpops-daemon-rpc-calls.md)
 
 ## Delegate node & staking <a id="dpops"></a>
 
 * [Get Started](dpops/get-started.md)
 * [Technical Design](dpops/yellowpaper-delagated-proof-of-private-stake.md)
 * [Server Setup Guide](dpops/server-setup.md)
-* [Node Program Installation](dpops/installation-process.md)
-* [Register Delegate](dpops/set-up-your-delegates.md)
-* [Management & Monitoring](dpops/maintenance-and-monitoring.md)
-* [Set up your node](dpops/set-up-your-node.md)
-* [🗳️ Vote](dpops/vote.md)
+* [Node Program Installation](dpops/node-installation.md)
+* [Register Delegate](dpops/register-delegate.md)
+* [Management & Monitoring](dpops/management-and-monitoring.md)
+* [Vote & Staking](dpops/vote-and-staking.md)
 
 ## Library
 
 * [Yellowpaper - Hybrid Transactions](library/yellowpaper-hybrid-transactions.md)
+
+## Archived
+
+* [DPOPS beta  V2](archived/dpops-beta.md)
+* [DPOPS Manual Installation](archived/dpops-manual-installation.md)
 

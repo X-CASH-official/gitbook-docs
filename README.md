@@ -31,7 +31,7 @@ Looking to use X-Cash but don't know where to start? Check our list of quick gui
 | **I want to stake my XCASH.** | You can stake your XCASH towards a delegate and earn rewards depending on your vote. Check our our stake and voting section. |
 | **I want to become a delegate and start forging X-Cash.** | You want to be part of  the limited delegates that have the power to forge the next block? Have a look a our set up a delegate node guide. |
 | **I want to create/open a wallet.** | Go to the CLI wallet documentation \([xcash-wallet-cli](applications/xcash-wallet-cli.md)\) to learn everything about the X-CASH wallet and the different commands. |
-| **How can I interect with the wallet or daemon?** | You can interact with X-Cash with Remote Procedure Calls.  Have a look at [xcash-daemon-rpc](applications/rpc-calls/json-rpc-methods/) and [xcash-wallet-rpc](applications/rpc-calls/xcash-wallet-rpc/) to learn more. |
+| **How can I interact with the wallet or daemon?** | You can interact with X-Cash with Remote Procedure Calls.  Have a look at [xcash-daemon-rpc](applications/rpc-calls/json-rpc-methods/) and [xcash-wallet-rpc](applications/rpc-calls/xcash-wallet-rpc/) to learn more. |
 | **I want to import a blockchain file.** | You can bootstrap your synchronization if you already have a RAW file of the blockchain. Check out the full documentation of [xcash-blockchain-import](applications/xcash-blockchain-import.md) |
 | **I am looking for the API.** | Check out our API section. |
 
@@ -39,7 +39,7 @@ Looking to use X-Cash but don't know where to start? Check our list of quick gui
 
 #### General links
 
-* [**X-Cash website** ](https://x-network.io/xcash)- The official website of the X-Cash project.
+* [**X-Cash website** ](https://xcash.foundation)- The official website of the X-Cash project.
 * [**X-Cash official blog**](https://medium.com/x-cash) - Read about the latest development of X-Cash
 * [**X-Cash explorer** ](https://explorer.x-cash.org/Explorer)- See your ongoing transactions and explorer the X-CASH blockchain.
 * [**GitHub**](https://github.com/X-CASH-official) - The X-Cash source code and related repositories. 

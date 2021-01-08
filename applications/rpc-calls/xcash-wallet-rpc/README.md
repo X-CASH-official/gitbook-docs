@@ -2253,3 +2253,20 @@ Get RPC version Major & Minor integer-format, where Major is the first 16 bits a
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_version"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "version": 65540  }}
 ```
 
+## recover
+
+Get the delegate information.
+
+```text
+curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"recover","params":{"domain_name":"DELEGATES_DOMAIN_NAME"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "status": "success"
+  }
+}
+```
+
+
+

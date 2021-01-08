@@ -14,7 +14,7 @@ _**Version 1.0**_
 
 This document gives an extensive summary of the components of DPoPS, a Delegated Proof-of-Private-Stake implementation under X-Cash, a Monero based hybrid-privacy coin. The change of consensus algorithm from Proof-of-Work to Delegated Proof-of-Stake is a significant milestone for the X-Cash blockchain, and will also bring innovation to CryptoNote, Monero and the overall blockchain ecosystem.
 
-Delegated Proof-of-Stake \(DPoS\) is an efficient, decentralized, democratic, and flexible blockchain consensus framework which has been actively researched in the last years. However, the private nature of a coin can make DPoS implementation challenging as balances are obfuscated. As a representative system, DPoS needs the right balance of transparency to remain efficient, and most privacy coins cannot cannot cope with missing part of their opacity. 
+Delegated Proof-of-Stake \(DPoS\) is an efficient, decentralized, democratic, and flexible blockchain consensus framework which has been actively researched in the last years. However, the private nature of a coin can make DPoS implementation challenging as balances are obfuscated. As a representative system, DPoS needs the right balance of transparency to remain efficient, and most privacy coins cannot cope with missing part of their opacity. 
 
 To address this challenge, we would like to suggest DPoPS, an improved Delegated Proof-of-Stake algorithm for privacy coins. DPoPS inherits all the advantages of the original DPoS consensus while offering the opportunity to be used in a privacy coin. 
 

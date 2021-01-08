@@ -33,8 +33,8 @@ Go to the Visual Studio Code [download page](https://code.visualstudio.com/Downl
 Upload the binary to your server using `secure copy` then install vscode
 
 ```bash
-scp FILE root@server:/root/Installed-Programs
-cd /root/Installed-Programs
+scp FILE root@server:/root/xcash-official
+cd /root/xcash-official
 dpkg -i ./code*
 ```
 
