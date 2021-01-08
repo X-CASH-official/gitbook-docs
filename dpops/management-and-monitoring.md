@@ -303,3 +303,129 @@ tail -n 100 ~/xcash-official/logs/xcash-daemon-log.txt
 ```
 {% endhint %}
 
+### **Login service checking**
+
+We can change the motd generated when we login to our server to make it show us basic node information like the service status, our balance and blockchain syncronization status
+
+Optionally, we can to disable all the automatic scripts executed when we log in and only enable ours.
+
+```bash
+chmod -x /etc/update-motd.d/*
+```
+
+We need to place our script in the `update-motd.d` directory, we will name it `00-xcash-node-checks` and put our script inside
+
+```bash
+#!/bin/bash
+
+# Adjust this variable to the name of your xcash-daemon unit file name
+XCASH_DAEMON_SRV=xcash-daemon
+
+# Adjust this variable to the name of your xcash-wallets unit file name
+XCASH_WALLET_SRV=xcash-rpc-wallet
+
+# Adjust this variable to the name of your xcash-dpops unit file name
+XCASH_DPOPS_SRV=xcash-dpops
+
+# Adjust this variable to the name of your mongodb unit file name
+MONGODB_SRV=mongodb
+
+DAEMON_URL="http://127.0.0.1:18281/json_rpc"
+WALLET_URL="http://127.0.0.1:18285/json_rpc"
+CURL='curl -w "\n" -s -H "Content-Type: application/json" -X'
+
+red="\033[01;31m"
+green="\033[01;32m"
+reset="\033[0m"
+
+function check_height(){
+    if lsof -Pi :18281 -sTCP:LISTEN -t >/dev/null ; then
+        DATA=`$CURL GET $DAEMON_URL -d '{"jsonrpc":"2.0","id":"0","method":"get_block_count"}'`
+
+        HEIGHT=$(echo "$DATA" | grep '"count"' | awk {'print $2'} | sed s'|,||g' | tr -d $'\r')
+        STATUS=$(echo "$DATA" | grep '"status"' | awk {'print $2'} | sed s'|"||g' | tr -d $'\r')
+
+        if [ $STATUS == "OK" ]; then
+            STATUS=${green}OK${reset}
+        else
+            SATTUS=${red}FAIL${reset}
+        fi
+
+        echo
+        echo -e "Blockhain sync status: $STATUS"
+        echo "Blockchain height: $HEIGHT"
+    else
+        echo
+        echo "X-Cash Daemon service is not running...."
+        echo "Check the $XCASH_DAEMON_SRV service status"
+    fi
+}
+
+function get_node_balance(){
+    if lsof -Pi :18285 -sTCP:LISTEN -t >/dev/null ; then
+        DATA=`$CURL GET $WALLET_URL -d '{"jsonrpc":"2.0","id":"0","method":"get_balance","params":{"account_index":0,"address_indices":[0]}}'`
+
+        ADDR=$(echo "$DATA" | grep '"address"' | awk {'print $2'} | sed s'|"||g' | sed s'|,||g' | head -1 | tr -d $'\r')
+        UNSPENT_OUTPUTS=$(echo "$DATA" | grep '"num_unspent_outputs"' | awk {'print $2'} | sed s'|"||g' | sed s'|,||g' | head -1 | tr -d $'\r')
+
+        ATOMIC_TOTAL_BALANCE=$(echo "$DATA" | grep '"balance"' | awk {'print $2'} | sed s'|,||g' | head -1 | tr -d $'\r')
+        ATOMIC_UNLOCKED_BALANCE=$(echo "$DATA" | grep '"unlocked_balance"' | awk {'print $2'} | sed s'|,||g' | head -1 | sed s"|^M||g" | tr -d $'\r')
+        TOTAL_BALANCE=$((ATOMIC_TOTAL_BALANCE/1000000))
+        UNLOCKED_BALANCE=$((ATOMIC_UNLOCKED_BALANCE/1000000))
+
+        echo
+        echo "Public address:   $ADDR"
+        echo "Unspent outputs:  $UNSPENT_OUTPUTS"
+        echo "Total balance:    $TOTAL_BALANCE XCASH"
+        echo "Unlocked balance: $UNLOCKED_BALANCE XCASH"
+    else
+        echo
+        echo "X-Cash RCP Wallet service is not running...."
+        echo "Check the $XCASH_WALLET_SRV service status"
+    fi
+}
+
+function check_services_status(){
+    echo
+    MONGODB_UP_SINCE=$(systemctl show $MONGODB_SRV --property=ActiveEnterTimestamp | sed s"|ActiveEnterTimestamp=||g")
+    XCASH_DAEMON_UP_SINCE=$(systemctl show $XCASH_DAEMON_SRV --property=ActiveEnterTimestamp | sed s"|ActiveEnterTimestamp=||g")
+    XCASH_WALLET_UP_SINCE=$(systemctl show $XCASH_WALLET_SRV --property=ActiveEnterTimestamp | sed s"|ActiveEnterTimestamp=||g")
+    XCASH_DPOPS_UP_SINCE=$(systemctl show $XCASH_DPOPS_SRV --property=ActiveEnterTimestamp | sed s"|ActiveEnterTimestamp=||g")
+
+    systemctl is-active $MONGODB_SRV --quiet \
+        && echo -e ${green}MongoDB service is running since...............$MONGODB_UP_SINCE${reset} \
+        || echo -e ${red}MongoDB service is not running${reset}
+
+    systemctl is-active $XCASH_DAEMON_SRV --quiet \
+        && echo -e ${green}X-Cash Daemon service is running since.........$XCASH_DAEMON_UP_SINCE${reset} \
+        || echo -e ${red}X-Cash Daemon service is not running${reset}
+
+    systemctl is-active $XCASH_WALLET_SRV --quiet \
+        && echo -e ${green}X-Cash RPC Wallet service is running since.....$XCASH_WALLET_UP_SINCE${reset} \
+        || echo -e ${red}X-Cash RPC Wallet service is not running${reset}
+
+    systemctl is-active $XCASH_DPOPS_SRV --quiet \
+        && echo -e ${green}X-Cash DPoPS service is running since..........$XCASH_DPOPS_UP_SINCE${reset} \
+        || echo -e ${red}X-Cash DPoPS service is not running${reset}
+}
+
+check_height
+get_node_balance
+check_services_status
+echo
+```
+
+{% hint style="info" %}
+If you have custom service names you need to adjust the service variable names at the beggining of the script
+{% endhint %}
+
+
+Then, we need to make it executable
+
+```bash
+chmod +x /etc/update-motd.d/00-xcash-node-checks
+```
+
+After that, every time we log in to our server by ssy we will see something like this
+
+![](../.gitbook/assets/login-script.png)
