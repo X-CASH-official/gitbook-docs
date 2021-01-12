@@ -402,8 +402,6 @@ We recall below the main properties of VRFs:
 
 Both RSA \(RSA-FDH-VRF\) and Elliptic Curve \(ECVRF\) can be used in VRF for the key generation. We have chosen to go for ECVRF, primarily because this gives the same level of key strength while shortening the length. For the cryptographic components, the Libsodium library \[26\] is used in combination with the Algorand integration of VRFs \[27\] \[28\].
 
-More info about the VRF integration can be found in the VRF functions section of X-Cash DPoPS on Github[\[1\]](https://github.com/plbgnt/gitbook-xcash/tree/211a66b23e834654c24df65f6f2ab37240947c90/X-CASH-official/XCASH_proof_of_stake/tree/master/functions/VRF_functions/README.md).
-
 #### Overview of the process
 
 Guaranteeing the randomness of the next block producer selection is a key feature of X-Cash DPoPS. This process is decomposed into three major steps:
