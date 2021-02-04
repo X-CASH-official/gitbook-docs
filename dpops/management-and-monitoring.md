@@ -416,7 +416,7 @@ echo
 ```
 
 {% hint style="info" %}
-If you have custom service names you need to adjust the service variable names at the beggining of the script
+If you have custom service names you need to adjust the service variable names at the beginning of the script
 {% endhint %}
 
 Then, we need to make it executable
@@ -425,7 +425,7 @@ Then, we need to make it executable
 chmod +x /etc/update-motd.d/00-xcash-node-checks
 ```
 
-After that, every time we log in to our server by ssy we will see something like this
+After that, every time we log in to our server by ssh we will see something like this.
 
 ![](../.gitbook/assets/login-script.png)
 
