@@ -4,6 +4,8 @@ description: 'Paper version: https://x-network.io/whitepaper/XCASH_Yellowpaper_H
 
 # Yellowpaper - Hybrid Transactions
 
+\_\_[_Link to PDF version_](https://uploads-ssl.webflow.com/5f5f5f0330588e2883713b14/60367481e1bbe27fc013d5ca_XCASH_Yellowpaper_DPoPS.pdf)\_\_
+
 ## Abstract
 
 _This yellow paper details the technical concepts and implementation of hybrid transactions \(also known as FlexPrivacy ©\), a feature enabling public and private transactions on the X-Cash public blockchain._
