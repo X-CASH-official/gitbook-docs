@@ -28,7 +28,7 @@ And the other way around
 1. Go from the root Ethereum chain to Polygon with the  \(X-Cash → Polygon\)
 2. Withdraw assets from Polygon on to root chain \(Polygon → Ethereum\)
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2844%29.png)
 
 ## XCASH \(X-Cash\) ↔ WXCASH \(Polygon\)
 
