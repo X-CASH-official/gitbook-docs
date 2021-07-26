@@ -6,6 +6,7 @@
 
 * [Interacting with the network](applications/xcashd.md)
 * [X-Cash Wallet \(CLI\)](applications/xcash-wallet-cli.md)
+* [WXCASH](applications/wxcash.md)
 * [Export blockchain file](applications/xcash-blockchain-export.md)
 * [Import blockchain file](applications/xcash-blockchain-import.md)
 * [RPC Calls](applications/rpc-calls/README.md)
