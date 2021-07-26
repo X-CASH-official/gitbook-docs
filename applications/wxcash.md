@@ -48,7 +48,7 @@ Select the base amount of currency you would like to swap, the amount, and selec
 The swap within the X-Bank is **free**, and will always be!
 {% endhint %}
 
-Once you have WXCASH in your X-Bank account, you can now withdraw them and send them to a ERC-20 address. 
+Once you have WXCASH in your X-Bank account, you can now transfer them and send them to a ERC-20 address. 
 
 You have several ways to get an ERC-20 address, and we recommend using [Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015489531-Getting-Started-With-MetaMask) or any other ERC-20 compatible wallet that supports the Polygon \(Matic\) Network. 
 
