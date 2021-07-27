@@ -25,8 +25,8 @@ We will explain how to interact with the different networks, with the necessary
 
 And the other way around
 
-1. Go from the root Ethereum chain to Polygon with the  \(X-Cash → Polygon\)
-2. Withdraw assets from Polygon on to root chain \(Polygon → Ethereum\)
+1. Go from the root Ethereum chain to Polygon with the  \(Ethereum → Polygon\)
+2. Withdraw assets from Polygon on to root chain \(Polygon → X-Cash\)
 
 ![](../.gitbook/assets/image%20%2844%29.png)
 
