@@ -95,7 +95,7 @@ You can now see WXCASH \(Polygon\) in your Metamask wallet.
 
 #### **Withdraw WXCASH \(Polygon\) on the X-Bank**
 
-You can now withdraw WXCASH \(Polygon\) from the X-bank to your ERC-20 wallet. You just need to select the **Withdraw** page in the X-bank, select WXCASH currency to withdraw, input an amount and your ERC-20 address \(provided in your Metamask wallet\), and select withdraw. 
+You can now withdraw WXCASH \(Polygon\) from the X-bank to your ERC-20 wallet. You just need to select the **Transfer** page in the X-bank, select WXCASH currency to withdraw, input an amount and your ERC-20 address \(provided in your Metamask wallet\), and select withdraw. 
 
 {% hint style="info" %}
 Because Polygon's transfer fees are so low, we have decided for the time being to keep the withdrawals free for the X-Bank users.
