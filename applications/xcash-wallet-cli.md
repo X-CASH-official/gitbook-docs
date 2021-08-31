@@ -10,7 +10,7 @@ description: >-
 
 ### Command line wallet
 
-The "fficial command line wallet for X-Cash. Available for Linux, macOS and Windows.
+The official command line wallet for X-Cash. Available for Linux, macOS and Windows. [Download here](https://www.xcash.foundation/wallet)
 
 Wallet uses your private keys to compute your total balance, retrieve your transactions history, and sign transactions.
 
