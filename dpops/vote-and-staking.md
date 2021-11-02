@@ -33,6 +33,8 @@ Most if not all delegates are discussing freely on X-Cash official Discord serve
 
 You can calculate your expected ROI depending on several factor to help you with your vote.
 
+A simple ROI-Calculator is available here [calculator.xcash.foundation](https://calculator.xcash.foundation/); there you can see how much rewards you can possibly earn by staking XCASH.
+
 Community member and delegate **UrsaMajor** is providing a comprehensive list of delegates to help you understand and calculate what reward you can expect by voting with your XCASH. 
 
 Download locally this [excel sheet](https://onedrive.live.com/view.aspx?resid=166AE7FDFC13C5FD!10645&ithint=file%2Cxlsx&authkey=!AA6KXoOqlYWqRJA) \(updated every few days, but you can manually update it yourself\), and input your desired staking amount to see what reward you can expect depending on the delegate you are voting for, their current stake and fees.
