@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-The X-Cash Public Network is governed by 50 delegates through a custom Delegated Proof of Stake \(DPoS\) consensus, the [Delegate Proof of Private Stake](yellowpaper-delagated-proof-of-private-stake.md). Anyone can run an X-Cash node and become a delegate. But to be able to forge new blocks and earn the reward, you will need to be voted into the top 45 by other members of the community.
+The X-Cash Public Network is governed by 50 delegates through a custom Delegated Proof of Stake \(DPoS\) consensus, the [Delegate Proof of Private Stake](yellowpaper-delagated-proof-of-private-stake.md). Anyone can run an X-Cash node and become a delegate. But to be able to forge new blocks and earn the reward, you will need to be voted into the top 50 by other members of the community.
 
 Becoming a delegate is ambitious, and reaching and keeping a forging spot is rewarding but can be taken out at any time. As a delegate, you will have to prove that you are fit to keep this role. This documentation will help you get set up, register as a delegate, start forging, and securing the X-Cash Network.
 
