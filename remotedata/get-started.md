@@ -1,11 +1,3 @@
-
-
-# Get Started
----
-description: >-
-  X-Cash Namespace allows for users to create their own .xcash name.‌
----
-
 ## Introduction
 
 The X-Cash Namespace allows users to register their own name in the namespace. This allows a user to associate a public address with an easy to remember name (NAME.xcash) This protocol also allows a user to setup a public only wallet that can only send and receive public transactions, and a private only wallet that can only send and receive private transactions (using NAME.pxcash for public and NAME.sxcash for private). Each registration cost an amount that is set by the delegates. Each delegate can set their own price, but users can only use the current block producer (or wait for the next one etc) to register. Each registration is valid for 1 year and renewals are the same cost as registering.
