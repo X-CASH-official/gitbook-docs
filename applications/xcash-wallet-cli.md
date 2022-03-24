@@ -256,6 +256,8 @@ In X-Cash 1.4.0, we introduced a fixed ring size of **21** along with the releas
 This choice has been made to improve significantly the privacy at the cost of an increase of the transaction size which is largely overbalanced by the introduction of bulletproof.
 {% endhint %}
 
+You can also move the entire balance by using the `sweep_all` command with the same parameters (except the amount) as the `transfer` command. If you leave `sweep_all` blank with no parameters it will send a tx back to your wallet. This is helpful in reducing unspents for voting.
+
 ### Vote for a delegate
 
 Open the wallet file in the `xcash-wallet-cli` and once the wallet is fully synchronize, type the command:
