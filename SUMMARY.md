@@ -25,6 +25,13 @@
 * [Management & Monitoring](dpops/management-and-monitoring.md)
 * [Vote & Staking](dpops/vote-and-staking.md)
 
+## XCASH Namespace (in development) <a id="remotedata"></a>
+
+* [Get Started](remotedata/get-started.md)
+* [Register](remotedata/register.md)
+* [Manage](remotedata/manage.md)
+* [Delegate Management](remotedata/delegate-management.md)
+
 ## Library
 
 * [Yellowpaper - Hybrid Transactions](library/yellowpaper-hybrid-transactions.md)
