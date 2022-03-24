@@ -29,6 +29,7 @@
 
 * [Get Started](remotedata/get-started.md)
 * [Register](remotedata/register.md)
+* [Renew](remotedata/renew.md)
 * [Manage](remotedata/manage.md)
 * [Delegate Management](remotedata/delegate-management.md)
 
