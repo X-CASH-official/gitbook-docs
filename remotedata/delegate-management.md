@@ -10,7 +10,7 @@ description: >-
 
 Once you have correctly [set up your instance](server-setup.md), installed the different programs, you can set your register/renewal price as a delegate. If your the previous block producer, users will see your delegate and your price on  <a href="website">website</a> and can choose to use your delegate or wait for another maybe cheaper delegate. They can also view all delegates prices on the website.
 
-## 2. Update Register/Renewal Price
+## 1. Update Register/Renewal Price
 
 By default your price will be 100M xcash until you update it.
 
