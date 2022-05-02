@@ -1,50 +1,22 @@
 ---
 description: >-
-  Once your server is set up and the necessary programs installed, you will be
-  able to set your register/renewal price as a delegate.
+  How to receive turbo tx
 ---
 
-# Register Delegate
+# Receive Turbo TX
 
 ## Introduction
 
-Once you have correctly [set up your instance](server-setup.md), installed the different programs, you can set your register/renewal price as a delegate. If your the previous block producer, users will see your delegate and your price on  <a href="website">website</a> and can choose to use your delegate or wait for another maybe cheaper delegate. They can also view all delegates prices on the website.
+Once someone sends you a turbo tx id or link, it is very simple to verify the tx.
 
-## 1. Update Register/Renewal Price
+## 1. Get the turbo tx verify tool
 
-By default your price will be 100M xcash until you update it.
+You will need to use a tool to verify the turbo tx. You can use <a href="" target="_blank">our official website</a> to easily type in the id and it will tell you if its verified or not. You can also run a local version of the tool, as its open source. You will need both the <a href="" target="_blank">frontend</a> and <a href="" target="_blank">backend</a>
 
-First of all, the wallet service should be running in the background. Stop it by using the command:
+## 2. Verify the tx Part 1
 
-```text
-systemctl stop xcash-rpc-wallet
-```
+Once you have the tool setup or decide to use the official website, go to the link, or type the id into the website. It should then say if its verified or not, and the tx details.
 
-Open and let synchronize the wallet you used to register as a delegate, either when using the [auto-installer](node-installation.md#quick-installation) or [created manually](node-installation.md#generate-a-wallet).
+## 3. Verify the tx Part 2
 
-```text
-~/xcash-official/xcash-core/build/release/bin/xcash-wallet-cli --wallet-file ~/xcash-official/xcash-wallets/<WALLET_NAME>
-```
-
-Replace the **`<WALLET_NAME>`** with your own.
-
-{% hint style="info" %}
-If you installed with the autoinstaller script, the wallet name will be **`delegate-wallet`**
-{% endhint %}
-
-Once your wallet is fully synchronized, you can use the **`remote_data_delegates_set_amount`** command with the following parameters:
-
-```text
-remote_data_delegates_set_amount <amount>
-```
-
-Replace the `<amount>` with the amount of xcash (has to be whole numbers and in regular units) you want to charge for registering and renewal of names in the xcash namespace.
-
-You will be prompted to wait for the next valid data interval (at most 10 inutes). Once your request has been accepted, you will receive the message **`The remote data amount has been updated successfully`**.
-
-You can **`exit`** the wallet and restart the wallet service:
-
-```text
-systemctl start xcash-rpc-wallet
-```
-
+The tool can only tell you blockchain wise if the transaction is valid and will make it on the blockchain. Its up to you though to make sure that the sending and receiving address are correct, as well as the amount, as we dont know the details of the tx between the two parties. If its going to your wallet from the correct sender, and for the correct amount then its verified.
