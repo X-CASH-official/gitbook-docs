@@ -36,6 +36,7 @@
 ## XCASH Turbo Tx (in development) <a id="turbotx"></a>
 
 * [Get Started](turbotx/get-started.md)
+* [Introduction](turbotx/introduction.md)
 * [Send](turbotx/send.md)
 * [Receive](turbotx/receive.md)
 
