@@ -1,10 +1,8 @@
 ## Introduction
 
-The X-Cash Namespace allows users to register their own name in the namespace. This allows a user to associate a public address with an easy to remember name (NAME.xcash) This protocol also allows a user to setup a public only wallet that can only send and receive public transactions, and a private only wallet that can only send and receive private transactions (using NAME.pxcash for public and NAME.sxcash for private). Each registration cost an amount that is set by the delegates. Each delegate can set their own price, but users can only use the current block producer (or wait for the next one etc) to register. Each registration is valid for 1 year and renewals are the same cost as registering.
+The X-Cash Turbo TX allows users to send Layer 1 zero confirmation transactions from any wallet. Tx can be verified a few seconds after sending using our <a href="">dedicated website</a> or by running their own local version of the tool. This does not replace instant payments as that will be a true instant send on the layer 2, but adds additional functionallity to our layer 1, that is unique to coins that have a unspent tx system, plus a DBFT block consensus algorithm.
 
-This protocol is built into xcash-dpops repo so it will be the same instructions to update for delegates.
-
-## Get Started
+## Getting Started
 
 <table>
   <thead>
@@ -15,19 +13,19 @@ This protocol is built into xcash-dpops repo so it will be the same instructions
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><b>I want to register or renew a name in the xcash namespace</b>
+      <td style="text-align:left"><b>I want to learn more about turbo tx</b>
       </td>
-      <td style="text-align:left">Please review the <a href="register.md">register</a> or <a href="renew.md">renew</a> docmentation. Once your ready use the <a href="website">website</a> setup for checking if names are registered and for a step by step walkthrough on how to register or renew a name.</td>
+      <td style="text-align:left">Please review the <a href="introduction.md">introduction</a></td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>I want to edit my namespace.</b>
+      <td style="text-align:left"><b>I want to send a turbo tx</b>
       </td>
-      <td style="text-align:left">Please review the <a href="manage.md">manage</a> documentation</td>
+      <td style="text-align:left">Please review the <a href="send.md">send</a> documentation</td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>I want to setup my price as a delegate.</b>
+      <td style="text-align:left"><b>I want to receive and verify a turbo tx</b>
       </td>
-      <td style="text-align:left">Please review the <a href="delegate-management.md">delegate management</a> documentation</td>
+      <td style="text-align:left">Please review the <a href="receive.md">receive</a> documentation</td>
     </tr>
     <tr>
   </tbody>
@@ -37,10 +35,11 @@ This protocol is built into xcash-dpops repo so it will be the same instructions
 
 #### Characteristics
 
-* Have users be able to type NAME.xcash in the wallet instead of the long public address to send. 
-* Be certain for a private transaction from a user by giving them NAME.sxcash
-* Be certain for a public transaction from a user by giving them NAME.pxcash
-* Delegates host the namespace and can set their registration/renewal price
+* Send Layer 1 instant tx. 
+* Send from any wallet, CLI, RPC, GUI, mobile
+* Useful for merchants
+* Easy to use tool to verify
+* Powered by the DPOPS Layer 2
 
 ## Useful Links <a id="key-features"></a>
 
