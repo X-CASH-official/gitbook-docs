@@ -7,6 +7,14 @@ description: >-
 
 ## Introduction
 
+The steps to check if any mem pool tx is guaranteed is the following
+#1 Check if at least 27+ delegates have the tx in their mem pool.
+#2 Use one of the delegates to check the tx key and verify the amount.
+
+We have built a tool that allows for all of this to happen, and outputs true or false with stats on a webpage. We host the tool, but its opensource and anyone can run it on their on computer to verify tx as well.
+
+Note (turbo tx will not work for sub addresses)
+
 Once someone sends you a turbo tx id or link, it is very simple to verify the tx.
 
 ## 1. Get the turbo tx verify tool
