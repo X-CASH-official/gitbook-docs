@@ -4,7 +4,7 @@
 
 This method gets the global stats
 
-**URL**: https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/)
 
 **Method**: GET
 
