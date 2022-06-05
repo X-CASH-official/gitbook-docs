@@ -8,7 +8,7 @@
 * [Blockchain](api/blockchain.md)
 * [DPOPS](api/dpops.md)
 * [X-Payment](api/xpayment.md)
-* [X-Payment](api/xpayment-twitter.md)
+* [X-Payment Twitter](api/xpayment-twitter.md)
 
 ## Applications & Tools <a id="applications"></a>
 
