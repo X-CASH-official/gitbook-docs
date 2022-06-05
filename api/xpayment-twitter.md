@@ -1,6 +1,6 @@
 # X-payment Twitter API
 
-## Global Stats
+## Global Stats <a id="global-stats"></a>
 
 This method gets the global stats
 
