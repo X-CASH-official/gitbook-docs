@@ -2,6 +2,14 @@
 
 * [Welcome 👋](README.md)
 
+## API <a id="api"></a>
+
+* [Get Started](api/get-started.md)
+* [Blockchain](api/blockchain.md)
+* [DPOPS](api/dpops.md)
+* [X-Payment](api/xpayment.md)
+* [X-Payment](api/xpayment-twitter.md)
+
 ## Applications & Tools <a id="applications"></a>
 
 * [Interacting with the network](applications/xcashd.md)
