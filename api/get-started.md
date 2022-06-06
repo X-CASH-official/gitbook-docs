@@ -23,6 +23,11 @@ The X-Cash API allows users to read information from various X-Cash products.
       <td style="text-align:left">Please view the <a href="dpops.md">documentation</a></td>
     </tr>
     <tr>
+      <td style="text-align:left"><b>I want to view the API for the Namespace Protocol</b>
+      </td>
+      <td style="text-align:left">Please view the <a href="namespace.md">documentation</a></td>
+    </tr>
+    <tr>
       <td style="text-align:left"><b>I want to view the API for X-Payment</b>
       </td>
       <td style="text-align:left">Please view the <a href="xpayment.md">documentation</a></td>
