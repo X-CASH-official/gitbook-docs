@@ -121,7 +121,7 @@ This method gets the top users for tips and volume
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
+* _amount_ - not required - The amount of items to return (Default is 10).
 
 **Inputs**: _None_.
 
@@ -167,7 +167,7 @@ This method gets the recent tips
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
+* _amount_ - not required - The amount of items to return (Default is 10).
 
 **Inputs**:
 
