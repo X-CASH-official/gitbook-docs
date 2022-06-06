@@ -2,42 +2,11 @@
 
 Note zachys (atomic units) are 10^6 in X-Cash
 
-## User Stats <a id="user-stats"></a>
-
-This method gets the stats for a specific user
-
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/)
-
-**Method**: GET
-
-**Inputs**: _None_.
-
-**Results**:
-
-* _totalSentTips_ - unsigned int; Total sent Tips.
-* _totalReceivedTips_ - unsigned int; Total received tips.
-* _totalPublicSentTips_ - unsigned int; Total Public sent Tips.
-* _totalPrivateSentTips_ - unsigned int; Total Private sent tips.
-* _totalDeposits_ - unsigned int; Total deposits.
-* _totalWithdraws_ - unsigned int; Total withdraws.
-
-```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/ -H 'Accept: application/json'
-{
-  "totalSentTips": 7,
-  "totalReceivedTips": 10,
-  "totalPublicSentTips": 5,
-  "totalPrivateSentTips": 2,
-  "totalDeposits": 5,
-  "totalWithdraws": 7
-}
-```
-
 ## Stats <a id="stats"></a>
 
 This method gets the stats
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/)
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/stats/](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/stats/)
 
 **Method**: GET
 
@@ -45,40 +14,48 @@ This method gets the stats
 
 **Results**:
 
-* _totalUsers_ - unsigned int; Total users registered.
-* _totalTipsPublic_ - unsigned long long; Total public tips sent.
-* _totalTipsPrivate_ - unsigned long long; Total private tips sent.
-* _totalVolumeSent_ - unsigned long long; Total volume sent in zachys (atomic units).
-* _avgTipAmount_ - unsigned int; Average tip amount sent in zachys (atomic units).
-* _tipsSentLastHour_ - unsigned int; Total tips sent in the last hour from the current time.
-* _tipsSentLast24Hours_ - unsigned int; Total tips sent in the last 24 hours from the current time.
-* _volumeSentLastHour_ - unsigned long long; Total volume sent in the last hour from the current time.
-* _volumeSentLast24Hours_ - unsigned long long; Total volume sent in the last 24 hours from the current time.
-* _totalDeposits_ - unsigned int; Total deposits.
-* _totalWithdraws_ - unsigned int; Total withdraws.
+* _mostTotalRoundsDelegateName_ - string; The delegate name that has participated in the most X-Cash DPOPS rounds.
+* _mostTotalRounds_ - unsigned int; The most total rounds.
+* _bestBlockVerifierOnlinePercentageDelegateName_ - string; The delegate with the best online percentage.
+* _bestBlockVerifierOnlinePercentage_ - unsigned int; The best online percentage.
+* _mostBlockProducerTotalRoundsDelegateName_ - string; The delegate will the most block producer rounds.
+* _mostBlockProducerTotalRounds_ - unsigned int; Total most block producer rounds.
+* _totalVotes_ - unsigned long long; Total votes in zachys (atomic units).
+* _totalVoters_ - unsigned int; Total voters.
+* _averageVote_ - unsigned int; Average vote amount in zachys (atomic units).
+* _votePercentage_ - unsigned int; The percentage of the amount of xcash ciruclating compared to how much is being voted.
+* _roundNumber_ - unsigned int; The round number of X-Cash DPOPS.
+* _totalRegisteredDelegates_ - unsigned int; Total registered delegates.
+* _totalOnlineDelegates_ - unsigned int; Total online delegates.
+* _currentBlockVerifiersMaximumAmount_ - unsigned int; The current amount of delegates that the system will use.
+* _currentBlockVerifiersValidAmount_ - unsigned int; The current amount of delegates that is needed for verification.
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Accept: application/json'
 {
-  "totalUsers": 7,
-  "totalTipsPublic": 10,
-  "totalTipsPrivate": 5,
-  "totalVolumeSent": 17000000,
-  "avgTipAmount": 130769231,
-  "tipsSentLastHour": 7,
-  "tipsSentLast24Hours": 7,
-  "volumeSentLastHour": 100,
-  "volumeSentLast24Hours": 1000,
-  "totalDeposits": 100,
-  "totalWithdraws": 100
+  "mostTotalRoundsDelegateName": "europe3_xcash_foundation",
+  "mostTotalRounds": 121528,
+  "bestBlockVerifierOnlinePercentageDelegateName": "OnlyOne",
+  "bestBlockVerifierOnlinePercentage": 100,
+  "mostBlockProducerTotalRoundsDelegateName": "snakeway",
+  "mostBlockProducerTotalRounds": 2899,
+  "totalVotes": 38436931311445482,
+  "totalVoters": 1000,
+  "averageVote": 38436931311445,
+  "votePercentage": 57,
+  "roundNumber": 131677,
+  "totalRegisteredDelegates": 150,
+  "totalOnlineDelegates": 100,
+  "currentBlockVerifiersMaximumAmount": 50,
+  "currentBlockVerifiersValidAmount": 27,
 }
 ```
 
-## Stats Per Day <a id="stats-per-day"></a>
+## Registered Delegates <a id="registered-delegates"></a>
 
-This method gets the daily amount of payments and volumes sent per day
+This method gets all of the registered delegates
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/)
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/registered](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/registered)
 
 **Method**: GET
 
@@ -88,173 +65,312 @@ This method gets the daily amount of payments and volumes sent per day
 
 Array of objects with the following structure:
 
-* _time_ -  unsigned int; Total users registered.
-* _amount_ - unsigned long long; Total tips sent.
-* _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
+* _votes_ -  unsigned long long; Total votes in zachys (atomic units).
+* _voters_ -  unsigned int; Total voters.
+* _IPAdress_ - string; The IP address or domain name.
+* _delegateName_ - string; The delegate name.
+* _sharedDelegate_ - bool;
+* _seedNode_ - bool;
+* _online_ - bool;
+* _fee_ - unsigned int; The fee.
+* _totalRounds_ - unsigned int; Total rounds.
+* _totalBlockProducerRounds_ - unsigned int; Total block producer rounds.
+* _onlinePercentage_ - unsigned int; The online percentage.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/registered/ -H 'Accept: application/json'
 [
   {
-    "time": 1654228489,
-    "amount": 100,
-    "volume": 100000000
+    "votes": 100000000,
+    "voters": 10,
+    "IPAdress": "us1.xcash.foundation",
+    "delegateName": "us1_xcash_foundation",
+    "sharedDelegate": false,
+    "seedNode": true,
+    "online": true,
+    "fee": 0,
+    "totalRounds": 100,
+    "totalBlockProducerRounds": 10,
+    "onlinePercentage": 67
   },
   {
-    "time": 1654228489,
-    "amount": 100,
-    "volume": 100000000
+    "votes": 0,
+    "voters": 10,
+    "IPAdress": "europe1.xcash.foundation",
+    "delegateName": "europe1_xcash_foundation",
+    "sharedDelegate": true,
+    "seedNode": false,
+    "online": true,
+    "fee": 5,
+    "totalRounds": 100,
+    "totalBlockProducerRounds": 10,
+    "onlinePercentage": 99
   }
 ]
 ```
 
-## Top Stats <a id="top-stats"></a>
+## Online Delegates <a id="online-delegates"></a>
 
-This method gets the top users for tips and volume
+This method gets all of the online delegates
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/{amount})
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/online](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/online)
 
 **Method**: GET
-
-**Resources**:
-* _amount_ - **required** - The amount of items to return.
 
 **Inputs**: _None_.
 
 **Results**:
 
-* _topTips_ - Array of objects with the following structure:
-  * _username_ -  string; The username.
-  * _tips_ - unsigned int; Total tips sent.
-* _topVolumes_ - Array of objects with the following structure:
-  * _username_ -  string; The username.
-  * _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
+Array of objects with the following structure:
+
+* _votes_ -  unsigned long long; Total votes in zachys (atomic units).
+* _voters_ -  unsigned int; Total voters.
+* _IPAdress_ - string; The IP address or domain name.
+* _delegateName_ - string; The delegate name.
+* _sharedDelegate_ - bool;
+* _seedNode_ - bool;
+* _online_ - bool;
+* _fee_ - unsigned int; The fee.
+* _totalRounds_ - unsigned int; Total rounds.
+* _totalBlockProducerRounds_ - unsigned int; Total block producer rounds.
+* _onlinePercentage_ - unsigned int; The online percentage.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/2 -H 'Accept: application/json'
-"topTips": [
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/online/ -H 'Accept: application/json'
+[
   {
-    "username": "test1",
-    "tips": 105
+    "votes": 100000000,
+    "voters": 10,
+    "IPAdress": "us1.xcash.foundation",
+    "delegateName": "us1_xcash_foundation",
+    "sharedDelegate": false,
+    "seedNode": true,
+    "online": true,
+    "fee": 0,
+    "totalRounds": 100,
+    "totalBlockProducerRounds": 10,
+    "onlinePercentage": 67
   },
   {
-    "username": "test2",
-    "tips": 100
-  }
-],
-"topVolumes": [
-  {
-    "username": "test1",
-    "volume": 105000000
-  },
-  {
-    "username": "test2",
-    "volume": 100000000
+    "votes": 0,
+    "voters": 10,
+    "IPAdress": "europe1.xcash.foundation",
+    "delegateName": "europe1_xcash_foundation",
+    "sharedDelegate": true,
+    "seedNode": false,
+    "online": true,
+    "fee": 5,
+    "totalRounds": 100,
+    "totalBlockProducerRounds": 10,
+    "onlinePercentage": 99
   }
 ]
 ```
 
-## Recent Tips <a id="recent-tips"></a>
+## Active Delegates <a id="active-delegates"></a>
 
-This method gets the recent tips
+This method gets the current active delegates (top 50) during the round
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/{amount})
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active)
 
 **Method**: GET
-
-**Resources**:
-* _amount_ - **required** - The amount of items to return.
-
-**Inputs**:
-
-* _sort_ - "First" for most recent tips, "Last" for the least recent tips.
-* _type_ - "Public" for only public transactions, "Private" for only private transactions, "All" for both.
 
 **Results**:
 
 Array of objects with the following structure:
 
-* _tweetId_ - string; The tweet id.
-* _fromUser_ - string; The username who sent the tip.
-* _toUser_ - string; The username who received the tip.
-* _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
-* _time_ -  unsigned int; The time.
-* _type_ - string; The tip type.
+* _votes_ -  unsigned long long; Total votes in zachys (atomic units).
+* _voters_ -  unsigned int; Total voters.
+* _IPAdress_ - string; The IP address or domain name.
+* _delegateName_ - string; The delegate name.
+* _sharedDelegate_ - bool;
+* _seedNode_ - bool;
+* _online_ - bool;
+* _fee_ - unsigned int; The fee.
+* _totalRounds_ - unsigned int; Total rounds.
+* _totalBlockProducerRounds_ - unsigned int; Total block producer rounds.
+* _onlinePercentage_ - unsigned int; The online percentage.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active/ -H 'Accept: application/json'
 [
   {
-    "tweetId": ""
-    "fromUser": "",
-    "toUser": "",
-    "amount": 0,
-    "time": 1654204410,
-    "type": "private"
+    "votes": 100000000,
+    "voters": 10,
+    "IPAdress": "us1.xcash.foundation",
+    "delegateName": "us1_xcash_foundation",
+    "sharedDelegate": false,
+    "seedNode": true,
+    "online": true,
+    "fee": 0,
+    "totalRounds": 100,
+    "totalBlockProducerRounds": 10,
+    "onlinePercentage": 67
   },
   {
-    "tweetId": "1531918830276075521"
-    "fromUser": "test1",
-    "toUser": "test",
-    "amount": 5000000,
-    "time": 1654195778,
-    "type": "public"
+    "votes": 0,
+    "voters": 10,
+    "IPAdress": "europe1.xcash.foundation",
+    "delegateName": "europe1_xcash_foundation",
+    "sharedDelegate": true,
+    "seedNode": false,
+    "online": true,
+    "fee": 5,
+    "totalRounds": 100,
+    "totalBlockProducerRounds": 10,
+    "onlinePercentage": 99
   }
 ]
 ```
 
-## Tips <a id="tips"></a>
+## Delegates <a id="delegates"></a>
 
-This method gets the tips history
+This method gets the delegates data
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount})
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/{delegateName})
 
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
-
-**Inputs**:
-
-* _from_ - Filter by specific username.
-* _to_ - Filter by specific username.
-* _tweetId_ - Filter by specific tweetId. Note this will always return a maximum of 1 tip and override the amount parameter
+* _delegateName_ - **Required** - The delegates name.
 
 **Results**:
 
-Array of objects with the following structure:
-
-* _tweetId_ - string; The tweet id.
-* _fromUser_ - string; The username who sent the tip.
-* _fromId_ - string; The user id who sent the tip.
-* _toUser_ - string; The username who received the tip.
-* _toId_ - string; The user id who received the tip.
-* _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
-* _time_ -  unsigned int; The time.
-* _type_ - string; The tip type.
+* _votes_ -  unsigned long long; Total votes in zachys (atomic units).
+* _voters_ -  unsigned int; Total voters.
+* _IPAdress_ - string; The IP address or domain name.
+* _delegateName_ - string; The delegate name.
+* _publicAddress_ - string; The public address.
+* _about_ - string; about.
+* _website_ - string; website.
+* _team_ - string; team.
+* _specifications_ - string; server Specifications.
+* _sharedDelegate_ - bool;
+* _seedNode_ - bool;
+* _online_ - bool;
+* _fee_ - unsigned int; The fee.
+* _totalRounds_ - unsigned int; Total rounds.
+* _totalBlockProducerRounds_ - unsigned int; Total block producer rounds.
+* _onlinePercentage_ - unsigned int; The online percentage.
+* _rank_ - unsigned int; The delegates current rank.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/us1_xcash_foundation/ -H 'Accept: application/json'
+{
+  "votes": 100000000,
+  "voters": 10,
+  "IPAdress": "us1.xcash.foundation",
+  "delegateName": "us1_xcash_foundation",
+  "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "about": "",
+  "website": "",
+  "team": "",
+  "specifications": "",
+  "sharedDelegate": false,
+  "seedNode": true,
+  "online": true,
+  "fee": 0,
+  "totalRounds": 100,
+  "totalBlockProducerRounds": 10,
+  "onlinePercentage": 67,
+  "rank": 1
+}
+```
+
+## Delegates Votes <a id="delegates-votes"></a>
+
+This method gets the vote data for a delegate
+
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/delegates/votes/{delegateName})
+
+**Method**: GET
+
+**Resources**:
+* _delegateName_ - **Required** - The delegate name.
+
+**Results**:
+
+* _publicAddress_ - string; The public address who created the vote.
+* _amount_ - unsigned long long; The vote amount in zachys (atomic units).
+* _reserveProof_ - string; The reserve proof.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}/ -H 'Accept: application/json'
+{
+  "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "amount": 1000000000,
+  "reserveProof": "ReserveProofV1"
+}
+```
+
+## Delegate Block Producer Rounds <a id="delegate-block-producer-rounds"></a>
+
+This method gets the block heights that the delegate produced
+
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName})
+
+**Method**: GET
+
+**Resources**:
+* _delegateName_ - **Required** - The delegate name.
+
+**Results**:
+
+An array of block heights that the delegate produced
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/ -H 'Accept: application/json'
 [
-  {
-    "tweetId": ""
-    "fromUser": "",
-    "fromId": "",
-    "toUser": "",
-    "toId": "",
-    "amount": 0,
-    "time": 1654204410,
-    "type": "private"
-  },
-  {
-    "tweetId": "1531918830276075521"
-    "fromUser": "test1",
-    "fromId": "000000000",
-    "toUser": "test",
-    "toId": "000000000",
-    "amount": 5000000,
-    "time": 1654195778,
-    "type": "public"
-  }
+  810000,
+  811000
+]
+```
+
+## Vote Details <a id="vote-details"></a>
+
+This method gets the vote data from a specific address
+
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/votes/{address}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/votes/{address})
+
+**Method**: GET
+
+**Resources**:
+* _address_ - **Required** - The public address.
+
+**Results**:
+
+* _delegateName_ - string; The delegate name voted for.
+* _publicAddress_ - string; The public address of the delegate.
+* _amount_ - unsigned long long; The vote amount in zachys (atomic units).
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/votes/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+{
+  "delegateName": "us1_xcash_foundation",
+  "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "amount": 1000000000
+}
+```
+
+## Round Details <a id="round-details"></a>
+
+This method gets the round details
+
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/rounds/{blockHeight}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/rounds/{blockHeight})
+
+**Method**: GET
+
+**Resources**:
+* _blockHeight_ - **Required** - The block height for the round.
+
+**Results**:
+
+An array of delegate names that verified the block
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/rounds/810000/ -H 'Accept: application/json'
+[
+  "us1_xcash_foundation",
+  "europe1_xcash_foundation"
 ]
 ```
