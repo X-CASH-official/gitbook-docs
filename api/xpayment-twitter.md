@@ -1,8 +1,10 @@
 # X-payment Twitter API
 
-## Global Stats <a id="global-stats"></a>
+Note zachys (atomic units) are 10^6 in X-Cash
 
-This method gets the global stats
+## Stats <a id="stats"></a>
+
+This method gets the stats
 
 **URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/)
 
@@ -12,51 +14,210 @@ This method gets the global stats
 
 **Results**:
 
-* _height_ - unsigned int; Current length of longest chain known to daemon.
-* _status_ - string; General RPC error code. "OK" means everything looks good.
-* _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
+* _totalUsers_ - unsigned int; Total users registered.
+* _totalTips_ - unsigned long long; Total tips sent.
+* _totalVolumeSent_ - unsigned long long; Total volume sent in zachys (atomic units).
+* _avgTipAmount_ - unsigned int; Average tip amount sent in zachys (atomic units).
+* _tipsSentLastHour_ - unsigned int; Total tips sent in the last hour from the current time.
+* _tipsSentLast24Hours_ - unsigned int; Total tips sent in the last 24 hours from the current time.
+* _volumeSentLastHour_ - unsigned long long; Total volume sent in the last hour from the current time.
+* _volumeSentLast24Hours_ - unsigned long long; Total volume sent in the last 24 hours from the current time.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Content-Type: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Accept: application/json'
 {
-  "height": 425000,
-  "status": "OK",
-  "untrusted": false
+  "totalUsers": 7,
+  "totalTips": 13,
+  "totalVolumeSent": 17000000,
+  "avgTipAmount": 130769231,
+  "tipsSentLastHour": 7,
+  "tipsSentLast24Hours": 7,
+  "volumeSentLastHour": 100,
+  "volumeSentLast24Hours": 1000
 }
 ```
 
-## **get\_balance** <a id="get_balance"></a>
+## Stats Per Day <a id="stats-per-day"></a>
 
-‌
+This method gets the daily amount of payments and volumes sent per day
 
-Return the wallet's balance.‌
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/)
 
-**Alias:** _getbalance_.‌
+**Method**: GET
 
-**Inputs:**‌
+**Inputs**: _None_.
 
-* _account\_index_ - unsigned int; Return balance for this account.
-* _address\_indices_ - array of unsigned int; \(Optional\) Return balance detail for those subaddresses.
+**Results**:
 
-‌
+Array of objects with the following structure:
 
-**Outputs:**‌
+* _time_ -  unsigned int; Total users registered.
+* _amount_ - unsigned long long; Total tips sent.
+* _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
 
-* _balance_ - unsigned int; The total balance of the current xcash-wallet-rpc in session.
-* _unlocked\_balance_ - unsigned int; Unlocked funds are those funds that are sufficiently deep enough in the X-Cash blockchain to be considered safe to spend.
-* _multisig\_import\_needed_ - boolean; True if importing multisig data is needed for returning a correct balance.
-* _per\_subaddress_ - array of subaddress information; Balance information for each subaddress in an account.
-  * _address\_index_ - unsigned int; Index of the subaddress in the account.
-  * _address_ - string; Address at this index. Base58 representation of the public keys.
-  * _balance_ - unsigned int; Balance for the subaddress \(locked or unlocked\).
-  * _unlocked\_balance_ - unsigned int; Unlocked balance for the subaddress.
-  * _label_ - string; Label for the subaddress.
-  * _num\_unspent\_outputs_ - unsigned int; Number of unspent outputs available for the subaddress.
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/ -H 'Accept: application/json'
+[
+  {
+    "time": 1654228489,
+    "amount": 100,
+    "volume": 100000000
+  },
+  {
+    "time": 1654228489,
+    "amount": 100,
+    "volume": 100000000
+  }
+]
+```
 
-‌
+## Top Stats <a id="top-stats"></a>
 
-**Example:**
+This method gets the top users for tips and volume
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_balance"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "balance": 562072541031,    "multisig_import_needed": false,    "per_subaddress": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "address_index": 0,      "balance": 562072541031,      "label": "Primary account",      "num_unspent_outputs": 3,      "unlocked_balance": 562072541031    }],    "unlocked_balance": 562072541031  }}
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/{amount})
+
+**Method**: GET
+
+**Resources**:
+* _amount_ - **required** - The amount of items to return.
+
+**Inputs**: _None_.
+
+**Results**:
+
+* _topTips_ - Array of objects with the following structure:
+  * _username_ -  string; The username.
+  * _tips_ - unsigned int; Total tips sent.
+* _topVolumes_ - Array of objects with the following structure:
+  * _username_ -  string; The username.
+  * _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/2 -H 'Accept: application/json'
+"topTips": [
+  {
+    "username": "test1",
+    "tips": 105
+  },
+  {
+    "username": "test2",
+    "tips": 100
+  }
+],
+"topVolumes": [
+  {
+    "username": "test1",
+    "volume": 105000000
+  },
+  {
+    "username": "test2",
+    "volume": 100000000
+  }
+]
+```
+
+## Recent Tips <a id="recent-tips"></a>
+
+This method gets the recent tips
+
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/{amount})
+
+**Method**: GET
+
+**Resources**:
+* _amount_ - **required** - The amount of items to return.
+
+**Inputs**:
+
+* _sort_ - "First" for most recent tips, "Last" for the least recent tips.
+* _type_ - "Public" for only public transactions, "Private" for only private transactions, "All" for both.
+
+**Results**:
+
+Array of objects with the following structure:
+
+* _tweetId_ - string; The tweet id.
+* _fromUser_ - string; The username who sent the tip.
+* _toUser_ - string; The username who received the tip.
+* _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
+* _time_ -  unsigned int; The time.
+* _type_ - string; The tip type.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+[
+  {
+    "tweetId": ""
+    "fromUser": "",
+    "toUser": "",
+    "amount": 0,
+    "time": 1654204410,
+    "type": "private"
+  },
+  {
+    "tweetId": "1531918830276075521"
+    "fromUser": "test1",
+    "toUser": "test",
+    "amount": 5000000,
+    "time": 1654195778,
+    "type": "public"
+  }
+]
+```
+
+## Tips <a id="tips"></a>
+
+This method gets the tips history
+
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount})
+
+**Method**: GET
+
+**Resources**:
+* _amount_ - **required** - The amount of items to return.
+
+**Inputs**:
+
+* _from_ - Filter by specific username.
+* _to_ - Filter by specific username.
+* _tweetId_ - Filter by specific tweetId. Note this will always return a maximum of 1 tip and override the amount parameter
+
+**Results**:
+
+Array of objects with the following structure:
+
+* _tweetId_ - string; The tweet id.
+* _fromUser_ - string; The username who sent the tip.
+* _fromId_ - string; The user id who sent the tip.
+* _toUser_ - string; The username who received the tip.
+* _toId_ - string; The user id who received the tip.
+* _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
+* _time_ -  unsigned int; The time.
+* _type_ - string; The tip type.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+[
+  {
+    "tweetId": ""
+    "fromUser": "",
+    "fromId": "",
+    "toUser": "",
+    "toId": "",
+    "amount": 0,
+    "time": 1654204410,
+    "type": "private"
+  },
+  {
+    "tweetId": "1531918830276075521"
+    "fromUser": "test1",
+    "fromId": "000000000",
+    "toUser": "test",
+    "toId": "000000000",
+    "amount": 5000000,
+    "time": 1654195778,
+    "type": "public"
+  }
+]
 ```
