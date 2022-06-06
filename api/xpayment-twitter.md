@@ -15,7 +15,8 @@ This method gets the stats
 **Results**:
 
 * _totalUsers_ - unsigned int; Total users registered.
-* _totalTips_ - unsigned long long; Total tips sent.
+* _totalTipsPublic_ - unsigned long long; Total public tips sent.
+* _totalTipsPrivate_ - unsigned long long; Total private tips sent.
 * _totalVolumeSent_ - unsigned long long; Total volume sent in zachys (atomic units).
 * _avgTipAmount_ - unsigned int; Average tip amount sent in zachys (atomic units).
 * _tipsSentLastHour_ - unsigned int; Total tips sent in the last hour from the current time.
@@ -27,7 +28,8 @@ This method gets the stats
 $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Accept: application/json'
 {
   "totalUsers": 7,
-  "totalTips": 13,
+  "totalTipsPublic": 10,
+  "totalTipsPrivate": 5,
   "totalVolumeSent": 17000000,
   "avgTipAmount": 130769231,
   "tipsSentLastHour": 7,
