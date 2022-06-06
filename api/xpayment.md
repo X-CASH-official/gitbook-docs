@@ -78,9 +78,13 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/stats/ -H 'A
 
 This method gets the daily amount of payments and volumes sent per day
 
-**URL**: [https://api.xcash.foundation/v1/xpayment/unauthorized/statsPerDay/](https://api.xcash.foundation/v1/xpayment/unauthorized/statsPerDay/)
+**URL**: [https://api.xcash.foundation/v1/xpayment/unauthorized/statsPerDay/{start}/{limit}](https://api.xcash.foundation/v1/xpayment/unauthorized/statsPerDay/{start}/{limit})
 
 **Method**: GET
+
+**Resources**:
+* _start_ - Not required - The start day to return data (Default is 1, the first start day).
+* _limit_ - Not required - The maximum amount of days to return (Default is all).
 
 **Inputs**: _None_.
 
@@ -93,7 +97,7 @@ Array of objects with the following structure:
 * _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/statsPerDay/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/1/2/ -H 'Accept: application/json'
 [
   {
     "time": 1654228489,
@@ -117,7 +121,7 @@ This method gets the top users for tips and volume
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
+* _amount_ - not required - The amount of items to return (Default is 10).
 
 **Inputs**: _None_.
 
@@ -131,7 +135,7 @@ This method gets the top users for tips and volume
   * _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/topStats/2 -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/2 -H 'Accept: application/json'
 "topTips": [
   {
     "username": "test1",
@@ -163,7 +167,7 @@ This method gets the recent tips
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
+* _amount_ - not required - The amount of items to return (Default is 10).
 
 **Inputs**:
 
@@ -174,6 +178,7 @@ This method gets the recent tips
 
 Array of objects with the following structure:
 
+* _tweetId_ - string; The tweet id.
 * _fromUser_ - string; The username who sent the tip.
 * _toUser_ - string; The username who received the tip.
 * _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
@@ -184,6 +189,7 @@ Array of objects with the following structure:
 $ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
 [
   {
+    "tweetId": ""
     "fromUser": "",
     "toUser": "",
     "amount": 0,
@@ -191,6 +197,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/2
     "type": "private"
   },
   {
+    "tweetId": "1531918830276075521"
     "fromUser": "test1",
     "toUser": "test",
     "amount": 5000000,
@@ -204,22 +211,25 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/2
 
 This method gets the tips history
 
-**URL**: [https://api.xcash.foundation/v1/xpayment/unauthorized/tips/{amount}](https://api.xcash.foundation/v1/xpayment/unauthorized/tips/{amount})
+**URL**: [https://api.xcash.foundation/v1/xpayment/unauthorized/tips/{start}/{limit}](https://api.xcash.foundation/v1/xpayment/unauthorized/tips/{start}/{limit})
 
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
+* _start_ - Not required - The start tip to return (Default is 1, the first tip).
+* _limit_ - Not required - The maximum amount of tips to return (Default is all).
 
 **Inputs**:
 
 * _from_ - Filter by specific username.
 * _to_ - Filter by specific username.
+* _tweetId_ - Filter by specific tweetId. Note this will always return a maximum of 1 tip and override the amount parameter
 
 **Results**:
 
 Array of objects with the following structure:
 
+* _tweetId_ - string; The tweet id.
 * _fromUser_ - string; The username who sent the tip.
 * _fromId_ - string; The user id who sent the tip.
 * _toUser_ - string; The username who received the tip.
@@ -232,6 +242,7 @@ Array of objects with the following structure:
 $ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
 [
   {
+    "tweetId": ""
     "fromUser": "",
     "fromId": "",
     "toUser": "",
@@ -241,6 +252,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/tips/2 -H 'C
     "type": "private"
   },
   {
+    "tweetId": "1531918830276075521"
     "fromUser": "test1",
     "fromId": "000000000",
     "toUser": "test",
