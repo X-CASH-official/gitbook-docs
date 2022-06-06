@@ -78,9 +78,13 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthori
 
 This method gets the daily amount of payments and volumes sent per day
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/)
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/{start}/{limit}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/{start}/{limit})
 
 **Method**: GET
+
+**Resources**:
+* _start_ - Not required - The start day to return data (Default is 1, the first start day).
+* _limit_ - Not required - The maximum amount of days to return (Default is all).
 
 **Inputs**: _None_.
 
@@ -93,7 +97,7 @@ Array of objects with the following structure:
 * _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/1/2/ -H 'Accept: application/json'
 [
   {
     "time": 1654228489,
@@ -207,12 +211,13 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthori
 
 This method gets the tips history
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount})
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{start}/{limit}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{start}/{limit})
 
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
+* _start_ - Not required - The start tip to return (Default is 1, the first tip).
+* _limit_ - Not required - The maximum amount of tips to return (Default is all).
 
 **Inputs**:
 
