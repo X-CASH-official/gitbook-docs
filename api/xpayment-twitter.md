@@ -2,6 +2,37 @@
 
 Note zachys (atomic units) are 10^6 in X-Cash
 
+## User Stats <a id="user-stats"></a>
+
+This method gets the stats for a specific user
+
+**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/)
+
+**Method**: GET
+
+**Inputs**: _None_.
+
+**Results**:
+
+* _totalSentTips_ - unsigned int; Total sent Tips.
+* _totalReceivedTips_ - unsigned int; Total received tips.
+* _totalPublicSentTips_ - unsigned int; Total Public sent Tips.
+* _totalPrivateSentTips_ - unsigned int; Total Private sent tips.
+* _totalDeposits_ - unsigned int; Total deposits.
+* _totalWithdraws_ - unsigned int; Total withdraws.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/ -H 'Accept: application/json'
+{
+  "totalSentTips": 7,
+  "totalReceivedTips": 10,
+  "totalPublicSentTips": 5,
+  "totalPrivateSentTips": 2,
+  "totalDeposits": 5,
+  "totalWithdraws": 7
+}
+```
+
 ## Stats <a id="stats"></a>
 
 This method gets the stats
@@ -23,6 +54,8 @@ This method gets the stats
 * _tipsSentLast24Hours_ - unsigned int; Total tips sent in the last 24 hours from the current time.
 * _volumeSentLastHour_ - unsigned long long; Total volume sent in the last hour from the current time.
 * _volumeSentLast24Hours_ - unsigned long long; Total volume sent in the last 24 hours from the current time.
+* _totalDeposits_ - unsigned int; Total deposits.
+* _totalWithdraws_ - unsigned int; Total withdraws.
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Accept: application/json'
@@ -35,7 +68,9 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthori
   "tipsSentLastHour": 7,
   "tipsSentLast24Hours": 7,
   "volumeSentLastHour": 100,
-  "volumeSentLast24Hours": 1000
+  "volumeSentLast24Hours": 1000,
+  "totalDeposits": 100,
+  "totalWithdraws": 100
 }
 ```
 
