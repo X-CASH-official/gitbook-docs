@@ -277,6 +277,47 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates
 }
 ```
 
+## Delegate Rounds Stats <a id="delegate-round-stats"></a>
+
+This method gets the stats about the blocks the delegate produced
+
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName})
+
+**Method**: GET
+
+**Resources**:
+* _delegateName_ - **Required** - The delegate name.
+
+**Results**:
+
+* _totalBlocksProduced_ - unsigned int; The total blocks produced by the delegate
+* _totalBlockRewards_ - unsigned long long; The total xcash from the blocks produced in zachys (atomic units).
+* _averagePercentage_ - unsigned int; The average the delegate has produced a block. (100 is average, 200 is twice as good etc etc)
+* _averageTime_ - unsigned int; The average time (in minutes) it takes for the delegate to produce a block.
+* _blocksProduced_ - an arrray with the following structure:
+  * _blockHeight_ - unsigned int; The block height. 
+  * _blockReward_ - unsigned long long; The block reward in zachys (atomic units).
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/ -H 'Accept: application/json'
+{
+  "totalBlocksProduced": 100,
+  "totalBlockRewards": 1000000000,
+  "averagePercentage": 100,
+  "averageTime": 500,
+  "blocksProduced": [
+    {
+      "blockHeight": 810000,
+      "blockReward": 100000000
+    },
+    {
+      "blockHeight": 811000,
+      "blockReward": 100000000
+    }
+  ]
+}
+```
+
 ## Delegates Votes <a id="delegates-votes"></a>
 
 This method gets the vote data for a delegate
@@ -290,39 +331,25 @@ This method gets the vote data for a delegate
 
 **Results**:
 
+An array of objects with the following structure:
+
 * _publicAddress_ - string; The public address who created the vote.
 * _amount_ - unsigned long long; The vote amount in zachys (atomic units).
 * _reserveProof_ - string; The reserve proof.
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}/ -H 'Accept: application/json'
-{
-  "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
-  "amount": 1000000000,
-  "reserveProof": "ReserveProofV1"
-}
-```
-
-## Delegate Block Producer Rounds <a id="delegate-block-producer-rounds"></a>
-
-This method gets the block heights that the delegate produced
-
-**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName})
-
-**Method**: GET
-
-**Resources**:
-* _delegateName_ - **Required** - The delegate name.
-
-**Results**:
-
-An array of block heights that the delegate produced
-
-```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/ -H 'Accept: application/json'
 [
-  810000,
-  811000
+  {
+    "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+    "amount": 1000000000,
+    "reserveProof": "ReserveProofV1"
+  },
+  {
+    "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+    "amount": 1000000000,
+    "reserveProof": "ReserveProofV1"
+  }
 ]
 ```
 
