@@ -10,6 +10,9 @@ This method gets the stats for a specific user
 
 **Method**: GET
 
+**Resources**:
+* _user_ - **Required** - the username.
+
 **Inputs**: _None_.
 
 **Results**:
