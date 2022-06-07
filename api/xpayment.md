@@ -167,7 +167,7 @@ This method gets the recent tips
 
 **URL**: [https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/{amount}](https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/{amount})
 
-**Method**: GET
+**Method**: POST
 
 **Resources**:
 * _amount_ - not required - The amount of items to return (Default is 10).
@@ -216,7 +216,7 @@ This method gets the tips history
 
 **URL**: [https://api.xcash.foundation/v1/xpayment/unauthorized/tips/{start}/{limit}](https://api.xcash.foundation/v1/xpayment/unauthorized/tips/{start}/{limit})
 
-**Method**: GET
+**Method**: POST
 
 **Resources**:
 * _start_ - Not required - The start tip to return (Default is 1, the first tip).
