@@ -305,7 +305,7 @@ This method gets the stats about the blocks the delegate produced
 * _blocksProduced_ - an arrray with the following structure:
   * _blockHeight_ - unsigned int; The block height. 
   * _blockReward_ - unsigned long long; The block reward in zachys (atomic units).
-  * _time_ - unsigned long long; The time stamp.
+  * _time_ - unsigned int; The time stamp.
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/1/2/ -H 'Accept: application/json'
