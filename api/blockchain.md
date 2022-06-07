@@ -13,7 +13,7 @@ This method gets the stats
 **Inputs**: _None_.
 
 **Results**:
-* _height -  unsigned int; The current block height.
+* _height_ -  unsigned int; The current block height.
 * _reward_ -  unsigned long long; The current block reward in zachys (atomic units).
 * _size_ -  unsigned long long; The size of the blockchain in megabytes.
 * _version_ - unsigned int; The hard fork version.
