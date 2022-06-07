@@ -189,7 +189,7 @@ Array of objects with the following structure:
 * _type_ - string; The tip type.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+$ curl -X POST https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'  -H 'Content-Type: application/json'  -d '{"sort":"First","type":"All"}'
 [
   {
     "tweetId": ""
@@ -242,7 +242,7 @@ Array of objects with the following structure:
 * _type_ - string; The tip type.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+$ curl -X POST https://api.xcash.foundation/v1/xpayment/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'  -H 'Content-Type: application/json'  -d '{"from":"x_payment"}'
 [
   {
     "tweetId": ""
