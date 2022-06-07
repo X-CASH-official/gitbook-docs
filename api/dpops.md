@@ -171,9 +171,11 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates
 
 This method gets the current active delegates (top 50) during the round
 
-**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active)
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/active)
 
 **Method**: GET
+
+**Inputs**: _None_.
 
 **Results**:
 
@@ -234,6 +236,8 @@ This method gets the delegates data
 **Resources**:
 * _delegateName_ - **Required** - The delegates name.
 
+**Inputs**: _None_.
+
 **Results**:
 
 * _votes_ -  unsigned long long; Total votes in zachys (atomic units).
@@ -288,6 +292,8 @@ This method gets the stats about the blocks the delegate produced
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
 
+**Inputs**: _None_.
+
 **Results**:
 
 * _totalBlocksProduced_ - unsigned int; The total blocks produced by the delegate
@@ -332,6 +338,8 @@ This method gets the vote data for a delegate
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
 
+**Inputs**: _None_.
+
 **Results**:
 
 An array of objects with the following structure:
@@ -367,6 +375,8 @@ This method gets the vote data from a specific address
 **Resources**:
 * _address_ - **Required** - The public address.
 
+**Inputs**: _None_.
+
 **Results**:
 
 * _delegateName_ - string; The delegate name voted for.
@@ -393,6 +403,8 @@ This method gets the round details
 **Resources**:
 * _blockHeight_ - **Required** - The block height for the round.
 
+**Inputs**: _None_.
+
 **Results**:
 
 An array of delegate names that verified the block
@@ -403,4 +415,25 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/rounds/81
   "us1_xcash_foundation",
   "europe1_xcash_foundation"
 ]
+```
+
+## Last Block Producer <a id="last-block-producer"></a>
+
+This method gets the last block producer
+
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/lastBlockProducer](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/lastBlockProducer)
+
+**Method**: GET
+
+**Inputs**: _None_.
+
+**Results**:
+
+* _lastBlockProducer_ - The last block producer.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/lastBlockProducer/ -H 'Accept: application/json'
+{
+  "lastBlockProducer": "us1_xcash_foundation"
+}
 ```
