@@ -1,9 +1,9 @@
 ## Introduction
 
-The X-Cash API allows users to read information from various X-Cash products using one standardized API. The current individual API can still be used, but it is recommended to migrate and use the standard API for various reasons.
+The X-Cash API https://api.xcash.foundation allows users to read information from various X-Cash products using one standardized API. The current individual API can still be used, but it is recommended to migrate and use the standard API for various reasons.
 
 * The individual API were built mostly for the websites, not as a standardized API for users.
-* The standard API will use "stnadardized" API methods, resources, parameters, return field types etc
+* The standard API will use "standardized" API methods, resources, parameters, return field types etc
 * The standard API will have more features than the individual API
 * The standard API will use one domain instead of multiple
 * The standard API is built with users in mind, using a specific backend processing and server setup for public APIs
