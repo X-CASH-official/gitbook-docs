@@ -21,6 +21,11 @@ Note: For the blockchain API it is not meant to be a complete set. You can get m
   </thead>
   <tbody>
     <tr>
+      <td style="text-align:left"><b>I want to submit an issue or feature request</b>
+      </td>
+      <td style="text-align:left">Please view the [github repository](https://github.com/X-CASH-official/API)</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><b>I want to view the API for the blockchain</b>
       </td>
       <td style="text-align:left">Please view the <a href="blockchain.md">documentation</a></td>
