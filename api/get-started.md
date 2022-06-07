@@ -8,6 +8,8 @@ The X-Cash API allows users to read information from various X-Cash products usi
 * The standard API will use one domain instead of multiple
 * The standard API is built with users in mind, using a specific backend processing and server setup for public APIs
 
+Note: For the blockchain API it is not meant to be a complete set. You can get much more data using any remote daemon to get more info. This is meant to include the most common use cases and data.
+
 ## Getting Started
 
 <table>
