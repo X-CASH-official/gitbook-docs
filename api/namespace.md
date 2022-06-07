@@ -2,42 +2,11 @@
 
 Note zachys (atomic units) are 10^6 in X-Cash
 
-## User Stats <a id="user-stats"></a>
-
-This method gets the stats for a specific user
-
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/)
-
-**Method**: GET
-
-**Inputs**: _None_.
-
-**Results**:
-
-* _totalSentTips_ - unsigned int; Total sent Tips.
-* _totalReceivedTips_ - unsigned int; Total received tips.
-* _totalPublicSentTips_ - unsigned int; Total Public sent Tips.
-* _totalPrivateSentTips_ - unsigned int; Total Private sent tips.
-* _totalDeposits_ - unsigned int; Total deposits.
-* _totalWithdraws_ - unsigned int; Total withdraws.
-
-```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/{user}/stats/ -H 'Accept: application/json'
-{
-  "totalSentTips": 7,
-  "totalReceivedTips": 10,
-  "totalPublicSentTips": 5,
-  "totalPrivateSentTips": 2,
-  "totalDeposits": 5,
-  "totalWithdraws": 7
-}
-```
-
 ## Stats <a id="stats"></a>
 
 This method gets the stats
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/)
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/stats/](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/stats/)
 
 **Method**: GET
 
@@ -45,40 +14,24 @@ This method gets the stats
 
 **Results**:
 
-* _totalUsers_ - unsigned int; Total users registered.
-* _totalTipsPublic_ - unsigned long long; Total public tips sent.
-* _totalTipsPrivate_ - unsigned long long; Total private tips sent.
-* _totalVolumeSent_ - unsigned long long; Total volume sent in zachys (atomic units).
-* _avgTipAmount_ - unsigned int; Average tip amount sent in zachys (atomic units).
-* _tipsSentLastHour_ - unsigned int; Total tips sent in the last hour from the current time.
-* _tipsSentLast24Hours_ - unsigned int; Total tips sent in the last 24 hours from the current time.
-* _volumeSentLastHour_ - unsigned long long; Total volume sent in the last hour from the current time.
-* _volumeSentLast24Hours_ - unsigned long long; Total volume sent in the last 24 hours from the current time.
-* _totalDeposits_ - unsigned int; Total deposits.
-* _totalWithdraws_ - unsigned int; Total withdraws.
+* _totalNamesRegistered_ - unsigned int; The total registered names.
+* _totalNamesRenewed_ - unsigned int; The total renewed names.
+* _totalVolume_ - unsigned long long; The total xcash paid to delegates using the namespace protocol in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/stats/ -H 'Accept: application/json'
 {
-  "totalUsers": 7,
-  "totalTipsPublic": 10,
-  "totalTipsPrivate": 5,
-  "totalVolumeSent": 17000000,
-  "avgTipAmount": 130769231,
-  "tipsSentLastHour": 7,
-  "tipsSentLast24Hours": 7,
-  "volumeSentLastHour": 100,
-  "volumeSentLast24Hours": 1000,
-  "totalDeposits": 100,
-  "totalWithdraws": 100
+  "totalNamesRegistered": 10,
+  "totalNamesRenewed": 100,
+  "totalVolume": 10000000
 }
 ```
 
-## Stats Per Day <a id="stats-per-day"></a>
+## Registered Delegates <a id="registered-delegates"></a>
 
-This method gets the daily amount of payments and volumes sent per day
+This method gets all of the registered delegates
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/)
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/registered](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/registered)
 
 **Method**: GET
 
@@ -88,173 +41,177 @@ This method gets the daily amount of payments and volumes sent per day
 
 Array of objects with the following structure:
 
-* _time_ -  unsigned int; Total users registered.
-* _amount_ - unsigned long long; Total tips sent.
-* _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
+* _delegateName_ - string; The delegate name.
+* _amount_ - unsigned long long; The amount that a delegate charges to register or renew a name in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/statsPerDay/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/registered/ -H 'Accept: application/json'
 [
   {
-    "time": 1654228489,
-    "amount": 100,
-    "volume": 100000000
+    "delegateName": "us1_xcash_foundation",
+    "amount": 100000000
   },
   {
-    "time": 1654228489,
-    "amount": 100,
-    "volume": 100000000
+    "delegateName": "europe1_xcash_foundation",
+    "amount": 100000000
   }
 ]
 ```
 
-## Top Stats <a id="top-stats"></a>
+## Delegates <a id="delegates"></a>
 
-This method gets the top users for tips and volume
+This method gets the delegates data
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/{amount})
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/{delegateName}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/{delegateName})
 
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
-
-**Inputs**: _None_.
+* _delegateName_ - **Required** - The delegates name.
 
 **Results**:
 
-* _topTips_ - Array of objects with the following structure:
-  * _username_ -  string; The username.
-  * _tips_ - unsigned int; Total tips sent.
-* _topVolumes_ - Array of objects with the following structure:
-  * _username_ -  string; The username.
-  * _volume_ - unsigned long long; Total volume sent in zachys (atomic units).
+* _delegateName_ - string; The delegate name.
+* _publicAddress_ - string; The public address.
+* _amount_ - unsigned long long; The amount that a delegate charges to register or renew a name in zachys (atomic units).
+* _totalNamesRegistered_ - unsigned int; The total registered names.
+* _totalNamesRenewed_ - unsigned int; The total renewed names.
+* _totalVolume_ - unsigned long long; The total xcash paid to delegates using the namespace protocol in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/2 -H 'Accept: application/json'
-"topTips": [
-  {
-    "username": "test1",
-    "tips": 105
-  },
-  {
-    "username": "test2",
-    "tips": 100
-  }
-],
-"topVolumes": [
-  {
-    "username": "test1",
-    "volume": 105000000
-  },
-  {
-    "username": "test2",
-    "volume": 100000000
-  }
-]
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/us1_xcash_foundation/ -H 'Accept: application/json'
+{
+  "delegateName": "us1_xcash_foundation",
+  "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "amount": 100000000,
+  "totalNamesRegistered": 10,
+  "totalNamesRenewed": 100,
+  "totalVolume": 10000000
+}
 ```
 
-## Recent Tips <a id="recent-tips"></a>
+## Names <a id="names"></a>
 
-This method gets the recent tips
+This method gets the names data for a specific name
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/{amount})
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/{name}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/{name})
 
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
-
-**Inputs**:
-
-* _sort_ - "First" for most recent tips, "Last" for the least recent tips.
-* _type_ - "Public" for only public transactions, "Private" for only private transactions, "All" for both.
+* _name_ - **Required** - The namespace.
 
 **Results**:
 
-Array of objects with the following structure:
-
-* _tweetId_ - string; The tweet id.
-* _fromUser_ - string; The username who sent the tip.
-* _toUser_ - string; The username who received the tip.
-* _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
-* _time_ -  unsigned int; The time.
-* _type_ - string; The tip type.
+* _address_ - string; The address.
+* _saddress_ - string; The saddress.
+* _paddress_ - string; The paddress.
+* _expires_ - unsigned int; The time the domain expires.
+* _delegateName_ - string; The delegate that registered the namespace.
+* _delegateAmount_ - unsigned long long; The total xcash paid to delegates to register or renew the namespace in zachys (atomic units).
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
-[
-  {
-    "tweetId": ""
-    "fromUser": "",
-    "toUser": "",
-    "amount": 0,
-    "time": 1654204410,
-    "type": "private"
-  },
-  {
-    "tweetId": "1531918830276075521"
-    "fromUser": "test1",
-    "toUser": "test",
-    "amount": 5000000,
-    "time": 1654195778,
-    "type": "public"
-  }
-]
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/xcash/ -H 'Accept: application/json'
+{
+  "address": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "saddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "paddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "expires": 1654228489,
+  "delegateName": "us1_xcash_foundation",
+  "delegateAmount": 100000000
+}
 ```
 
-## Tips <a id="tips"></a>
+## Name Status <a id="name-status"></a>
 
-This method gets the tips history
+This method checks if a name can be registered
 
-**URL**: [https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount}](https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/{amount})
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{name}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{name})
 
 **Method**: GET
 
 **Resources**:
-* _amount_ - **required** - The amount of items to return.
-
-**Inputs**:
-
-* _from_ - Filter by specific username.
-* _to_ - Filter by specific username.
-* _tweetId_ - Filter by specific tweetId. Note this will always return a maximum of 1 tip and override the amount parameter
+* _name_ - **Required** - The namespace.
 
 **Results**:
 
-Array of objects with the following structure:
-
-* _tweetId_ - string; The tweet id.
-* _fromUser_ - string; The username who sent the tip.
-* _fromId_ - string; The user id who sent the tip.
-* _toUser_ - string; The username who received the tip.
-* _toId_ - string; The user id who received the tip.
-* _amount_ - unsigned long long; The anount of the tip in zachys (atomic units).
-* _time_ -  unsigned int; The time.
-* _type_ - string; The tip type.
+* _status_ - bool; True if one can register the name, otherwise false.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
-[
-  {
-    "tweetId": ""
-    "fromUser": "",
-    "fromId": "",
-    "toUser": "",
-    "toId": "",
-    "amount": 0,
-    "time": 1654204410,
-    "type": "private"
-  },
-  {
-    "tweetId": "1531918830276075521"
-    "fromUser": "test1",
-    "fromId": "000000000",
-    "toUser": "test",
-    "toId": "000000000",
-    "amount": 5000000,
-    "time": 1654195778,
-    "type": "public"
-  }
-]
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/xcash/ -H 'Accept: application/json'
+{
+  "status": false
+}
+```
+
+## Address Status <a id="address-status"></a>
+
+This method gets the address status
+
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{address})
+
+**Method**: GET
+
+**Resources**:
+* _address_ - **Required** - The address.
+
+**Results**:
+
+* _status_ - string; "not registered|address|saddress|paddress"
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+{
+  "status": "address"
+}
+```
+
+## Name To Address <a id="name-to-address"></a>
+
+This method converts a name and extension to an address
+
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{name}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{name})
+
+**Method**: GET
+
+**Resources**:
+* _name_ - **Required** - The namespace
+
+**Results**:
+
+* _address_ - string; The address.
+* _saddress_ - string; The saddress.
+* _paddress_ - string; The paddress.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/xcash/ -H 'Accept: application/json'
+{
+  "address": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "saddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+  "paddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
+}
+```
+
+## Address To Name <a id="address-to-name"></a>
+
+This method converts an address to a name and extension
+
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{address})
+
+**Method**: GET
+
+**Resources**:
+* _address_ - **Required** - The address.
+
+**Results**:
+
+* _name_ - string; The name.
+* _extension_ - string; The extension.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+{
+  "name": "xcash",
+  "extension": ".pxcash",
+}
 ```
