@@ -7,6 +7,7 @@
 * [Get Started](api/get-started.md)
 * [Blockchain](api/blockchain.md)
 * [DPOPS](api/dpops.md)
+* [Namespace](api/namespace.md)
 * [X-Payment](api/xpayment.md)
 * [X-Payment Twitter](api/xpayment-twitter.md)
 
