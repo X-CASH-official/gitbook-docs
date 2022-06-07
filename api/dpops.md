@@ -285,12 +285,14 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates
 
 This method gets the stats about the blocks the delegate produced
 
-**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName})
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}/{start}/{limit}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}/{start}/{limit})
 
 **Method**: GET
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
+* _start_ - Not required - The start day to return item (Default is 1, the first start day).
+* _limit_ - Not required - The maximum amount of items to return (Default is all).
 
 **Inputs**: _None_.
 
@@ -306,7 +308,7 @@ This method gets the stats about the blocks the delegate produced
   * _time_ - unsigned long long; The time stamp.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/1/2/ -H 'Accept: application/json'
 {
   "totalBlocksProduced": 100,
   "totalBlockRewards": 1000000000,
@@ -331,12 +333,14 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates
 
 This method gets the vote data for a delegate
 
-**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/delegates/votes/{delegateName})
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}/{start}/{limit}](https://api.xcash.foundation/v1/xcash/dpops/delegates/votes/{delegateName}/{start}/{limit})
 
 **Method**: GET
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
+* _start_ - Not required - The start item to return data (Default is 1, the first start day).
+* _limit_ - Not required - The maximum amount of items to return (Default is all).
 
 **Inputs**: _None_.
 
@@ -349,7 +353,7 @@ An array of objects with the following structure:
 * _reserveProof_ - string; The reserve proof.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}/1/2/ -H 'Accept: application/json'
 [
   {
     "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
