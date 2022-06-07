@@ -42,7 +42,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/stat
   "generatedSupply": 100000000,
   "totalSupply": 100000000,
   "totalSupplyTime": 100000000,
-  "emissionBlockReward": 1000000000,
+  "emissionBlockReward": 1000000000
 }
 ```
 
