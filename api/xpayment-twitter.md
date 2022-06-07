@@ -172,7 +172,7 @@ This method gets the recent tips
 **Resources**:
 * _amount_ - not required - The amount of items to return (Default is 10).
 
-**Inputs**:
+**Inputs (All are required)**:
 
 * _sort_ - "First" for most recent tips, "Last" for the least recent tips.
 * _type_ - "Public" for only public transactions, "Private" for only private transactions, "All" for both.
@@ -189,7 +189,7 @@ Array of objects with the following structure:
 * _type_ - string; The tip type.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+$ curl -X POST https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"sort":"First","type":"All"}'
 [
   {
     "tweetId": ""
@@ -222,7 +222,7 @@ This method gets the tips history
 * _start_ - Not required - The start tip to return (Default is 1, the first tip).
 * _limit_ - Not required - The maximum amount of tips to return (Default is all).
 
-**Inputs**:
+**Inputs (None are required)**:
 
 * _from_ - Filter by specific username.
 * _to_ - Filter by specific username.
@@ -242,7 +242,7 @@ Array of objects with the following structure:
 * _type_ - string; The tip type.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'
+$ curl -X POST https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"from":"x_payment"}'
 [
   {
     "tweetId": ""
