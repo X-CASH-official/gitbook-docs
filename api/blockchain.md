@@ -16,7 +16,7 @@ This method gets the stats
 * _height_ -  unsigned int; The current block height.
 * _hash_ -  string; The current block hash.
 * _reward_ -  unsigned long long; The current block reward in zachys (atomic units).
-* _size_ -  unsigned long long; The size of the blockchain in megabytes.
+* _size_ -  unsigned long long; The size of the blockchain in bytes.
 * _version_ - unsigned int; The hard fork version.
 * _versionBlockHeight_ - unsigned int; The block height the hard fork version started on.
 * _nextVersionBlockHeight_ - unsigned int; The block height of the next hard fork version.
