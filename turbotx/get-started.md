@@ -15,17 +15,17 @@ The X-Cash Turbo TX allows users to send Layer 1 zero confirmation transactions 
     <tr>
       <td style="text-align:left"><b>I want to learn more about turbo tx</b>
       </td>
-      <td style="text-align:left">Please review the <a href="introductiontx.md">introduction</a></td>
+      <td style="text-align:left">Please review the <a href="https://docs.xcash.foundation/turbotx/introductiontx">introduction</a></td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to send a turbo tx</b>
       </td>
-      <td style="text-align:left">Please review the <a href="send.md">send</a> documentation</td>
+      <td style="text-align:left">Please review the <a href="https://docs.xcash.foundation/turbotx/send">send</a> documentation</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to receive and verify a turbo tx</b>
       </td>
-      <td style="text-align:left">Please review the <a href="receive.md">receive</a> documentation</td>
+      <td style="text-align:left">Please review the <a href="https://docs.xcash.foundation/turbotx/receive">receive</a> documentation</td>
     </tr>
     <tr>
   </tbody>
