@@ -19,8 +19,7 @@ This method gets the stats
 * _version_ - unsigned int; The hard fork version.
 * _versionBlockHeight_ - unsigned int; The block height the hard fork version started on.
 * _nextVersionBlockHeight_ - unsigned int; The block height of the next hard fork version.
-* _totalPublicTx_ - unsigned int; The total public tx.
-* _totalPrivateTx_ - unsigned int; The total private tx.
+* _totalTx_ - unsigned int; The total tx.
 * _circulatingSupply_ - unsigned long long; The circulating supply in zachys (atomic units).
 * _generatedSupply_ - unsigned long long; The generated supply in zachys (atomic units).
 * _totalSupply_ - unsigned long long; The total supply in zachys (atomic units).
