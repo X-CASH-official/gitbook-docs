@@ -179,7 +179,7 @@ $ curl -X POST https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/add
 
 This method creates an integrated address
 
-**URL**: [https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createintegrated/](https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createintegrated/)
+**URL**: [https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createIntegrated/](https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createIntegrated/)
 
 **Method**: POST
 
@@ -194,7 +194,7 @@ This method creates an integrated address
 * _paymentId_ - string; The payment id
 
 ```bash
-$ curl -X POST https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createintegrated/ -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"address":"XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","paymentId": "0000000000000000"}'
+$ curl -X POST https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createIntegrated/ -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"address":"XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","paymentId": "0000000000000000"}'
 {
   "integratedAddress": "XCB000000000000000000000000000",
   "paymentId": "0000000000000000"
