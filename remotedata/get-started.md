@@ -17,17 +17,17 @@ This protocol is built into xcash-dpops repo so it will be the same instructions
     <tr>
       <td style="text-align:left"><b>I want to register or renew a name in the xcash namespace</b>
       </td>
-      <td style="text-align:left">Please review the <a href="register.md">register</a> or <a href="renew.md">renew</a> docmentation. Once your ready use the <a href="website">website</a> setup for checking if names are registered and for a step by step walkthrough on how to register or renew a name.</td>
+      <td style="text-align:left">Please review the <a href="https://docs.xcash.foundation/remotedata/register">register</a> or <a href="https://docs.xcash.foundation/remotedata/renew">renew</a> docmentation. Once your ready use the <a href="website">website</a> setup for checking if names are registered and for a step by step walkthrough on how to register or renew a name.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to edit my namespace.</b>
       </td>
-      <td style="text-align:left">Please review the <a href="manage.md">manage</a> documentation</td>
+      <td style="text-align:left">Please review the <a href="https://docs.xcash.foundation/remotedata/manage">manage</a> documentation</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to setup my price as a delegate.</b>
       </td>
-      <td style="text-align:left">Please review the <a href="delegate-management.md">delegate management</a> documentation</td>
+      <td style="text-align:left">Please review the <a href="https://docs.xcash.foundation/remotedata/delegate-management">delegate management</a> documentation</td>
     </tr>
     <tr>
   </tbody>
