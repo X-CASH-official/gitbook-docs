@@ -24,7 +24,7 @@ This method gets the stats
 * _circulatingSupply_ - unsigned long long; The circulating supply in zachys (atomic units).
 * _generatedSupply_ - unsigned long long; The generated supply in zachys (atomic units).
 * _totalSupply_ - unsigned long long; The total supply in zachys (atomic units).
-* _emissionReward_ - unsigned long long; The estimated constant block reward after the total supply is produced.
+* _emissionReward_ - unsigned long long; The estimated constant block reward after the total supply is produced in zachys (atomic units).
 * _emissionHeight_ - unsigned int; The estimated block height that will start the emission.
 * _emissionTime_ - unsigned int; The estimated time when the emission will start.
 
@@ -41,6 +41,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/stat
   "totalTx": 100000,
   "circulatingSupply": 10000000,
   "generatedSupply": 100000000,
+  "totalSupply": 100000000,
   "emissionReward": 1000000000,
   "emissionHeight": 1000000000,
   "emissionTime": 1000000000
