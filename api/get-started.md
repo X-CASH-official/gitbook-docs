@@ -28,27 +28,27 @@ Note: For the blockchain API it is not meant to be a complete set. You can get m
     <tr>
       <td style="text-align:left"><b>I want to view the API for the blockchain</b>
       </td>
-      <td style="text-align:left">Please view the <a href="blockchain.md">documentation</a></td>
+      <td style="text-align:left">Please view the <a href="https://docs.xcash.foundation/api/blockchain">documentation</a></td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to view the API for DPOPS</b>
       </td>
-      <td style="text-align:left">Please view the <a href="dpops.md">documentation</a></td>
+      <td style="text-align:left">Please view the <a href="https://docs.xcash.foundation/api/dpops">documentation</a></td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to view the API for Namespace Protocol</b>
       </td>
-      <td style="text-align:left">Please view the <a href="namespace.md">documentation</a></td>
+      <td style="text-align:left">Please view the <a href="https://docs.xcash.foundation/api/namespace">documentation</a></td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to view the API for X-Payment</b>
       </td>
-      <td style="text-align:left">Please view the <a href="xpayment.md">documentation</a></td>
+      <td style="text-align:left">Please view the <a href="https://docs.xcash.foundation/api/xpayment">documentation</a></td>
     </tr>
     <tr>
       <td style="text-align:left"><b>I want to view the API for X-Payment Twitter</b>
       </td>
-      <td style="text-align:left">Please view the <a href="xpayment-twitter.md">documentation</a></td>
+      <td style="text-align:left">Please view the <a href="https://docs.xcash.foundation/api/xpayment-twitter">documentation</a></td>
     </tr>
     <tr>
   </tbody>
