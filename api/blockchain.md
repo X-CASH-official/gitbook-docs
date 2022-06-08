@@ -14,6 +14,7 @@ This method gets the stats
 
 **Results**:
 * _height_ -  unsigned int; The current block height.
+* _hash_ -  string; The current block hash.
 * _reward_ -  unsigned long long; The current block reward in zachys (atomic units).
 * _size_ -  unsigned long long; The size of the blockchain in megabytes.
 * _version_ - unsigned int; The hard fork version.
@@ -30,13 +31,13 @@ This method gets the stats
 $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/stats/ -H 'Accept: application/json'
 {
   "height": 810000,
+  "hash":"c7aa6eb38c47e7f013a5f8042477d1734ff9808fdc8608fb088085d624d2d509",
   "reward": 20000000,
   "size": 20000,
   "version": 13,
   "versionBlockHeight": 1000000,
   "nextVersionBlockHeight": 0,
-  "totalPublicTx": 100000,
-  "totalPrivateTx": 1000000,
+  "totalTx": 100000,
   "circulatingSupply": 10000000,
   "generatedSupply": 100000000,
   "totalSupply": 100000000,
