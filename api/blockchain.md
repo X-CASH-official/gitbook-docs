@@ -24,9 +24,11 @@ This method gets the stats
 * _circulatingSupply_ - unsigned long long; The circulating supply in zachys (atomic units).
 * _generatedSupply_ - unsigned long long; The generated supply in zachys (atomic units).
 * _totalSupply_ - unsigned long long; The total supply in zachys (atomic units).
-* _emissionReward_ - unsigned long long; The estimated constant block reward after the total supply is produced in zachys (atomic units).
-* _emissionHeight_ - unsigned int; The estimated block height that will start the emission.
-* _emissionTime_ - unsigned int; The estimated time when the emission will start.
+* _emissionReward_ - unsigned long long; The estimated constant block reward in zachys (atomic units).
+* _emissionHeight_ - unsigned int; The estimated block height that will start the emission (when the constant block reward is hit).
+* _emissionTime_ - unsigned int; The estimated time when the emission will start (when the constant block reward is hit).
+* _inflationHeight_ - unsigned int; The estimated block height that will start the inflation (when the total supply increases).
+* _inflationTime_ - unsigned int; The estimated time when the inflation will start (when the total supply increases).
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/stats/ -H 'Accept: application/json'
@@ -44,7 +46,9 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/stat
   "totalSupply": 100000000,
   "emissionReward": 1000000000,
   "emissionHeight": 1000000000,
-  "emissionTime": 1000000000
+  "emissionTime": 1000000000,
+  "inflationHeight": 1000000000,
+  "inflationTime": 1000000000
 }
 ```
 
