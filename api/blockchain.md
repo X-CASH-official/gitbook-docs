@@ -84,7 +84,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/bloc
   "time": 1615984630,
   "xcashDPOPS": false,
   "delegateName": "",
-  "tx": []
+  "tx": ["c7aa6eb38c47e7f013a5f8042477d1734ff9808fdc8608fb088085d624d2d509","b7aa6eb38c47e7f013a5f8042477d1734ff9808fdc8608fb088085d624d2d509"]
 }
 ```
 
