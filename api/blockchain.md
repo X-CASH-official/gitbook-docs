@@ -116,10 +116,10 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/d
 {
   "height": 810000,
   "confirmations": 100,
-  "time": 10000000
-  "type":" private,
+  "time": 10000000,
+  "type": "private",
   "sender": "",
-  "receiver": "".
+  "receiver": "",
   "amount": 0
 }
 ```
