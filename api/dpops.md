@@ -415,10 +415,12 @@ An array of delegate names that verified the block
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/rounds/810000/ -H 'Accept: application/json'
-[
-  "us1_xcash_foundation",
-  "europe1_xcash_foundation"
-]
+{
+  "delegates": [
+    "us1_xcash_foundation",
+    "europe1_xcash_foundation"
+  ]
+}
 ```
 
 ## Last Block Producer <a id="last-block-producer"></a>
