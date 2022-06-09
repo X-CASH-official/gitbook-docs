@@ -185,8 +185,8 @@ This method creates an integrated address
 
 **Inputs**:
 
-* _address_ **Required** - The public address.
-* _paymentId_ Not required - The payment id (either encrypted or long format).
+* _address_ - **Required** - The public address.
+* _paymentId_ - Not required - The payment id (either encrypted or long format).
 
 **Results**:
 
