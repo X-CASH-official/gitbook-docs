@@ -47,7 +47,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthori
   "totalRegisteredDelegates": 150,
   "totalOnlineDelegates": 100,
   "currentBlockVerifiersMaximumAmount": 50,
-  "currentBlockVerifiersValidAmount": 27,
+  "currentBlockVerifiersValidAmount": 27
 }
 ```
 
