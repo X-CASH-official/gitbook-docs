@@ -291,8 +291,8 @@ This method gets the stats about the blocks the delegate produced
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
-* _start_ - Not required - The start item to return (Default is 0, the first item).
-* _limit_ - Not required - The maximum amount of items to return (Default is all).
+* _start_ - **Required** - The start item to return.
+* _limit_ - Not required - The maximum amount of items to return (Default is 288, Maximum is 288).
 
 **Inputs**: _None_.
 
