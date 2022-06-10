@@ -291,8 +291,7 @@ This method gets the stats about the blocks the delegate produced
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
-* _start_ - Not required - The start item to return (Default is 0, the first item).
-* _limit_ - Not required - The maximum amount of items to return (Default is all).
+* _start_ - **Required** - The start block to read (800000 is the first valid block)
 
 **Inputs**: _None_.
 
@@ -302,7 +301,7 @@ This method gets the stats about the blocks the delegate produced
 * _totalBlockRewards_ - unsigned long long; The total xcash from the blocks produced in zachys (atomic units).
 * _averagePercentage_ - unsigned int; The average the delegate has produced a block. (100 is average, 200 is twice as good etc etc)
 * _averageTime_ - unsigned int; The average time (in minutes) it takes for the delegate to produce a block.
-* _blocksProduced_ - an arrray with the following structure:
+* _blocksProduced_ - an **limited arrray of 10 items** with the following structure:
   * _blockHeight_ - unsigned int; The block height. 
   * _blockReward_ - unsigned long long; The block reward in zachys (atomic units).
   * _time_ - unsigned int; The time stamp.
