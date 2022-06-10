@@ -281,7 +281,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates
 }
 ```
 
-## Delegate Rounds Stats <a id="delegate-round-stats"></a>
+## Delegate Blocks Produced <a id="delegate-blocks-produced"></a>
 
 This method gets the stats about the blocks the delegate produced
 
@@ -331,8 +331,8 @@ This method gets the vote data for a delegate
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
-* _start_ - Not required - The start item to return data (Default is 0, the first item).
-* _limit_ - Not required - The maximum amount of items to return (Default is all).
+* _start_ - **Required** - The start item to return data (0 is the first item).
+* _limit_ - **Required** - The maximum amount of items to return (Maximum of 1000).
 
 **Inputs**: _None_.
 
@@ -376,14 +376,12 @@ This method gets the vote data from a specific address
 **Results**:
 
 * _delegateName_ - string; The delegate name voted for.
-* _publicAddress_ - string; The public address of the delegate.
 * _amount_ - unsigned long long; The vote amount in zachys (atomic units).
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/votes/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
 {
   "delegateName": "us1_xcash_foundation",
-  "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
   "amount": 1000000000
 }
 ```
