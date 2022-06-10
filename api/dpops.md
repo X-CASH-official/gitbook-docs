@@ -291,7 +291,7 @@ This method gets the stats about the blocks the delegate produced
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
-* _start_ - Not required - The start day to return item (Default is 1, the first start day).
+* _start_ - Not required - The start item to return (Default is 0, the first item).
 * _limit_ - Not required - The maximum amount of items to return (Default is all).
 
 **Inputs**: _None_.
@@ -339,7 +339,7 @@ This method gets the vote data for a delegate
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
-* _start_ - Not required - The start item to return data (Default is 1, the first start day).
+* _start_ - Not required - The start item to return data (Default is 0, the first item).
 * _limit_ - Not required - The maximum amount of items to return (Default is all).
 
 **Inputs**: _None_.
