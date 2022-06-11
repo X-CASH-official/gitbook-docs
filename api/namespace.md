@@ -192,7 +192,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names
 
 This method converts an address to a name and extension
 
-**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{address})
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/addresses/convert/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/addresses/convert/{address})
 
 **Method**: GET
 
@@ -205,7 +205,7 @@ This method converts an address to a name and extension
 * _extension_ - string; The extension.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/addresses/convert/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
 {
   "name": "xcash",
   "extension": ".pxcash"
