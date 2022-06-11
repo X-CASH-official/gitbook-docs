@@ -14,15 +14,13 @@ This method gets the stats
 
 **Results**:
 
-* _totalNamesRegistered_ - unsigned int; The total registered names.
-* _totalNamesRenewed_ - unsigned int; The total renewed names.
+* _totalNamesRegisteredOrRenewed_ - unsigned int; The total registered or renewed names the delegates have processed.
 * _totalVolume_ - unsigned long long; The total xcash paid to delegates using the namespace protocol in zachys (atomic units).
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/stats/ -H 'Accept: application/json'
 {
-  "totalNamesRegistered": 10,
-  "totalNamesRenewed": 100,
+  "totalNamesRegisteredOrRenewed": 100,
   "totalVolume": 10000000
 }
 ```
@@ -42,7 +40,7 @@ This method gets all of the registered delegates
 Array of objects with the following structure:
 
 * _delegateName_ - string; The delegate name.
-* _amount_ - unsigned long long; The amount that a delegate charges to register or renew a name in zachys (atomic units).
+* _amount_ - unsigned long long; The amount to register or renew a name, using this delegate in zachys (atomic units).
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/delegates/registered/ -H 'Accept: application/json'
@@ -74,8 +72,7 @@ This method gets the delegates data
 * _delegateName_ - string; The delegate name.
 * _publicAddress_ - string; The public address.
 * _amount_ - unsigned long long; The amount that a delegate charges to register or renew a name in zachys (atomic units).
-* _totalNamesRegistered_ - unsigned int; The total registered names.
-* _totalNamesRenewed_ - unsigned int; The total renewed names.
+* _totalNamesRegisteredOrRenewed_ - unsigned int; The total registered or renewed names that the delegate has processed.
 * _totalVolume_ - unsigned long long; The total xcash paid to delegates using the namespace protocol in zachys (atomic units).
 
 ```bash
@@ -84,8 +81,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/deleg
   "delegateName": "us1_xcash_foundation",
   "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
   "amount": 100000000,
-  "totalNamesRegistered": 10,
-  "totalNamesRenewed": 100,
+  "totalNamesRegisteredOrRenewed": 100,
   "totalVolume": 10000000
 }
 ```
@@ -124,7 +120,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names
 
 ## Name Status <a id="name-status"></a>
 
-This method checks if a name can be registered
+This method checks if a name can be purchased,either by it has not been registered yet, or it has expired
 
 **URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{name}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{name})
 
@@ -168,7 +164,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names
 
 ## Name To Address <a id="name-to-address"></a>
 
-This method converts a name and extension to an address
+This method converts a name to an address
 
 **URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{name}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/convert/{name})
 
