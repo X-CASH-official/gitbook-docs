@@ -144,7 +144,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names
 
 This method gets the address status
 
-**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{address})
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/address/status/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{address})
 
 **Method**: GET
 
