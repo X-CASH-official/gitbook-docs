@@ -126,42 +126,6 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/d
 }
 ```
 
-## Transaction History <a id="transaction-history"></a>
-
-This method gets the public transaction history of an address
-
-**URL**: [https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/history/{type}/{](https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/{txHash})
-
-**Method**: GET
-
-**Resources**:
-* _tx_ - **Required** - The tx hash.
-
-**Inputs**: _None_.
-
-**Results**:
-
-* _height_ -  unsigned int; The block height (0 if not added to a block).
-* _confirmations_ -  unsigned int; The block confirmations.
-* _time_ -  unsigned int; The time.
-* _type_ -  string; "private | public".
-* _sender_ -  string; The sender, if public.
-* _receiver_ -  string; The receiver, if public.
-* _amount_ -  unsigned long long; The amount, if public.
-
-```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/d15005880f5f88b19fc88bdec29faaf57489ba85dd02d41ec87043a5eddf95a9/ -H 'Accept: application/json'
-{
-  "height": 810000,
-  "confirmations": 100,
-  "time": 10000000,
-  "type": "private",
-  "sender": "",
-  "receiver": "",
-  "amount": 0
-}
-```
-
 ## Prove Transaction <a id="prove-transaction"></a>
 
 This method proves a tx and its amount
