@@ -139,26 +139,28 @@ This method gets the top users for tips and volume
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/topStats/2 -H 'Accept: application/json'
-"topTips": [
-  {
-    "username": "test1",
-    "tips": 105
-  },
-  {
-    "username": "test2",
-    "tips": 100
-  }
-],
-"topVolumes": [
-  {
-    "username": "test1",
-    "volume": 105000000
-  },
-  {
-    "username": "test2",
-    "volume": 100000000
-  }
-]
+{
+  "topTips": [
+    {
+      "username": "test1",
+      "tips": 105
+    },
+    {
+      "username": "test2",
+      "tips": 100
+    }
+  ],
+  "topVolumes": [
+    {
+      "username": "test1",
+      "volume": 105000000
+    },
+    {
+      "username": "test2",
+      "volume": 100000000
+    }
+  ]
+}
 ```
 
 ## Recent Tips <a id="recent-tips"></a>
@@ -192,7 +194,7 @@ Array of objects with the following structure:
 $ curl -X POST https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'  -H 'Content-Type: application/json'  -d '{"sort":"First","type":"All"}'
 [
   {
-    "tweetId": ""
+    "tweetId": "",
     "fromUser": "",
     "toUser": "",
     "amount": 0,
@@ -200,7 +202,7 @@ $ curl -X POST https://api.xcash.foundation/v1/xpayment/unauthorized/recentTips/
     "type": "private"
   },
   {
-    "tweetId": "1531918830276075521"
+    "tweetId": "1531918830276075521",
     "fromUser": "test1",
     "toUser": "test",
     "amount": 5000000,
@@ -245,7 +247,7 @@ Array of objects with the following structure:
 $ curl -X POST https://api.xcash.foundation/v1/xpayment/unauthorized/tips/2 -H 'Content-Type: application/json' -H 'Accept: application/json'  -H 'Content-Type: application/json'  -d '{"from":"x_payment"}'
 [
   {
-    "tweetId": ""
+    "tweetId": "",
     "fromUser": "",
     "fromId": "",
     "toUser": "",
@@ -255,7 +257,7 @@ $ curl -X POST https://api.xcash.foundation/v1/xpayment/unauthorized/tips/2 -H '
     "type": "private"
   },
   {
-    "tweetId": "1531918830276075521"
+    "tweetId": "1531918830276075521",
     "fromUser": "test1",
     "fromId": "000000000",
     "toUser": "test",
