@@ -281,31 +281,37 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates
 }
 ```
 
-## Delegate Blocks Produced <a id="delegate-blocks-produced"></a>
+## Delegate Rounds Stats <a id="delegate-round-stats"></a>
 
 This method gets the stats about the blocks the delegate produced
 
-**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}/{start}/{limit}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}/{start}/{limit})
+**URL**: [https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName}](https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/{delegateName})
 
 **Method**: GET
 
 **Resources**:
 * _delegateName_ - **Required** - The delegate name.
-* _start_ - **Required** - The start block height.
-* _limit_ - **Required** - The maximum amount of items to return (Maximum is 288).
 
 **Inputs**: _None_.
 
 **Results**:
 
+* _totalBlocksProduced_ - unsigned int; The total blocks produced by the delegate
+* _totalBlockRewards_ - unsigned long long; The total xcash from the blocks produced in zachys (atomic units).
+* _averagePercentage_ - unsigned int; The average the delegate has produced a block. (100 is average, 200 is twice as good etc etc)
+* _averageTime_ - unsigned int; The average time (in minutes) it takes for the delegate to produce a block.
 * _blocksProduced_ - an arrray with the following structure:
   * _blockHeight_ - unsigned int; The block height. 
   * _blockReward_ - unsigned long long; The block reward in zachys (atomic units).
   * _time_ - unsigned int; The time stamp.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/1/2/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/rounds/us1_xcash_foundation/ -H 'Accept: application/json'
 {
+  "totalBlocksProduced": 100,
+  "totalBlockRewards": 1000000000,
+  "averagePercentage": 100,
+  "averageTime": 500,
   "blocksProduced": [
     {
       "blockHeight": 810000,
