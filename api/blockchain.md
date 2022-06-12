@@ -209,8 +209,6 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/addr
   {
     "tx": "0000000000000000000000000000000000000000000000000000000000000000",
     "key": "0000000000000000000000000000000000000000000000000000000000000000",
-    "time": 10000000,
-    "type": "private",
     "sender": "",
     "receiver": "",
     "amount": 0,
@@ -220,8 +218,6 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/addr
   {
     "tx": "0000000000000000000000000000000000000000000000000000000000000000",
     "key": "0000000000000000000000000000000000000000000000000000000000000000",
-    "time": 10000000,
-    "type": "private",
     "sender": "",
     "receiver": "",
     "amount": 0,
