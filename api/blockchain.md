@@ -200,6 +200,8 @@ An array of objects with the following structure:
 * _sender_ -  string; The sender.
 * _receiver_ -  string; The receiver.
 * _amount_ -  unsigned long long; The amount.
+* _height_ -  unsigned int; The block height.
+* _time_ -  unsigned int; The block timestamp.
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/history/sender/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
@@ -211,7 +213,9 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/addr
     "type": "private",
     "sender": "",
     "receiver": "",
-    "amount": 0
+    "amount": 0,
+    "height": 0,
+    "time":0
   },
   {
     "tx": "0000000000000000000000000000000000000000000000000000000000000000",
@@ -220,7 +224,9 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/addr
     "type": "private",
     "sender": "",
     "receiver": "",
-    "amount": 0
+    "amount": 0,
+    "height": 0,
+    "time":0
   }
 ]
 ```
