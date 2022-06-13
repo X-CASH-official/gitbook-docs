@@ -144,7 +144,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names
 
 This method gets the address status
 
-**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/address/status/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/{address})
+**URL**: [https://api.xcash.foundation/v1/xcash/namespace/unauthorized/addresses/status/{address}](https://api.xcash.foundation/v1/xcash/namespace/unauthorized/addresses/status/{address})
 
 **Method**: GET
 
@@ -156,7 +156,7 @@ This method gets the address status
 * _status_ - string; "not registered|address|saddress|paddress"
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/names/status/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/namespace/unauthorized/addresses/status/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
 {
   "status": "address"
 }
