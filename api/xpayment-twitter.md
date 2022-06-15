@@ -15,31 +15,41 @@ This method gets the stats
 **Results**:
 
 * _totalUsers_ - unsigned int; Total users registered.
-* _totalTipsPublic_ - unsigned long long; Total public tips sent.
-* _totalTipsPrivate_ - unsigned long long; Total private tips sent.
-* _totalVolumeSent_ - unsigned long long; Total volume sent in zachys (atomic units).
 * _avgTipAmount_ - unsigned int; Average tip amount sent in zachys (atomic units).
-* _tipsSentLastHour_ - unsigned int; Total tips sent in the last hour from the current time.
-* _tipsSentLast24Hours_ - unsigned int; Total tips sent in the last 24 hours from the current time.
-* _volumeSentLastHour_ - unsigned long long; Total volume sent in the last hour from the current time.
-* _volumeSentLast24Hours_ - unsigned long long; Total volume sent in the last 24 hours from the current time.
 * _totalDeposits_ - unsigned int; Total deposits.
 * _totalWithdraws_ - unsigned int; Total withdraws.
+* _totalTipsPublic_ - unsigned int; Total public tips sent.
+* _totalTipsPrivate_ - unsigned int; Total private tips sent.
+* _totalVolumeSentPublic_ - unsigned long long; Total volume sent for public tips, in zachys (atomic units).
+* _totalVolumeSentPrivate_ - unsigned long long; Total volume sent for private tips, in zachys (atomic units).
+* _totalTipsLastDayPublic_ - unsigned int; Total public tips sent in last day.
+* _totalTipsLastDayPrivate_ - unsigned int; Total private tips sent in last day.
+* _totalVolumeSentLastDayPublic_ - unsigned long long; Total volume sent for public tips in last day, in zachys (atomic units).
+* _totalVolumeSentLastDayPrivate_ - unsigned long long; Total volume sent for private tips in last day, in zachys (atomic units).
+* _totalTipsLastHourPublic_ - unsigned int; Total public tips sent in last hour.
+* _totalTipsLastHourPrivate_ - unsigned int; Total private tips sent in last hour.
+* _totalVolumeSentLastHourPublic_ - unsigned long long; Total volume sent for public tips in last hour, in zachys (atomic units).
+* _totalVolumeSentLastHourPrivate_ - unsigned long long; Total volume sent for private tips in last hour, in zachys (atomic units).
 
 ```bash
 $ curl -X GET https://api.xcash.foundation/v1/xpayment-twitter/twitter/unauthorized/stats/ -H 'Accept: application/json'
 {
   "totalUsers": 7,
-  "totalTipsPublic": 10,
-  "totalTipsPrivate": 5,
-  "totalVolumeSent": 17000000,
-  "avgTipAmount": 130769231,
-  "tipsSentLastHour": 7,
-  "tipsSentLast24Hours": 7,
-  "volumeSentLastHour": 100,
-  "volumeSentLast24Hours": 1000,
-  "totalDeposits": 100,
-  "totalWithdraws": 100
+  "avgTipAmount": 10,
+  "totalDeposits": 5,
+  "totalWithdraws": 17,
+  "totalTipsPublic": 7,
+  "totalTipsPrivate": 10,
+  "totalVolumeSentPublic": 500000000,
+  "totalVolumeSentPrivate": 1000000000,
+  "totalTipsLastDayPublic": 7,
+  "totalTipsLastDayPrivate": 10,
+  "totalVolumeSentLastDayPublic": 500000000,
+  "totalVolumeSentLastDayPrivate": 1000000000,
+  "totalTipsLastHourPublic": 7,
+  "totalTipsLastHourPrivate": 10,
+  "totalVolumeSentLastHourPublic": 500000000,
+  "totalVolumeSentLastHourPrivate": 1000000000
 }
 ```
 
