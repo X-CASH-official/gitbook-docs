@@ -62,8 +62,8 @@ This method gets the daily amount of payments and volumes sent per day
 **Method**: GET
 
 **Resources**:
-* _start_ - Not required - The start day to return data (Default is 1, the first start day).
-* _limit_ - Not required - The maximum amount of days to return (Default is all).
+* _start_ - **Required** - The start day to return data (Default is 1, the first start day).
+* _limit_ - **Required** - The maximum amount of days to return (Default is all).
 
 **Inputs**: _None_.
 
