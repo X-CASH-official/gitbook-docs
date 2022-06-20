@@ -7,9 +7,7 @@ description: >-
 # Vote & Staking
 
 {% hint style="warning" %}
-During the registration period, you will only be able to vote for a delegate using the CLI wallet or the Android phone wallet. More practical ways of voting will be developed along the way.  
-  
-This also means that you won't be able to vote from the X-Bank or the 1.5.0 of the CLI and GUI wallet. Instructions to vote using the available methods are described below.
+Currently you can vote from the CLI wallet, android wallet, and GUI wallet. X-Bank does not have the ability to vote yet.
 {% endhint %}
 
 ## Find Your Delegate
@@ -47,8 +45,10 @@ There is a couple of rules to observe when voting:
 * **You can only have one vote assigned per wallet.** If you want to vote for another delegate, you will need to create a new wallet, and send to it XCASH you plan to vote with.
 * **Votes are taken into account at the top of the next hour.** If you apply a new vote at `XX:30`, it will be in effect at `XX+1:00`.
 * **You need a minimum of `2,000,000 (2 Million) XCASH` in the wallet to vote.**
-* **Spending any amount in your wallet will cancel the vote.** It is recommended to stake from a wallet you are not actively using.
+* **Spending from the staked amount in your wallet will cancel the vote.** You can split your wallet into a staked and unstaked balance and resplit it at any time. When sending tx it will only spend from the untaked amount, until their is no more left, it will ask you if you want to cancel the vote and still send the tx.
 {% endhint %}
+
+You can view the staked and unstaked balance anytime by using the `balance` command
 
 To participate in the network, you will have to vote with your XCASH to elect a delegate that you see as trustworthy and you want to help to get a forging position. The DPOPS consensus has been designed so that the **XCASH you use to vote stays in your wallet, hence in your control** \(see [the challenge of voting in a privacy coin](https://docs.xcash.foundation/dpops/yellowpaper-delagated-proof-of-private-stake#the-challenges-of-staking-and-voting-in-a-privacy-coin)\).
 
@@ -171,14 +171,20 @@ Once your wallet is prepared with the amount you wish to vote with, you can cast
 To vote, it's quite easy. Use the **`vote`** command:
 
 ```text
-vote <delegates_public_address|delegates_name>
+vote <delegates_public_address|delegates_name> <amount | "all">
 ```
 
 You can either put the **`<delegates_public_address>`** which is a standard XCASH public address, or the **`<delegate_name>`**. This information is available on the [delegate explorer](http://delegates.xcash.foundation/).
 
-The wallet will create a **reserve proof** with the entirety of the wallet and assign it to the designated delegate. Once your vote has been casted, you will have to **wait with your wallet running** until the **top of hour** before getting a success message.
+The wallet will create a **reserve proof** with the staked amount you provided of the wallet (or the full balance if you set it to all and assign it to the designated delegate. Once your vote has been casted, you will have to **wait with your wallet running** until the **top of hour** before getting a success message.
 
 You will get a success message when your vote ****has been taken into account.
+
+
+#### Revote
+
+You will need to vote again if your wallet balance grows. To quickly vote for the same delegate you already have a vote for, run the following command  
+`revote <amount>` 
 
 ### Android Wallet
 
