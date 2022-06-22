@@ -229,7 +229,7 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/addr
 
 ## Validate Address <a id="validate-address"></a>
 
-This method gets validates an address
+This method validates an address
 
 **URL**: [https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/validate/{address}](https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/validate/{address})
 
