@@ -227,6 +227,32 @@ $ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/addr
 ]
 ```
 
+## Validate Address <a id="validate-address"></a>
+
+This method gets validates an address
+
+**URL**: [https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/validate/{address}](https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/validate/{address})
+
+**Method**: GET
+
+**Resources**:
+* _address_ - **Required** - The address.
+
+**Inputs**: _None_.
+
+**Results**:
+
+An array of objects with the following structure:
+
+* _valid_ -  bool; The validation status.
+
+```bash
+$ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/validate/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+{
+  "valid": true
+}
+```
+
 ## Create Integrated Address <a id="create-integrated-address"></a>
 
 This method creates an integrated address
