@@ -16,7 +16,7 @@ This is a list of the xcash-wallet-rpc calls, their inputs and outputs, and exam
 
 All xcash-wallet-rpc methods use the same JSON RPC interface. For example:
 
-```text
+ ```bash
 IP=127.0.0.1PORT=18082METHOD="make_integrated_address"PARAMS="{\"payment_id\":\"1234567890123456789012345678900012345678901234567890123456789000\"}"curl \    -X POST http://$IP:$PORT/json_rpc \    -d '{"jsonrpc":"2.0","id":"0","method":"'$METHOD'","params":'"$PARAMS"'}' \    -H 'Content-Type: application/json'
 ```
 
@@ -24,7 +24,7 @@ IP=127.0.0.1PORT=18082METHOD="make_integrated_address"PARAMS="{\"payment_id\":\"
 
 If the xcash-wallet-rpc was executed with the `--rpc-login` argument as `username:password`, then follow this example:
 
-```text
+ ```bash
 IP=127.0.0.1PORT=18082METHOD="make_integrated_address"PARAMS="{\"payment_id\":\"1234567890123456789012345678900012345678901234567890123456789000\"}"curl \    -u username:password --digest \    -X POST http://$IP:$PORT/json_rpc \    -d '{"jsonrpc":"2.0","id":"0","method":"'$METHOD'","params":'"$PARAMS"'}' \    -H 'Content-Type: application/json'
 ```
 
@@ -65,7 +65,26 @@ Return the wallet's balance.‌
 **Example:**
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_balance"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "balance": 562072541031,    "multisig_import_needed": false,    "per_subaddress": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "address_index": 0,      "balance": 562072541031,      "label": "Primary account",      "num_unspent_outputs": 3,      "unlocked_balance": 562072541031    }],    "unlocked_balance": 562072541031  }}
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_balance"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "balance": 562072541031,
+    "multisig_import_needed": false,
+    "per_subaddress": [
+      {
+        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+        "address_index": 0,
+        "balance": 562072541031,
+        "label": "Primary account",
+        "num_unspent_outputs": 3,
+        "unlocked_balance": 562072541031
+      }
+    ],
+    "unlocked_balance": 562072541031
+  }
+}
 ```
 
 ‌
@@ -99,7 +118,22 @@ Return the wallet's addresses for an account. Optionally filter for specific set
 **Example:**
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",    "addresses": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "address_index": 0,      "label": "Primary account",      "used": true    }]  }}
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+    "addresses": [
+      {
+        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+        "address_index": 0,
+        "label": "Primary account",
+        "used": true
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -129,7 +163,17 @@ Get account and address indexes from a specific \(sub\)address‌
 **Example:**
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_index","params":{"address":"83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "index": {      "major": 0,      "minor": 1    }  }}
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_index","params":{"address":"83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "index": {
+      "major": 0,
+      "minor": 1
+    }
+  }
+}
 ```
 
 ‌
@@ -159,7 +203,15 @@ Create a new address for an account. Optionally, label the new address.‌
 **Example:**
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_address","params":{"account_index":0,"label":"new-sub"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8",    "address_index": 1  }}
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_address","params":{"account_index":0,"label":"new-sub"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8",
+    "address_index": 1
+  }
+}
 ```
 
 ‌
@@ -186,7 +238,12 @@ Label an address.‌
 **Example:**
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_address","params":{"index":{"major":0,"minor":1},"label":"myLabel"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_address","params":{"index":{"major":0,"minor":1},"label":"myLabel"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -222,7 +279,33 @@ Get all accounts for a wallet. Optionally filter accounts by tag.‌
 **Example**:
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_accounts","params":{"tag":"myTag"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "subaddress_accounts": [{      "account_index": 0,      "balance": 100000000000,      "base_address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "label": "Primary account",      "tag": "myTag",      "unlocked_balance": 100000000000    },{      "account_index": 1,      "balance": 0,      "base_address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8",      "label": "Secondary account",      "tag": "myTag",      "unlocked_balance": 0    }],    "total_balance": 100000000000,    "total_unlocked_balance": 100000000000  }}
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_accounts","params":{"tag":"myTag"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "subaddress_accounts": [
+      {
+        "account_index": 0,
+        "balance": 100000000000,
+        "base_address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+        "label": "Primary account",
+        "tag": "myTag",
+        "unlocked_balance": 100000000000
+      },
+      {
+        "account_index": 1,
+        "balance": 0,
+        "base_address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8",
+        "label": "Secondary account",
+        "tag": "myTag",
+        "unlocked_balance": 0
+      }
+    ],
+    "total_balance": 100000000000,
+    "total_unlocked_balance": 100000000000
+  }
+}
 ```
 
 ‌
@@ -250,8 +333,16 @@ Create a new account with an optional label.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_account","params":{"label":"Secondary account"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "account_index": 1,    "address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_account","params":{"label":"Secondary account"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "account_index": 1,
+    "address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8"
+  }
+}
 ```
 
 ‌
@@ -275,8 +366,24 @@ Label an account.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_account","params":{"account_index":0,"label":"Primary account"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "account_tags": [{      "accounts": [0,1],      "label": "",      "tag": "label"    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_account","params":{"account_index":0,"label":"Primary account"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "account_tags": [
+      {
+        "accounts": [
+          0,
+          1
+        ],
+        "label": "",
+        "tag": "label"
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -302,8 +409,24 @@ Get a list of user-defined account tags.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_account","params":{"account_index":0,"label":"Primary account"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "account_tags": [{      "accounts": [0,1],      "label": "",      "tag": "myTag"    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_account","params":{"account_index":0,"label":"Primary account"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "account_tags": [
+      {
+        "accounts": [
+          0,
+          1
+        ],
+        "label": "",
+        "tag": "myTag"
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -327,8 +450,13 @@ Apply a filtering tag to a list of accounts.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"tag_accounts","params":{"tag":"myTag","accounts":[0,1]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"tag_accounts","params":{"tag":"myTag","accounts":[0,1]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -351,8 +479,13 @@ Remove filtering tag from a list of accounts.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"untag_accounts","params":{"accounts":[1]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"untag_accounts","params":{"accounts":[1]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -376,8 +509,13 @@ Alias: _None_.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_account_tag_description","params":{"tag":"myTag","description":"Test tag"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_account_tag_description","params":{"tag":"myTag","description":"Test tag"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -400,8 +538,15 @@ Returns the wallet's current block height.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_height"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "height": 425000  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_height"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "height": 425000
+  }
+}
 ```
 
 ‌
@@ -448,8 +593,20 @@ Send XCASH to a number of recipients.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer","params":{"destinations":[{"amount":100000000000,"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}],"ring_size":21,"get_tx_keys": true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "amount": 100000000000,    "fee": 1348040,    "multisig_txset": "",    "tx_hash": "cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee",    "tx_key": "8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b",    "unsigned_txset": ""  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer","params":{"destinations":[{"amount":100000000000,"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}],"ring_size":21,"get_tx_keys": true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "amount": 100000000000,
+    "fee": 1348040,
+    "multisig_txset": "",
+    "tx_hash": "cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee",
+    "tx_key": "8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b",
+    "unsigned_txset": ""
+  }
+}
 ```
 
 ‌
@@ -497,8 +654,28 @@ Same as transfer, but can split into more than one tx if necessary.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer_split","params":{"destinations":[{"amount":100000000000,"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}],"ring_size":21,"get_tx_keys": true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "amount_list": [100000000000],    "fee_list": [1348040],    "multisig_txset": "",    "tx_hash_list": ["cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee"],    "tx_key_list": ["8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b"],    "unsigned_txset": ""  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer_split","params":{"destinations":[{"amount":100000000000,"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}],"ring_size":21,"get_tx_keys": true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "amount_list": [
+      100000000000
+    ],
+    "fee_list": [
+      1348040
+    ],
+    "multisig_txset": "",
+    "tx_hash_list": [
+      "cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee"
+    ],
+    "tx_key_list": [
+      "8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b"
+    ],
+    "unsigned_txset": ""
+  }
+}
 ```
 
 ‌
@@ -530,8 +707,18 @@ In the example below, we first generate an unsigned\_txset on a read only wallet
 
 Generate unsigned\_txset using the above "transfer" method on read-only wallet:
 
-```text
-curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign_transfer","params":{"unsigned_txset":"0200010200158b9c3dc885308d9024ec8302c2e5109ad803d3f801de53d21493738e1f90e701dc5e801302d8161a8105be042aa807cb560557a7d0d4898cc6fd0c0d35e77bcf839ba9b235ec3674bf00cb90f32a8b0200020b85f8bb5eae185399c32fee2ef11e3a10fed9b998280d9ef2161c70b1f353c50002417be46e074735ed3d5c7147aa472e9c14a401b9ebd58985d20e5f6eeb70e4d72101f27d6926626deaf4506c94ff24f0abe117dbd54c4f28da7a1b13047b6b2878a403fae733aa829ee9d1fc948e393f3d7368cb537e00290732c46adc46e441d2c275cdd606c19730f020ee0da02dbd90d4cd4ce7abac0413c8d51f21f7fea951a963cb33083359a00a3180d734589aec044d7d37278fb3f469fdde70156a8803df822a1e0f441426e7d933e18aeb25e58acc8e58b36d33927775501bbf1bbf32483a1ce00b21795f315cd231b11fe58e6c8407bb21d19250b91754a94606e73e12a88c7600115b5af4112e3830928dec18a552ecee1640ecdd7157f37b5fe9aeb83321c7c7010000004fda960fdb48fd706038d36af0e134ff6e770993295261af08feca3ef13394a32999b0ed41d8628b3d474a91fbec325cfef5ed11e8f3bd77e7d9a9a66e4adafc0385491182a5ef73957497f1dd3c2b680b8e63ad869efa209f43b6322770d58220ed31a3f7a9489535a75a88f9f06c5a63d1028a5b56e72e2ae152f15ac65e12e3bd1cc54f2a6bb8383c8850c29a525a30d5f99d41788fb5a7f5eef69244ec06820d2ec4507b4ca2d15970d063fc8e1edef757a647f225b865092295252ab10d07559ce962bab5b5317d9e5714b2423c7b2181fe989071f858dec30ecf1ab5e4430b8764c2a6f6190c9806563ae80090adf044d28316731f7e4e56a75dcee9e5640f27cf889413e22971496edacf434ea5dc1acee029be37f71c1531ccf5af45632f658a5406a6c0de9804fc12ccb40168f2dbddf7f086e58ac6acd79c868ef865f037cd75d072466b892df28812b4ad0c397b0dc1bc1b2ba6a924117f210851419a1f95fb63f88afdf1bdd52e1d65d010632b119bedbc2ea91ea99886bec9612047f4210c3b608edaf97ee6734a7cf22a6dde09c6a36b628f67f7058614f67444076003291b8df917842102167bbf28a9c6d074e68ecfc40ba55371355f2231b5363304836b9faf7fdeeb16f5739c05b310d434235044bf1216a242fcc6faeee198a12480283e8b438c02a3f0ff9cae741a1d4207c26799f0df255639d36ba3a0546f0e7017ca557ad680f77d5ff77ba434ae55db821c5579cf00d63185c1c477bee35e8a2cce838939b0e849182c486d8915f003f130f16d233f3f404ffac45f8436e80058e1b81ce3c3b326f57bd878d6b748914d670557353bca7f98d53fdf57782c65223aed33d0aeadc777120979ade3fb429b5a5486c967f4c2c63b5686a6a38cf329858f82b4d33be6df08419e97c1872a6c6191d5811b679d2827fb3306f9b634f7898b0207868c77e0a6033df229ec2ee28cd2c79ba01e49b67955300891e95765c53c25d3a7ceca2d4fab3944d30407797e01996d23b1ef2188bfd00662251c3f137bab02e4a831c47d722043ba4c780e5fa7d70e36968b7254b36d04ed82577fffb738086390eae9be1b800e8c19df14565ab13f4cda135220bf4a087604caa94cb26bf32ec920a2d19899b16c7d48acf285b80ebf412ed76b485f0c0b87cd272fe6fc80a82c98326397bcd408013113cbecca24ba03c36142ceb40d9d7b3ce7c9eeb71fa8c21e52cade31567c20acfa535250d1d95493c6f1e18902a5afbb5efc96a62b9d03a782536399f67a068c60d5b87144702debde82652c0f60e8298b66130176e39ef2dc754e11e498363b43a50655fc5d8a0ad07b93710d653e9ba5bda4772b2fef001990babfcaef513cb2b4f7dfc4d14cd79ca7cc6306545ac279b87a08dcedfabba270505fa6b60de12c29dd62d6bda33614e0ff6d00fd143259ae424d7a74b506b13cec4d16cd6519199862dfe2d768b6024c2a0703260e696f84a755b96272b314d2c9614c90ed4389beae781b9abed3801e047b042c5f6c1c7273737835b94c281766a7086692c339c9a18425cbc4060f1c1b9f0e3eab4bc3f891bc7c245aec18045eb0ed133acec748c390469470efc2f1a33c04f0879e027f878b7407ca7f42a847b180972d918d8eb2f8d06369d9dba6c5990b845ead58e131475206ff350764eebc4139f19d154eb08a7de8cb462f8d844f04f62a2548dd3db4810adf6cecbf310567e37c024e7f0593819b76c1c762b41c022a761c2dc9908e2dc478413ca6856b2436df96fc642e16766dfe531f19153c05923e3400b0f901194368f58bbcd3484fff84c470d883fc92568d8c3a7148aa07710fcfe514c713656dd14a088affafab9dede3a944690a4829d1a68e1edc7600c383de90edd1953fbf6a3c15e84ec051099748972b8f500e802ae4863bdde60240423a915ecec3eab9510d8aca86799400d8cd04e973f80d63431aeec1566d0240e744ba43acdb16c5b7207f42709f3880c2ac29610612bc182a81a85979ad0f4f2fdbc1c473910b9c3ae4266e72f84a08ccd566fa784d6da09d1666678eba0ad949d8c7bc57a81ba1b2fcff0fc5ecdacf42a04536fbac5293e27311aa5d0203fca71abb60ed9a6d0061855a6df3eb4a99dda032c3556a9dd4acffa42757230aa24d4cae9dae3e81e1e426ff8ae861691c08e62af5c9b7fee1bb589c98f42f0cc4ce92b77c6e4e5831cc7f1ea0e25dd5bcb9d348eee806867fc80345c2e0e80ff842faf0c679f972278112e2d12a6639229df57df429a49874ce2f419a60f801a50026424729413455372aa1adf14b8c33b194e91ec303a4448c4eadf9a1070d668c71c5b8bae28fbb4a7b6ee9924a351ddbd6cef575b5a68afcb0cd218d480861a3fa8dc4075acd9efa7909da095a030e2fc03be2400ae1a4e93778c0ca7f0ba4daf0f80c4308012f209d1ae36970ac8e70a17378ae981b8f12ea534948fe056b51a3dc4e2b69090d8dac19d80b00bf9f4f0a3d895e8df59c62c9eda4919e0e9080d32848a4b390b106ae3584c552b75719bd43bbeacb6632ba0938ecf5500998beae51b9993323ab0f9757f3b0c0495f5869d3b0baefac8fc41796290df30b8890f75a1d814329e26851c510cf8e8c4f38492638426491e05c68ad08c0480faf2f0713de768f50e4d98aeb16b6b40943bf4e59f872e8e97a3ff18efae11e0593af8a09401e3afbb43256e1514001c529bfa6b6b2ef1c0822baa5ede92c2c08a0464f4330811390bfe0e52bd296225b5ab0c232078961f2d27dc834b1f61c05b06f213c0623e4d924ff7e1658680ef61263b17a16b3730b2f007f1e01a39e00c7048f8bb0ad785c8f3b0e54f0453dc47f96103d4440cda66f6c508a251907034d7c051d328006bf561133f3f13972fdfc0ba2392baf6852bc106ffc7c2d3d0f9d487e464971ca43827b60cee910a5e51c81235c3b0c8fc217ccba75698f6a02aa5fba840617f4f412e288f90f3b5a26cee7ebe25d603b8d69ac4ee98e6e927d"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "signed_txset": "...long_hex...",    "tx_hash_list": ["ff2e2d49fbfb1c9a55754f786576e171c8bf21b463a74438df604b7fa6cebc6d"]  }}
+ ```bash
+curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign_transfer","params":{"unsigned_txset":"0200010200158b9c3dc885308d9024ec8302c2e5109ad803d3f801de53d21493738e1f90e701dc5e801302d8161a8105be042aa807cb560557a7d0d4898cc6fd0c0d35e77bcf839ba9b235ec3674bf00cb90f32a8b0200020b85f8bb5eae185399c32fee2ef11e3a10fed9b998280d9ef2161c70b1f353c50002417be46e074735ed3d5c7147aa472e9c14a401b9ebd58985d20e5f6eeb70e4d72101f27d6926626deaf4506c94ff24f0abe117dbd54c4f28da7a1b13047b6b2878a403fae733aa829ee9d1fc948e393f3d7368cb537e00290732c46adc46e441d2c275cdd606c19730f020ee0da02dbd90d4cd4ce7abac0413c8d51f21f7fea951a963cb33083359a00a3180d734589aec044d7d37278fb3f469fdde70156a8803df822a1e0f441426e7d933e18aeb25e58acc8e58b36d33927775501bbf1bbf32483a1ce00b21795f315cd231b11fe58e6c8407bb21d19250b91754a94606e73e12a88c7600115b5af4112e3830928dec18a552ecee1640ecdd7157f37b5fe9aeb83321c7c7010000004fda960fdb48fd706038d36af0e134ff6e770993295261af08feca3ef13394a32999b0ed41d8628b3d474a91fbec325cfef5ed11e8f3bd77e7d9a9a66e4adafc0385491182a5ef73957497f1dd3c2b680b8e63ad869efa209f43b6322770d58220ed31a3f7a9489535a75a88f9f06c5a63d1028a5b56e72e2ae152f15ac65e12e3bd1cc54f2a6bb8383c8850c29a525a30d5f99d41788fb5a7f5eef69244ec06820d2ec4507b4ca2d15970d063fc8e1edef757a647f225b865092295252ab10d07559ce962bab5b5317d9e5714b2423c7b2181fe989071f858dec30ecf1ab5e4430b8764c2a6f6190c9806563ae80090adf044d28316731f7e4e56a75dcee9e5640f27cf889413e22971496edacf434ea5dc1acee029be37f71c1531ccf5af45632f658a5406a6c0de9804fc12ccb40168f2dbddf7f086e58ac6acd79c868ef865f037cd75d072466b892df28812b4ad0c397b0dc1bc1b2ba6a924117f210851419a1f95fb63f88afdf1bdd52e1d65d010632b119bedbc2ea91ea99886bec9612047f4210c3b608edaf97ee6734a7cf22a6dde09c6a36b628f67f7058614f67444076003291b8df917842102167bbf28a9c6d074e68ecfc40ba55371355f2231b5363304836b9faf7fdeeb16f5739c05b310d434235044bf1216a242fcc6faeee198a12480283e8b438c02a3f0ff9cae741a1d4207c26799f0df255639d36ba3a0546f0e7017ca557ad680f77d5ff77ba434ae55db821c5579cf00d63185c1c477bee35e8a2cce838939b0e849182c486d8915f003f130f16d233f3f404ffac45f8436e80058e1b81ce3c3b326f57bd878d6b748914d670557353bca7f98d53fdf57782c65223aed33d0aeadc777120979ade3fb429b5a5486c967f4c2c63b5686a6a38cf329858f82b4d33be6df08419e97c1872a6c6191d5811b679d2827fb3306f9b634f7898b0207868c77e0a6033df229ec2ee28cd2c79ba01e49b67955300891e95765c53c25d3a7ceca2d4fab3944d30407797e01996d23b1ef2188bfd00662251c3f137bab02e4a831c47d722043ba4c780e5fa7d70e36968b7254b36d04ed82577fffb738086390eae9be1b800e8c19df14565ab13f4cda135220bf4a087604caa94cb26bf32ec920a2d19899b16c7d48acf285b80ebf412ed76b485f0c0b87cd272fe6fc80a82c98326397bcd408013113cbecca24ba03c36142ceb40d9d7b3ce7c9eeb71fa8c21e52cade31567c20acfa535250d1d95493c6f1e18902a5afbb5efc96a62b9d03a782536399f67a068c60d5b87144702debde82652c0f60e8298b66130176e39ef2dc754e11e498363b43a50655fc5d8a0ad07b93710d653e9ba5bda4772b2fef001990babfcaef513cb2b4f7dfc4d14cd79ca7cc6306545ac279b87a08dcedfabba270505fa6b60de12c29dd62d6bda33614e0ff6d00fd143259ae424d7a74b506b13cec4d16cd6519199862dfe2d768b6024c2a0703260e696f84a755b96272b314d2c9614c90ed4389beae781b9abed3801e047b042c5f6c1c7273737835b94c281766a7086692c339c9a18425cbc4060f1c1b9f0e3eab4bc3f891bc7c245aec18045eb0ed133acec748c390469470efc2f1a33c04f0879e027f878b7407ca7f42a847b180972d918d8eb2f8d06369d9dba6c5990b845ead58e131475206ff350764eebc4139f19d154eb08a7de8cb462f8d844f04f62a2548dd3db4810adf6cecbf310567e37c024e7f0593819b76c1c762b41c022a761c2dc9908e2dc478413ca6856b2436df96fc642e16766dfe531f19153c05923e3400b0f901194368f58bbcd3484fff84c470d883fc92568d8c3a7148aa07710fcfe514c713656dd14a088affafab9dede3a944690a4829d1a68e1edc7600c383de90edd1953fbf6a3c15e84ec051099748972b8f500e802ae4863bdde60240423a915ecec3eab9510d8aca86799400d8cd04e973f80d63431aeec1566d0240e744ba43acdb16c5b7207f42709f3880c2ac29610612bc182a81a85979ad0f4f2fdbc1c473910b9c3ae4266e72f84a08ccd566fa784d6da09d1666678eba0ad949d8c7bc57a81ba1b2fcff0fc5ecdacf42a04536fbac5293e27311aa5d0203fca71abb60ed9a6d0061855a6df3eb4a99dda032c3556a9dd4acffa42757230aa24d4cae9dae3e81e1e426ff8ae861691c08e62af5c9b7fee1bb589c98f42f0cc4ce92b77c6e4e5831cc7f1ea0e25dd5bcb9d348eee806867fc80345c2e0e80ff842faf0c679f972278112e2d12a6639229df57df429a49874ce2f419a60f801a50026424729413455372aa1adf14b8c33b194e91ec303a4448c4eadf9a1070d668c71c5b8bae28fbb4a7b6ee9924a351ddbd6cef575b5a68afcb0cd218d480861a3fa8dc4075acd9efa7909da095a030e2fc03be2400ae1a4e93778c0ca7f0ba4daf0f80c4308012f209d1ae36970ac8e70a17378ae981b8f12ea534948fe056b51a3dc4e2b69090d8dac19d80b00bf9f4f0a3d895e8df59c62c9eda4919e0e9080d32848a4b390b106ae3584c552b75719bd43bbeacb6632ba0938ecf5500998beae51b9993323ab0f9757f3b0c0495f5869d3b0baefac8fc41796290df30b8890f75a1d814329e26851c510cf8e8c4f38492638426491e05c68ad08c0480faf2f0713de768f50e4d98aeb16b6b40943bf4e59f872e8e97a3ff18efae11e0593af8a09401e3afbb43256e1514001c529bfa6b6b2ef1c0822baa5ede92c2c08a0464f4330811390bfe0e52bd296225b5ab0c232078961f2d27dc834b1f61c05b06f213c0623e4d924ff7e1658680ef61263b17a16b3730b2f007f1e01a39e00c7048f8bb0ad785c8f3b0e54f0453dc47f96103d4440cda66f6c508a251907034d7c051d328006bf561133f3f13972fdfc0ba2392baf6852bc106ffc7c2d3d0f9d487e464971ca43827b60cee910a5e51c81235c3b0c8fc217ccba75698f6a02aa5fba840617f4f412e288f90f3b5a26cee7ebe25d603b8d69ac4ee98e6e927d"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "signed_txset": "...long_hex...",
+    "tx_hash_list": [
+      "ff2e2d49fbfb1c9a55754f786576e171c8bf21b463a74438df604b7fa6cebc6d"
+    ]
+  }
+}
 ```
 
 ‌
@@ -558,8 +745,17 @@ Submit a previously signed transaction on a read-only wallet \(in cold-signing p
 
 In the example below, we submit the transfer using the signed\_txset generated above:
 
-```text
-curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_transfer","params":{"tx_data_hex":"0200010200158b9c3dc885308d9024ec8302c2e5109ad803d3f801de53d21493738e1f90e701dc5e801302d8161a8105be042aa807cb560557a7d0d4898cc6fd0c0d35e77bcf839ba9b235ec3674bf00cb90f32a8b0200020b85f8bb5eae185399c32fee2ef11e3a10fed9b998280d9ef2161c70b1f353c50002417be46e074735ed3d5c7147aa472e9c14a401b9ebd58985d20e5f6eeb70e4d72101f27d6926626deaf4506c94ff24f0abe117dbd54c4f28da7a1b13047b6b2878a403fae733aa829ee9d1fc948e393f3d7368cb537e00290732c46adc46e441d2c275cdd606c19730f020ee0da02dbd90d4cd4ce7abac0413c8d51f21f7fea951a963cb33083359a00a3180d734589aec044d7d37278fb3f469fdde70156a8803df822a1e0f441426e7d933e18aeb25e58acc8e58b36d33927775501bbf1bbf32483a1ce00b21795f315cd231b11fe58e6c8407bb21d19250b91754a94606e73e12a88c7600115b5af4112e3830928dec18a552ecee1640ecdd7157f37b5fe9aeb83321c7c7010000004fda960fdb48fd706038d36af0e134ff6e770993295261af08feca3ef13394a32999b0ed41d8628b3d474a91fbec325cfef5ed11e8f3bd77e7d9a9a66e4adafc0385491182a5ef73957497f1dd3c2b680b8e63ad869efa209f43b6322770d58220ed31a3f7a9489535a75a88f9f06c5a63d1028a5b56e72e2ae152f15ac65e12e3bd1cc54f2a6bb8383c8850c29a525a30d5f99d41788fb5a7f5eef69244ec06820d2ec4507b4ca2d15970d063fc8e1edef757a647f225b865092295252ab10d07559ce962bab5b5317d9e5714b2423c7b2181fe989071f858dec30ecf1ab5e4430b8764c2a6f6190c9806563ae80090adf044d28316731f7e4e56a75dcee9e5640f27cf889413e22971496edacf434ea5dc1acee029be37f71c1531ccf5af45632f658a5406a6c0de9804fc12ccb40168f2dbddf7f086e58ac6acd79c868ef865f037cd75d072466b892df28812b4ad0c397b0dc1bc1b2ba6a924117f210851419a1f95fb63f88afdf1bdd52e1d65d010632b119bedbc2ea91ea99886bec9612047f4210c3b608edaf97ee6734a7cf22a6dde09c6a36b628f67f7058614f67444076003291b8df917842102167bbf28a9c6d074e68ecfc40ba55371355f2231b5363304836b9faf7fdeeb16f5739c05b310d434235044bf1216a242fcc6faeee198a12480283e8b438c02a3f0ff9cae741a1d4207c26799f0df255639d36ba3a0546f0e7017ca557ad680f77d5ff77ba434ae55db821c5579cf00d63185c1c477bee35e8a2cce838939b0e849182c486d8915f003f130f16d233f3f404ffac45f8436e80058e1b81ce3c3b326f57bd878d6b748914d670557353bca7f98d53fdf57782c65223aed33d0aeadc777120979ade3fb429b5a5486c967f4c2c63b5686a6a38cf329858f82b4d33be6df08419e97c1872a6c6191d5811b679d2827fb3306f9b634f7898b0207868c77e0a6033df229ec2ee28cd2c79ba01e49b67955300891e95765c53c25d3a7ceca2d4fab3944d30407797e01996d23b1ef2188bfd00662251c3f137bab02e4a831c47d722043ba4c780e5fa7d70e36968b7254b36d04ed82577fffb738086390eae9be1b800e8c19df14565ab13f4cda135220bf4a087604caa94cb26bf32ec920a2d19899b16c7d48acf285b80ebf412ed76b485f0c0b87cd272fe6fc80a82c98326397bcd408013113cbecca24ba03c36142ceb40d9d7b3ce7c9eeb71fa8c21e52cade31567c20acfa535250d1d95493c6f1e18902a5afbb5efc96a62b9d03a782536399f67a068c60d5b87144702debde82652c0f60e8298b66130176e39ef2dc754e11e498363b43a50655fc5d8a0ad07b93710d653e9ba5bda4772b2fef001990babfcaef513cb2b4f7dfc4d14cd79ca7cc6306545ac279b87a08dcedfabba270505fa6b60de12c29dd62d6bda33614e0ff6d00fd143259ae424d7a74b506b13cec4d16cd6519199862dfe2d768b6024c2a0703260e696f84a755b96272b314d2c9614c90ed4389beae781b9abed3801e047b042c5f6c1c7273737835b94c281766a7086692c339c9a18425cbc4060f1c1b9f0e3eab4bc3f891bc7c245aec18045eb0ed133acec748c390469470efc2f1a33c04f0879e027f878b7407ca7f42a847b180972d918d8eb2f8d06369d9dba6c5990b845ead58e131475206ff350764eebc4139f19d154eb08a7de8cb462f8d844f04f62a2548dd3db4810adf6cecbf310567e37c024e7f0593819b76c1c762b41c022a761c2dc9908e2dc478413ca6856b2436df96fc642e16766dfe531f19153c05923e3400b0f901194368f58bbcd3484fff84c470d883fc92568d8c3a7148aa07710fcfe514c713656dd14a088affafab9dede3a944690a4829d1a68e1edc7600c383de90edd1953fbf6a3c15e84ec051099748972b8f500e802ae4863bdde60240423a915ecec3eab9510d8aca86799400d8cd04e973f80d63431aeec1566d0240e744ba43acdb16c5b7207f42709f3880c2ac29610612bc182a81a85979ad0f4f2fdbc1c473910b9c3ae4266e72f84a08ccd566fa784d6da09d1666678eba0ad949d8c7bc57a81ba1b2fcff0fc5ecdacf42a04536fbac5293e27311aa5d0203fca71abb60ed9a6d0061855a6df3eb4a99dda032c3556a9dd4acffa42757230aa24d4cae9dae3e81e1e426ff8ae861691c08e62af5c9b7fee1bb589c98f42f0cc4ce92b77c6e4e5831cc7f1ea0e25dd5bcb9d348eee806867fc80345c2e0e80ff842faf0c679f972278112e2d12a6639229df57df429a49874ce2f419a60f801a50026424729413455372aa1adf14b8c33b194e91ec303a4448c4eadf9a1070d668c71c5b8bae28fbb4a7b6ee9924a351ddbd6cef575b5a68afcb0cd218d480861a3fa8dc4075acd9efa7909da095a030e2fc03be2400ae1a4e93778c0ca7f0ba4daf0f80c4308012f209d1ae36970ac8e70a17378ae981b8f12ea534948fe056b51a3dc4e2b69090d8dac19d80b00bf9f4f0a3d895e8df59c62c9eda4919e0e9080d32848a4b390b106ae3584c552b75719bd43bbeacb6632ba0938ecf5500998beae51b9993323ab0f9757f3b0c0495f5869d3b0baefac8fc41796290df30b8890f75a1d814329e26851c510cf8e8c4f38492638426491e05c68ad08c0480faf2f0713de768f50e4d98aeb16b6b40943bf4e59f872e8e97a3ff18efae11e0593af8a09401e3afbb43256e1514001c529bfa6b6b2ef1c0822baa5ede92c2c08a0464f4330811390bfe0e52bd296225b5ab0c232078961f2d27dc834b1f61c05b06f213c0623e4d924ff7e1658680ef61263b17a16b3730b2f007f1e01a39e00c7048f8bb0ad785c8f3b0e54f0453dc47f96103d4440cda66f6c508a251907034d7c051d328006bf561133f3f13972fdfc0ba2392baf6852bc106ffc7c2d3d0f9d487e464971ca43827b60cee910a5e51c81235c3b0c8fc217ccba75698f6a02aa5fba840617f4f412e288f90f3b5a26cee7ebe25d603b8d69ac4ee98e6e927d"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "tx_hash_list": ["f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"]  }}
+ ```bash
+curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_transfer","params":{"tx_data_hex":"0200010200158b9c3dc885308d9024ec8302c2e5109ad803d3f801de53d21493738e1f90e701dc5e801302d8161a8105be042aa807cb560557a7d0d4898cc6fd0c0d35e77bcf839ba9b235ec3674bf00cb90f32a8b0200020b85f8bb5eae185399c32fee2ef11e3a10fed9b998280d9ef2161c70b1f353c50002417be46e074735ed3d5c7147aa472e9c14a401b9ebd58985d20e5f6eeb70e4d72101f27d6926626deaf4506c94ff24f0abe117dbd54c4f28da7a1b13047b6b2878a403fae733aa829ee9d1fc948e393f3d7368cb537e00290732c46adc46e441d2c275cdd606c19730f020ee0da02dbd90d4cd4ce7abac0413c8d51f21f7fea951a963cb33083359a00a3180d734589aec044d7d37278fb3f469fdde70156a8803df822a1e0f441426e7d933e18aeb25e58acc8e58b36d33927775501bbf1bbf32483a1ce00b21795f315cd231b11fe58e6c8407bb21d19250b91754a94606e73e12a88c7600115b5af4112e3830928dec18a552ecee1640ecdd7157f37b5fe9aeb83321c7c7010000004fda960fdb48fd706038d36af0e134ff6e770993295261af08feca3ef13394a32999b0ed41d8628b3d474a91fbec325cfef5ed11e8f3bd77e7d9a9a66e4adafc0385491182a5ef73957497f1dd3c2b680b8e63ad869efa209f43b6322770d58220ed31a3f7a9489535a75a88f9f06c5a63d1028a5b56e72e2ae152f15ac65e12e3bd1cc54f2a6bb8383c8850c29a525a30d5f99d41788fb5a7f5eef69244ec06820d2ec4507b4ca2d15970d063fc8e1edef757a647f225b865092295252ab10d07559ce962bab5b5317d9e5714b2423c7b2181fe989071f858dec30ecf1ab5e4430b8764c2a6f6190c9806563ae80090adf044d28316731f7e4e56a75dcee9e5640f27cf889413e22971496edacf434ea5dc1acee029be37f71c1531ccf5af45632f658a5406a6c0de9804fc12ccb40168f2dbddf7f086e58ac6acd79c868ef865f037cd75d072466b892df28812b4ad0c397b0dc1bc1b2ba6a924117f210851419a1f95fb63f88afdf1bdd52e1d65d010632b119bedbc2ea91ea99886bec9612047f4210c3b608edaf97ee6734a7cf22a6dde09c6a36b628f67f7058614f67444076003291b8df917842102167bbf28a9c6d074e68ecfc40ba55371355f2231b5363304836b9faf7fdeeb16f5739c05b310d434235044bf1216a242fcc6faeee198a12480283e8b438c02a3f0ff9cae741a1d4207c26799f0df255639d36ba3a0546f0e7017ca557ad680f77d5ff77ba434ae55db821c5579cf00d63185c1c477bee35e8a2cce838939b0e849182c486d8915f003f130f16d233f3f404ffac45f8436e80058e1b81ce3c3b326f57bd878d6b748914d670557353bca7f98d53fdf57782c65223aed33d0aeadc777120979ade3fb429b5a5486c967f4c2c63b5686a6a38cf329858f82b4d33be6df08419e97c1872a6c6191d5811b679d2827fb3306f9b634f7898b0207868c77e0a6033df229ec2ee28cd2c79ba01e49b67955300891e95765c53c25d3a7ceca2d4fab3944d30407797e01996d23b1ef2188bfd00662251c3f137bab02e4a831c47d722043ba4c780e5fa7d70e36968b7254b36d04ed82577fffb738086390eae9be1b800e8c19df14565ab13f4cda135220bf4a087604caa94cb26bf32ec920a2d19899b16c7d48acf285b80ebf412ed76b485f0c0b87cd272fe6fc80a82c98326397bcd408013113cbecca24ba03c36142ceb40d9d7b3ce7c9eeb71fa8c21e52cade31567c20acfa535250d1d95493c6f1e18902a5afbb5efc96a62b9d03a782536399f67a068c60d5b87144702debde82652c0f60e8298b66130176e39ef2dc754e11e498363b43a50655fc5d8a0ad07b93710d653e9ba5bda4772b2fef001990babfcaef513cb2b4f7dfc4d14cd79ca7cc6306545ac279b87a08dcedfabba270505fa6b60de12c29dd62d6bda33614e0ff6d00fd143259ae424d7a74b506b13cec4d16cd6519199862dfe2d768b6024c2a0703260e696f84a755b96272b314d2c9614c90ed4389beae781b9abed3801e047b042c5f6c1c7273737835b94c281766a7086692c339c9a18425cbc4060f1c1b9f0e3eab4bc3f891bc7c245aec18045eb0ed133acec748c390469470efc2f1a33c04f0879e027f878b7407ca7f42a847b180972d918d8eb2f8d06369d9dba6c5990b845ead58e131475206ff350764eebc4139f19d154eb08a7de8cb462f8d844f04f62a2548dd3db4810adf6cecbf310567e37c024e7f0593819b76c1c762b41c022a761c2dc9908e2dc478413ca6856b2436df96fc642e16766dfe531f19153c05923e3400b0f901194368f58bbcd3484fff84c470d883fc92568d8c3a7148aa07710fcfe514c713656dd14a088affafab9dede3a944690a4829d1a68e1edc7600c383de90edd1953fbf6a3c15e84ec051099748972b8f500e802ae4863bdde60240423a915ecec3eab9510d8aca86799400d8cd04e973f80d63431aeec1566d0240e744ba43acdb16c5b7207f42709f3880c2ac29610612bc182a81a85979ad0f4f2fdbc1c473910b9c3ae4266e72f84a08ccd566fa784d6da09d1666678eba0ad949d8c7bc57a81ba1b2fcff0fc5ecdacf42a04536fbac5293e27311aa5d0203fca71abb60ed9a6d0061855a6df3eb4a99dda032c3556a9dd4acffa42757230aa24d4cae9dae3e81e1e426ff8ae861691c08e62af5c9b7fee1bb589c98f42f0cc4ce92b77c6e4e5831cc7f1ea0e25dd5bcb9d348eee806867fc80345c2e0e80ff842faf0c679f972278112e2d12a6639229df57df429a49874ce2f419a60f801a50026424729413455372aa1adf14b8c33b194e91ec303a4448c4eadf9a1070d668c71c5b8bae28fbb4a7b6ee9924a351ddbd6cef575b5a68afcb0cd218d480861a3fa8dc4075acd9efa7909da095a030e2fc03be2400ae1a4e93778c0ca7f0ba4daf0f80c4308012f209d1ae36970ac8e70a17378ae981b8f12ea534948fe056b51a3dc4e2b69090d8dac19d80b00bf9f4f0a3d895e8df59c62c9eda4919e0e9080d32848a4b390b106ae3584c552b75719bd43bbeacb6632ba0938ecf5500998beae51b9993323ab0f9757f3b0c0495f5869d3b0baefac8fc41796290df30b8890f75a1d814329e26851c510cf8e8c4f38492638426491e05c68ad08c0480faf2f0713de768f50e4d98aeb16b6b40943bf4e59f872e8e97a3ff18efae11e0593af8a09401e3afbb43256e1514001c529bfa6b6b2ef1c0822baa5ede92c2c08a0464f4330811390bfe0e52bd296225b5ab0c232078961f2d27dc834b1f61c05b06f213c0623e4d924ff7e1658680ef61263b17a16b3730b2f007f1e01a39e00c7048f8bb0ad785c8f3b0e54f0453dc47f96103d4440cda66f6c508a251907034d7c051d328006bf561133f3f13972fdfc0ba2392baf6852bc106ffc7c2d3d0f9d487e464971ca43827b60cee910a5e51c81235c3b0c8fc217ccba75698f6a02aa5fba840617f4f412e288f90f3b5a26cee7ebe25d603b8d69ac4ee98e6e927d"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "tx_hash_list": [
+      "f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"
+    ]
+  }
+}
 ```
 
 ‌
@@ -596,8 +792,16 @@ Send all dust outputs back to the wallet's, to make them easier to spend \(and m
 
 **Example** \(In this example, `sweep_dust` returns nothing because there are no funds to sweep\):
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_dust","params":{"get_tx_keys":true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "multisig_txset": "",    "unsigned_txset": ""  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_dust","params":{"get_tx_keys":true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "multisig_txset": "",
+    "unsigned_txset": ""
+  }
+}
 ```
 
 ‌
@@ -643,8 +847,28 @@ Send all unlocked balance to an address.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_all","params":{"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","ring_size":21}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "amount_list": [100000000000],    "fee_list": [1348040],    "multisig_txset": "",    "tx_hash_list": ["cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee"],    "tx_key_list": ["8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b"],    "unsigned_txset": ""  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_all","params":{"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","ring_size":21}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "amount_list": [
+      100000000000
+    ],
+    "fee_list": [
+      1348040
+    ],
+    "multisig_txset": "",
+    "tx_hash_list": [
+      "cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee"
+    ],
+    "tx_key_list": [
+      "8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b"
+    ],
+    "unsigned_txset": ""
+  }
+}
 ```
 
 ‌
@@ -691,8 +915,20 @@ Send all of a specific unlocked output to an address.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_single","params":{"destinations":[{"amount":100000000000,"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}],"ring_size":21,"get_tx_keys": true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "amount": 100000000000,    "fee": 1348040,    "multisig_txset": "",    "tx_hash": "cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee",    "tx_key": "8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b",    "unsigned_txset": ""  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_single","params":{"destinations":[{"amount":100000000000,"address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}],"ring_size":21,"get_tx_keys": true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "amount": 100000000000,
+    "fee": 1348040,
+    "multisig_txset": "",
+    "tx_hash": "cd97adf7372e620cda46ed623f89fca1411873f5d7251359ab468c287d8f9fee",
+    "tx_key": "8037f31fd7b9c76d432e6c0c14b549ea68fdd84537f75c6e9a066890f7840d0b",
+    "unsigned_txset": ""
+  }
+}
 ```
 
 ‌
@@ -719,8 +955,15 @@ Relay a transaction previously created with `"do_not_relay":true`.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"relay_tx","params":{"hex":"0200010200158b9c3dc885308d9024ec8302c2e5109ad803d3f801de53d21493738e1f90e701dc5e801302d8161a8105be042aa807cb560557a7d0d4898cc6fd0c0d35e77bcf839ba9b235ec3674bf00cb90f32a8b0200020b85f8bb5eae185399c32fee2ef11e3a10fed9b998280d9ef2161c70b1f353c50002417be46e074735ed3d5c7147aa472e9c14a401b9ebd58985d20e5f6eeb70e4d72101f27d6926626deaf4506c94ff24f0abe117dbd54c4f28da7a1b13047b6b2878a403fae733aa829ee9d1fc948e393f3d7368cb537e00290732c46adc46e441d2c275cdd606c19730f020ee0da02dbd90d4cd4ce7abac0413c8d51f21f7fea951a963cb33083359a00a3180d734589aec044d7d37278fb3f469fdde70156a8803df822a1e0f441426e7d933e18aeb25e58acc8e58b36d33927775501bbf1bbf32483a1ce00b21795f315cd231b11fe58e6c8407bb21d19250b91754a94606e73e12a88c7600115b5af4112e3830928dec18a552ecee1640ecdd7157f37b5fe9aeb83321c7c7010000004fda960fdb48fd706038d36af0e134ff6e770993295261af08feca3ef13394a32999b0ed41d8628b3d474a91fbec325cfef5ed11e8f3bd77e7d9a9a66e4adafc0385491182a5ef73957497f1dd3c2b680b8e63ad869efa209f43b6322770d58220ed31a3f7a9489535a75a88f9f06c5a63d1028a5b56e72e2ae152f15ac65e12e3bd1cc54f2a6bb8383c8850c29a525a30d5f99d41788fb5a7f5eef69244ec06820d2ec4507b4ca2d15970d063fc8e1edef757a647f225b865092295252ab10d07559ce962bab5b5317d9e5714b2423c7b2181fe989071f858dec30ecf1ab5e4430b8764c2a6f6190c9806563ae80090adf044d28316731f7e4e56a75dcee9e5640f27cf889413e22971496edacf434ea5dc1acee029be37f71c1531ccf5af45632f658a5406a6c0de9804fc12ccb40168f2dbddf7f086e58ac6acd79c868ef865f037cd75d072466b892df28812b4ad0c397b0dc1bc1b2ba6a924117f210851419a1f95fb63f88afdf1bdd52e1d65d010632b119bedbc2ea91ea99886bec9612047f4210c3b608edaf97ee6734a7cf22a6dde09c6a36b628f67f7058614f67444076003291b8df917842102167bbf28a9c6d074e68ecfc40ba55371355f2231b5363304836b9faf7fdeeb16f5739c05b310d434235044bf1216a242fcc6faeee198a12480283e8b438c02a3f0ff9cae741a1d4207c26799f0df255639d36ba3a0546f0e7017ca557ad680f77d5ff77ba434ae55db821c5579cf00d63185c1c477bee35e8a2cce838939b0e849182c486d8915f003f130f16d233f3f404ffac45f8436e80058e1b81ce3c3b326f57bd878d6b748914d670557353bca7f98d53fdf57782c65223aed33d0aeadc777120979ade3fb429b5a5486c967f4c2c63b5686a6a38cf329858f82b4d33be6df08419e97c1872a6c6191d5811b679d2827fb3306f9b634f7898b0207868c77e0a6033df229ec2ee28cd2c79ba01e49b67955300891e95765c53c25d3a7ceca2d4fab3944d30407797e01996d23b1ef2188bfd00662251c3f137bab02e4a831c47d722043ba4c780e5fa7d70e36968b7254b36d04ed82577fffb738086390eae9be1b800e8c19df14565ab13f4cda135220bf4a087604caa94cb26bf32ec920a2d19899b16c7d48acf285b80ebf412ed76b485f0c0b87cd272fe6fc80a82c98326397bcd408013113cbecca24ba03c36142ceb40d9d7b3ce7c9eeb71fa8c21e52cade31567c20acfa535250d1d95493c6f1e18902a5afbb5efc96a62b9d03a782536399f67a068c60d5b87144702debde82652c0f60e8298b66130176e39ef2dc754e11e498363b43a50655fc5d8a0ad07b93710d653e9ba5bda4772b2fef001990babfcaef513cb2b4f7dfc4d14cd79ca7cc6306545ac279b87a08dcedfabba270505fa6b60de12c29dd62d6bda33614e0ff6d00fd143259ae424d7a74b506b13cec4d16cd6519199862dfe2d768b6024c2a0703260e696f84a755b96272b314d2c9614c90ed4389beae781b9abed3801e047b042c5f6c1c7273737835b94c281766a7086692c339c9a18425cbc4060f1c1b9f0e3eab4bc3f891bc7c245aec18045eb0ed133acec748c390469470efc2f1a33c04f0879e027f878b7407ca7f42a847b180972d918d8eb2f8d06369d9dba6c5990b845ead58e131475206ff350764eebc4139f19d154eb08a7de8cb462f8d844f04f62a2548dd3db4810adf6cecbf310567e37c024e7f0593819b76c1c762b41c022a761c2dc9908e2dc478413ca6856b2436df96fc642e16766dfe531f19153c05923e3400b0f901194368f58bbcd3484fff84c470d883fc92568d8c3a7148aa07710fcfe514c713656dd14a088affafab9dede3a944690a4829d1a68e1edc7600c383de90edd1953fbf6a3c15e84ec051099748972b8f500e802ae4863bdde60240423a915ecec3eab9510d8aca86799400d8cd04e973f80d63431aeec1566d0240e744ba43acdb16c5b7207f42709f3880c2ac29610612bc182a81a85979ad0f4f2fdbc1c473910b9c3ae4266e72f84a08ccd566fa784d6da09d1666678eba0ad949d8c7bc57a81ba1b2fcff0fc5ecdacf42a04536fbac5293e27311aa5d0203fca71abb60ed9a6d0061855a6df3eb4a99dda032c3556a9dd4acffa42757230aa24d4cae9dae3e81e1e426ff8ae861691c08e62af5c9b7fee1bb589c98f42f0cc4ce92b77c6e4e5831cc7f1ea0e25dd5bcb9d348eee806867fc80345c2e0e80ff842faf0c679f972278112e2d12a6639229df57df429a49874ce2f419a60f801a50026424729413455372aa1adf14b8c33b194e91ec303a4448c4eadf9a1070d668c71c5b8bae28fbb4a7b6ee9924a351ddbd6cef575b5a68afcb0cd218d480861a3fa8dc4075acd9efa7909da095a030e2fc03be2400ae1a4e93778c0ca7f0ba4daf0f80c4308012f209d1ae36970ac8e70a17378ae981b8f12ea534948fe056b51a3dc4e2b69090d8dac19d80b00bf9f4f0a3d895e8df59c62c9eda4919e0e9080d32848a4b390b106ae3584c552b75719bd43bbeacb6632ba0938ecf5500998beae51b9993323ab0f9757f3b0c0495f5869d3b0baefac8fc41796290df30b8890f75a1d814329e26851c510cf8e8c4f38492638426491e05c68ad08c0480faf2f0713de768f50e4d98aeb16b6b40943bf4e59f872e8e97a3ff18efae11e0593af8a09401e3afbb43256e1514001c529bfa6b6b2ef1c0822baa5ede92c2c08a0464f4330811390bfe0e52bd296225b5ab0c232078961f2d27dc834b1f61c05b06f213c0623e4d924ff7e1658680ef61263b17a16b3730b2f007f1e01a39e00c7048f8bb0ad785c8f3b0e54f0453dc47f96103d4440cda66f6c508a251907034d7c051d328006bf561133f3f13972fdfc0ba2392baf6852bc106ffc7c2d3d0f9d487e464971ca43827b60cee910a5e51c81235c3b0c8fc217ccba75698f6a02aa5fba840617f4f412e288f90f3b5a26cee7ebe25d603b8d69ac4ee98e6e927d"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "tx_hash": "f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"relay_tx","params":{"hex":"0200010200158b9c3dc885308d9024ec8302c2e5109ad803d3f801de53d21493738e1f90e701dc5e801302d8161a8105be042aa807cb560557a7d0d4898cc6fd0c0d35e77bcf839ba9b235ec3674bf00cb90f32a8b0200020b85f8bb5eae185399c32fee2ef11e3a10fed9b998280d9ef2161c70b1f353c50002417be46e074735ed3d5c7147aa472e9c14a401b9ebd58985d20e5f6eeb70e4d72101f27d6926626deaf4506c94ff24f0abe117dbd54c4f28da7a1b13047b6b2878a403fae733aa829ee9d1fc948e393f3d7368cb537e00290732c46adc46e441d2c275cdd606c19730f020ee0da02dbd90d4cd4ce7abac0413c8d51f21f7fea951a963cb33083359a00a3180d734589aec044d7d37278fb3f469fdde70156a8803df822a1e0f441426e7d933e18aeb25e58acc8e58b36d33927775501bbf1bbf32483a1ce00b21795f315cd231b11fe58e6c8407bb21d19250b91754a94606e73e12a88c7600115b5af4112e3830928dec18a552ecee1640ecdd7157f37b5fe9aeb83321c7c7010000004fda960fdb48fd706038d36af0e134ff6e770993295261af08feca3ef13394a32999b0ed41d8628b3d474a91fbec325cfef5ed11e8f3bd77e7d9a9a66e4adafc0385491182a5ef73957497f1dd3c2b680b8e63ad869efa209f43b6322770d58220ed31a3f7a9489535a75a88f9f06c5a63d1028a5b56e72e2ae152f15ac65e12e3bd1cc54f2a6bb8383c8850c29a525a30d5f99d41788fb5a7f5eef69244ec06820d2ec4507b4ca2d15970d063fc8e1edef757a647f225b865092295252ab10d07559ce962bab5b5317d9e5714b2423c7b2181fe989071f858dec30ecf1ab5e4430b8764c2a6f6190c9806563ae80090adf044d28316731f7e4e56a75dcee9e5640f27cf889413e22971496edacf434ea5dc1acee029be37f71c1531ccf5af45632f658a5406a6c0de9804fc12ccb40168f2dbddf7f086e58ac6acd79c868ef865f037cd75d072466b892df28812b4ad0c397b0dc1bc1b2ba6a924117f210851419a1f95fb63f88afdf1bdd52e1d65d010632b119bedbc2ea91ea99886bec9612047f4210c3b608edaf97ee6734a7cf22a6dde09c6a36b628f67f7058614f67444076003291b8df917842102167bbf28a9c6d074e68ecfc40ba55371355f2231b5363304836b9faf7fdeeb16f5739c05b310d434235044bf1216a242fcc6faeee198a12480283e8b438c02a3f0ff9cae741a1d4207c26799f0df255639d36ba3a0546f0e7017ca557ad680f77d5ff77ba434ae55db821c5579cf00d63185c1c477bee35e8a2cce838939b0e849182c486d8915f003f130f16d233f3f404ffac45f8436e80058e1b81ce3c3b326f57bd878d6b748914d670557353bca7f98d53fdf57782c65223aed33d0aeadc777120979ade3fb429b5a5486c967f4c2c63b5686a6a38cf329858f82b4d33be6df08419e97c1872a6c6191d5811b679d2827fb3306f9b634f7898b0207868c77e0a6033df229ec2ee28cd2c79ba01e49b67955300891e95765c53c25d3a7ceca2d4fab3944d30407797e01996d23b1ef2188bfd00662251c3f137bab02e4a831c47d722043ba4c780e5fa7d70e36968b7254b36d04ed82577fffb738086390eae9be1b800e8c19df14565ab13f4cda135220bf4a087604caa94cb26bf32ec920a2d19899b16c7d48acf285b80ebf412ed76b485f0c0b87cd272fe6fc80a82c98326397bcd408013113cbecca24ba03c36142ceb40d9d7b3ce7c9eeb71fa8c21e52cade31567c20acfa535250d1d95493c6f1e18902a5afbb5efc96a62b9d03a782536399f67a068c60d5b87144702debde82652c0f60e8298b66130176e39ef2dc754e11e498363b43a50655fc5d8a0ad07b93710d653e9ba5bda4772b2fef001990babfcaef513cb2b4f7dfc4d14cd79ca7cc6306545ac279b87a08dcedfabba270505fa6b60de12c29dd62d6bda33614e0ff6d00fd143259ae424d7a74b506b13cec4d16cd6519199862dfe2d768b6024c2a0703260e696f84a755b96272b314d2c9614c90ed4389beae781b9abed3801e047b042c5f6c1c7273737835b94c281766a7086692c339c9a18425cbc4060f1c1b9f0e3eab4bc3f891bc7c245aec18045eb0ed133acec748c390469470efc2f1a33c04f0879e027f878b7407ca7f42a847b180972d918d8eb2f8d06369d9dba6c5990b845ead58e131475206ff350764eebc4139f19d154eb08a7de8cb462f8d844f04f62a2548dd3db4810adf6cecbf310567e37c024e7f0593819b76c1c762b41c022a761c2dc9908e2dc478413ca6856b2436df96fc642e16766dfe531f19153c05923e3400b0f901194368f58bbcd3484fff84c470d883fc92568d8c3a7148aa07710fcfe514c713656dd14a088affafab9dede3a944690a4829d1a68e1edc7600c383de90edd1953fbf6a3c15e84ec051099748972b8f500e802ae4863bdde60240423a915ecec3eab9510d8aca86799400d8cd04e973f80d63431aeec1566d0240e744ba43acdb16c5b7207f42709f3880c2ac29610612bc182a81a85979ad0f4f2fdbc1c473910b9c3ae4266e72f84a08ccd566fa784d6da09d1666678eba0ad949d8c7bc57a81ba1b2fcff0fc5ecdacf42a04536fbac5293e27311aa5d0203fca71abb60ed9a6d0061855a6df3eb4a99dda032c3556a9dd4acffa42757230aa24d4cae9dae3e81e1e426ff8ae861691c08e62af5c9b7fee1bb589c98f42f0cc4ce92b77c6e4e5831cc7f1ea0e25dd5bcb9d348eee806867fc80345c2e0e80ff842faf0c679f972278112e2d12a6639229df57df429a49874ce2f419a60f801a50026424729413455372aa1adf14b8c33b194e91ec303a4448c4eadf9a1070d668c71c5b8bae28fbb4a7b6ee9924a351ddbd6cef575b5a68afcb0cd218d480861a3fa8dc4075acd9efa7909da095a030e2fc03be2400ae1a4e93778c0ca7f0ba4daf0f80c4308012f209d1ae36970ac8e70a17378ae981b8f12ea534948fe056b51a3dc4e2b69090d8dac19d80b00bf9f4f0a3d895e8df59c62c9eda4919e0e9080d32848a4b390b106ae3584c552b75719bd43bbeacb6632ba0938ecf5500998beae51b9993323ab0f9757f3b0c0495f5869d3b0baefac8fc41796290df30b8890f75a1d814329e26851c510cf8e8c4f38492638426491e05c68ad08c0480faf2f0713de768f50e4d98aeb16b6b40943bf4e59f872e8e97a3ff18efae11e0593af8a09401e3afbb43256e1514001c529bfa6b6b2ef1c0822baa5ede92c2c08a0464f4330811390bfe0e52bd296225b5ab0c232078961f2d27dc834b1f61c05b06f213c0623e4d924ff7e1658680ef61263b17a16b3730b2f007f1e01a39e00c7048f8bb0ad785c8f3b0e54f0453dc47f96103d4440cda66f6c508a251907034d7c051d328006bf561133f3f13972fdfc0ba2392baf6852bc106ffc7c2d3d0f9d487e464971ca43827b60cee910a5e51c81235c3b0c8fc217ccba75698f6a02aa5fba840617f4f412e288f90f3b5a26cee7ebe25d603b8d69ac4ee98e6e927d"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "tx_hash": "f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"
+  }
+}
 ```
 
 ‌
@@ -739,8 +982,13 @@ Save the wallet file.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"store"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"store"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -776,8 +1024,26 @@ Get a list of incoming payments using a given payment id.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_payments","params":{"payment_id":"0000000000000000000000000000000000000000000000000000000000000000"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "payments": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "amount": 12000000000,      "block_height": 358092,      "payment_id": "0000000000000000000000000000000000000000000000000000000000000000",      "subaddr_index": {        "major": 0,        "minor": 0      },    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_payments","params":{"payment_id":"0000000000000000000000000000000000000000000000000000000000000000"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "payments": [
+      {
+        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+        "amount": 12000000000,
+        "block_height": 358092,
+        "payment_id": "0000000000000000000000000000000000000000000000000000000000000000",
+        "subaddr_index": {
+          "major": 0,
+          "minor": 0
+        }
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -814,8 +1080,26 @@ Get a list of incoming payments using a given payment id, or a list of payments 
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bulk_payments","params":{"payment_ids":["0000000000000000000000000000000000000000000000000000000000000000"],"min_block_height":"120000"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "payments": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "amount": 12000000000,      "block_height": 358092,      "payment_id": "0000000000000000000000000000000000000000000000000000000000000000",      "subaddr_index": {        "major": 0,        "minor": 0      },    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bulk_payments","params":{"payment_ids":["0000000000000000000000000000000000000000000000000000000000000000"],"min_block_height":"120000"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "payments": [
+      {
+        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+        "amount": 12000000000,
+        "block_height": 358092,
+        "payment_id": "0000000000000000000000000000000000000000000000000000000000000000",
+        "subaddr_index": {
+          "major": 0,
+          "minor": 0
+        }
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -850,24 +1134,86 @@ Return a list of incoming transfers to the wallet.‌
 
 **Example**, get all transfers:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"all"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "transfers": [{      "amount": 362070234101,      "global_index": 2864114,      "key_image": "1fbc053e189764f562afcb27299f4b48c8c8658d08dd528abe2e0826ee5e91d7",      "spent": false,      "subaddr_index": {        "major": 0,        "minor": 0      },      "tx_hash": "f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"all"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "transfers": [
+      {
+        "amount": 362070234101,
+        "global_index": 2864114,
+        "key_image": "1fbc053e189764f562afcb27299f4b48c8c8658d08dd528abe2e0826ee5e91d7",
+        "spent": false,
+        "subaddr_index": {
+          "major": 0,
+          "minor": 0
+        },
+        "tx_hash": "f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"
+      }
+    ]
+  }
+}
 ```
 
 ‌
 
 **Example**, get available transfers:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"available","account_index":0,"subaddr_indices":[3],"verbose":true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "transfers": [{      "amount": 27126892247503,      "global_index": 594994,      "key_image": "7e561394806afd1be61980cc3431f6ef3569fa9151cd8d234f8ec13aa145695e",      "spent": false,      "subaddr_index": 3,      "tx_hash": "106d4391a031e5b735ded555862fec63233e34e5fa4fc7edcfdbe461c275ae5b",      "tx_size": 157    },{      "amount": 27169374733655,      "global_index": 594997,      "key_image": "e76c0a3bfeaae35e4173712f782eb34011198e26b990225b71aa787c8ba8a157",      "spent": false,      "subaddr_index": 3,      "tx_hash": "0bd959b59117ee1254bd8e5aa8e77ec04ef744144a1ffb2d5c1eb9380a719621",      "tx_size": 158    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"available","account_index":0,"subaddr_indices":[3],"verbose":true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "transfers": [
+      {
+        "amount": 27126892247503,
+        "global_index": 594994,
+        "key_image": "7e561394806afd1be61980cc3431f6ef3569fa9151cd8d234f8ec13aa145695e",
+        "spent": false,
+        "subaddr_index": 3,
+        "tx_hash": "106d4391a031e5b735ded555862fec63233e34e5fa4fc7edcfdbe461c275ae5b",
+        "tx_size": 157
+      },
+      {
+        "amount": 27169374733655,
+        "global_index": 594997,
+        "key_image": "e76c0a3bfeaae35e4173712f782eb34011198e26b990225b71aa787c8ba8a157",
+        "spent": false,
+        "subaddr_index": 3,
+        "tx_hash": "0bd959b59117ee1254bd8e5aa8e77ec04ef744144a1ffb2d5c1eb9380a719621",
+        "tx_size": 158
+      }
+    ]
+  }
+}
 ```
 
 ‌
 
 **Example**, get unavailable transfers:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"unavailable","account_index":0,"subaddr_indices":[3],"verbose":true}}' -H 'Content-Type: application/json'{"id": "0","jsonrpc": "2.0","result": {  "transfers": [{    "amount": 60000000000000,    "global_index": 122405,    "key_image": "768f5144777eb23477ab7acf83562581d690abaf98ca897c03a9d2b900eb479b",    "spent": true,    "subaddr_index": 3,    "tx_hash": "f53401f21c6a43e44d5dd7a90eba5cf580012ad0e15d050059136f8a0da34f6b",    "tx_size": 159  }]}}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"unavailable","account_index":0,"subaddr_indices":[3],"verbose":true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "transfers": [
+      {
+        "amount": 60000000000000,
+        "global_index": 122405,
+        "key_image": "768f5144777eb23477ab7acf83562581d690abaf98ca897c03a9d2b900eb479b",
+        "spent": true,
+        "subaddr_index": 3,
+        "tx_hash": "f53401f21c6a43e44d5dd7a90eba5cf580012ad0e15d050059136f8a0da34f6b",
+        "tx_size": 159
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -894,16 +1240,30 @@ Return the spend or view private key.‌
 
 **Example** \(Query view key\):
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"view_key"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "key": "93d7bf52dfea9da0b35b7da923bd1ca9d4db4cf5c925c261ba0b6274c3fa9208"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"view_key"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "key": "93d7bf52dfea9da0b35b7da923bd1ca9d4db4cf5c925c261ba0b6274c3fa9208"
+  }
+}
 ```
 
 ‌
 
 **Example** \(Query mnemonic key\):
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"mnemonic"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "key": "arena eight cool bugs sieve bovine feline pledge affair aptitude yeti gnaw gadget saved cunning sadness apricot pruned foxes gags eagle pelican hippo hunter gags"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"mnemonic"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "key": "arena eight cool bugs sieve bovine feline pledge affair aptitude yeti gnaw gadget saved cunning sadness apricot pruned foxes gags eagle pelican hippo hunter gags"
+  }
+}
 ```
 
 ‌
@@ -932,8 +1292,16 @@ Make an integrated address from the wallet address and a payment id.‌
 
 **Example** \(Payment ID is empty, use a random ID\):
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_integrated_address"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "integrated_address": "XCBzxZ866QF438An6FUXHM1RGetpTT4Ek9kaA9afPTXaetKq9wsacaEc3rb5TM85kJBn1qv2NxPw12Mr24uB2cDwBt6ZwDMxS9rfRf6W4oTcwC",    "payment_id": "f8784e5de5ba9075"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_integrated_address"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "integrated_address": "XCBzxZ866QF438An6FUXHM1RGetpTT4Ek9kaA9afPTXaetKq9wsacaEc3rb5TM85kJBn1qv2NxPw12Mr24uB2cDwBt6ZwDMxS9rfRf6W4oTcwC",
+    "payment_id": "f8784e5de5ba9075"
+  }
+}
 ```
 
 ‌
@@ -962,8 +1330,17 @@ Retrieve the standard address and payment id corresponding to an integrated addr
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"split_integrated_address","params":{"integrated_address": "XCBzxZ866QF438An6FUXHM1RGetpTT4Ek9kaA9afPTXaetKq9wsacaEc3rb5TM85kJBn1qv2NxPw12Mr24uB2cDwBt6ZwDMxS9rfRf6W4oTcwC"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "is_subaddress": false,    "payment_id": "f8784e5de5ba9075",    "standard_address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"split_integrated_address","params":{"integrated_address": "XCBzxZ866QF438An6FUXHM1RGetpTT4Ek9kaA9afPTXaetKq9wsacaEc3rb5TM85kJBn1qv2NxPw12Mr24uB2cDwBt6ZwDMxS9rfRf6W4oTcwC"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "is_subaddress": false,
+    "payment_id": "f8784e5de5ba9075",
+    "standard_address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R"
+  }
+}
 ```
 
 ‌
@@ -982,8 +1359,13 @@ Stops the wallet, storing the current state.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_wallet"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_wallet"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1002,8 +1384,13 @@ Rescan the blockchain from scratch, losing any information which can not be reco
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_blockchain"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_blockchain"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1027,8 +1414,13 @@ Set arbitrary string notes for transactions.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_tx_notes","params":{"txids":["f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"],"notes":["This is an example"]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_tx_notes","params":{"txids":["f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"],"notes":["This is an example"]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1055,8 +1447,17 @@ Get string notes for transactions.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_notes","params":{"txids":["f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "notes": ["This is an example"]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_notes","params":{"txids":["f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "notes": [
+      "This is an example"
+    ]
+  }
+}
 ```
 
 ‌
@@ -1080,8 +1481,13 @@ Set arbitrary attribute.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_attribute","params":{"key":"my_attribute","value":"my_value"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_attribute","params":{"key":"my_attribute","value":"my_value"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1108,8 +1514,15 @@ Get attribute value by name.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_attribute","params":{"key":"my_attribute"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "value": "my_value"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_attribute","params":{"key":"my_attribute"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "value": "my_value"
+  }
+}
 ```
 
 ‌
@@ -1136,8 +1549,15 @@ Get transaction secret key from transaction id.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_key","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "tx_key": "81ba662cf8fb6d0d0da18fc9b70ab28e01cc76311278fdd7fe7ab16360762b06"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_key","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "tx_key": "81ba662cf8fb6d0d0da18fc9b70ab28e01cc76311278fdd7fe7ab16360762b06"
+  }
+}
 ```
 
 ‌
@@ -1168,8 +1588,17 @@ Check a transaction in the blockchain with its secret key.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_tx_key","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","tx_key":"81ba662cf8fb6d0d0da18fc9b70ab28e01cc76311278fdd7fe7ab16360762b06","address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "confirmations": 0,    "in_pool": false,    "received": 100000000000  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_tx_key","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","tx_key":"81ba662cf8fb6d0d0da18fc9b70ab28e01cc76311278fdd7fe7ab16360762b06","address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "confirmations": 0,
+    "in_pool": false,
+    "received": 100000000000
+  }
+}
 ```
 
 ‌
@@ -1198,8 +1627,15 @@ Get transaction signature to prove it.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","message":"this is my transaction"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "signature": "InProofV13vqBCT6dpSAXkypZmSEMPGVnNRFDX2vscUYeVS4WnSVnV5BwLs31T9q6Etfj9Wts6tAxSAS4gkMeSYzzLS7Gt4vvCSQRh9niGJMUDJsB5hTzb2XJiCkUzWkkcjLFBBRVD5QZ"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","message":"this is my transaction"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "signature": "InProofV13vqBCT6dpSAXkypZmSEMPGVnNRFDX2vscUYeVS4WnSVnV5BwLs31T9q6Etfj9Wts6tAxSAS4gkMeSYzzLS7Gt4vvCSQRh9niGJMUDJsB5hTzb2XJiCkUzWkkcjLFBBRVD5QZ"
+  }
+}
 ```
 
 ‌
@@ -1232,8 +1668,18 @@ Prove a transaction by checking its signature.‌
 
 In the example below, the transaction has been proven:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_tx_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","message":"this is my transaction","signature":"InProofV13vqBCT6dpSAXkypZmSEMPGVnNRFDX2vscUYeVS4WnSVnV5BwLs31T9q6Etfj9Wts6tAxSAS4gkMeSYzzLS7Gt4vvCSQRh9niGJMUDJsB5hTzb2XJiCkUzWkkcjLFBBRVD5QZ"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "confirmations": 482,    "good": true,    "in_pool": false,    "received": 1000000000000  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_tx_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","message":"this is my transaction","signature":"InProofV13vqBCT6dpSAXkypZmSEMPGVnNRFDX2vscUYeVS4WnSVnV5BwLs31T9q6Etfj9Wts6tAxSAS4gkMeSYzzLS7Gt4vvCSQRh9niGJMUDJsB5hTzb2XJiCkUzWkkcjLFBBRVD5QZ"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "confirmations": 482,
+    "good": true,
+    "in_pool": false,
+    "received": 1000000000000
+  }
+}
 ```
 
 ‌
@@ -1261,8 +1707,15 @@ Generate a signature to prove a spend. Unlike proving a transaction, it does not
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_spend_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","message":"this is my transaction"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "signature": "SpendProofV1aSh8Todhk54736iXgV6vJAFP7egxByuMWZeyNDaN2JY737S95X5zz5mNMQSuCNSLjjhi5HJCsndpNWSNVsuThxwv285qy1KkUrLFRkxMSCjfL6bbycYN33ScZ5UB4Fzseceo1ndpL393T1q638VmcU3a56dhNHF1RPZFiGPS61FA78nXFSqE9uoKCCoHkEz83M1dQVhxZV5CEPF2P6VioGTKgprLCH9vvj9k1ivd4SX19L2VSMc3zD1u3mkR24ioETvxBoLeBSpxMoikyZ6inhuPm8yYo9YWyFtQK4XYfAV9mJ9knz5fUPXR8vvh7KJCAg4dqeJXTVb4mbMzYtsSZXHd6ouWoyCd6qMALdW8pKhgMCHcVYMWp9X9WHZuCo9rsRjRpg15sJUw7oJg1JoGiVgj8P4JeGDjnZHnmLVa5bpJhVCbMhyM7JLXNQJzFWTGC27TQBbthxCfQaKdusYnvZnKPDJWSeceYEFzepUnsWhQtyhbb73FzqgWC4eKEFKAZJqT2LuuSoxmihJ9acnFK7Ze23KTVYgDyMKY61VXADxmSrBvwUtxCaW4nQtnbMxiPMNnDMzeixqsFMBtN72j5UqhiLRY99k6SE7Qf5f29haNSBNSXCFFHChPKNTwJrehkofBdKUhh2VGPqZDNoefWUwfudeu83t85bmjv8Q3LrQSkFgFjRT5tLo8TMawNXoZCrQpyZrEvnodMDDUUNf3NL7rxyv3gM1KrTWjYaWXFU2RAsFee2Q2MTwUW7hR25cJvSFuB1BX2bfkoCbiMk923tHZGU2g7rSKF1GDDkXAc1EvFFD4iGbh1Q5t6hPRhBV8PEncdcCWGq5uAL5D4Bjr6VXG8uNeCy5oYWNgbZ5JRSfm7QEhPv8Fy9AKMgmCxDGMF9dVEaU6tw2BAnJavQdfrxChbDBeQXzCbCfep6oei6n2LZdE5Q84wp7eoQFE5Cwuo23tHkbJCaw2njFi3WGBbA7uGZaGHJPyB2rofTWBiSUXZnP2hiE9bjJghAcDm1M4LVLfWvhZmFEnyeru3VWMETnetz1BYLUC5MJGFXuhnHwWh7F6r74FDyhdswYop4eWPbyrXMXmUQEccTGd2NaT8g2VHADZ76gMC6BjWESvcnz2D4n8XwdmM7ZQ1jFwhuXrBfrb1dwRasyXxxHMGAC2onatNiExyeQ9G1W5LwqNLAh9hvcaNTGaYKYXoceVzLkgm6e5WMkLsCwuZXvB"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_spend_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","message":"this is my transaction"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "signature": "SpendProofV1aSh8Todhk54736iXgV6vJAFP7egxByuMWZeyNDaN2JY737S95X5zz5mNMQSuCNSLjjhi5HJCsndpNWSNVsuThxwv285qy1KkUrLFRkxMSCjfL6bbycYN33ScZ5UB4Fzseceo1ndpL393T1q638VmcU3a56dhNHF1RPZFiGPS61FA78nXFSqE9uoKCCoHkEz83M1dQVhxZV5CEPF2P6VioGTKgprLCH9vvj9k1ivd4SX19L2VSMc3zD1u3mkR24ioETvxBoLeBSpxMoikyZ6inhuPm8yYo9YWyFtQK4XYfAV9mJ9knz5fUPXR8vvh7KJCAg4dqeJXTVb4mbMzYtsSZXHd6ouWoyCd6qMALdW8pKhgMCHcVYMWp9X9WHZuCo9rsRjRpg15sJUw7oJg1JoGiVgj8P4JeGDjnZHnmLVa5bpJhVCbMhyM7JLXNQJzFWTGC27TQBbthxCfQaKdusYnvZnKPDJWSeceYEFzepUnsWhQtyhbb73FzqgWC4eKEFKAZJqT2LuuSoxmihJ9acnFK7Ze23KTVYgDyMKY61VXADxmSrBvwUtxCaW4nQtnbMxiPMNnDMzeixqsFMBtN72j5UqhiLRY99k6SE7Qf5f29haNSBNSXCFFHChPKNTwJrehkofBdKUhh2VGPqZDNoefWUwfudeu83t85bmjv8Q3LrQSkFgFjRT5tLo8TMawNXoZCrQpyZrEvnodMDDUUNf3NL7rxyv3gM1KrTWjYaWXFU2RAsFee2Q2MTwUW7hR25cJvSFuB1BX2bfkoCbiMk923tHZGU2g7rSKF1GDDkXAc1EvFFD4iGbh1Q5t6hPRhBV8PEncdcCWGq5uAL5D4Bjr6VXG8uNeCy5oYWNgbZ5JRSfm7QEhPv8Fy9AKMgmCxDGMF9dVEaU6tw2BAnJavQdfrxChbDBeQXzCbCfep6oei6n2LZdE5Q84wp7eoQFE5Cwuo23tHkbJCaw2njFi3WGBbA7uGZaGHJPyB2rofTWBiSUXZnP2hiE9bjJghAcDm1M4LVLfWvhZmFEnyeru3VWMETnetz1BYLUC5MJGFXuhnHwWh7F6r74FDyhdswYop4eWPbyrXMXmUQEccTGd2NaT8g2VHADZ76gMC6BjWESvcnz2D4n8XwdmM7ZQ1jFwhuXrBfrb1dwRasyXxxHMGAC2onatNiExyeQ9G1W5LwqNLAh9hvcaNTGaYKYXoceVzLkgm6e5WMkLsCwuZXvB"
+  }
+}
 ```
 
 ‌
@@ -1291,8 +1744,15 @@ Prove a spend using a signature. Unlike proving a transaction, it does not requi
 
 In the example below, the spend has been proven:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_spend_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","message":"this is my transaction","signature":"SpendProofV1aSh8Todhk54736iXgV6vJAFP7egxByuMWZeyNDaN2JY737S95X5zz5mNMQSuCNSLjjhi5HJCsndpNWSNVsuThxwv285qy1KkUrLFRkxMSCjfL6bbycYN33ScZ5UB4Fzseceo1ndpL393T1q638VmcU3a56dhNHF1RPZFiGPS61FA78nXFSqE9uoKCCoHkEz83M1dQVhxZV5CEPF2P6VioGTKgprLCH9vvj9k1ivd4SX19L2VSMc3zD1u3mkR24ioETvxBoLeBSpxMoikyZ6inhuPm8yYo9YWyFtQK4XYfAV9mJ9knz5fUPXR8vvh7KJCAg4dqeJXTVb4mbMzYtsSZXHd6ouWoyCd6qMALdW8pKhgMCHcVYMWp9X9WHZuCo9rsRjRpg15sJUw7oJg1JoGiVgj8P4JeGDjnZHnmLVa5bpJhVCbMhyM7JLXNQJzFWTGC27TQBbthxCfQaKdusYnvZnKPDJWSeceYEFzepUnsWhQtyhbb73FzqgWC4eKEFKAZJqT2LuuSoxmihJ9acnFK7Ze23KTVYgDyMKY61VXADxmSrBvwUtxCaW4nQtnbMxiPMNnDMzeixqsFMBtN72j5UqhiLRY99k6SE7Qf5f29haNSBNSXCFFHChPKNTwJrehkofBdKUhh2VGPqZDNoefWUwfudeu83t85bmjv8Q3LrQSkFgFjRT5tLo8TMawNXoZCrQpyZrEvnodMDDUUNf3NL7rxyv3gM1KrTWjYaWXFU2RAsFee2Q2MTwUW7hR25cJvSFuB1BX2bfkoCbiMk923tHZGU2g7rSKF1GDDkXAc1EvFFD4iGbh1Q5t6hPRhBV8PEncdcCWGq5uAL5D4Bjr6VXG8uNeCy5oYWNgbZ5JRSfm7QEhPv8Fy9AKMgmCxDGMF9dVEaU6tw2BAnJavQdfrxChbDBeQXzCbCfep6oei6n2LZdE5Q84wp7eoQFE5Cwuo23tHkbJCaw2njFi3WGBbA7uGZaGHJPyB2rofTWBiSUXZnP2hiE9bjJghAcDm1M4LVLfWvhZmFEnyeru3VWMETnetz1BYLUC5MJGFXuhnHwWh7F6r74FDyhdswYop4eWPbyrXMXmUQEccTGd2NaT8g2VHADZ76gMC6BjWESvcnz2D4n8XwdmM7ZQ1jFwhuXrBfrb1dwRasyXxxHMGAC2onatNiExyeQ9G1W5LwqNLAh9hvcaNTGaYKYXoceVzLkgm6e5WMkLsCwuZXvB"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "good": true  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_spend_proof","params":{"txid":"f00426a332ab8eea7b0d8d219fd955b87debb49b1ff4d18d831bbe25426152e8","message":"this is my transaction","signature":"SpendProofV1aSh8Todhk54736iXgV6vJAFP7egxByuMWZeyNDaN2JY737S95X5zz5mNMQSuCNSLjjhi5HJCsndpNWSNVsuThxwv285qy1KkUrLFRkxMSCjfL6bbycYN33ScZ5UB4Fzseceo1ndpL393T1q638VmcU3a56dhNHF1RPZFiGPS61FA78nXFSqE9uoKCCoHkEz83M1dQVhxZV5CEPF2P6VioGTKgprLCH9vvj9k1ivd4SX19L2VSMc3zD1u3mkR24ioETvxBoLeBSpxMoikyZ6inhuPm8yYo9YWyFtQK4XYfAV9mJ9knz5fUPXR8vvh7KJCAg4dqeJXTVb4mbMzYtsSZXHd6ouWoyCd6qMALdW8pKhgMCHcVYMWp9X9WHZuCo9rsRjRpg15sJUw7oJg1JoGiVgj8P4JeGDjnZHnmLVa5bpJhVCbMhyM7JLXNQJzFWTGC27TQBbthxCfQaKdusYnvZnKPDJWSeceYEFzepUnsWhQtyhbb73FzqgWC4eKEFKAZJqT2LuuSoxmihJ9acnFK7Ze23KTVYgDyMKY61VXADxmSrBvwUtxCaW4nQtnbMxiPMNnDMzeixqsFMBtN72j5UqhiLRY99k6SE7Qf5f29haNSBNSXCFFHChPKNTwJrehkofBdKUhh2VGPqZDNoefWUwfudeu83t85bmjv8Q3LrQSkFgFjRT5tLo8TMawNXoZCrQpyZrEvnodMDDUUNf3NL7rxyv3gM1KrTWjYaWXFU2RAsFee2Q2MTwUW7hR25cJvSFuB1BX2bfkoCbiMk923tHZGU2g7rSKF1GDDkXAc1EvFFD4iGbh1Q5t6hPRhBV8PEncdcCWGq5uAL5D4Bjr6VXG8uNeCy5oYWNgbZ5JRSfm7QEhPv8Fy9AKMgmCxDGMF9dVEaU6tw2BAnJavQdfrxChbDBeQXzCbCfep6oei6n2LZdE5Q84wp7eoQFE5Cwuo23tHkbJCaw2njFi3WGBbA7uGZaGHJPyB2rofTWBiSUXZnP2hiE9bjJghAcDm1M4LVLfWvhZmFEnyeru3VWMETnetz1BYLUC5MJGFXuhnHwWh7F6r74FDyhdswYop4eWPbyrXMXmUQEccTGd2NaT8g2VHADZ76gMC6BjWESvcnz2D4n8XwdmM7ZQ1jFwhuXrBfrb1dwRasyXxxHMGAC2onatNiExyeQ9G1W5LwqNLAh9hvcaNTGaYKYXoceVzLkgm6e5WMkLsCwuZXvB"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "good": true
+  }
+}
 ```
 
 ‌
@@ -1322,8 +1782,15 @@ Generate a signature to prove of an available amount in a wallet.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_reserve_proof","params":{"all":true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "signature": "ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112VKmH111118NwZ1xM1HTAd84ePcZSqFX6xBVieiDSoxYpCckL4DReogi9MTV113UXUtguEFV1zrU82oHgTV2eBjikYMnJEowkxibHPkk18K4Gye8tcr4u8ZBoTvdAV347nXpxxGjmUVvN7f9jnthihEETtjHWgP113kpYmq9tnad9iWuq79GzfaYSnCJwTSELA7ZYpovkgUTCGimj7eXR5JcC7tdrnFNT2yZyrvwdkhhU5f1QhYASkT8bEUjmm8FWMEfzPzq5A5pFFMdv8NQNYap7HZnQRCkxvEZUByvoDUUVoWSf9Fjnrs8tCyXh28yo3cjf8gg1SNtPXo6kohKwxNgaL1Ak9UAcoRJR7dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSV6nnejGkeMJFg8VicB8CCAQDJ2rkUXiKwJsBuutypLEBu6frBYGmAVRSFt224VKfJfnVbx8M6k6Xq6Yu4pmcBJ4gZCDy"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_reserve_proof","params":{"all":true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "signature": "ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112VKmH111118NwZ1xM1HTAd84ePcZSqFX6xBVieiDSoxYpCckL4DReogi9MTV113UXUtguEFV1zrU82oHgTV2eBjikYMnJEowkxibHPkk18K4Gye8tcr4u8ZBoTvdAV347nXpxxGjmUVvN7f9jnthihEETtjHWgP113kpYmq9tnad9iWuq79GzfaYSnCJwTSELA7ZYpovkgUTCGimj7eXR5JcC7tdrnFNT2yZyrvwdkhhU5f1QhYASkT8bEUjmm8FWMEfzPzq5A5pFFMdv8NQNYap7HZnQRCkxvEZUByvoDUUVoWSf9Fjnrs8tCyXh28yo3cjf8gg1SNtPXo6kohKwxNgaL1Ak9UAcoRJR7dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSV6nnejGkeMJFg8VicB8CCAQDJ2rkUXiKwJsBuutypLEBu6frBYGmAVRSFt224VKfJfnVbx8M6k6Xq6Yu4pmcBJ4gZCDy"
+  }
+}
 ```
 
 ‌
@@ -1352,8 +1819,17 @@ Proves a wallet has a disposable reserve using a signature.‌
 
 In the example below, the reserve has been proven:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_reserve_proof","params":{"address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","signature":"ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112VKmH111118NwZ1xM1HTAd84ePcZSqFX6xBVieiDSoxYpCckL4DReogi9MTV113UXUtguEFV1zrU82oHgTV2eBjikYMnJEowkxibHPkk18K4Gye8tcr4u8ZBoTvdAV347nXpxxGjmUVvN7f9jnthihEETtjHWgP113kpYmq9tnad9iWuq79GzfaYSnCJwTSELA7ZYpovkgUTCGimj7eXR5JcC7tdrnFNT2yZyrvwdkhhU5f1QhYASkT8bEUjmm8FWMEfzPzq5A5pFFMdv8NQNYap7HZnQRCkxvEZUByvoDUUVoWSf9Fjnrs8tCyXh28yo3cjf8gg1SNtPXo6kohKwxNgaL1Ak9UAcoRJR7dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSV6nnejGkeMJFg8VicB8CCAQDJ2rkUXiKwJsBuutypLEBu6frBYGmAVRSFt224VKfJfnVbx8M6k6Xq6Yu4pmcBJ4gZCDy"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "good": true,    "spent": 0,    "total": 1000000000  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"check_reserve_proof","params":{"address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","signature":"ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112VKmH111118NwZ1xM1HTAd84ePcZSqFX6xBVieiDSoxYpCckL4DReogi9MTV113UXUtguEFV1zrU82oHgTV2eBjikYMnJEowkxibHPkk18K4Gye8tcr4u8ZBoTvdAV347nXpxxGjmUVvN7f9jnthihEETtjHWgP113kpYmq9tnad9iWuq79GzfaYSnCJwTSELA7ZYpovkgUTCGimj7eXR5JcC7tdrnFNT2yZyrvwdkhhU5f1QhYASkT8bEUjmm8FWMEfzPzq5A5pFFMdv8NQNYap7HZnQRCkxvEZUByvoDUUVoWSf9Fjnrs8tCyXh28yo3cjf8gg1SNtPXo6kohKwxNgaL1Ak9UAcoRJR7dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSV6nnejGkeMJFg8VicB8CCAQDJ2rkUXiKwJsBuutypLEBu6frBYGmAVRSFt224VKfJfnVbx8M6k6Xq6Yu4pmcBJ4gZCDy"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "good": true,
+    "spent": 0,
+    "total": 1000000000
+  }
+}
 ```
 
 ‌
@@ -1409,8 +1885,35 @@ Returns a list of transfers.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfers","params":{"in":true}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "in": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "amount": 50000000,      "confirmations": 102498,      "double_spend_seen": false,      "fee": 1953096,      "height": 328037,      "note": "",      "payment_id": "19295438056b27dd16fc6cb42a1c26eedff915e1210e1596dec67fd787912f3b",      "subaddr_index": {        "major": 0,        "minor": 0      },      "suggested_confirmations_threshold": 1,      "timestamp": 1555972854,      "txid": "35f9dccaf21dfe1df0945ebfc8b3ef28977b4ea1a78b3726c9f866facd27f7ad",      "type": "in",      "unlock_time": 0    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfers","params":{"in":true}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "in": [
+      {
+        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+        "amount": 50000000,
+        "confirmations": 102498,
+        "double_spend_seen": false,
+        "fee": 1953096,
+        "height": 328037,
+        "note": "",
+        "payment_id": "19295438056b27dd16fc6cb42a1c26eedff915e1210e1596dec67fd787912f3b",
+        "subaddr_index": {
+          "major": 0,
+          "minor": 0
+        },
+        "suggested_confirmations_threshold": 1,
+        "timestamp": 1555972854,
+        "txid": "35f9dccaf21dfe1df0945ebfc8b3ef28977b4ea1a78b3726c9f866facd27f7ad",
+        "type": "in",
+        "unlock_time": 0
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -1457,8 +1960,43 @@ Show information about a transfer to/from this address.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfer_by_txid","params":{"txid":"c36258a276018c3a4bc1f195a7fb530f50cd63a4fa765fb7c6f7f49fc051762a"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "transfer": {      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "amount": 300000000000,      "confirmations": 1,      "destinations": [{        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",        "amount": 100000000000      },{        "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",        "amount": 200000000000      }],      "double_spend_seen": false,      "fee": 21650200000,      "height": 153624,      "note": "",      "payment_id": "0000000000000000",      "subaddr_index": {        "major": 0,        "minor": 0      },      "suggested_confirmations_threshold": 1,      "timestamp": 1535918400,      "txid": "c36258a27600253a4bc1f195a7fb530f50cd63a4fa765fb7c6f7f49fc051762a",      "type": "out",      "unlock_time": 0    }  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfer_by_txid","params":{"txid":"c36258a276018c3a4bc1f195a7fb530f50cd63a4fa765fb7c6f7f49fc051762a"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "transfer": {
+      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+      "amount": 300000000000,
+      "confirmations": 1,
+      "destinations": [
+        {
+          "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+          "amount": 100000000000
+        },
+        {
+          "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+          "amount": 200000000000
+        }
+      ],
+      "double_spend_seen": false,
+      "fee": 21650200000,
+      "height": 153624,
+      "note": "",
+      "payment_id": "0000000000000000",
+      "subaddr_index": {
+        "major": 0,
+        "minor": 0
+      },
+      "suggested_confirmations_threshold": 1,
+      "timestamp": 1535918400,
+      "txid": "c36258a27600253a4bc1f195a7fb530f50cd63a4fa765fb7c6f7f49fc051762a",
+      "type": "out",
+      "unlock_time": 0
+    }
+  }
+}
 ```
 
 ‌
@@ -1485,8 +2023,15 @@ Sign a string.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign","params":{"data":"This is sample data to be signed"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "signature": "SigV13jebbGm9a1H4PbfXd1SZyPPmRtnJAJaoyf6Q3pE1ABsCT1MmiG3VyALNYmHEnjYhx71Z5Yx2TQenjb18C3DKRkGz"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign","params":{"data":"This is sample data to be signed"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "signature": "SigV13jebbGm9a1H4PbfXd1SZyPPmRtnJAJaoyf6Q3pE1ABsCT1MmiG3VyALNYmHEnjYhx71Z5Yx2TQenjb18C3DKRkGz"
+  }
+}
 ```
 
 ‌
@@ -1515,8 +2060,15 @@ Verify a signature on a string.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"verify","params":{"data":"This is sample data to be signed","address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","signature":"SigV13jebbGm9a1H4PbfXd1SZyPPmRtnJAJaoyf6Q3pE1ABsCT1MmiG3VyALNYmHEnjYhx71Z5Yx2TQenjb18C3DKRkGz"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "good": true  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"verify","params":{"data":"This is sample data to be signed","address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","signature":"SigV13jebbGm9a1H4PbfXd1SZyPPmRtnJAJaoyf6Q3pE1ABsCT1MmiG3VyALNYmHEnjYhx71Z5Yx2TQenjb18C3DKRkGz"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "good": true
+  }
+}
 ```
 
 ‌
@@ -1539,8 +2091,15 @@ Export all outputs in hex format.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_outputs"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "outputs_data_hex": "...outputs..."  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_outputs"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "outputs_data_hex": "...outputs..."
+  }
+}
 ```
 
 ‌
@@ -1567,8 +2126,15 @@ Import outputs in hex format.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_outputs","params":{"outputs_data_hex":"...outputs..."}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "num_imported": 6400  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_outputs","params":{"outputs_data_hex":"...outputs..."}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "num_imported": 6400
+  }
+}
 ```
 
 ‌
@@ -1593,8 +2159,20 @@ Export a signed set of key images.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_key_images"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "signed_key_images": [{      "key_image": "f3174f34054d51c55e0c474cce70a38434a4674cfd425c9edaf94509b93e5848",      "signature": "8ef6ce0f5267abd85021c3eeb18b5663fadd016ebdb0023c1657f2048fb1ed01d8d278cb1a71984c6ebe6fc053f46506c8267cfe19a1b5f1a3ee3dac89f7130b"    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_key_images"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "signed_key_images": [
+      {
+        "key_image": "f3174f34054d51c55e0c474cce70a38434a4674cfd425c9edaf94509b93e5848",
+        "signature": "8ef6ce0f5267abd85021c3eeb18b5663fadd016ebdb0023c1657f2048fb1ed01d8d278cb1a71984c6ebe6fc053f46506c8267cfe19a1b5f1a3ee3dac89f7130b"
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -1625,8 +2203,17 @@ Import signed key images list and verify their spent status.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_key_images", "params":{"signed_key_images":[{"key_image":"f3174f34054d51c55e0c474cce70a38434a4674cfd425c9edaf94509b93e5848","signature":"8ef6ce0f5267abd85021c3eeb18b5663fadd016ebdb0023c1657f2048fb1ed01d8d278cb1a71984c6ebe6fc053f46506c8267cfe19a1b5f1a3ee3dac89f7130b"}]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "height": 430787,    "spent": 0,    "unspent": 1000000000  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_key_images", "params":{"signed_key_images":[{"key_image":"f3174f34054d51c55e0c474cce70a38434a4674cfd425c9edaf94509b93e5848","signature":"8ef6ce0f5267abd85021c3eeb18b5663fadd016ebdb0023c1657f2048fb1ed01d8d278cb1a71984c6ebe6fc053f46506c8267cfe19a1b5f1a3ee3dac89f7130b"}]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "height": 430787,
+    "spent": 0,
+    "unspent": 1000000000
+  }
+}
 ```
 
 ‌
@@ -1657,8 +2244,15 @@ Create a payment URI using the official URI spec.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_uri","params":{"address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","amount":10,"payment_id":"420fa29b2d9a49f5","tx_description":"Testing out the make_uri function.","recipient_name":"XCASH"}}'  -H 'Content-Type: application/json'​{  "id": "0",  "jsonrpc": "2.0",  "result": {    "uri": "xcash:XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R?tx_payment_id=420fa29b2d9a49f5&tx_amount=0.000010&recipient_name=el00ruobuob%20Stagenet%20wallet&tx_description=Testing%20out%20the%20make_uri%20function."  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_uri","params":{"address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","amount":10,"payment_id":"420fa29b2d9a49f5","tx_description":"Testing out the make_uri function.","recipient_name":"XCASH"}}'  -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "uri": "xcash:XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R?tx_payment_id=420fa29b2d9a49f5&tx_amount=0.000010&recipient_name=el00ruobuob%20Stagenet%20wallet&tx_description=Testing%20out%20the%20make_uri%20function."
+  }
+}
 ```
 
 ‌
@@ -1690,8 +2284,21 @@ Parse a payment URI to get payment information.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"parse_uri","params":{"uri":"xcash:XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R?tx_payment_id=420fa29b2d9a49f5&tx_amount=0.000010&recipient_name=el00ruobuob%20Stagenet%20wallet&tx_description=Testing%20out%20the%20make_uri%20function."}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "uri": {      "address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R",      "amount": 10,      "payment_id": "420fa29b2d9a49f5",      "recipient_name": "XCASH",      "tx_description": "Testing out the make_uri function."    }  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"parse_uri","params":{"uri":"xcash:XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R?tx_payment_id=420fa29b2d9a49f5&tx_amount=0.000010&recipient_name=el00ruobuob%20Stagenet%20wallet&tx_description=Testing%20out%20the%20make_uri%20function."}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "uri": {
+      "address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R",
+      "amount": 10,
+      "payment_id": "420fa29b2d9a49f5",
+      "recipient_name": "XCASH",
+      "tx_description": "Testing out the make_uri function."
+    }
+  }
+}
 ```
 
 ‌
@@ -1720,8 +2327,28 @@ Retrieves entries from the address book.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_book","params":{"entries":[0,1]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "entries": [{      "address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R",      "description": "Second account",      "index": 0,      "payment_id": "0000000000000000000000000000000000000000000000000000000000000000"    },{      "address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R",      "description": "Third account",      "index": 1,      "payment_id": "0000000000000000000000000000000000000000000000000000000000000000"    }]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_book","params":{"entries":[0,1]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "entries": [
+      {
+        "address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R",
+        "description": "Second account",
+        "index": 0,
+        "payment_id": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "address": "XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R",
+        "description": "Third account",
+        "index": 1,
+        "payment_id": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ]
+  }
+}
 ```
 
 ‌
@@ -1750,8 +2377,15 @@ Add an entry to the address book.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"add_address_book","params":{"address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","description":"Third account"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "index": 1  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"add_address_book","params":{"address":"XCA1TzWy4E57dGZtVdciKsNV3rbAVTxgsEiH1bqv5aX3NNSVGavL2zUQN3k1i7pFifKFQ91ZtDjzf6TC7i6FwABA1Wr2ffSy6R","description":"Third account"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "index": 1
+  }
+}
 ```
 
 ‌
@@ -1774,8 +2408,13 @@ Delete an entry from the address book.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"delete_address_book","params":{"index":1}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"delete_address_book","params":{"index":1}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1803,8 +2442,16 @@ Refresh a wallet after openning.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"refresh","params":{"start_height":425000}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "blocks_fetched": 25,    "received_money": true  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"refresh","params":{"start_height":425000}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "blocks_fetched": 25,
+    "received_money": true
+  }
+}
 ```
 
 ‌
@@ -1823,8 +2470,13 @@ Rescan the blockchain for spent outputs.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_spent"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_spent"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1849,8 +2501,13 @@ Start mining in the X-Cash daemon.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"start_mining","params":{"threads_count":1,"do_background_mining":true,"ignore_battery":false}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"start_mining","params":{"threads_count":1,"do_background_mining":true,"ignore_battery":false}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1869,8 +2526,13 @@ Stop mining in the X-Cash daemon.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_mining"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_mining"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1893,8 +2555,28 @@ Get a list of available languages for your wallet's seed.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_languages"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "languages": ["Deutsch","English","Español","Français","Italiano","Nederlands","Português","русский язык","日本語","简体中文 (中国)","Esperanto","Lojban"]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_languages"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "languages": [
+      "Deutsch",
+      "English",
+      "Español",
+      "Français",
+      "Italiano",
+      "Nederlands",
+      "Português",
+      "русский язык",
+      "日本語",
+      "简体中文 (中国)",
+      "Esperanto",
+      "Lojban"
+    ]
+  }
+}
 ```
 
 ‌
@@ -1919,8 +2601,13 @@ Create a new wallet. You need to have set the argument "–wallet-dir" when laun
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_wallet","params":{"filename":"wallet1","password":"password","language":"English"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_wallet","params":{"filename":"wallet1","password":"password","language":"English"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1944,8 +2631,13 @@ Open a wallet. You need to have set the argument "–wallet-dir" when launching 
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"open_wallet","params":{"filename":"wallet1","password":"password"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"open_wallet","params":{"filename":"wallet1","password":"password"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1964,8 +2656,13 @@ Close the currently opened wallet, after trying to save it.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"close_wallet"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"close_wallet"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -1989,8 +2686,13 @@ Change a wallet password.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"change_wallet_password","params":{"old_password":"password","new_password":"password2"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"change_wallet_password","params":{"old_password":"password","new_password":"password2"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {}
+}
 ```
 
 ‌
@@ -2016,16 +2718,36 @@ Check if a wallet is a multisig one.‌
 
 Example for a non-multisig wallet:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"is_multisig"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "multisig": false,    "ready": false,    "threshold": 0,    "total": 0  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"is_multisig"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "multisig": false,
+    "ready": false,
+    "threshold": 0,
+    "total": 0
+  }
+}
 ```
 
 ‌
 
 Example for a multisig wallet:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"is_multisig"}' -H 'Content-Type: application/json'                  {  "id": "0",  "jsonrpc": "2.0",  "result": {    "multisig": true,    "ready": true,    "threshold": 2,    "total": 2  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"is_multisig"}' -H 'Content-Type: application/json'               
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "multisig": true,
+    "ready": true,
+    "threshold": 2,
+    "total": 2
+  }
+}
 ```
 
 ‌
@@ -2048,8 +2770,15 @@ Prepare a wallet for multisig by generating a multisig string to share with peer
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"prepare_multisig"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "multisig_info": "MultisigV1BFdxQ653cQHB8wsj9WJQd2VdnjxK89g5M94dKPBNw22reJnyJYKrz6rJeXdjFwJ3Mz6n4qNQLd6eqUZKLiNzJFi3UPNVcTjtkG2aeSys9sYkvYYKMZ7chCxvoEXVgm74KKUcUu4V8xveCBFadFuZs8shnxBWHbcwFr5AziLr2mE7KHJT"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"prepare_multisig"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "multisig_info": "MultisigV1BFdxQ653cQHB8wsj9WJQd2VdnjxK89g5M94dKPBNw22reJnyJYKrz6rJeXdjFwJ3Mz6n4qNQLd6eqUZKLiNzJFi3UPNVcTjtkG2aeSys9sYkvYYKMZ7chCxvoEXVgm74KKUcUu4V8xveCBFadFuZs8shnxBWHbcwFr5AziLr2mE7KHJT"
+  }
+}
 ```
 
 ‌
@@ -2079,16 +2808,32 @@ Make a wallet multisig by importing peers multisig string.‌
 
 **Example** for 2/2 Multisig Wallet:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_multisig","params":{"multisig_info":["MultisigV1K4tGGe8QirZdHgTYoBZMumSug97fdDyM3Z63M3ZY5VXvAdoZvx16HJzPCP4Rp2ABMKUqLD2a74ugMdBfrVpKt4BwD8qCL5aZLrsYWoHiA7JJwDESuhsC3eF8QC9UMvxLXEMsMVh16o98GnKRYz1HCKXrAEWfcrCHyz3bLW1Pdggyowop"],"threshold":2}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "55SoZTKH7D39drxfgT62k8T4adVFjmDLUXnbzEKYf1MoYwnmTNKKaqGfxm4sqeKCHXQ5up7PVxrkoeRzXu83d8xYURouMod",    "multisig_info": ""  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_multisig","params":{"multisig_info":["MultisigV1K4tGGe8QirZdHgTYoBZMumSug97fdDyM3Z63M3ZY5VXvAdoZvx16HJzPCP4Rp2ABMKUqLD2a74ugMdBfrVpKt4BwD8qCL5aZLrsYWoHiA7JJwDESuhsC3eF8QC9UMvxLXEMsMVh16o98GnKRYz1HCKXrAEWfcrCHyz3bLW1Pdggyowop"],"threshold":2}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "55SoZTKH7D39drxfgT62k8T4adVFjmDLUXnbzEKYf1MoYwnmTNKKaqGfxm4sqeKCHXQ5up7PVxrkoeRzXu83d8xYURouMod",
+    "multisig_info": ""
+  }
+}
 ```
 
 ‌
 
 **Example** for 2/3 Multisig Wallet:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_multisig","params":{"multisig_info":["MultisigV1MTVm4DZAdJw1PyVutpSy8Q4WisZBCFRAaZY7hhQnMwr5AZ4swzThyaSiVVQM5FHj1JQi3zPKhQ4k81BZkPSEaFjwRJtbfqfJcVvCqRnmBVcWVxhnihX5s8fZWBCjKrzT3CS95spG4dzNzJSUcjheAkLzCpVmSzGtgwMhAS3Vuz9Pas24","MultisigV1TEx58ycKCd6ADCfxF8hALpcdSRAkhZTi1bu4Rs6FdRC98EdB1LY7TAkMxasM55khFgcxrSXivaSr5FCMyJGHmojm1eE4HpGWPeZKv6cgCTThRzC4u6bkkSoFQdbzWN92yn1XEjuP2XQrGHk81mG2LMeyB51MWKJAVF99Pg9mX2BpmYFj"],"threshold":2}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "51sLpF8fWaK1111111111111111111111111111111111ABVbHNf1JFWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDkTRgKS",    "multisig_info": "MultisigxV18jCaYAQQvzCMUJaAWMCaAbAoHpAD6WPmYDmLtBtazD654E8RWkLaGRf29fJ3stU471MELKxwufNYeigP7LoE4tn2Sscwn5g7PyCfcBc1V4ffRHY3Kxqq6VocSCUTncpVeUskaDKuTAWtdB9VTBGW7iG1cd7Zm1dYgur3CiemkGjRUAj9bL3xTEuyaKGYSDhtpFZFp99HQX57EawhiRHk3qq4hjWX"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_multisig","params":{"multisig_info":["MultisigV1MTVm4DZAdJw1PyVutpSy8Q4WisZBCFRAaZY7hhQnMwr5AZ4swzThyaSiVVQM5FHj1JQi3zPKhQ4k81BZkPSEaFjwRJtbfqfJcVvCqRnmBVcWVxhnihX5s8fZWBCjKrzT3CS95spG4dzNzJSUcjheAkLzCpVmSzGtgwMhAS3Vuz9Pas24","MultisigV1TEx58ycKCd6ADCfxF8hALpcdSRAkhZTi1bu4Rs6FdRC98EdB1LY7TAkMxasM55khFgcxrSXivaSr5FCMyJGHmojm1eE4HpGWPeZKv6cgCTThRzC4u6bkkSoFQdbzWN92yn1XEjuP2XQrGHk81mG2LMeyB51MWKJAVF99Pg9mX2BpmYFj"],"threshold":2}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "51sLpF8fWaK1111111111111111111111111111111111ABVbHNf1JFWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDkTRgKS",
+    "multisig_info": "MultisigxV18jCaYAQQvzCMUJaAWMCaAbAoHpAD6WPmYDmLtBtazD654E8RWkLaGRf29fJ3stU471MELKxwufNYeigP7LoE4tn2Sscwn5g7PyCfcBc1V4ffRHY3Kxqq6VocSCUTncpVeUskaDKuTAWtdB9VTBGW7iG1cd7Zm1dYgur3CiemkGjRUAj9bL3xTEuyaKGYSDhtpFZFp99HQX57EawhiRHk3qq4hjWX"
+  }
+}
 ```
 
 ‌
@@ -2111,8 +2856,15 @@ Export multisig info for other participants.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_multisig_info"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "info": "4d6f6e65726f206d756c7469736967206578706f72740105cf6442b09b75f5eca9d846771fe1a879c9a97ab0553ffbcec64b1148eb7832b51e7898d7944c41cee000415c5a98f4f80dc0efdae379a98805bb6eacae743446f6f421cd03e129eb5b27d6e3b73eb6929201507c1ae706c1a9ecd26ac8601932415b0b6f49cbbfd712e47d01262c59980a8f9a8be776f2bf585f1477a6df63d6364614d941ecfdcb6e958a390eb9aa7c87f056673d73bc7c5f0ab1f74a682e902e48a3322c0413bb7f6fd67404f13fb8e313f70a0ce568c853206751a334ef490068d3c8ca0e"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_multisig_info"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "info": "4d6f6e65726f206d756c7469736967206578706f72740105cf6442b09b75f5eca9d846771fe1a879c9a97ab0553ffbcec64b1148eb7832b51e7898d7944c41cee000415c5a98f4f80dc0efdae379a98805bb6eacae743446f6f421cd03e129eb5b27d6e3b73eb6929201507c1ae706c1a9ecd26ac8601932415b0b6f49cbbfd712e47d01262c59980a8f9a8be776f2bf585f1477a6df63d6364614d941ecfdcb6e958a390eb9aa7c87f056673d73bc7c5f0ab1f74a682e902e48a3322c0413bb7f6fd67404f13fb8e313f70a0ce568c853206751a334ef490068d3c8ca0e"
+  }
+}
 ```
 
 ‌
@@ -2139,8 +2891,15 @@ Import multisig info from other participants.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_multisig_info","params":{"info":["...multisig_info..."]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "n_outputs": 35  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_multisig_info","params":{"info":["...multisig_info..."]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "n_outputs": 35
+  }
+}
 ```
 
 ‌
@@ -2168,8 +2927,15 @@ Turn this wallet into a multisig wallet, extra step for N-1/N wallets.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"finalize_multisig","params":{"multisig_info":["MultisigxV1JNC6Ja2oBt5Sqea9LN2YEF7WYZCpHqr2EKvPG89Trf3X4E8RWkLaGRf29fJ3stU471MELKxwufNYeigP7LoE4tn2McPr4SbL9q15xNvZT5uwC9YRr7UwjXqSZHmTWN9PBuZEKVAQ4HPPyQciSCdNjgwsuFRBzrskMdMUwNMgKst1debYfm37i6PSzDoS2tk4kYTYj83kkAdR7kdshet1axQPd6HQ","MultisigxV1Unma7Ko4zdd8Ps3Af4oZwtj2JdWKzwNfP6s2G9ZvXhMoSscwn5g7PyCfcBc1V4ffRHY3Kxqq6VocSCUTncpVeUskMcPr4SbL9q15xNvZT5uwC9YRr7UwjXqSZHmTWN9PBuZE1LTpWxLoC3vPMSrqVVcjnmL9LYfdCZz3fECjNZbCEDq3PHDiUuY5jurQTcNoGhDTio5WM9xaAdim9YByiS5KyqF4"]}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "5B9gZUTDuHTcGGuY3nL3t8K2tDnEHeRVHSBQgLZUTQxtFYVLnho5JJjWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDqDx1gV"  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"finalize_multisig","params":{"multisig_info":["MultisigxV1JNC6Ja2oBt5Sqea9LN2YEF7WYZCpHqr2EKvPG89Trf3X4E8RWkLaGRf29fJ3stU471MELKxwufNYeigP7LoE4tn2McPr4SbL9q15xNvZT5uwC9YRr7UwjXqSZHmTWN9PBuZEKVAQ4HPPyQciSCdNjgwsuFRBzrskMdMUwNMgKst1debYfm37i6PSzDoS2tk4kYTYj83kkAdR7kdshet1axQPd6HQ","MultisigxV1Unma7Ko4zdd8Ps3Af4oZwtj2JdWKzwNfP6s2G9ZvXhMoSscwn5g7PyCfcBc1V4ffRHY3Kxqq6VocSCUTncpVeUskMcPr4SbL9q15xNvZT5uwC9YRr7UwjXqSZHmTWN9PBuZE1LTpWxLoC3vPMSrqVVcjnmL9LYfdCZz3fECjNZbCEDq3PHDiUuY5jurQTcNoGhDTio5WM9xaAdim9YByiS5KyqF4"]}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "5B9gZUTDuHTcGGuY3nL3t8K2tDnEHeRVHSBQgLZUTQxtFYVLnho5JJjWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDqDx1gV"
+  }
+}
 ```
 
 ‌
@@ -2197,8 +2963,18 @@ Sign a transaction in multisig.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign_multisig","params":{"tx_data_hex":"...multisig_txset..."}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "tx_data_hex": "...multisig_txset...",    "tx_hash_list": ["4996091b61c1be112c1097fd5e97d8ff8b28f0e5e62e1137a8c831bacf034f2d"]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign_multisig","params":{"tx_data_hex":"...multisig_txset..."}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "tx_data_hex": "...multisig_txset...",
+    "tx_hash_list": [
+      "4996091b61c1be112c1097fd5e97d8ff8b28f0e5e62e1137a8c831bacf034f2d"
+    ]
+  }
+}
 ```
 
 ‌
@@ -2225,8 +3001,17 @@ Submit a signed multisig transaction.‌
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_multisig","params":{"tx_data_hex":"...tx_data_hex..."}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "tx_hash_list": ["4996091b61c1be112c1097fd5e97d8ff8b28f0e5e62e1137a8c831bacf034f2d"]  }}
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_multisig","params":{"tx_data_hex":"...tx_data_hex..."}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "tx_hash_list": [
+      "4996091b61c1be112c1097fd5e97d8ff8b28f0e5e62e1137a8c831bacf034f2d"
+    ]
+  }
+}
 ```
 
 ‌
@@ -2249,21 +3034,28 @@ Get RPC version Major & Minor integer-format, where Major is the first 16 bits a
 
 **Example**:
 
-```text
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_version"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "version": 65540  }}
-```
-
-## recover
-
-Get the delegate information.
-
-```text
-curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"recover","params":{"domain_name":"DELEGATES_DOMAIN_NAME"}}' -H 'Content-Type: application/json'
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_version"}' -H 'Content-Type: application/json'
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
-    "status": "success"
+    "version": 65540
+  }
+}
+```
+
+## recover
+
+Check if an address is valid or not
+
+ ```bash
+curl http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"validate_address", params:{"address":"XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf"},' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "valid": true
   }
 }
 ```
