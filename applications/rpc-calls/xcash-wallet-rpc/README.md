@@ -64,7 +64,7 @@ Return the wallet's balance.‌
 
 **Example:**
 
-```text
+```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_balance"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "balance": 562072541031,    "multisig_import_needed": false,    "per_subaddress": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "address_index": 0,      "balance": 562072541031,      "label": "Primary account",      "num_unspent_outputs": 3,      "unlocked_balance": 562072541031    }],    "unlocked_balance": 562072541031  }}
 ```
 
@@ -98,7 +98,7 @@ Return the wallet's addresses for an account. Optionally filter for specific set
 
 **Example:**
 
-```text
+```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address"}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",    "addresses": [{      "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "address_index": 0,      "label": "Primary account",      "used": true    }]  }}
 ```
 
@@ -128,7 +128,7 @@ Get account and address indexes from a specific \(sub\)address‌
 
 **Example:**
 
-```text
+```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_index","params":{"address":"83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "index": {      "major": 0,      "minor": 1    }  }}
 ```
 
@@ -158,7 +158,7 @@ Create a new address for an account. Optionally, label the new address.‌
 
 **Example:**
 
-```text
+```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_address","params":{"account_index":0,"label":"new-sub"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8",    "address_index": 1  }}
 ```
 
@@ -185,7 +185,7 @@ Label an address.‌
 
 **Example:**
 
-```text
+```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"label_address","params":{"index":{"major":0,"minor":1},"label":"myLabel"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {  }}
 ```
 
@@ -221,7 +221,7 @@ Get all accounts for a wallet. Optionally filter accounts by tag.‌
 
 **Example**:
 
-```text
+```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_accounts","params":{"tag":"myTag"}}' -H 'Content-Type: application/json'{  "id": "0",  "jsonrpc": "2.0",  "result": {    "subaddress_accounts": [{      "account_index": 0,      "balance": 100000000000,      "base_address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",      "label": "Primary account",      "tag": "myTag",      "unlocked_balance": 100000000000    },{      "account_index": 1,      "balance": 0,      "base_address": "83nWyFM8HtqikdcFPXhfj3Z7Jvh1LDjfe7B1Fo6bUNUZMjm1JTXcnyzb3iiqUHLkcAQ5t6b5u8WhgTFNuzEpL27C3CvD1d8",      "label": "Secondary account",      "tag": "myTag",      "unlocked_balance": 0    }],    "total_balance": 100000000000,    "total_unlocked_balance": 100000000000  }}
 ```
 
@@ -2267,6 +2267,3 @@ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","meth
   }
 }
 ```
-
-
-
