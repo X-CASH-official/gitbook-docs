@@ -92,7 +92,7 @@ Get a block template on which mining a new block.
 Example:
 
 ```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_template","params":{"wallet_address":"XCA1XPzaSeXgwrBrGbh96UD5bk21a4WabcrgtB14A7WGGdcagjVQVV1PMAg5Rj1SM3ca8ZPDvysi78HyZF9imGg48wRK2Ntqov","reserve_size":128}' -H 'Content-Type: application/json'
+$ curl -X POST http://EUSEED1.x-cash.org:18281/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_template","params":{"wallet_address":"XCA1XPzaSeXgwrBrGbh96UD5bk21a4WabcrgtB14A7WGGdcagjVQVV1PMAg5Rj1SM3ca8ZPDvysi78HyZF9imGg48wRK2Ntqov","reserve_size":128}}' -H 'Content-Type: application/json'
 {
   "id": "0",
   "jsonrpc": "2.0",
