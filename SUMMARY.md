@@ -20,6 +20,7 @@
 * [RPC Calls](applications/rpc-calls/README.md)
   * [xcash-wallet-rpc](applications/rpc-calls/xcash-wallet-rpc/README.md)
     * [DPoPS Wallet RPC calls](applications/rpc-calls/xcash-wallet-rpc/dpops-wallet-rpc-calls.md)
+    * [Namespace Wallet RPC calls](applications/rpc-calls/xcash-wallet-rpc/namespace-wallet-rpc-calls.md)
   * [xcash-daemon-rpc](applications/rpc-calls/json-rpc-methods/README.md)
     * [Other Daemon RPC Calls](applications/rpc-calls/json-rpc-methods/other-daemon-rpc-calls.md)
  * [Tools For Builders](applications/tools-for-builders.md)
