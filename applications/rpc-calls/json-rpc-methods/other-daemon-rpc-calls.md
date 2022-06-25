@@ -105,31 +105,6 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/get_transactions -d '{"txs_hashes
 }
 ```
 
-## /get\_alt\_blocks\_hashes
-
-Get the known blocks hashes which are not on the main chain.
-
-**Alias**: _None_.
-
-**Inputs**: _None_
-
-**Outputs**:
-
-* _blks\_hashes_ - array of strings; list of alternative blocks hashes to main chain
-* _status_ - string; General RPC error code. "OK" means everything looks good.
-* _untrusted_ - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted \(`true`\), or when the daemon is fully synced \(`false`\).
-
-**Example :**
-
-```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/get_alt_blocks_hashes -H 'Content-Type: application/json'
-{
-  "blks_hashes": ["9c2277c5470234be8b32382cdf8094a103aba4fcd5e875a6fc159dc2ec00e011","637c0e0f0558e284493f38a5fcca3615db59458d90d3a5eff0a18ff59b83f46f","6f3adc174a2e8082819ebb965c96a095e3e8b63929ad9be2d705ad9c086a6b1c","697cf03c89a9b118f7bdf11b1b3a6a028d7b3617d2d0ed91322c5709acf75625","d99b3cf3ac6f17157ac7526782a3c3b9537f89d07e069f9ce7821d74bd9cad0e","e97b62109a6303233dcd697fa8545c9fcbc0bf8ed2268fede57ddfc36d8c939c","70ff822066a53ad64b04885c89bbe5ce3e537cdc1f7fa0dc55317986f01d1788","b0d36b209bd0d4442b55ea2f66b5c633f522401f921f5a85ea6f113fd2988866"],
-  "status": "OK",
-  "untrusted": false
-}
-```
-
 ## /is\_key\_image\_spent
 
 Check if outputs have been spent using the key image associated with the output.
@@ -198,82 +173,6 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/send_raw_transaction '{"tx_as_hex
   "status": "Failed",
   "too_big": false,
   "untrusted": false
-}
-```
-
-## /start\_mining
-
-Start mining on the daemon.
-
-**Alias**: _None_.
-
-**Inputs**:
-
-* _do\_background\_mining_ - boolean; States if the mining should run in background \(`true`\) or foreground \(`false`\).
-* _ignore\_battery_ - boolean; States if batery state \(on laptop\) should be ignored \(`true`\) or not \(`false`\).
-* _miner\_address_ - string; Account address to mine to.
-* _threads\_count_ - unsigned int; Number of mining thread to run.
-
-**Outputs**:
-
-* _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
-
-**Example:**
-
-```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/start_mining -d '{"do_background_mining":false,"ignore_battery":true,"miner_address":"XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe","threads_count":1}' -H 'Content-Type: application/json'
-{
-  "status": "OK"
-}
-```
-
-## /stop\_mining
-
-Stop mining on the daemon.
-
-**Alias**: _None_.
-
-**Inputs**: _None_.
-
-**Outputs**:
-
-* _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
-
-**Example:**
-
-```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/stop_mining -H 'Content-Type: application/json'
-{
-  "status": "OK"
-}
-```
-
-## /mining\_status
-
-Get the mining status of the daemon.
-
-**Alias**: _None_.
-
-**Inputs**: _None_.
-
-**Outputs**:
-
-* _active_ - boolean; States if mining is enabled \(`true`\) or disabled \(`false`\).
-* _address_ - string; Account address daemon is mining to. Empty if not mining.
-* _is\_background\_mining\_enabled_ - boolean; States if the mining is running in background \(`true`\) or foreground \(`false`\).
-* _speed_ - unsigned int; Mining power in hashes per seconds.
-* _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
-* _threads\_count_ - unsigned int; Number of running mining threads.
-
-```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/get_height -H 'Content-Type: application/json'
-{
-  "active": true,
-  "address": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
-  "is_background_mining_enabled": false,
-  "speed": 20,
-  "status": "OK",
-  "threads_count": 1
 }
 ```
 
@@ -351,38 +250,6 @@ $ curl -X POST http://EUSEED1.x-cash.org:18281/get_height -H 'Content-Type: appl
     "port": 18080
   }, ...
   ]
-}
-```
-
-## /set\_log\_hash\_rate
-
-Set the log hash rate display mode.
-
-**Alias**: _None_.
-
-**Inputs**:
-
-* _visible_ - boolean; States if hash rate logs should be visible \(`true`\) or hidden \(`false`\)
-
-**Outputs**:
-
-* _status_ - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
-
-**Example while mining:**
-
-```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_hash_rate -d '{"visible":true}' -H 'Content-Type: application/json'
-{
-  "status": "OK"
-}
-```
-
-**Error while not mining:**
-
-```bash
-$ curl -X POST http://EUSEED1.x-cash.org:18281/set_log_level -H 'Content-Type: application/json'
-{
-  "status": "OK"
 }
 ```
 
