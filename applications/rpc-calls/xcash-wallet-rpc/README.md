@@ -3016,18 +3016,3 @@ $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   }
 }
 ```
-
-## recover
-
-Check if an address is valid or not
-
- ```bash
-curl http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"validate_address", params:{"address":"XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf"},' -H 'Content-Type: application/json'
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {
-    "valid": true
-  }
-}
-```
