@@ -1,5 +1,5 @@
 ---
-description: This page contains every Wallet RPC calls related to DPoPS functions.
+description: This page contains every Wallet RPC calls related to Namespace functions.
 ---
 
 # Namespace Wallet RPC calls
