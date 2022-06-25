@@ -89,6 +89,7 @@ Update delegate information.
 
 ```bash
 $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"delegate_update","params":{"item":"ITEM","value":"VALUE"}}' -H 'Content-Type: application/json'
+{
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
