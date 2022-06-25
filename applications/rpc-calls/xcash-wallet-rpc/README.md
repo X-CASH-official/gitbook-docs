@@ -1228,7 +1228,7 @@ Return the spend or view private key.‌
 
 **Inputs**:‌
 
-* _key\_type_ - string; Which key to retrieve: "mnemonic" - the mnemonic seed \(older wallets do not have one\) OR "view\_key" - the view key
+* _key\_type_ - string; Which key to retrieve: "mnemonic" - the mnemonic seed \(older wallets do not have one\) OR "view\_key" - the view key OR "spend\_key" - the spend key
 
 ‌
 
