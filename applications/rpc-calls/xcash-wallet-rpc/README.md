@@ -2477,65 +2477,7 @@ $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   "jsonrpc": "2.0",
   "result": {}
 }
-```
-
-‌
-
-## **start\_mining** <a id="start_mining"></a>
-
-‌
-
-Start mining in the X-Cash daemon.‌
-
-**Alias**: _None_.‌
-
-**Inputs**:‌
-
-* _threads\_count_ - unsigned int; Number of threads created for mining.
-* _do\_background\_mining_ - boolean; Allow to start the miner in [smart mining](https://web.getmonero.org/resources/moneropedia/smartmining.html)mode.
-* _ignore\_battery_ - boolean; Ignore battery status \(for [smart mining](https://web.getmonero.org/resources/moneropedia/smartmining.html) only\)
-
-‌
-
-**Outputs**: _None_.‌
-
-**Example**:
-
- ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"start_mining","params":{"threads_count":1,"do_background_mining":true,"ignore_battery":false}}' -H 'Content-Type: application/json'
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {}
-}
-```
-
-‌
-
-## **stop\_mining** <a id="stop_mining"></a>
-
-‌
-
-Stop mining in the X-Cash daemon.‌
-
-**Alias**: _None_.‌
-
-**Inputs**: _None_.‌
-
-**Outputs**: _None_.‌
-
-**Example**:
-
- ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_mining"}' -H 'Content-Type: application/json'
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {}
-}
-```
-
-‌
+```‌
 
 ## **get\_languages** <a id="get_languages"></a>
 
@@ -2576,6 +2518,36 @@ $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
       "Lojban"
     ]
   }
+}
+```
+
+## **validate\_address** <a id="validate_address"></a>
+
+‌
+
+Validates an address
+
+**Alias**: _None_.‌
+
+**Inputs**:‌
+
+* _address_ - string; Address.
+‌
+
+**Outputs**:
+
+* _status_ - bool; true or false.
+
+**Example**:
+
+ ```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"validate_address","params":{"address":"XCA"}}' -H 'Content-Type: application/json'
+{
+ "id": "0",
+ "jsonrpc": "2.0",
+ "result": {
+   "valid": true
+ }
 }
 ```
 
