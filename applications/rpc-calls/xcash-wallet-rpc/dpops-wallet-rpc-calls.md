@@ -97,29 +97,3 @@ $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   }
 }
 ```
-
-## **delegate\_remove**
-
-Remove the delegate from the delegate list.
-
-**Alias:** _delegateremove_.
-
-**Inputs:** _None._
-
-**Outputs:**
-
-* _delegate\_remove\_status_ - string; Status of the delegate remove call.
-
-**Example:**
-
-```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"delegate_remove"}' -H 'Content-Type: application/json'
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {
-    "delegate_remove_status": "success"
-  }
-}
-```
-
