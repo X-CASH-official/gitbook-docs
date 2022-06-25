@@ -26,7 +26,7 @@ Place your vote for a delegate.
 **Example:**
 
 ```bash
-$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"vote","params":{"delegate_data":"DELEGATES_NAME_OR_PUBLIC_ADDRESS"}}' -H 'Content-Type: application/json'
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"vote","params":{"delegate_data":"DELEGATES_NAME_OR_PUBLIC_ADDRESS","amount":"all"}}' -H 'Content-Type: application/json'
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -95,6 +95,56 @@ $ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   "jsonrpc": "2.0",
   "result": {
     "delegate_update_status": "success"
+  }
+}
+```
+
+## **revote**
+
+Revote for a delegate.
+
+**Alias:** _revote_.
+
+**Inputs:**
+
+* _amount_ - string; The amount or all
+
+**Outputs:**
+
+* _status_ - string; Status of the vote call.
+
+**Example:**
+
+```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"revote","params":{"amount":"all"}}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "status": "success"
+  }
+}
+```
+
+## **vote status**
+
+Get who the user has voted for
+
+**Alias:** _revote_.
+
+**Outputs:**
+
+* _status_ - string; who the user has voted for.
+
+**Example:**
+
+```bash
+$ curl -X POST http://localhost:18285/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"vote_status"}' -H 'Content-Type: application/json'
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "status": "success"
   }
 }
 ```
