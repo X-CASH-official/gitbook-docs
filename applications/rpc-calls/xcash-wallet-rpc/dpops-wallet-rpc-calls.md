@@ -4,10 +4,6 @@ description: This page contains every Wallet RPC calls related to DPoPS function
 
 # DPoPS Wallet RPC calls
 
-{% hint style="info" %}
-As of 30/09/2019, these calls will not work until the mainnet is released. Only alpha and beta testers that installed the testnet of DPoPS can try them.
-{% endhint %}
-
 ## **vote**
 
 Place your vote for a delegate.
