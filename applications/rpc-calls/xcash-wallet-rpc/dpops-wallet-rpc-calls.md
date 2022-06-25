@@ -17,6 +17,7 @@ Place your vote for a delegate.
 **Inputs:**
 
 * _delegate\_data_ - String; Name or public address of the delegate to receive the vote.
+* _amount_ - string; The amount or all
 
 **Outputs:**
 
