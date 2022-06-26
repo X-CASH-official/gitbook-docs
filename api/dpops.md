@@ -351,7 +351,7 @@ An array of objects with the following structure:
 * _reserveProof_ - string; The reserve proof.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/{delegateName}/1/2/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/dpops/unauthorized/delegates/votes/us1_xcash_foundation/1/2/ -H 'Accept: application/json'
 [
   {
     "publicAddress": "XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf",
