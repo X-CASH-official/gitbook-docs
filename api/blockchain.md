@@ -114,15 +114,15 @@ This method gets the transaction data
 * _amount_ -  unsigned long long; The amount, if public.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/d15005880f5f88b19fc88bdec29faaf57489ba85dd02d41ec87043a5eddf95a9/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312/ -H 'Accept: application/json'
 {
-  "height": 810000,
-  "confirmations": 100,
-  "time": 10000000,
-  "type": "private",
-  "sender": "",
-  "receiver": "",
-  "amount": 0
+  "height": 87004,
+  "confirmations": 851116,
+  "time": 1538097417,
+  "type": "public",
+  "sender": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+  "receiver": "XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL",
+  "amount": 5000000
 }
 ```
 
@@ -146,10 +146,10 @@ This method proves a tx and its amount
 * _amount_ -  unsigned long long; The amount sent to the destination public address.
 
 ```bash
-$ curl -X POST https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/prove/ -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"tx":"d15005880f5f88b19fc88bdec29faaf57489ba85dd02d41ec87043a5eddf95a9","address":"XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","key": "a15005880f5f88b19fc88bdec29faaf57489ba85dd02d41ec87043a5eddf95a9"}'
+$ curl -X POST https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/tx/prove/ -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"tx":"18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312","address":"XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL","key": "c10a439b706949e86146ca17c2fc41e24e4348d6b7a6d6af0623cfc5037fe20c"}'
 {
   "valid": true,
-  "amount": 10000000
+  "amount": 5000000
 }
 ```
 
@@ -204,25 +204,52 @@ An array of objects with the following structure:
 * _time_ -  unsigned int; The block timestamp.
 
 ```bash
-$ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/history/sender/XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf/ -H 'Accept: application/json'
+$ curl -X GET https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/history/sender/XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe/ -H 'Accept: application/json'
 [
   {
-    "tx": "0000000000000000000000000000000000000000000000000000000000000000",
-    "key": "0000000000000000000000000000000000000000000000000000000000000000",
-    "sender": "",
-    "receiver": "",
-    "amount": 0,
-    "height": 0,
-    "time":0
+    "tx": "865fa7eeea471c99b85ff05f018ee315df0c95e64c11241a5ca0a40ab9b9909f",
+    "key": "6b71ee1752c1228c8e239841071ef4b3a37b39d1c42b9ca801827aff5c2c3507",
+    "sender": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+    "receiver": "XCA1i6Lbx9JfZCE4di25V8VLwecPAHaH1CA37kC4k3S3gktV9i84R2G4jGnRqjJVMtPMA1GUKYZZCCPct7XGCPUh5qhSR89GUw",
+    "amount": 15000000,
+    "height": 524735,
+    "time": 1579561606
   },
   {
-    "tx": "0000000000000000000000000000000000000000000000000000000000000000",
-    "key": "0000000000000000000000000000000000000000000000000000000000000000",
-    "sender": "",
-    "receiver": "",
-    "amount": 0,
-    "height": 0,
-    "time":0
+    "tx": "7ecd79d7ead6c2f23cb404409aca01f8c9e30d7b07bcd4e9332a1c4872d1dd93",
+    "key": "4a5fb3c39caf223eacfe4bcc2db84811c333b52ea30df5c16a6d62b0163cce0b",
+    "sender": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+    "receiver": "XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL",
+    "amount": 5000000,
+    "height": 160269,
+    "time": 1542988620
+  },
+  {
+    "tx": "961b0ded408fc94f79014ea15eb5844c79953e34d62905752b3e328c46cc3c15",
+    "key": "8f68bb4aebe2f95f1a429611d15a57cff525e64478f2709eaadc0abdfc881302",
+    "sender": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+    "receiver": "XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL",
+    "amount": 9746442,
+    "height": 137722,
+    "time": 1541632326
+  },
+  {
+    "tx": "18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312",
+    "key": "c10a439b706949e86146ca17c2fc41e24e4348d6b7a6d6af0623cfc5037fe20c",
+    "sender": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+    "receiver": "XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL",
+    "amount": 5000000,
+    "height": 87004,
+    "time": 1538097417
+  },
+  {
+    "tx": "c87228611c6db287a447b421cac5002867e27bc5d9976f451fa02700e9969142",
+    "key": "60e1631d0f1095c833aba8963190a6ff22d450883b797a0e1543d6ee879d560a",
+    "sender": "XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe",
+    "receiver": "XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL",
+    "amount": 1000000,
+    "height": 72893,
+    "time": 1537243575
   }
 ]
 ```
@@ -274,7 +301,7 @@ This method creates an integrated address
 ```bash
 $ curl -X POST https://api.xcash.foundation/v1/xcash/blockchain/unauthorized/address/createIntegrated/ -H 'Accept: application/json' -H 'Content-Type: application/json'  -d '{"address":"XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","paymentId": "0000000000000000"}'
 {
-  "integratedAddress": "XCB000000000000000000000000000",
+  "integratedAddress": "XCBzxaX4V6yZMYzmKuEPrmZBws3NCxUVEcMtybS5KY6UPbPjTiW7dbdPHVgDmgU5gpRX1g1DYysUY2N3hafhYd6jBw9V9bSQqSo111116d3rEy",
   "paymentId": "0000000000000000"
 }
 ```
